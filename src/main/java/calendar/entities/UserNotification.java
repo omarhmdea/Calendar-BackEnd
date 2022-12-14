@@ -11,7 +11,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class UserNotification {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
