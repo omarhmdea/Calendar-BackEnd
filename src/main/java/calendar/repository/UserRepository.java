@@ -1,13 +1,10 @@
-package chatApp.repository;
+package calendar.repository;
 
-import chatApp.Entities.User;
+import calendar.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Table;
-
 @Repository
-
 public interface UserRepository extends JpaRepository<User, Long> {
-        User findByEmail(String email);
+//        User findByEmail(String email);
 }
