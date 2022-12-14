@@ -33,7 +33,8 @@ public class AuthFilter extends GenericFilterBean {
 //        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
     //    String auth = req.getHeader("token");
         String path = req.getRequestURI();
-        if (permissionPathsForAll.stream().noneMatch(path::contains)) {
+        System.out.println(path);
+        if (permissionPathsForAll.stream().anyMatch(path::contains)) {
 //            if (!authService.getKeyTokensValEmails().containsKey(auth)) {
 //                res.setStatus(HttpServletResponse.SC_FORBIDDEN);
 //                return;
@@ -46,12 +47,6 @@ public class AuthFilter extends GenericFilterBean {
 //            }
             if (req.getHeader("authorization") != null) {
                 String token = req.getHeader("authorization");
-                if (token == null) {
-                    logger.error("in AuthorizationFilter -> doFilter -> token is null");
-                    ((HttpServletResponse) response).setStatus(400);
-                    response.getOutputStream().write("ExceptionMessage.TOKEN_IS_NULL.toString()".getBytes());
-                    return;
-                }
                 int userId = authService.findByToken(token.substring(7)).getId();
                 request.setAttribute("userId", userId);
             } else {
