@@ -1,20 +1,27 @@
 package calendar.entities;
 
+import calendar.enums.Role;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 public class UserEvent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+    private String status;
+    private Role role;
+
 }
