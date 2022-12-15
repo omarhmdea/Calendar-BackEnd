@@ -3,9 +3,7 @@ package calendar.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
-import java.util.Objects;
 
 @Entity
 @Getter
@@ -13,6 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
