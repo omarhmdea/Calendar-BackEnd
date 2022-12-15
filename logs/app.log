@@ -7727,3 +7727,15 @@ This generated password is for development use only. Your security configuration
 2022-12-15 20:25:57,237 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2022-12-15 20:25:58,338 INFO    calendar.SpringApp - Started SpringApp in 8.121 seconds (JVM running for 12.399)
 2022-12-15 20:26:33,118 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing request attribute 'userId' of type int]
+2022-12-15 20:37:27,420 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 1652 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-15 20:37:27,437 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-15 20:37:27,440 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-15 20:37:33,051 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-15 20:37:33,231 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e89ea440-b7e8-49fc-add5-f7e22d42b162
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-15 20:37:33,434 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-15 20:37:34,161 INFO    calendar.SpringApp - Started SpringApp in 7.866 seconds (JVM running for 12.585)
