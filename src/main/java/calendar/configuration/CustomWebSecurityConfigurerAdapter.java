@@ -25,7 +25,16 @@ public class CustomWebSecurityConfigurerAdapter {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/").permitAll().antMatchers("*").authenticated().and().httpBasic().and().csrf().disable().cors();
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/")
+                .permitAll()
+                .antMatchers("*")
+                .authenticated()
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable()
+                .cors();
         http.addFilterAfter(authFilter, BasicAuthenticationFilter.class);
 //        http.addFilterAfter(permissionFilter, AuthFilter.class);
 
