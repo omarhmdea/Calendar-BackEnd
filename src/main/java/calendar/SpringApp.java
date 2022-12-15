@@ -1,5 +1,7 @@
 package calendar;
 
+import calendar.controller.AuthController;
+import calendar.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
