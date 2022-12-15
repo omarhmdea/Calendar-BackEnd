@@ -81,12 +81,11 @@ public class AuthService {
      *          if the token is invalid - Optional.empty
      */
     public Optional<User> findByToken(String token) {
-        if (loginTokenId.get(token) != null) {
+        if (loginTokenId.containsKey(token)) {
             Optional<User> user = userRepository.findById(loginTokenId.get(token));
-            if (!user.isPresent()) {
-                return Optional.empty();
+            if (user.isPresent()) {
+                return user;
             }
-            return user;
         }
         return Optional.empty();
     }
