@@ -6,6 +6,8 @@ import calendar.entities.UserCredentials;
 import calendar.entities.UserDTO;
 import calendar.repository.UserRepository;
 import calendar.utilities.TokenGenerator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import java.util.Optional;
 
 @Service
 public class AuthService {
+    private static final Logger logger = LogManager.getLogger(AuthService.class.getName());
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
@@ -29,6 +32,17 @@ public class AuthService {
     // TODO : what is this for?
     public AuthService() {
         this.loginTokenId = new HashMap<>();
+    }
+
+    public User registerUser(User user) {
+        logger.debug("Check if already exist in DB");
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            logger.error("Email already exists in users table");
+            throw new IllegalArgumentException("Email already exists in users table");
+        }
+        logger.info("New user saved in the DB");
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        return userRepository.save(user);
     }
 
     /**
@@ -66,10 +80,10 @@ public class AuthService {
      * @return if the token is valid - the user that matches the given token
      *          if the token is invalid - Optional.empty
      */
-    public Optional<User> findByToken(String token){
-        if(loginTokenId.get(token) != null){
+    public Optional<User> findByToken(String token) {
+        if (loginTokenId.get(token) != null) {
             Optional<User> user = userRepository.findById(loginTokenId.get(token));
-            if(!user.isPresent()){
+            if (!user.isPresent()) {
                 return Optional.empty();
             }
             return user;
