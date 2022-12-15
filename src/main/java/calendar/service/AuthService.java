@@ -37,8 +37,8 @@ public class AuthService {
     public User registerUser(User user) {
         logger.debug("Check if already exist in DB");
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            logger.error("Email already exists in users table");
-            throw new IllegalArgumentException("Email already exists in users table");
+            logger.error("Email already in use");
+            throw new IllegalArgumentException("Email already in use");
         }
         logger.info("New user saved in the DB");
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -52,6 +52,8 @@ public class AuthService {
      */
     // TODO : fix throw
     public LoginData login (UserCredentials userCredentials){
+
+
         Optional<User> user = userRepository.findByEmail(userCredentials.getEmail());
         if(!user.isPresent()){
             throw new IllegalArgumentException("Invalid email");
