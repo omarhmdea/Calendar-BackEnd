@@ -34,6 +34,12 @@ public class AuthService {
         this.loginTokenId = new HashMap<>();
     }
 
+    /**
+     * Encode the user's password
+     * And saves the new user in the database
+     * @param user
+     * @return
+     */
     public User registerUser(User user) {
         logger.debug("Check if already exist in DB");
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
@@ -50,7 +56,6 @@ public class AuthService {
      * @param userCredentials - email , password
      * @return Login data - user's DTO and the generated token
      */
-    // TODO : fix throw
     public LoginData login (UserCredentials userCredentials){
 
 
@@ -64,16 +69,6 @@ public class AuthService {
         String token = TokenGenerator.generateNewToken();
         loginTokenId.put(token ,user.get().getId());
         return new LoginData(new UserDTO(user.get()), token);
-    }
-
-    /**
-     * Encode the user's password
-     * And saves the new user in the database
-     * @param user
-     */
-    public void saveUSer(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
     }
 
     /**
