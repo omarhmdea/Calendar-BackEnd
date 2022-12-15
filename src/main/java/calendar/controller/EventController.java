@@ -1,11 +1,27 @@
 package calendar.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import calendar.entities.Event;
+import calendar.service.AuthService;
+import calendar.service.EventService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/event")
+@RequestMapping("/user")
 public class EventController {
+    private static final Logger logger = LogManager.getLogger(AuthController.class.getName());
+
+    @Autowired
+    private EventService eventService;
+    @Autowired
+    private AuthService authService;
+
+    @PostMapping(value = "newEvent")
+    public Event addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
+        // check in filter that user is logged in - has a token
+        return eventService.addNewEvent(userId, newEvent);
+    }
 }

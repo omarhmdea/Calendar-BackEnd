@@ -34,6 +34,12 @@ public class AuthService {
         this.loginTokenId = new HashMap<>();
     }
 
+    /**
+     * Encode the user's password
+     * And saves the new user in the database
+     * @param user
+     * @return
+     */
     public User registerUser(User user) {
         logger.debug("Check if already exist in DB");
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
@@ -50,7 +56,6 @@ public class AuthService {
      * @param userCredentials - email , password
      * @return Login data - user's DTO and the generated token
      */
-    // TODO : fix throw
     public LoginData login (UserCredentials userCredentials){
         Optional<User> user = userRepository.findByEmail(userCredentials.getEmail());
         if(!user.isPresent()){
@@ -65,28 +70,17 @@ public class AuthService {
     }
 
     /**
-     * Encode the user's password
-     * And saves the new user in the database
-     * @param user
-     */
-    public void saveUSer(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-    }
-
-    /**
      * Finds a user by token
      * @param token - the user's token
      * @return if the token is valid - the user that matches the given token
      *          if the token is invalid - Optional.empty
      */
     public Optional<User> findByToken(String token) {
-        if (loginTokenId.get(token) != null) {
+        if (loginTokenId.containsKey(token)) {
             Optional<User> user = userRepository.findById(loginTokenId.get(token));
-            if (!user.isPresent()) {
-                return Optional.empty();
+            if (user.isPresent()) {
+                return user;
             }
-            return user;
         }
         return Optional.empty();
     }
