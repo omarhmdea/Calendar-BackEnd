@@ -38,11 +38,11 @@ public class AuthService {
         return token;
     }
 
-    public User findByToken(String token) {
+    public Optional<User> findByToken(String token) {
         if(tokens.containsKey(token)) {
-            return userRepository.findByEmail(tokens.get(token));
+            return Optional.of(userRepository.findByEmail(tokens.get(token)));
         }
-        return null;
+        return Optional.empty();
     }
 
     private String createToken() {
