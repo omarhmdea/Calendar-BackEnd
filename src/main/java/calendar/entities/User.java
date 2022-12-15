@@ -1,6 +1,7 @@
 package calendar.entities;
 
 import lombok.*;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -20,7 +21,9 @@ public class User {
     @Pattern(regexp = "^[A-Za-z]+$")
     private String name;
 
+    @NonNull
     @Column(unique = true)
     private String email;
+
     private String password;
 }

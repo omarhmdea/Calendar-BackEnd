@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/event")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired

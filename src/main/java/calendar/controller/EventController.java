@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/user")
+@RequestMapping("/event")
 public class EventController {
     private static final Logger logger = LogManager.getLogger(AuthController.class.getName());
 
@@ -23,5 +23,10 @@ public class EventController {
     public Event addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
         // check in filter that user is logged in - has a token
         return eventService.addNewEvent(userId, newEvent);
+    }
+
+    @PostMapping(value = "invite/{eventId}")
+    public void invite(@RequestAttribute int userId,@PathVariable int eventId,@RequestBody String guestEmail ) {
+
     }
 }

@@ -23,7 +23,7 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
     @Autowired
     AuthService authService;
 
-    private final RequestMatcher uriMatcher = new AntPathRequestMatcher("/user/**");
+    private final RequestMatcher uriMatcher = new AntPathRequestMatcher("/event/**");
 
     //    @Override
     //    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
