@@ -1,7 +1,6 @@
 package calendar.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Entity

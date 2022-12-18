@@ -38,8 +38,8 @@ public class AuthService {
     /**
      * Encode the user's password
      * And saves the new user in the database
-     * @param user
-     * @return
+     * @param user the user's info
+     * @return the user after it was saved n the db
      */
     public User registerUser(User user) {
         logger.debug("Check if already exist in DB");
@@ -58,8 +58,6 @@ public class AuthService {
      * @return Login data - user's DTO and the generated token
      */
     public LoginData login (UserCredentials userCredentials){
-
-
         Optional<User> user = userRepository.findByEmail(userCredentials.getEmail());
         if(!user.isPresent()){
             throw new IllegalArgumentException("Invalid email");

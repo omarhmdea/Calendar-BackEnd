@@ -3,9 +3,7 @@ package calendar.entities;
 import calendar.enums.Role;
 import calendar.enums.Status;
 import lombok.*;
-
 import javax.persistence.*;
-import java.awt.*;
 
 @Entity
 @Getter

@@ -29,8 +29,8 @@ public class AuthController {
 
     /**
      * Register using email, password and name
-     * @param user
-     * @return
+     * @param user - the user's info
+     * @return a SuccessResponse - OK status, a message, user's DTO - email and name
      */
     @PostMapping(value = "register")
     public ResponseEntity<SuccessResponse<UserDTO>> registerUser(@Valid @RequestBody User user) {
@@ -60,7 +60,7 @@ public class AuthController {
         }
 
         LoginData loginData = authService.login(userCredentials);
-        SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful registration", loginData);
+        SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginData);
         return ResponseEntity.ok().body(successResponse);
     }
 }
