@@ -48,21 +48,23 @@ public class EventController {
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId,updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
-        logger.info("Updating was made successfully");
         notificationService.sendNotification(updatedEvent, NotificationType.EVENT_DATA_CHANGED);
+        logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
     /**
      * Delete event : delete event from DB
      * @param userId  - the user id
-     * @param deleteEventId  - the event to delete
+     * @param eventId  - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
      */
-    @PostMapping(value = "deleteEvent/{deleteEventId}")
-    public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int deleteEventId) {
+    @DeleteMapping(value = "{eventId}")
+    public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int eventId) {
         logger.debug("try to delete event");
-        Event deletedEvent = eventService.deleteEvent(userId,deleteEventId);
+
+        Event deletedEvent = eventService.deleteEvent(userId, eventId);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEvent);
+        notificationService.sendNotification(deletedEvent, NotificationType.EVENT_DATA_CHANGED);
         logger.info("Deleting event was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }

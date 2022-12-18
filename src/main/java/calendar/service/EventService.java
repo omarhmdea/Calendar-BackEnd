@@ -3,6 +3,7 @@ package calendar.service;
 import calendar.entities.Event;
 import calendar.entities.User;
 import calendar.entities.UserEvent;
+import calendar.enums.NotificationType;
 import calendar.enums.Role;
 import calendar.enums.Status;
 import calendar.repository.EventRepository;
@@ -27,6 +28,8 @@ public class EventService {
     private UserEventRepository userEventRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private  NotificationService notificationService;
 
     /**
      * Add new event to the user's calendar
@@ -172,6 +175,7 @@ public class EventService {
         }
 
         logger.debug("Delete the event from DB");
+        notificationService.sendNotification(dbEvent.get(), NotificationType.EVENT_CANCELED);
         userEventRepository.delete(acceptedEvent.get());
         eventRepository.delete(dbEvent.get());
         return dbEvent.get();

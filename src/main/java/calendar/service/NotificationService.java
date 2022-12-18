@@ -9,6 +9,8 @@ import calendar.exception.customException.NotificationNotFoundException;
 import calendar.repository.UserEventRepository;
 import calendar.repository.UserNotificationRepository;
 import calendar.utilities.EmailFacade;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import java.util.Optional;
 @Service
 public class NotificationService {
 
+    private static final Logger logger = LogManager.getLogger(NotificationService.class.getName());
     @Autowired
     private UserNotificationRepository userNotificationRepository;
     @Autowired
@@ -30,6 +33,7 @@ public class NotificationService {
         List<UserEvent> userEventList = userEventRepository.findByEvent(event);
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
+            logger.info(notificationType + " Notification has been sent to " + userEvent.getUser().getName());
         }
     }
 
@@ -59,7 +63,8 @@ public class NotificationService {
                 break;
             case EVENT_CANCELED:
                 if(userNotification.get().isEventCanceled()) {
-                    send(userNotification.get(), user, "", notificationType);
+                    String message = event.getTitle() + " has been canceled\n";
+                    send(userNotification.get(), user, message, notificationType);
                 }
                 break;
             case USER_UNINVITED:
