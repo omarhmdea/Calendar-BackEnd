@@ -18,6 +18,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse<String>> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
+        logger.error(ex.getMessage());
         ErrorResponse<String> errorResponse = new ErrorResponse<>(HttpStatus.NOT_FOUND, ex.getMessage());
         return ResponseEntity.badRequest().body(errorResponse);
     }

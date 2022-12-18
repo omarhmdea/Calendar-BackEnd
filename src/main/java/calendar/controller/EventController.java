@@ -10,6 +10,7 @@ import calendar.service.EventService;
 import calendar.utilities.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.annotations.Fetch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,13 @@ public class EventController {
         return eventService.addNewEvent(userId, newEvent);
     }
 
-    @PostMapping(value = "updateEvent")
+    /**
+     * Update event : update event data for admin & organizer
+     * @param userId  - the user id
+     * @param updateEvent  - the update event
+     * @return successResponse with updated data,Message,HttpStatus
+     */
+    @PutMapping(value = "updateEvent")
     public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute int userId, @RequestBody Event updateEvent) {
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId,updateEvent);
