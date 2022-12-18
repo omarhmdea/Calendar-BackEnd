@@ -145,6 +145,40 @@ public class EventService {
         logger.info("Save the updated event in DB");
         return eventRepository.save(dbEvent.get());
     }
+    /**
+     * Delete event : delete event from DB
+     * @param userId  - the user id
+     * @param deleteEvent  - the event to delete
+     * @return Deleted event
+     * @throws IllegalArgumentException when the delete event failed
+     */
+    public Event deleteEvent(int userId, int deleteEvent){
+        logger.debug("Check if the user exist in DB");
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid user id");
+        }
+
+        logger.debug("Check if the event exist in DB");
+        Optional<Event> dbEvent = eventRepository.findById(deleteEvent);
+        if (!dbEvent.isPresent()) {
+            throw new IllegalArgumentException("Invalid event id");
+        }
+
+        logger.debug("Check if the eventUser exist in DB");
+        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEvent(user.get(), dbEvent.get());
+        if(!acceptedEvent.isPresent()){
+            throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
+        }
+
+        logger.debug("Delete the event from DB");
+        userEventRepository.delete(acceptedEvent.get());
+        eventRepository.delete(dbEvent.get());
+        return dbEvent.get();
+    }
+
+
+
 
     private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
         return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
