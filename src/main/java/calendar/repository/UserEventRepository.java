@@ -19,4 +19,5 @@ public interface UserEventRepository extends JpaRepository<UserEvent, Integer> {
     Optional<UserEvent> findUserEventsByUserAndRole(User user, Role role);
     Optional<UserEvent> findUserEventsByUserAndEventAndStatus(User user, Event event, Status status);
     Optional<UserEvent> findUserEventsByUserAndEvent(User user, Event event);
+    List<UserEvent> findByEvent(Event event);
 }
