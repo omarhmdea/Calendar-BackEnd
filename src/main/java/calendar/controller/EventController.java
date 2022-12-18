@@ -2,6 +2,7 @@ package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
 import calendar.entities.Event;
+import calendar.entities.User;
 import calendar.entities.UserEvent;
 import calendar.service.EventService;
 import org.apache.logging.log4j.LogManager;
@@ -67,5 +68,19 @@ public class EventController {
         // check in filter that user is logged in - has a token
         SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
+    }
+
+    @PutMapping(value = "removeGuest/{eventId}")
+    public ResponseEntity<SuccessResponse<User>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
+        // check in filter that user is logged in - has a token
+        SuccessResponse<User> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", eventService.removeGuestFromEvent(userId, email, eventId));
+        return ResponseEntity.ok().body(successRemoveGuestFromEvent);
+    }
+
+    @PutMapping(value = "addGuest/{eventId}")
+    public ResponseEntity<SuccessResponse<UserEvent>> addGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
+        // check in filter that user is logged in - has a token
+        SuccessResponse<UserEvent> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", eventService.addGuestToEvent(userId, email, eventId));
+        return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 }
