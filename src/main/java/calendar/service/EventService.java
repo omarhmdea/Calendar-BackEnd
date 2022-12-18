@@ -28,7 +28,7 @@ public class EventService {
         if(newEvent.getStart().isBefore(LocalDateTime.now())){
             throw new IllegalArgumentException("Invalid start date or time - you cannot create new event for start time that had passed");
         }
-        if(newEvent.getEnd().isBefore(LocalDateTime.now()) || newEvent.getEnd().isBefore(newEvent.getStart()){
+        if(newEvent.getEnd().isBefore(LocalDateTime.now()) || newEvent.getEnd().isBefore(newEvent.getStart())){
             throw new IllegalArgumentException("Invalid end date or time - you cannot set end time that is previous to start time");
         }
         Event savedEvent = eventRepository.save(newEvent);
@@ -59,11 +59,12 @@ public class EventService {
         }
         // check if the new admin exists in the db
         Optional<User> newAdmin = userRepository.findByEmail(newAdminEmail);
+        System.out.println(newAdmin);
         if(!newAdmin.isPresent()){
             throw new IllegalArgumentException("Invalid new admin email - there is no user that matches the given email");
         }
         // check id the new admin approved the invitation
-        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEventAndStatus(organizer.get(), event.get(), Status.APPROVED);
+        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEventAndStatus(newAdmin.get(), event.get(), Status.APPROVED);
         if(!acceptedEvent.isPresent()){
             throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
         }

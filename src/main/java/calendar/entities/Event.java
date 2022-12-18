@@ -24,7 +24,6 @@ public class Event {
     private boolean isPublic;
     private LocalDateTime start;
     private LocalDateTime end;
-    private int duration;
     private String location;
     private String title;
     private String description;

@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/event")
@@ -29,14 +31,15 @@ public class EventController {
     }
 
     @PostMapping(value = "invite/{eventId}")
-    public void invite(@RequestAttribute int userId,@PathVariable int eventId,@RequestBody String guestEmail ) {
+    public void invite(@RequestAttribute int userId, @PathVariable int eventId,@RequestBody String guestEmail ) {
 
     }
 
-    @PostMapping(value = "newAdmin")
-    public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @RequestBody String newAdminEmail){
+    @PutMapping(value = "newAdmin/{eventId}")
+    public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
         // check in filter that user is logged in - has a token
-        SuccessResponse<UserEvent> successResponse = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, newAdminEmail, eventId));
+        System.out.println(email);
+        SuccessResponse<UserEvent> successResponse = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
         return ResponseEntity.ok().body(successResponse);
     }
 }
