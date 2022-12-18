@@ -22,8 +22,8 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private boolean isPublic;
-    private LocalDateTime time;
-    private LocalDate date;
+    private LocalDateTime start;
+    private LocalDateTime end;
     private int duration;
     private String location;
     private String title;
