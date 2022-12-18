@@ -62,7 +62,7 @@ public class AuthController {
         }
 
         LoginData loginData = authService.login(userCredentials);
-        SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful registration", loginData);
+        SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginData);
         return ResponseEntity.ok().body(successResponse);
     }
 }

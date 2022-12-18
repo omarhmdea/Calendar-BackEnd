@@ -17,16 +17,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private boolean isPublic;
-    private LocalDateTime time;
-    private LocalDate date;
+    private Boolean isPublic;
+    private LocalDateTime start;
+    private LocalDateTime end;
     private int duration;
     private String location;
     private String title;
     private String description;
     private String attachments;
+
 }
