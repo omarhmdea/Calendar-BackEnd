@@ -3,7 +3,9 @@ package calendar.controller;
 import calendar.ResponsHandler.SuccessResponse;
 import calendar.entities.Event;
 import calendar.entities.UserEvent;
+import calendar.enums.NotificationType;
 import calendar.service.EventService;
+import calendar.service.NotificationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
+    @Autowired
+    private NotificationService notificationService;
 
     /**
      * Add new event to the user's calendar
@@ -29,7 +33,6 @@ public class EventController {
      */
     @PostMapping(value = "newEvent")
     public ResponseEntity<SuccessResponse<Event>> addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
-        // check in filter that user is logged in - has a token
         SuccessResponse<Event> successAddNewEvent = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.addNewEvent(userId, newEvent));
         return ResponseEntity.ok().body(successAddNewEvent);
     }
@@ -46,6 +49,7 @@ public class EventController {
         Event updatedEvent = eventService.updateEvent(userId,updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
         logger.info("Updating was made successfully");
+        notificationService.sendNotification(updatedEvent, NotificationType.EVENT_DATA_CHANGED);
         return ResponseEntity.ok().body(successResponse);
     }
 
@@ -64,7 +68,6 @@ public class EventController {
      */
     @PutMapping(value = "newAdmin/{eventId}")
     public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
-        // check in filter that user is logged in - has a token
         SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
