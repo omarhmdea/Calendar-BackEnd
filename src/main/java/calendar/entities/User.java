@@ -2,7 +2,6 @@ package calendar.entities;
 
 import lombok.*;
 import org.springframework.lang.NonNull;
-
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 

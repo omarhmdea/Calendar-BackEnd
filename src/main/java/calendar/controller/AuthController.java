@@ -13,10 +13,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import javax.validation.ValidationException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -31,8 +29,8 @@ public class AuthController {
 
     /**
      * Register using email, password and name
-     * @param user
-     * @return
+     * @param user - the user's info
+     * @return a SuccessResponse - OK status, a message, user's DTO - email and name
      */
     @PostMapping(value = "register")
     public ResponseEntity<SuccessResponse<UserDTO>> registerUser(@Valid @RequestBody User user) {

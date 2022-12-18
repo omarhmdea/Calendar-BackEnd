@@ -2,23 +2,15 @@ package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
 import calendar.entities.Event;
-import calendar.entities.User;
-import calendar.entities.UserDTO;
-import calendar.exception.customException.ValidationErrorException;
-import calendar.service.AuthService;
+import calendar.entities.UserEvent;
 import calendar.service.EventService;
-import calendar.utilities.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.annotations.Fetch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.Map;
-import java.util.Optional;
+import javax.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin
@@ -28,13 +20,18 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
-    @Autowired
-    private AuthService authService;
 
+    /**
+     * Add new event to the user's calendar
+     * @param userId the user that is trying to create the event
+     * @param newEvent the new event data
+     * @return a SuccessResponse - OK status, a message, the new event data
+     */
     @PostMapping(value = "newEvent")
-    public Event addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
+    public ResponseEntity<SuccessResponse<Event>> addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
         // check in filter that user is logged in - has a token
-        return eventService.addNewEvent(userId, newEvent);
+        SuccessResponse<Event> successAddNewEvent = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.addNewEvent(userId, newEvent));
+        return ResponseEntity.ok().body(successAddNewEvent);
     }
 
     /**
@@ -51,8 +48,24 @@ public class EventController {
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
-    @PostMapping(value = "invite/{eventId}")
-    public void invite(@RequestAttribute int userId,@PathVariable int eventId,@RequestBody String guestEmail ) {
 
+    @PostMapping(value = "invite/{eventId}")
+    public void invite(@RequestAttribute int userId, @PathVariable int eventId,@RequestBody String guestEmail ) {
+
+    }
+
+    /**
+     * Set guest as admin in the given event
+     * @param userId the user that created the event
+     * @param eventId the event to set new admin to
+     * @param email the email of the guest that the organizer wants to set as admin
+     * @return a SuccessResponse - OK status, a message,
+     *      the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
+     */
+    @PutMapping(value = "newAdmin/{eventId}")
+    public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
+        // check in filter that user is logged in - has a token
+        SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
+        return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 }

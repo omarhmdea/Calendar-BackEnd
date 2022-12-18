@@ -8640,89 +8640,42 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.7.5.jar:2.7.5]
 	... 13 more
-2022-12-16 13:13:59,772 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 2660 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 13:13:59,791 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 13:13:59,794 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 13:14:08,563 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 13:14:08,862 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 09:15:55,580 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 27440 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 09:15:55,590 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 09:15:55,591 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 09:16:00,533 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 09:16:00,717 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 1b9642be-a073-4c4d-ae56-acd172b6c268
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-16 13:14:09,171 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 13:14:10,384 INFO    calendar.SpringApp - Started SpringApp in 11.377 seconds (JVM running for 13.848)
-2022-12-16 13:14:42,396 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 7880 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 13:14:42,416 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 13:14:42,426 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 13:14:48,841 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 13:14:49,133 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 79adfc00-e2de-4531-b4f2-481aa69ca189
+Using generated security password: 65acb2e1-57e2-4f02-9bf0-a7221c08bba1
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-16 13:14:49,322 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 13:14:50,368 INFO    calendar.SpringApp - Started SpringApp in 8.59 seconds (JVM running for 10.437)
-2022-12-16 14:13:25,610 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 10104 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 14:13:25,634 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 14:13:25,636 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 14:13:32,207 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 14:13:32,474 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 09:16:00,905 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 09:16:01,603 INFO    calendar.SpringApp - Started SpringApp in 6.574 seconds (JVM running for 9.297)
+2022-12-18 09:55:59,322 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 31320 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 09:55:59,327 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 09:55:59,328 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 09:56:03,024 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 09:56:03,191 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: f874c984-07f2-439e-b359-d78de1820c78
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-16 14:13:32,757 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 14:13:33,738 INFO    calendar.SpringApp - Started SpringApp in 8.727 seconds (JVM running for 10.926)
-2022-12-16 14:21:27,701 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a token in the request
-2022-12-16 14:22:37,801 INFO    calendar.controller.AuthController - Ewcli@gmail.com try to register
-2022-12-16 14:22:37,802 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 14:22:37,803 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 14:22:37,803 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-16 14:22:37,993 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-16 14:22:38,361 INFO    calendar.controller.AuthController - Ewcli@gmail.com Registration was made successfully
-2022-12-16 14:23:01,514 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 14:23:01,515 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 14:23:01,627 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid email or password]
-2022-12-16 14:23:23,500 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 14:23:23,501 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 14:24:02,202 WARN    org.springframework.web.servlet.PageNotFound - Request method 'GET' not supported
-2022-12-16 14:24:02,206 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2022-12-16 15:18:41,204 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 5184 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 15:18:41,224 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 15:18:41,228 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 15:18:47,680 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 15:18:48,038 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 89fe35cf-9fa7-4621-8a85-3ad0ec0b63ea
+Using generated security password: 8cced6cb-a42b-42f1-be79-56150a455924
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-16 15:18:48,218 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 15:18:49,413 INFO    calendar.SpringApp - Started SpringApp in 8.77 seconds (JVM running for 10.514)
-2022-12-16 15:23:00,875 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer QHqrzVf-pGNpsaGB1W1c5uxtjaBzQrCW
-2022-12-16 15:23:53,140 INFO    calendar.controller.AuthController - E@gmail.com try to register
-2022-12-16 15:23:53,142 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 15:23:53,142 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 15:23:53,142 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-16 15:23:53,327 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-16 15:23:53,596 INFO    calendar.controller.AuthController - E@gmail.com Registration was made successfully
-2022-12-16 15:24:15,375 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 15:24:15,375 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 15:26:32,390 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer QHqrzVf-pGNpsaGB1W1c5uxtjaBzQrCW
-2022-12-16 15:30:41,621 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer QHqrzVf-pGNpsaGB1W1c5uxtjaBzQrCW
-2022-12-16 15:31:30,716 INFO    calendar.controller.EventController - try to update event
-2022-12-16 15:31:30,716 DEBUG   calendar.service.EventService - Check if the organizer exist in DB
-2022-12-16 15:31:30,720 DEBUG   calendar.service.EventService - Update event data
-2022-12-16 15:31:30,727 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.util.NoSuchElementException: No value present] with root cause
-java.util.NoSuchElementException: No value present
-	at java.util.Optional.get(Optional.java:143) ~[?:?]
-	at calendar.service.EventService.updateEvent(EventService.java:49) ~[classes/:?]
-	at calendar.controller.EventController.updateEvent(EventController.java:42) ~[classes/:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+2022-12-18 09:56:03,393 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 09:56:04,117 INFO    calendar.SpringApp - Started SpringApp in 5.12 seconds (JVM running for 7.018)
+2022-12-18 09:56:38,210 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 09:56:38,211 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 09:58:27,086 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 09:58:27,086 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 09:59:52,041 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.EventService.addNewEvent(EventService.java:28) ~[classes/:?]
+	at calendar.controller.EventController.addNewEvent(EventController.java:28) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
@@ -8818,971 +8771,381 @@ java.util.NoSuchElementException: No value present
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
-	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
-2022-12-16 15:38:27,298 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 9816 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 15:38:27,319 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 15:38:27,321 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 15:38:35,077 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 15:38:35,345 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-18 10:01:40,748 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 12100 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:01:40,758 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:01:40,759 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:01:45,074 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:01:45,274 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 24de4558-3018-4bf3-aed8-cc65d8c8f1bd
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-16 15:38:35,573 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 15:38:36,575 INFO    calendar.SpringApp - Started SpringApp in 9.898 seconds (JVM running for 11.733)
-2022-12-16 15:38:45,170 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer X684QxsRfcRdVSS0Bhfj8QdNeqwUizRh
-2022-12-16 15:38:56,985 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 15:38:56,986 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 15:39:44,981 INFO    calendar.controller.EventController - try to update event
-2022-12-16 15:39:44,982 DEBUG   calendar.service.EventService - Check if the organizer exist in DB
-2022-12-16 15:39:44,990 DEBUG   calendar.service.EventService - Update event data
-2022-12-16 15:39:45,001 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: dddddd]
-2022-12-16 15:41:36,919 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12772 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 15:41:36,947 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 15:41:36,950 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 15:41:45,370 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 15:41:45,649 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: b6adb66d-9524-43a8-90a1-231f576fdc98
+Using generated security password: 1d7a2b19-9085-4366-9fc5-557fc0269bbf
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-16 15:41:46,016 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 15:41:47,322 INFO    calendar.SpringApp - Started SpringApp in 11.162 seconds (JVM running for 14.542)
-2022-12-16 15:41:55,361 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer Lzr9pVEAEG53gp4zuhvvCljQ43mHQrrY
-2022-12-16 15:42:05,169 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 15:42:05,170 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 15:42:34,982 INFO    calendar.controller.EventController - try to update event
-2022-12-16 15:42:34,982 DEBUG   calendar.service.EventService - Check if the organizer exist in DB
-2022-12-16 15:42:34,990 DEBUG   calendar.service.EventService - Update event data
-2022-12-16 15:42:50,973 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: dddddd]
-2022-12-16 15:44:01,709 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 4028 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-16 15:44:01,735 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-16 15:44:01,740 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-16 15:44:08,345 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-16 15:44:08,559 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:01:45,487 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:01:46,233 INFO    calendar.SpringApp - Started SpringApp in 6.1 seconds (JVM running for 9.026)
+2022-12-18 10:02:28,140 INFO    calendar.controller.AuthController - eden1@gmail.com try to register
+2022-12-18 10:02:28,142 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:02:28,142 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:02:28,185 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [calendar.exception.customException.ValidationErrorException: validate input]
+2022-12-18 10:02:37,750 INFO    calendar.controller.AuthController - eden1@gmail.com try to register
+2022-12-18 10:02:37,751 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:02:37,751 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:02:37,753 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [calendar.exception.customException.ValidationErrorException: validate input]
+2022-12-18 10:02:53,724 INFO    calendar.controller.AuthController - eden1@gmail.com try to register
+2022-12-18 10:02:53,724 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:02:53,724 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:02:53,725 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:02:53,841 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:02:54,004 INFO    calendar.controller.AuthController - eden1@gmail.com Registration was made successfully
+2022-12-18 10:03:04,738 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:03:04,738 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:03:40,967 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.EventService.addNewEvent(EventService.java:28) ~[classes/:?]
+	at calendar.controller.EventController.addNewEvent(EventController.java:28) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at calendar.filter.AuthFilter.doFilterInternal(AuthFilter.java:74) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-18 10:03:52,113 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.EventService.addNewEvent(EventService.java:28) ~[classes/:?]
+	at calendar.controller.EventController.addNewEvent(EventController.java:28) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at calendar.filter.AuthFilter.doFilterInternal(AuthFilter.java:74) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-18 10:10:14,870 INFO    calendar.controller.AuthController - danaa@gmail.com try to register
+2022-12-18 10:10:14,870 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:10:14,870 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:10:14,871 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:10:14,874 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:10:15,022 INFO    calendar.controller.AuthController - danaa@gmail.com Registration was made successfully
+2022-12-18 10:12:54,813 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 27172 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:12:54,828 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:12:54,830 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:13:00,568 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:13:00,800 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 3e597815-f1c8-4427-9987-d07d7902e65f
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-16 15:44:08,837 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-16 15:44:09,861 INFO    calendar.SpringApp - Started SpringApp in 8.773 seconds (JVM running for 10.601)
-2022-12-16 15:44:22,403 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer 1lt1VVJcgLSPzj9gaT-roSKA1XTtx_CZ
-2022-12-16 15:44:27,564 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-16 15:44:27,566 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-16 15:44:46,035 INFO    calendar.controller.EventController - try to update event
-2022-12-16 15:44:46,036 DEBUG   calendar.service.EventService - Check if the organizer exist in DB
-2022-12-16 15:44:46,043 DEBUG   calendar.service.EventService - Update event data
-2022-12-16 15:44:46,054 DEBUG   calendar.service.EventService - Save the updated event in DB
-2022-12-16 15:44:46,185 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 18:50:36,496 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12920 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 18:50:36,514 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 18:50:36,516 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 18:50:45,719 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 18:50:45,966 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 2937070c-40f3-4994-bcd1-5647feb73c90
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 18:50:46,234 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 18:50:47,447 INFO    calendar.SpringApp - Started SpringApp in 11.702 seconds (JVM running for 15.617)
-2022-12-17 18:50:54,465 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 18:50:54,466 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 18:53:03,960 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:53:03,960 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:53:03,968 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:53:03,998 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:53:29,834 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:53:29,834 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:53:29,842 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:53:29,859 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:56:03,187 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 240 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 18:56:03,204 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 18:56:03,206 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 18:56:10,617 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 18:56:10,879 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: f83a532b-75b7-49f6-9798-64fb6d54df8d
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 18:56:11,135 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 18:56:12,056 INFO    calendar.SpringApp - Started SpringApp in 9.488 seconds (JVM running for 11.219)
-2022-12-17 18:56:30,938 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 18:56:30,940 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 18:56:54,947 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:56:54,947 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:56:54,955 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:56:54,978 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:56:58,460 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:56:58,460 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:56:58,466 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:56:58,478 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:58:05,481 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:58:05,481 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:58:05,485 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:58:05,498 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:58:15,154 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 18:58:15,155 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 18:58:46,576 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:58:46,576 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:58:46,582 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:58:46,592 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:59:21,131 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 18:59:21,131 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 18:59:21,136 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 18:59:21,148 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 18:59:40,329 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 6188 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 18:59:40,354 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 18:59:40,359 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 18:59:46,377 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 18:59:46,607 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 37414b43-19d8-4001-801c-7ef160ea3a11
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 18:59:46,861 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 18:59:48,025 INFO    calendar.SpringApp - Started SpringApp in 8.316 seconds (JVM running for 10.086)
-2022-12-17 19:00:16,186 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:00:16,187 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:00:31,663 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:00:31,663 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:00:31,671 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:00:31,704 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 19:00:37,961 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:00:37,961 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:00:37,966 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:00:37,983 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 19:04:13,069 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 13992 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:04:13,084 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:04:13,087 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:04:19,451 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:04:20,042 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 3dd0d10c-6832-442d-8578-2daeb34aec19
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:04:20,424 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:04:21,497 INFO    calendar.SpringApp - Started SpringApp in 9.109 seconds (JVM running for 10.929)
-2022-12-17 19:04:28,256 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:04:28,257 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:04:55,384 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:04:55,384 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:04:55,393 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:04:55,420 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id]
-2022-12-17 19:06:20,434 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 10868 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:06:20,453 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:06:20,455 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:06:27,356 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:06:27,599 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 848186c5-3719-40fc-b087-187f1979bad8
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:06:27,821 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:06:29,016 INFO    calendar.SpringApp - Started SpringApp in 9.205 seconds (JVM running for 11.158)
-2022-12-17 19:06:59,910 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:06:59,910 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:07:25,200 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer 3rM03D7jDUcpnt-8K4gwk8j6HNal-a_
-2022-12-17 19:08:30,802 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12184 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:08:30,841 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:08:30,845 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:08:39,114 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:08:39,369 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: f170a22c-a4f9-4542-a5cb-6c62626051cc
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:08:39,565 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:08:40,454 INFO    calendar.SpringApp - Started SpringApp in 10.307 seconds (JVM running for 12.235)
-2022-12-17 19:08:52,476 INFO    calendar.controller.AuthController - E@gmail.com try to register
-2022-12-17 19:08:52,478 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:08:52,480 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:08:52,480 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-17 19:08:52,656 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-17 19:08:52,898 INFO    calendar.controller.AuthController - E@gmail.com Registration was made successfully
-2022-12-17 19:09:00,608 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:09:00,608 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:12:10,271 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:12:10,271 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:12:10,279 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:12:10,304 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id 2]
-2022-12-17 19:13:02,060 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:13:02,060 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:13:02,065 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:13:02,071 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid event id 1]
-2022-12-17 19:13:11,543 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:13:11,543 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:13:11,549 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:13:11,559 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid user id 2]
-2022-12-17 19:17:45,386 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 7252 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:17:45,402 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:17:45,405 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:17:51,559 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:17:51,785 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 07a44f2f-2edc-498c-a04a-585f5a1a5852
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:17:52,173 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:17:53,350 INFO    calendar.SpringApp - Started SpringApp in 8.567 seconds (JVM running for 10.303)
-2022-12-17 19:18:06,913 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:18:06,914 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:18:27,922 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:18:27,923 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:18:27,928 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:18:27,945 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:18:28,014 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 19:19:38,358 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:19:38,358 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:19:38,363 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:19:38,375 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:19:38,400 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 19:19:47,437 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:19:47,438 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:19:47,442 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:19:47,451 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:19:47,474 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 19:45:40,059 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12620 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:45:40,081 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:45:40,083 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:45:46,392 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:45:46,619 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 681a978d-0a0f-4acc-bb26-255e38019f20
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:45:46,861 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:45:47,777 INFO    calendar.SpringApp - Started SpringApp in 8.292 seconds (JVM running for 9.984)
-2022-12-17 19:45:55,642 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:45:55,643 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:46:45,120 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:46:45,121 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:46:45,127 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:46:45,147 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]]
-2022-12-17 19:47:25,395 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:47:25,395 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:47:25,400 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:47:25,409 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]]
-2022-12-17 19:47:33,130 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:47:33,130 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:47:33,134 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:47:33,141 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]]
-2022-12-17 19:51:28,636 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 13316 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:51:28,653 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:51:28,655 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:51:34,915 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:51:35,137 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 21262f00-26f4-4bf7-a337-b34e37f3d29e
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:51:35,349 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:51:36,324 INFO    calendar.SpringApp - Started SpringApp in 8.492 seconds (JVM running for 10.536)
-2022-12-17 19:51:43,246 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:51:43,246 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:52:33,128 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:52:33,128 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:52:33,135 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:52:33,142 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:52:33,216 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 19:53:07,020 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 4628 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:53:07,039 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:53:07,041 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:53:12,776 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:53:13,001 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 81830492-9d4d-4120-b644-f04bb33136ff
+Using generated security password: 69497113-0969-47fd-a78d-786036e28374
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 19:53:13,262 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:53:14,119 INFO    calendar.SpringApp - Started SpringApp in 7.669 seconds (JVM running for 9.686)
-2022-12-17 19:53:23,266 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:53:23,267 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:53:40,289 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:53:40,289 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:53:40,296 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:53:40,319 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [1] did not match expected type [calendar.entities.User (n/a)]]
-2022-12-17 19:56:30,798 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 1188 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:56:30,820 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:56:30,823 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:56:37,550 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:56:37,785 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:13:01,060 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:13:02,411 INFO    calendar.SpringApp - Started SpringApp in 8.464 seconds (JVM running for 14.242)
+2022-12-18 10:13:08,283 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:13:08,284 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:14:29,827 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:19:15,151 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 12296 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:19:15,164 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:19:15,165 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:19:19,772 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:19:20,080 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 2cce8c75-1a82-4951-b0ae-6d8477823daa
+Using generated security password: 2f28941c-2534-479d-a4f3-49ec87c0bbc0
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 19:56:38,061 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:56:38,939 INFO    calendar.SpringApp - Started SpringApp in 8.676 seconds (JVM running for 10.28)
-2022-12-17 19:56:54,698 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:56:54,699 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:57:16,110 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:57:16,111 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:57:16,117 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:57:16,135 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:57:16,214 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 19:58:02,971 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 2532 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 19:58:02,991 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 19:58:02,994 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 19:58:09,327 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 19:58:09,557 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:19:20,362 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:19:21,261 INFO    calendar.SpringApp - Started SpringApp in 6.832 seconds (JVM running for 10.451)
+2022-12-18 10:21:08,640 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:21:08,640 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:21:27,336 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:23:35,682 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:24:59,887 INFO    calendar.controller.AuthController - shayco@gmail.com try to register
+2022-12-18 10:24:59,887 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:24:59,888 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:24:59,888 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:24:59,892 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:25:00,134 INFO    calendar.controller.AuthController - shayco@gmail.com Registration was made successfully
+2022-12-18 10:27:05,322 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:32:31,235 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28180 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:32:31,248 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:32:31,250 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:32:36,632 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:32:36,840 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 171a3e8d-05dd-4640-9d25-90164af149d4
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 19:58:09,780 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 19:58:11,721 INFO    calendar.SpringApp - Started SpringApp in 9.297 seconds (JVM running for 11.081)
-2022-12-17 19:58:22,422 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 19:58:22,424 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 19:58:54,756 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 19:58:54,757 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 19:58:54,764 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 19:58:54,786 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 19:58:54,896 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:10:09,429 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 11868 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:10:09,452 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:10:09,455 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:10:15,786 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:10:16,013 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: e74f2230-49d1-423f-abe5-7ea017f2c144
+Using generated security password: 0d1abbb7-8fe5-4dee-b18a-0240f8087b50
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:10:16,365 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:10:17,415 INFO    calendar.SpringApp - Started SpringApp in 8.705 seconds (JVM running for 10.41)
-2022-12-17 20:10:25,825 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:10:25,826 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:10:44,811 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:10:44,811 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:10:44,816 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:10:44,834 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:10:44,905 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:11:11,264 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:11:11,264 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:11:11,270 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:11:11,278 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:11:11,296 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:13:13,936 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:13:13,937 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:13:13,940 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:13:13,954 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:13:45,160 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:13:45,161 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:13:45,166 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:13:45,179 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:14:14,504 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:14:14,504 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:14:14,508 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:14:14,518 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:18:38,675 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 4968 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:18:38,692 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:18:38,695 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:18:44,745 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:18:44,996 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:32:37,044 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:32:37,786 INFO    calendar.SpringApp - Started SpringApp in 7.318 seconds (JVM running for 11.168)
+2022-12-18 10:32:52,607 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:32:52,609 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:33:07,471 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:34:28,254 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 29808 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:34:28,264 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:34:28,266 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:34:32,567 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:34:32,731 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 35cb9640-8795-4deb-a92d-bc0cbb0cef38
+Using generated security password: 48536960-ec8c-4712-a00b-ad98df6a72f0
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:18:45,215 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:18:46,132 INFO    calendar.SpringApp - Started SpringApp in 8.016 seconds (JVM running for 9.596)
-2022-12-17 20:19:17,340 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:19:17,340 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:19:52,078 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:19:52,078 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:19:52,086 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:19:52,117 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:19:55,620 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:19:55,620 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:19:55,627 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:19:55,645 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:20:02,226 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:20:02,226 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:20:02,232 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:20:02,241 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:22:44,341 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 3448 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:22:44,358 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:22:44,361 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:22:51,445 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:22:51,737 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:34:32,905 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:34:33,574 INFO    calendar.SpringApp - Started SpringApp in 5.987 seconds (JVM running for 8.846)
+2022-12-18 10:34:36,799 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer APhFnNZc664J2DQFC1HxDDUsFJZK0bJa
+2022-12-18 10:34:43,513 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:34:43,513 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:34:53,190 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:35:11,558 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:35:42,373 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid new admin email - there is no user that matches the given email]
+2022-12-18 10:42:44,870 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28104 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:42:44,888 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:42:44,890 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:42:49,630 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:42:49,821 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: cd1063cd-a41c-415e-850c-fd4d933ea0a7
+Using generated security password: dedf8080-40b1-4870-80ff-d1cdab0dffaf
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:22:51,984 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:22:52,990 INFO    calendar.SpringApp - Started SpringApp in 9.389 seconds (JVM running for 12.446)
-2022-12-17 20:23:06,420 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:23:06,421 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:23:34,484 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:23:34,484 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:23:34,491 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:24:12,530 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s135ms533µs700ns).
-2022-12-17 20:24:12,535 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:24:47,431 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 13264 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:24:47,455 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:24:47,457 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:24:54,696 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:24:54,876 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:42:50,033 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:42:50,769 INFO    calendar.SpringApp - Started SpringApp in 7.167 seconds (JVM running for 11.665)
+2022-12-18 10:42:54,095 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:42:54,096 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:46:43,155 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 15656 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:46:43,168 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:46:43,170 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:46:49,319 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:46:49,502 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: b7a76014-9855-485c-bbd1-eef2a9103f3c
+Using generated security password: e30c6101-94ff-4ad4-9ae3-d1055391ed80
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:24:55,115 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:24:55,940 INFO    calendar.SpringApp - Started SpringApp in 9.084 seconds (JVM running for 10.642)
-2022-12-17 20:25:04,844 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:25:04,844 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:25:21,854 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:25:21,854 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:25:21,861 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:25:21,889 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:27:48,789 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 2544 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:27:48,812 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:27:48,817 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:27:54,867 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:27:55,089 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 10:46:49,689 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:46:50,401 INFO    calendar.SpringApp - Started SpringApp in 8.141 seconds (JVM running for 11.863)
+2022-12-18 10:47:11,646 INFO    calendar.controller.AuthController - eden@gmail.com try to register
+2022-12-18 10:47:11,646 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:11,646 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:47:11,647 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:47:11,830 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:47:12,060 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
+2022-12-18 10:47:21,486 INFO    calendar.controller.AuthController - shay@gmail.com try to register
+2022-12-18 10:47:21,486 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:21,486 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:47:21,486 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:47:21,489 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:47:21,625 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
+2022-12-18 10:47:29,006 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:29,006 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 11:05:20,824 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 24544 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 11:05:20,840 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 11:05:20,842 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 11:05:27,631 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 11:05:27,882 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: c57029f3-fe3b-4e5e-b337-86e9660b351a
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 20:27:55,267 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:27:56,150 INFO    calendar.SpringApp - Started SpringApp in 7.911 seconds (JVM running for 9.44)
-2022-12-17 20:28:05,246 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:28:05,247 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:28:20,458 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:28:20,458 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:28:20,464 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:28:20,491 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:28:27,560 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:28:27,560 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:28:27,564 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:28:27,576 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:29:05,729 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 4596 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:29:05,756 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:29:05,759 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:29:12,855 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:29:13,108 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 5cb4f39e-32cc-4fd4-b9e6-2bcc78080b76
+Using generated security password: eb74dc65-f0f5-4b3f-beff-fe3a7a33ad49
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:29:13,396 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:29:14,401 INFO    calendar.SpringApp - Started SpringApp in 9.372 seconds (JVM running for 11.437)
-2022-12-17 20:29:30,487 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:29:30,489 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:29:44,781 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:29:44,781 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:29:44,788 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:31:04,824 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s915ms452µs500ns).
-2022-12-17 20:31:04,834 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:31:51,716 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 10640 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:31:51,730 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:31:51,732 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:31:58,288 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:31:58,535 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-18 11:05:28,159 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 11:05:29,250 INFO    calendar.SpringApp - Started SpringApp in 9.472 seconds (JVM running for 14.716)
+2022-12-18 11:06:03,885 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 27560 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 11:06:03,911 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 11:06:03,914 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 11:06:12,602 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 11:06:13,004 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 245dfaf2-7cdc-424b-b3b0-be1cc2631b30
+Using generated security password: a702a754-1686-45bc-b44b-9c01519311cc
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-17 20:31:58,779 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:31:59,633 INFO    calendar.SpringApp - Started SpringApp in 8.476 seconds (JVM running for 10.064)
-2022-12-17 20:32:11,040 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:32:11,041 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:32:29,683 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:32:29,683 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:32:29,691 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:32:29,713 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:32:29,802 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:32:48,048 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:32:48,048 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:32:48,054 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:32:48,067 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:32:55,314 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:32:55,316 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:32:55,321 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:32:55,331 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:32:55,353 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:32:59,332 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:32:59,334 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:32:59,342 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:32:59,355 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:32:59,376 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:33:03,779 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `int` from String "d": not a valid `int` value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `int` from String "d": not a valid `int` value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 6, column: 16] (through reference chain: calendar.entities.Event["duration"])]
-2022-12-17 20:33:15,909 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:33:15,909 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:33:15,914 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:33:15,925 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:33:25,171 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "d": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'd' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "d": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'd' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 12] (through reference chain: calendar.entities.Event["date"])]
-2022-12-17 20:33:33,813 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:33:33,813 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:33:33,816 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:33:33,823 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:33:33,839 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:34:09,048 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `int` from String "d": not a valid `int` value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `int` from String "d": not a valid `int` value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 6, column: 16] (through reference chain: calendar.entities.Event["duration"])]
-2022-12-17 20:47:11,367 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 6928 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-17 20:47:11,394 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-17 20:47:11,403 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-17 20:47:17,624 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-17 20:47:17,845 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 0795dac5-090f-423a-8543-697806990340
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-17 20:47:18,115 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-17 20:47:18,969 INFO    calendar.SpringApp - Started SpringApp in 8.18 seconds (JVM running for 10.137)
-2022-12-17 20:47:27,677 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-17 20:47:27,678 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-17 20:47:45,556 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:47:45,556 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:47:45,564 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:47:45,571 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:47:45,582 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:47:45,583 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:47:45,583 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:47:45,583 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:47:45,652 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:47:52,503 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:47:52,503 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:47:52,508 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:47:52,516 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:47:52,522 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:47:52,522 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:47:52,530 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-17 20:48:04,445 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:48:04,446 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:48:04,449 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:48:04,453 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:48:04,460 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:48:04,460 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:48:04,460 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:48:04,461 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:48:04,490 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:48:40,645 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:48:40,646 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:48:40,650 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:48:40,656 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:48:40,660 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:48:40,661 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:48:40,661 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:48:40,661 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:48:40,680 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:48:45,862 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:48:45,862 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:48:45,868 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:48:45,873 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:48:45,877 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:48:45,877 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:48:45,877 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:48:45,877 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:48:45,904 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-17 20:48:53,457 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "d": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'd' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "d": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'd' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 12] (through reference chain: calendar.entities.Event["date"])]
-2022-12-17 20:49:02,326 DEBUG   calendar.controller.EventController - try to update event
-2022-12-17 20:49:02,327 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-17 20:49:02,332 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-17 20:49:02,336 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-17 20:49:02,340 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-17 20:49:02,340 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-17 20:49:02,340 DEBUG   calendar.service.EventService - Update event data
-2022-12-17 20:49:02,341 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-17 20:49:02,358 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:18:32,775 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 6868 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 09:18:32,794 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 09:18:32,797 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 09:18:42,711 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 09:18:43,120 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: e29f8116-cf09-4ffd-973f-f0372e77b8dc
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 09:18:43,728 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 09:18:45,108 INFO    calendar.SpringApp - Started SpringApp in 13.031 seconds (JVM running for 15.704)
-2022-12-18 09:19:30,520 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 09:19:30,522 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 09:20:24,013 WARN    org.springframework.web.servlet.PageNotFound - Request method 'POST' not supported
-2022-12-18 09:20:24,020 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
-2022-12-18 09:20:38,296 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:20:38,296 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:20:38,304 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:20:38,324 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:20:38,337 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:20:38,339 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:20:38,339 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:20:38,339 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:20:38,551 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:21:07,693 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:21:07,693 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:21:07,699 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:21:07,710 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:21:07,720 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:21:07,721 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:21:07,724 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:21:07,725 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:21:07,764 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:22:46,930 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:22:46,930 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:22:46,937 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:22:46,948 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:22:46,956 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:22:46,956 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:22:46,963 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-18 09:23:09,325 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:23:09,326 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:23:09,333 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:23:09,339 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:23:09,345 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:23:09,345 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:23:09,345 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:23:09,345 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:23:09,377 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:23:16,235 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:23:16,235 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:23:16,241 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:23:16,248 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:23:16,256 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:23:16,256 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:23:16,259 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-18 09:24:50,084 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "ss": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text 'ss' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDateTime` from String "ss": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text 'ss' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 09:25:09,555 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:25:09,555 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:25:09,569 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:25:09,578 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:25:09,584 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:25:09,585 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:25:09,585 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:25:09,585 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:25:09,613 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:25:29,196 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "12:00": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '12:00' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDateTime` from String "12:00": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '12:00' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 09:26:33,315 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "12:00:00": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '12:00:00' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDateTime` from String "12:00:00": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '12:00:00' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 09:27:15,467 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "13-01-2017 17:09:42": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '13-01-2017 17:09:42' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDateTime` from String "13-01-2017 17:09:42": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '13-01-2017 17:09:42' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 09:27:28,615 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "17:09:42": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '17:09:42' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDateTime` from String "17:09:42": Failed to deserialize java.time.LocalDateTime: (java.time.format.DateTimeParseException) Text '17:09:42' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 09:27:55,007 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:27:55,007 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:27:55,012 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:27:55,016 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:27:55,024 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:27:55,024 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:27:55,024 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:27:55,025 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:27:55,059 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:29:16,132 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 11168 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 09:29:16,151 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 09:29:16,158 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 09:29:24,002 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 09:29:24,458 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 9148e9a7-4030-4e4f-a73b-a615c12ae1bc
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 09:29:24,819 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 09:29:26,058 INFO    calendar.SpringApp - Started SpringApp in 10.583 seconds (JVM running for 12.535)
-2022-12-18 09:29:32,991 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 09:29:32,994 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 09:30:33,199 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:30:33,200 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:30:33,207 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:30:33,223 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:30:33,243 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:30:33,244 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:30:33,245 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 09:30:33,245 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 09:30:33,371 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 09:31:34,975 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 09:31:34,976 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 09:31:34,981 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 09:31:34,993 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 09:31:35,004 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 09:31:35,005 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 09:31:35,013 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-18 09:51:16,895 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 7712 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 09:51:16,912 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 09:51:16,916 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 09:51:26,337 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 09:51:26,766 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 86474aa9-8081-465a-8046-130f07388211
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 09:51:27,337 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 09:51:29,061 INFO    calendar.SpringApp - Started SpringApp in 12.943 seconds (JVM running for 15.144)
-2022-12-18 10:02:52,097 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer LCLVxnG_wrQBMDX2GoukXqYNSA3uJc6P
-2022-12-18 10:03:00,571 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:03:00,573 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:03:20,731 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:03:20,732 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:03:20,744 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:03:20,757 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:03:20,765 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:03:20,766 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:03:20,783 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-18 10:04:26,429 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "2012-00-00 00:00:00.000000": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '2012-00-00 00:00:00.000000' could not be parsed at index 2; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "2012-00-00 00:00:00.000000": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '2012-00-00 00:00:00.000000' could not be parsed at index 2<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 10:05:43,952 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "2012-00-00": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '2012-00-00' could not be parsed at index 2; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "2012-00-00": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '2012-00-00' could not be parsed at index 2<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 4, column: 12] (through reference chain: calendar.entities.Event["time"])]
-2022-12-18 10:06:10,642 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:06:10,642 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:06:10,648 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:06:10,656 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:06:10,664 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:06:10,665 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:06:10,665 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:06:10,665 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:06:10,768 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:06:39,488 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:06:39,488 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:06:39,492 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:06:39,504 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:06:39,511 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:06:39,511 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:06:39,513 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Admin not allowed to change one of those fields]
-2022-12-18 10:06:54,941 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:06:54,941 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:06:54,950 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:06:54,956 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:06:54,959 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:06:54,959 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:06:54,959 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:06:54,959 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:06:54,962 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:07:13,461 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:07:13,461 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:07:13,467 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:07:13,474 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:07:13,478 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:07:13,480 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:07:13,482 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:07:13,482 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:07:13,495 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:10:53,973 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 13868 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:10:53,996 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:10:53,998 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:11:01,689 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:11:01,909 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: b8773ae6-34b1-4c81-b1bd-24ad25e5cb24
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:11:02,258 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:11:03,412 INFO    calendar.SpringApp - Started SpringApp in 10.075 seconds (JVM running for 11.882)
-2022-12-18 10:11:10,576 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:11:10,577 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:11:27,864 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:11:27,864 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:11:27,870 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:11:27,882 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:11:27,893 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:11:27,896 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:11:27,898 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:11:27,900 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:11:27,951 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:12:29,911 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 10036 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:12:29,937 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:12:29,941 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:12:37,586 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:12:37,900 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: d68ed80f-da39-4750-8c56-c97cb79a7bf6
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:12:38,171 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:12:39,802 INFO    calendar.SpringApp - Started SpringApp in 10.521 seconds (JVM running for 12.764)
-2022-12-18 10:12:46,604 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:12:46,607 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:13:01,447 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:13:01,447 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:13:01,456 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:13:01,505 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:13:01,522 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:13:01,524 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:13:01,525 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:13:01,525 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:13:01,574 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:13:54,135 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 13104 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:13:54,152 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:13:54,155 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:14:01,739 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:14:02,110 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 6433d277-163f-4cc1-bf67-7c4538bdc8b3
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:14:02,351 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:14:03,581 INFO    calendar.SpringApp - Started SpringApp in 10.106 seconds (JVM running for 11.922)
-2022-12-18 10:14:11,288 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:14:11,288 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:14:32,004 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:14:32,004 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:14:32,018 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:14:32,055 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:14:32,065 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:14:32,066 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:14:32,066 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:14:32,066 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:14:32,115 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:19:44,399 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:19:44,400 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:19:44,406 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:19:44,410 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:19:44,413 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:19:44,413 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:19:44,413 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:19:44,413 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:19:44,422 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:20:24,118 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:20:24,119 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:20:24,128 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:20:24,134 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:20:24,136 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:20:24,137 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:20:24,137 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:20:24,137 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:20:24,140 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:22:27,458 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 2468 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:22:27,474 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:22:27,476 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:22:34,835 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:22:35,115 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 749ba5ad-1de9-4398-b017-a3bec237bf50
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:22:35,523 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:22:36,675 INFO    calendar.SpringApp - Started SpringApp in 9.837 seconds (JVM running for 11.86)
-2022-12-18 10:22:43,610 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:22:43,611 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:23:07,989 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:23:07,989 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:23:08,000 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:23:08,037 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:23:08,056 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:23:08,059 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:23:08,060 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:23:08,060 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:23:08,190 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:23:23,210 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:23:23,211 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:23:23,217 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:23:23,221 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:23:23,229 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:23:23,230 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:23:23,231 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:23:23,231 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:23:23,243 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:23:30,845 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:23:30,846 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:23:30,851 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:23:30,864 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:23:30,866 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:23:30,867 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:23:30,867 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:23:30,867 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:23:30,903 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:37:50,964 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12928 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:37:50,980 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:37:50,983 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:37:59,774 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:38:00,103 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 35165d0d-f5aa-4a5d-86b1-c73e3926e65e
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:38:00,370 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:38:01,511 INFO    calendar.SpringApp - Started SpringApp in 11.213 seconds (JVM running for 14.103)
-2022-12-18 10:38:13,292 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:38:13,297 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:39:39,152 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 12252 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:39:39,174 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:39:39,178 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:39:47,272 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:39:47,613 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 019d5f9f-3a96-4c91-b41a-9304c3493a1b
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:39:47,874 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:39:50,075 INFO    calendar.SpringApp - Started SpringApp in 11.565 seconds (JVM running for 13.928)
-2022-12-18 10:39:54,547 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:39:54,549 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:39:55,089 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid email]
-2022-12-18 10:40:01,612 INFO    calendar.controller.AuthController - E@gmail.com try to register
-2022-12-18 10:40:01,613 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:40:01,613 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:40:01,613 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-18 10:40:01,618 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-18 10:40:01,890 INFO    calendar.controller.AuthController - E@gmail.com Registration was made successfully
-2022-12-18 10:40:07,098 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:40:07,099 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:44:31,735 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:44:31,736 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:44:31,743 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:44:31,758 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid event id]
-2022-12-18 10:45:12,378 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:45:12,378 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:45:12,386 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:45:12,418 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:45:12,428 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:45:12,431 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:45:12,434 DEBUG   calendar.service.EventService - Update event data
-2022-12-18 10:45:12,435 INFO    calendar.service.EventService - Save the updated event in DB
-2022-12-18 10:45:12,465 INFO    calendar.controller.EventController - Updating was made successfully
-2022-12-18 10:45:35,280 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:45:35,280 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:45:35,287 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:45:35,293 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:45:35,296 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:45:35,296 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:45:35,298 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid start date or end date]
-2022-12-18 10:46:02,023 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:46:02,023 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:46:02,027 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:46:02,044 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:46:02,049 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:46:02,050 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:46:02,052 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid start date or end date]
-2022-12-18 10:49:12,304 INFO    calendar.SpringApp - Starting SpringApp using Java 19.0.1 on DESKTOP-4NR70O4 with PID 9120 (C:\Users\USER\Desktop\Calendar-BackEnd\target\classes started by USER in C:\Users\USER\Desktop\Calendar-BackEnd)
-2022-12-18 10:49:12,326 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-18 10:49:12,328 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-18 10:49:19,893 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
-2022-12-18 10:49:20,252 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 9ffcc93d-d238-4a91-ba85-a9ab30a6a108
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-18 10:49:20,473 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-18 10:49:22,036 INFO    calendar.SpringApp - Started SpringApp in 10.354 seconds (JVM running for 13.231)
-2022-12-18 10:49:29,603 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-18 10:49:29,604 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-18 10:49:45,643 DEBUG   calendar.controller.EventController - try to update event
-2022-12-18 10:49:45,644 DEBUG   calendar.service.EventService - Check if the user exist in DB
-2022-12-18 10:49:45,651 DEBUG   calendar.service.EventService - Check if the event exist in DB
-2022-12-18 10:49:45,679 DEBUG   calendar.service.EventService - Check if the eventUser exist in DB
-2022-12-18 10:49:45,687 DEBUG   calendar.service.EventService - Take the role of the user in specific event
-2022-12-18 10:49:45,688 DEBUG   calendar.service.EventService - Check if admin allowed to change fields
-2022-12-18 10:49:45,697 ERROR   calendar.exception.ControllerAdvisor - Invalid start date or end date
-2022-12-18 10:49:45,703 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: Invalid start date or end date]
+2022-12-18 11:06:13,499 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 11:06:14,904 INFO    calendar.SpringApp - Started SpringApp in 12.709 seconds (JVM running for 20.441)
