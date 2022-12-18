@@ -11,11 +11,8 @@ import calendar.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,14 +34,7 @@ public class EventService {
      */
     public Event addNewEvent(int organizerId, Event newEvent){
         logger.debug("Try to add new event");
-        logger.debug("Check that the start date and time of the new event is valid : " + newEvent.getStart());
-        if(newEvent.getStart().isBefore(LocalDateTime.now())){
-            throw new IllegalArgumentException("Invalid start date or time - you cannot create new event for start time that had passed");
-        }
-        logger.debug("Check that the end date and time of the new event is valid : " + newEvent.getEnd());
-        if(newEvent.getEnd().isBefore(LocalDateTime.now()) || newEvent.getEnd().isBefore(newEvent.getStart())){
-            throw new IllegalArgumentException("Invalid end date or time - you cannot set end time that is previous to start time");
-        }
+        checkDateAndTime(newEvent);
         logger.debug("Check that the organizer with id " + organizerId + " exists in the db");
         User organizer = findUser(organizerId);
         Event savedEvent = eventRepository.save(newEvent);
@@ -108,9 +98,7 @@ public class EventService {
         if (userInEvent.get().getRole() == Role.ADMIN && isFieldsAdminCanNotChange(userInEvent.get().getEvent(), updateEvent)) {
             throw new IllegalArgumentException("Admin is not allowed to change one of those fields");
         }
-        if(updateEvent.getStart().isBefore(LocalDateTime.now()) || updateEvent.getEnd().isBefore(updateEvent.getStart())) {
-            throw new IllegalArgumentException("Invalid start date or end date");
-        }
+        checkDateAndTime(updateEvent);
         // TODO : sent notification!!
         logger.info("Save the updated event in DB");
         return eventRepository.save(updateEvent);
@@ -131,35 +119,17 @@ public class EventService {
 //        return eventRepository.save(event);
     }
 
-    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
-        return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
-                !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
-                !updatedEvent.getTitle().equals(dbEvent.getTitle());
-    }
-
     public UserEvent addGuestToEvent(int organizerOrAdminId, String guestToAddEmail, int eventId) {
-        logger.debug("Check if there exists a user with the given id (organizer or admin)");
-        User user = findUser(organizerOrAdminId);
         logger.debug("Check if there exists an event with the given event id");
         Event event = findEvent(eventId);
-        logger.debug("Check if the user is a part of the event");
-        Optional<UserEvent> userInEvent = userEventRepository.findUserEventsByUserAndEvent(user, event);
-        if(!userInEvent.isPresent()){
-            throw new IllegalArgumentException("The user that is trying to add a guest is not a part of the event");
-        }
-        logger.debug("Check if the user is the organizer or the admin of the event");
-        if(userInEvent.get().getRole() != Role.ADMIN && userInEvent.get().getRole() != Role.ORGANIZER){
-            throw new IllegalArgumentException("The given user is not the organizer or the admin of the event - and cannot add guests to the event");
-        }
-        logger.debug("Check if the guest to add exists in the db");
-        User guestToAdd = findUser(guestToAddEmail);
+        User guestToAdd = checkActionsAndGetUser(organizerOrAdminId, guestToAddEmail, event, "add");
         logger.debug("Check if the guest to add is a part of the event");
-        Optional<UserEvent> guestToAddToEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
-        if(guestToAddToEvent.isPresent()){
+        Optional<UserEvent> guestToAddInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
+        if(guestToAddInEvent.isPresent()){
             throw new IllegalArgumentException("The given user to add is already a part of the event - you cannot add them again");
         }
         // TODO : send invitation!!!!
-        logger.debug("Adding user to event " + guestToAdd);
+        logger.debug("Adding user to event " + guestToAdd.toString());
         return userEventRepository.save(new UserEvent(guestToAdd, event, Status.TENTATIVE, Role.GUEST));
     }
 
@@ -172,7 +142,7 @@ public class EventService {
         if(!guestToRemoveInEvent.isPresent()){
             throw new IllegalArgumentException("The given user to remove is not a part of the event - you cannot remove them");
         }
-        logger.debug("Check if the guest to remove is the event's admin");
+        logger.debug("Check if the guest to remove is the event's organizer");
         if(guestToRemoveInEvent.get().getRole() == Role.ORGANIZER){
             throw new IllegalArgumentException("The given user to remove is the event's admin - you cannot remove them");
         }
@@ -220,5 +190,18 @@ public class EventService {
             throw new IllegalArgumentException("Invalid event id");
         }
         return event.get();
+    }
+
+    private void checkDateAndTime(Event event){
+        logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
+        if(event.getEnd().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
+            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed and an end time that is previous to start time");
+        }
+    }
+
+    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
+        return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
+                !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
+                !updatedEvent.getTitle().equals(dbEvent.getTitle());
     }
 }
