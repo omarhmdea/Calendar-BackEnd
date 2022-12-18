@@ -9099,3 +9099,41 @@ This generated password is for development use only. Your security configuration
 2022-12-18 10:42:50,769 INFO    calendar.SpringApp - Started SpringApp in 7.167 seconds (JVM running for 11.665)
 2022-12-18 10:42:54,095 DEBUG   calendar.utilities.Validator - Check valid email
 2022-12-18 10:42:54,096 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:46:43,155 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 15656 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 10:46:43,168 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 10:46:43,170 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 10:46:49,319 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 10:46:49,502 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e30c6101-94ff-4ad4-9ae3-d1055391ed80
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-18 10:46:49,689 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 10:46:50,401 INFO    calendar.SpringApp - Started SpringApp in 8.141 seconds (JVM running for 11.863)
+2022-12-18 10:47:11,646 INFO    calendar.controller.AuthController - eden@gmail.com try to register
+2022-12-18 10:47:11,646 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:11,646 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:47:11,647 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:47:11,830 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:47:12,060 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
+2022-12-18 10:47:21,486 INFO    calendar.controller.AuthController - shay@gmail.com try to register
+2022-12-18 10:47:21,486 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:21,486 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 10:47:21,486 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-18 10:47:21,489 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-18 10:47:21,625 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
+2022-12-18 10:47:29,006 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-18 10:47:29,006 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-18 11:05:20,824 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 24544 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-18 11:05:20,840 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-18 11:05:20,842 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-18 11:05:27,631 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-18 11:05:27,882 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: eb74dc65-f0f5-4b3f-beff-fe3a7a33ad49
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-18 11:05:28,159 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-18 11:05:29,250 INFO    calendar.SpringApp - Started SpringApp in 9.472 seconds (JVM running for 14.716)

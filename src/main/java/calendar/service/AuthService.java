@@ -18,6 +18,7 @@ import java.util.Optional;
 @Service
 public class AuthService {
     private static final Logger logger = LogManager.getLogger(AuthService.class.getName());
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired

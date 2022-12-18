@@ -25,9 +25,10 @@ public class EventController {
     private EventService eventService;
 
     @PostMapping(value = "newEvent")
-    public Event addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
+    public ResponseEntity<SuccessResponse<Event>> addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
         // check in filter that user is logged in - has a token
-        return eventService.addNewEvent(userId, newEvent);
+        SuccessResponse<Event> successAddNewEvente = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.addNewEvent(userId, newEvent));
+        return ResponseEntity.ok().body(successAddNewEvente);
     }
 
     @PostMapping(value = "invite/{eventId}")
@@ -38,8 +39,7 @@ public class EventController {
     @PutMapping(value = "newAdmin/{eventId}")
     public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
         // check in filter that user is logged in - has a token
-        System.out.println(email);
-        SuccessResponse<UserEvent> successResponse = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
-        return ResponseEntity.ok().body(successResponse);
+        SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
+        return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 }
