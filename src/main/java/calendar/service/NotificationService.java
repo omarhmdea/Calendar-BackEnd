@@ -29,15 +29,23 @@ public class NotificationService {
     private UserEventRepository userEventRepository;
 
 
+    /**
+     * Sending a notification to all users who belong to the event according to notificationType
+     * @param event - event obj
+     * @param notificationType - notificationType enum
+     */
     public void sendNotification(Event event, NotificationType notificationType) {
         List<UserEvent> userEventList = userEventRepository.findByEvent(event);
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
-            logger.info(notificationType + " Notification has been sent to " + userEvent.getUser().getName());
         }
     }
 
-
+    /**
+     * helper method that send a notification to specific user according to notificationType
+     * @param event - event obj
+     * @param notificationType - notificationType enum
+     */
     private void sendNotificationToUser(User user, Event event, NotificationType notificationType) {
         Optional<UserNotification> userNotification = userNotificationRepository.findByUser(user);
         if(! userNotification.isPresent()) {
@@ -81,12 +89,22 @@ public class NotificationService {
 
     }
 
-    private void send(UserNotification userNotification,User user, String message, NotificationType notificationType) {
+    /**
+     * helper method that send a notification to specific user according to notificationType by email or pop-up
+     * @param message - email content
+     * @param notificationType - notificationType enum
+     * @param userNotification - notification setting
+     * @param user - user
+     */
+    private void send(UserNotification userNotification, User user, String message, NotificationType notificationType) {
         if(userNotification.isPopUp()) {
             sendPopUp(user, message, notificationType);
+            logger.info(notificationType + " Notification has been sent to " + user.getName() + " by pop-up");
         }
         else {
             sendEmail(user, message, notificationType);
+            logger.info(notificationType + " Notification has been sent to " + user.getName() + " by email");
+
         }
     }
 
@@ -96,6 +114,12 @@ public class NotificationService {
     }
 
 
+    /**
+     * Helper method that send email
+     * @param user - user
+ x    * @param message - email content
+     * @param notificationType - notificationType enum
+     */
     private void sendEmail(User user, String message, NotificationType notificationType) {
         String email = user.getEmail();
         emailFacade.sendEmail(email,message,notificationType);
