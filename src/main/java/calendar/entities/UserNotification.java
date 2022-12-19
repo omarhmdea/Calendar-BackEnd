@@ -10,7 +10,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class UserNotification {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -19,12 +18,15 @@ public class UserNotification {
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    private boolean isPopUp;
-    private boolean newEvent;
-    private boolean statusChanged;
-    private boolean dataChanged;
-    private boolean eventCanceled;
-    private boolean uninvitedUser;
-    private boolean upcomingEvents;
+    private boolean isPopUp = true;
+    private boolean newEvent = false;
+    private boolean statusChanged = false;
+    private boolean dataChanged = false;
+    private boolean eventCanceled = false;
+    private boolean uninvitedUser = false;
+    private boolean upcomingEvents = false;
 
+    public UserNotification(User user){
+        this.user = user;
+    }
 }
