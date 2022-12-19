@@ -102,27 +102,20 @@ public class EventService {
         // TODO : sent notification!!
         logger.info("Save the updated event in DB");
         return eventRepository.save(updateEvent);
-
-//        logger.debug("Update event data");
-//        if (userEventFromRepo.get().getRole() == Role.ORGANIZER) {
-//            event.setStart(updateEvent.getStart());
-//            event.setEnd(updateEvent.getEnd());
-//            event.setTitle(updateEvent.getTitle());
-//        }
-//
-//        event.setIsPublic(updateEvent.getIsPublic());
-//        event.setLocation(updateEvent.getLocation());
-//        event.setDescription(updateEvent.getDescription());
-//        event.setAttachments(updateEvent.getAttachments());
-//
-//        logger.info("Save the updated event in DB");
-//        return eventRepository.save(event);
     }
 
-    public UserEvent addGuestToEvent(int organizerOrAdminId, String guestToAddEmail, int eventId) {
+    /**
+     * Add new guest to an existing event
+     * Only the organizer and the admins of the event can perform the add guest action
+     * @param userId the id of the user that is trying to perform the action
+     * @param guestToAddEmail the email of the guest to add
+     * @param eventId the id of the event to add the guest to
+     * @return User event - the event id, the guest id, the guest role (guest), the guest status (tentative)
+     */
+    public UserEvent addGuestToEvent(int userId, String guestToAddEmail, int eventId) {
         logger.debug("Check if there exists an event with the given event id");
         Event event = findEvent(eventId);
-        User guestToAdd = checkActionsAndGetUser(organizerOrAdminId, guestToAddEmail, event, "add");
+        User guestToAdd = checkActionsAndGetUser(userId, guestToAddEmail, event, "add");
         logger.debug("Check if the guest to add is a part of the event");
         Optional<UserEvent> guestToAddInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
         if(guestToAddInEvent.isPresent()){
@@ -133,10 +126,18 @@ public class EventService {
         return userEventRepository.save(new UserEvent(guestToAdd, event, Status.TENTATIVE, Role.GUEST));
     }
 
-    public User removeGuestFromEvent(int organizerOrAdminId, String guestToRemoveEmail, int eventId){
+    /**
+     * Remove new guest to an existing event
+     * Only the organizer and the admins of the event can perform the remove guest action
+     * @param userId the id of the user that is trying to perform the action
+     * @param guestToRemoveEmail the email of the guest to remove
+     * @param eventId the id of the event to remove the guest from
+     * @return The info of the user that was removed from the event
+     */
+    public User removeGuestFromEvent(int userId, String guestToRemoveEmail, int eventId){
         logger.debug("Check if there exists an event with the given event id");
         Event event = findEvent(eventId);
-        User guestToRemove = checkActionsAndGetUser(organizerOrAdminId, guestToRemoveEmail, event, "remove");
+        User guestToRemove = checkActionsAndGetUser(userId, guestToRemoveEmail, event, "remove");
         logger.debug("Check if the guest to remove is a part of the event");
         Optional<UserEvent> guestToRemoveInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToRemove, event);
         if(!guestToRemoveInEvent.isPresent()){
@@ -144,7 +145,7 @@ public class EventService {
         }
         logger.debug("Check if the guest to remove is the event's organizer");
         if(guestToRemoveInEvent.get().getRole() == Role.ORGANIZER){
-            throw new IllegalArgumentException("The given user to remove is the event's admin - you cannot remove them");
+            throw new IllegalArgumentException("The given user to remove is the event's organizer - you cannot remove them");
         }
         // TODO : send notification!!!!
         logger.debug("Removing guest from event " + guestToRemove.toString());
@@ -194,8 +195,8 @@ public class EventService {
 
     private void checkDateAndTime(Event event){
         logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
-        if(event.getEnd().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
-            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed and an end time that is previous to start time");
+        if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
+            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed or an end time that is previous to start time");
         }
     }
 

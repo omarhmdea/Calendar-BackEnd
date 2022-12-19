@@ -65,21 +65,33 @@ public class EventController {
      */
     @PutMapping(value = "newAdmin/{eventId}")
     public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
-        // check in filter that user is logged in - has a token
         SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 
-    @PutMapping(value = "removeGuest/{eventId}")
+    /**
+     * Remove new guest to an existing event
+     * @param userId the id of the user that is trying to perform the action
+     * @param eventId the id of the event to remove the guest to
+     * @param email the email of the guest to remove
+     * @return a SuccessResponse - OK status, a message, the User data
+     */
+    @DeleteMapping(value = "guest/{eventId}")
     public ResponseEntity<SuccessResponse<User>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
-        // check in filter that user is logged in - has a token
         SuccessResponse<User> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", eventService.removeGuestFromEvent(userId, email, eventId));
         return ResponseEntity.ok().body(successRemoveGuestFromEvent);
     }
 
-    @PutMapping(value = "addGuest/{eventId}")
+    /**
+     * Add new guest to an existing event
+     * @param userId the id of the user that is trying to perform the action
+     * @param eventId the id of the event to add the guest to
+     * @param email the email of the guest to add
+     * @return a SuccessResponse - OK status, a message,
+     *      *      the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     */
+    @PostMapping(value = "guest/{eventId}")
     public ResponseEntity<SuccessResponse<UserEvent>> addGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
-        // check in filter that user is logged in - has a token
         SuccessResponse<UserEvent> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", eventService.addGuestToEvent(userId, email, eventId));
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
