@@ -15,8 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EventService {
@@ -181,12 +183,59 @@ public class EventService {
         return dbEvent.get();
     }
 
-
-
-
     private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
         return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
                 !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
                 !updatedEvent.getTitle().equals(dbEvent.getTitle());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Get calendar : get the event calendar from DB According to month year
+     * @param userId  - the user id
+     * @param month  - the month we want to present
+     * @param year  - the year we want to present
+     * @return list event of month & year
+     * @throws IllegalArgumentException when the get calendar failed
+     */
+    public List<Event> getCalendar(int userId, int month, int year){
+        logger.debug("Check if the user exist in DB");
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid user id");
+        }
+
+        logger.debug("Check if the eventUser exist in DB");
+        List<UserEvent> dbEventUser = userEventRepository.findByUser(user.get());
+        if (CollectionUtils.isEmpty(dbEventUser)) {
+            throw new IllegalArgumentException("Invalid user id, user doesn't exist in userEvent repository");
+        }
+
+        List<Event> userEventFromRepo = new ArrayList<>();
+        for (int i=0; i<dbEventUser.size(); i++) {
+            if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
+                    && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
+                    (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
+                    && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
+                userEventFromRepo.add(dbEventUser.get(i).getEvent());
+            }
+        }
+        logger.debug("Return events ");
+        return userEventFromRepo;
     }
 }
