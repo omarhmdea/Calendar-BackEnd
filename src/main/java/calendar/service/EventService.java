@@ -14,11 +14,11 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class EventService {
@@ -41,22 +41,12 @@ public class EventService {
      */
     public Event addNewEvent(int organizerId, Event newEvent){
         logger.debug("Try to add new event");
-        logger.debug("Check that the start date and time of the new event is valid : " + newEvent.getStart());
-        if(newEvent.getStart().isBefore(LocalDateTime.now())){
-            throw new IllegalArgumentException("Invalid start date or time - you cannot create new event for start time that had passed");
-        }
-        logger.debug("Check that the end date and time of the new event is valid : " + newEvent.getEnd());
-        if(newEvent.getEnd().isBefore(LocalDateTime.now()) || newEvent.getEnd().isBefore(newEvent.getStart())){
-            throw new IllegalArgumentException("Invalid end date or time - you cannot set end time that is previous to start time");
-        }
+        checkDateAndTime(newEvent);
         logger.debug("Check that the organizer with id " + organizerId + " exists in the db");
-        Optional<User> organizer = userRepository.findById(organizerId);
-        if(!organizer.isPresent()){
-            throw new IllegalArgumentException("Invalid organizer id");
-        }
+        User organizer = findUser(organizerId);
         Event savedEvent = eventRepository.save(newEvent);
-        logger.debug("New event is saved : " + newEvent);
-        UserEvent userEvent = new UserEvent(organizer.get(), savedEvent, Status.APPROVED, Role.ORGANIZER);
+        logger.debug("New event is saved : " + savedEvent.toString());
+        UserEvent userEvent = new UserEvent(organizer, savedEvent, Status.APPROVED, Role.ORGANIZER);
         userEventRepository.save(userEvent);
         return savedEvent;
     }
@@ -70,32 +60,24 @@ public class EventService {
      */
     public UserEvent setGuestAsAdmin(int organizerId, String newAdminEmail, int eventId){
         logger.debug("Check if there exists a user with the given organizer id");
-        Optional<User> organizer = userRepository.findById(organizerId);
-        if(!organizer.isPresent()){
-            throw new IllegalArgumentException("Invalid organizer id");
-        }
+        User organizer = findUser(organizerId);
         logger.debug("Check if there exists an event with the given event id");
-        Optional<Event> event = eventRepository.findEventsById(eventId);
-        if(!event.isPresent()){
-            throw new IllegalArgumentException("Invalid event id");
-        }
+        Event event = findEvent(eventId);
         logger.debug("Check if the user is the organizer of the event");
-        Optional<UserEvent> organizerEvent = userEventRepository.findUserEventsByUserAndRole(organizer.get(), Role.ORGANIZER);
+        Optional<UserEvent> organizerEvent = userEventRepository.findUserEventsByUserAndEventAndRole(organizer, event, Role.ORGANIZER);
         if(!organizerEvent.isPresent()){
             throw new IllegalArgumentException("The given user is not the organizer of the event - and cannot set guests as admins");
         }
         logger.debug("Check if the new admin exists in the db");
-        Optional<User> newAdmin = userRepository.findByEmail(newAdminEmail);
-        if(!newAdmin.isPresent()){
-            throw new IllegalArgumentException("Invalid new admin email - there is no user that matches the given email");
-        }
-        logger.debug("Check id the new admin approved the invitation");
-        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEventAndStatus(newAdmin.get(), event.get(), Status.APPROVED);
+        User newAdmin = findUser(newAdminEmail);
+        logger.debug("Check if the new admin approved the invitation");
+        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEventAndStatus(newAdmin, event, Status.APPROVED);
         if(!acceptedEvent.isPresent()){
             throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
         }
         acceptedEvent.get().setRole(Role.ADMIN);
         logger.debug("Set the guest as the event's admin " + acceptedEvent);
+        // TODO : sent notification - not really needed
         return userEventRepository.save(acceptedEvent.get());
     }
 
@@ -107,49 +89,78 @@ public class EventService {
      * @throws IllegalArgumentException when the Update event failed
      */
     public Event updateEvent(int userId, Event updateEvent){
-        logger.debug("Check if the user exist in DB");
-        Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()){
-            throw new IllegalArgumentException("Invalid user id");
-        }
+        logger.debug("Check if there exists a user with the given id (organizer or admin) in DB");
+        User user = findUser(userId);
         logger.debug("Check if the event exist in DB");
-        Optional<Event> dbEvent = eventRepository.findById(updateEvent.getId());
-        if (!dbEvent.isPresent()) {
-            throw new IllegalArgumentException("Invalid event id");
+        Event event = findEvent(updateEvent.getId());
+        logger.debug("Check if the user is a part of the event");
+        Optional<UserEvent> userInEvent = userEventRepository.findUserEventsByUserAndEvent(user, event);
+        if(!userInEvent.isPresent()){
+            throw new IllegalArgumentException("The user that is trying to change the event data is not a part of the event");
         }
-        logger.debug("Check if the eventUser exist in DB");
-        List<UserEvent> dbEventUser = userEventRepository.findByUser(user.get());
-        if (CollectionUtils.isEmpty(dbEventUser)) {
-            throw new IllegalArgumentException("Invalid user id, user doesn't exist in userEvent repository");
+        logger.debug("Check if the user is the organizer or the admin of the event");
+        if(userInEvent.get().getRole() != Role.ADMIN && userInEvent.get().getRole() != Role.ORGANIZER){
+            throw new IllegalArgumentException("The given user is not the organizer or the admin of the event - and cannot update the event's data");
         }
-        // TODO : use findUserEventsByUserAndEventAndStatus
-        logger.debug("Take the role of the user in specific event");
-        Optional<UserEvent> userEventFromRepo = dbEventUser.stream().filter(u -> u.getEvent().getId() == updateEvent.getId()).findFirst();
-        if (!userEventFromRepo.isPresent()) {
-            throw new IllegalArgumentException("Invalid event id, event for this user doesn't exist in userEvent repository");
+        logger.debug("Check if user is an admin - and if allowed to change the fields");
+        if (userInEvent.get().getRole() == Role.ADMIN && isFieldsAdminCanNotChange(userInEvent.get().getEvent(), updateEvent)) {
+            throw new IllegalArgumentException("Admin is not allowed to change one of those fields");
         }
-        logger.debug("Check if admin allowed to change fields");
-        if (userEventFromRepo.get().getRole()==Role.ADMIN && isFieldsAdminCanNotChange(userEventFromRepo.get().getEvent(),updateEvent)) {
-            throw new IllegalArgumentException("Admin not allowed to change one of those fields");
-        }
-        if(updateEvent.getStart().isBefore(LocalDateTime.now()) || updateEvent.getEnd().isBefore(updateEvent.getStart())) {
-            throw new IllegalArgumentException("Invalid start date or end date");
-        }
-        logger.debug("Update event data");
-        if (userEventFromRepo.get().getRole() == Role.ORGANIZER) {
-            dbEvent.get().setStart(updateEvent.getStart());
-            dbEvent.get().setEnd(updateEvent.getEnd());
-            dbEvent.get().setTitle(updateEvent.getTitle());
-        }
-
-        dbEvent.get().setIsPublic(updateEvent.getIsPublic());
-        dbEvent.get().setLocation(updateEvent.getLocation());
-        dbEvent.get().setDescription(updateEvent.getDescription());
-        dbEvent.get().setAttachments(updateEvent.getAttachments());
-
+        checkDateAndTime(updateEvent);
+        // TODO : sent notification!!
         logger.info("Save the updated event in DB");
-        return eventRepository.save(dbEvent.get());
+        return eventRepository.save(updateEvent);
     }
+
+    /**
+     * Add new guest to an existing event
+     * Only the organizer and the admins of the event can perform the add guest action
+     * @param userId the id of the user that is trying to perform the action
+     * @param guestToAddEmail the email of the guest to add
+     * @param eventId the id of the event to add the guest to
+     * @return User event - the event id, the guest id, the guest role (guest), the guest status (tentative)
+     */
+    public UserEvent inviteGuestToEvent(int userId, String guestToAddEmail, int eventId) {
+        logger.debug("Check if there exists an event with the given event id");
+        Event event = findEvent(eventId);
+        User guestToAdd = checkPermissionsAndGetUser(userId, guestToAddEmail, event, "add");
+        logger.debug("Check if the guest to add is a part of the event");
+        Optional<UserEvent> guestToAddInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
+        if(guestToAddInEvent.isPresent()){
+            throw new IllegalArgumentException("The given user to add is already a part of the event - you cannot add them again");
+        }
+        // TODO : send invitation!!!!
+        logger.debug("Adding user to event " + guestToAdd.toString());
+        return userEventRepository.save(new UserEvent(guestToAdd, event, Status.TENTATIVE, Role.GUEST));
+    }
+
+    /**
+     * Remove new guest to an existing event
+     * Only the organizer and the admins of the event can perform the remove guest action
+     * @param userId the id of the user that is trying to perform the action
+     * @param guestToRemoveEmail the email of the guest to remove
+     * @param eventId the id of the event to remove the guest from
+     * @return The info of the user that was removed from the event
+     */
+    public User removeGuestFromEvent(int userId, String guestToRemoveEmail, int eventId){
+        logger.debug("Check if there exists an event with the given event id");
+        Event event = findEvent(eventId);
+        User guestToRemove = checkPermissionsAndGetUser(userId, guestToRemoveEmail, event, "remove");
+        logger.debug("Check if the guest to remove is a part of the event");
+        Optional<UserEvent> guestToRemoveInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToRemove, event);
+        if(!guestToRemoveInEvent.isPresent()){
+            throw new IllegalArgumentException("The given user to remove is not a part of the event - you cannot remove them");
+        }
+        logger.debug("Check if the guest to remove is the event's organizer");
+        if(guestToRemoveInEvent.get().getRole() == Role.ORGANIZER){
+            throw new IllegalArgumentException("The given user to remove is the event's organizer - you cannot remove them");
+        }
+        // TODO : send notification!!!!
+        logger.debug("Removing guest from event " + guestToRemove.toString());
+        userEventRepository.delete(guestToRemoveInEvent.get());
+        return guestToRemove;
+    }
+
     /**
      * Delete event : delete event from DB
      * @param userId  - the user id
@@ -163,47 +174,22 @@ public class EventService {
         if(!user.isPresent()){
             throw new IllegalArgumentException("Invalid user id");
         }
-
         logger.debug("Check if the event exist in DB");
         Optional<Event> dbEvent = eventRepository.findById(deleteEvent);
         if (!dbEvent.isPresent()) {
             throw new IllegalArgumentException("Invalid event id");
         }
-
         logger.debug("Check if the eventUser exist in DB");
         Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEvent(user.get(), dbEvent.get());
         if(!acceptedEvent.isPresent()){
             throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
         }
-
         logger.debug("Delete the event from DB");
-        notificationService.sendNotification(dbEvent.get(), NotificationType.EVENT_CANCELED);
+        notificationService.sendNotification(dbEvent.get(), NotificationType.DELETE_EVENT);
         userEventRepository.delete(acceptedEvent.get());
         eventRepository.delete(dbEvent.get());
         return dbEvent.get();
     }
-
-    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
-        return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
-                !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
-                !updatedEvent.getTitle().equals(dbEvent.getTitle());
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Get calendar : get the event calendar from DB According to month year
@@ -231,11 +217,66 @@ public class EventService {
             if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
                     && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
                     (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
-                    && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
+                            && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
                 userEventFromRepo.add(dbEventUser.get(i).getEvent());
             }
         }
         logger.debug("Return events ");
         return userEventFromRepo;
+    }
+
+    // ---------------------------------------- helper methods ----------------------------------------
+
+    private User checkPermissionsAndGetUser(int organizerOrAdminId, String guestEmail, Event event, String action){
+        logger.debug("Check if there exists a user with the given id (organizer or admin)");
+        User user = findUser(organizerOrAdminId);
+        logger.debug("Check if the user is a part of the event");
+        Optional<UserEvent> userInEvent = userEventRepository.findUserEventsByUserAndEvent(user, event);
+        if(!userInEvent.isPresent()){
+            throw new IllegalArgumentException("The user that is trying to " + action + " a guest is not a part of the event");
+        }
+        logger.debug("Check if the user is the organizer or the admin of the event");
+        if(userInEvent.get().getRole() != Role.ADMIN && userInEvent.get().getRole() != Role.ORGANIZER){
+            throw new IllegalArgumentException("The given user is not the organizer or the admin of the event - and cannot " + action + " guests from the event");
+        }
+        logger.debug("Check if the guest to " + action + " exists in the db");
+        return findUser(guestEmail);
+    }
+
+    private User findUser(int id){
+        Optional<User> user = userRepository.findById(id);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid user id - the user that tries to perform an action");
+        }
+        return user.get();
+    }
+
+    private User findUser(String email){
+        Optional<User> user = userRepository.findByEmail(email);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid email - there is no user that matches the given email");
+        }
+        return user.get();
+    }
+
+    private Event findEvent(int eventId){
+        Optional<Event> event = eventRepository.findEventsById(eventId);
+        if(!event.isPresent()){
+            throw new IllegalArgumentException("Invalid event id");
+        }
+        return event.get();
+    }
+
+    private void checkDateAndTime(Event event){
+        logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
+        if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
+            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed or an end time that is previous to start time");
+        }
+    }
+
+    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
+        return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
+                !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
+                !updatedEvent.getTitle().equals(dbEvent.getTitle());
     }
 }

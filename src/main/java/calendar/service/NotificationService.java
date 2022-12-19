@@ -53,7 +53,7 @@ public class NotificationService {
         }
 
         switch(notificationType) {
-            case NEW_EVENT:
+            case INVITE_GUEST:
                 if(userNotification.get().isNewEvent()) {
                     send(userNotification.get(), user, "", notificationType);
                 }
@@ -63,19 +63,19 @@ public class NotificationService {
                     send(userNotification.get(), user, "", notificationType);
                 }
                 break;
-            case EVENT_DATA_CHANGED:
+            case UPDATE_EVENT:
                 if(userNotification.get().isDataChanged()) {
                     String message = event.getTitle() + " data has been changed\n" + event.toString();
                     send(userNotification.get(), user, message, notificationType);
                 }
                 break;
-            case EVENT_CANCELED:
+            case DELETE_EVENT:
                 if(userNotification.get().isEventCanceled()) {
                     String message = event.getTitle() + " has been canceled\n";
                     send(userNotification.get(), user, message, notificationType);
                 }
                 break;
-            case USER_UNINVITED:
+            case REMOVE_GUEST:
                 if(userNotification.get().isUninvitedUser()) {
                     send(userNotification.get(), user, "", notificationType);
                 }

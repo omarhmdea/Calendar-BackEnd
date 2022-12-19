@@ -2,6 +2,7 @@ package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
 import calendar.entities.Event;
+import calendar.entities.User;
 import calendar.entities.UserEvent;
 import calendar.enums.NotificationType;
 import calendar.service.EventService;
@@ -49,10 +50,11 @@ public class EventController {
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId,updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
-        notificationService.sendNotification(updatedEvent, NotificationType.EVENT_DATA_CHANGED);
+        notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
+
     /**
      * Delete event : delete event from DB
      * @param userId  - the user id
@@ -64,11 +66,10 @@ public class EventController {
         logger.debug("try to delete event");
         Event deletedEvent = eventService.deleteEvent(userId, eventId);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEvent);
-        notificationService.sendNotification(deletedEvent, NotificationType.EVENT_DATA_CHANGED);
+        notificationService.sendNotification(deletedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Deleting event was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
-
 
     @PostMapping(value = "invite/{eventId}")
     public void invite(@RequestAttribute int userId, @PathVariable int eventId,@RequestBody String guestEmail ) {
@@ -77,7 +78,6 @@ public class EventController {
 
     /**
      * Get calendar : get the event calendar from DB According to month year
-     *
      * @param userId - the user id
      * @param month  - the month we want to present
      * @param year   - the year we want to present
@@ -104,5 +104,32 @@ public class EventController {
     public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
         SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
+    }
+
+    /**
+     * Remove new guest to an existing event
+     * @param userId the id of the user that is trying to perform the action
+     * @param eventId the id of the event to remove the guest to
+     * @param email the email of the guest to remove
+     * @return a SuccessResponse - OK status, a message, the User data
+     */
+    @DeleteMapping(value = "guest/{eventId}")
+    public ResponseEntity<SuccessResponse<User>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
+        SuccessResponse<User> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", eventService.removeGuestFromEvent(userId, email, eventId));
+        return ResponseEntity.ok().body(successRemoveGuestFromEvent);
+    }
+
+    /**
+     * Add new guest to an existing event
+     * @param userId the id of the user that is trying to perform the action
+     * @param eventId the id of the event to add the guest to
+     * @param email the email of the guest to add
+     * @return a SuccessResponse - OK status, a message,
+     *      *      the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     */
+    @PostMapping(value = "guest/{eventId}")
+    public ResponseEntity<SuccessResponse<UserEvent>> addGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email){
+        SuccessResponse<UserEvent> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", eventService.inviteGuestToEvent(userId, email, eventId));
+        return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 }
