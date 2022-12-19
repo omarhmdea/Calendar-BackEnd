@@ -25,4 +25,13 @@ public class Event {
     private String title;
     private String description;
     private String attachments;
+
+    public String toEmailString() {
+        return title + " event :\n" +
+                "Starts at" + start +
+                "\n and ends at " + end +
+                "\nWe'll meet at " + location +
+                "\n to "+ description +
+                "\n\nAattachments='" + attachments;
+    }
 }

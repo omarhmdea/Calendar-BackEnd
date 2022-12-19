@@ -41,6 +41,7 @@ public class NotificationService {
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
         }
+        // TODO : if it's invite we need to sent invitation only to the person that is invited
     }
 
     /**
