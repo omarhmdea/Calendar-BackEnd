@@ -3,6 +3,7 @@ package calendar.service;
 import calendar.entities.Event;
 import calendar.entities.User;
 import calendar.entities.UserEvent;
+import calendar.enums.NotificationType;
 import calendar.enums.Role;
 import calendar.enums.Status;
 import calendar.repository.EventRepository;
@@ -12,7 +13,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +30,8 @@ public class EventService {
     private UserEventRepository userEventRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private  NotificationService notificationService;
 
     /**
      * Add new event to the user's calendar
@@ -70,6 +77,7 @@ public class EventService {
         }
         acceptedEvent.get().setRole(Role.ADMIN);
         logger.debug("Set the guest as the event's admin " + acceptedEvent);
+        // TODO : sent notification - not really needed
         return userEventRepository.save(acceptedEvent.get());
     }
 
@@ -112,10 +120,10 @@ public class EventService {
      * @param eventId the id of the event to add the guest to
      * @return User event - the event id, the guest id, the guest role (guest), the guest status (tentative)
      */
-    public UserEvent addGuestToEvent(int userId, String guestToAddEmail, int eventId) {
+    public UserEvent inviteGuestToEvent(int userId, String guestToAddEmail, int eventId) {
         logger.debug("Check if there exists an event with the given event id");
         Event event = findEvent(eventId);
-        User guestToAdd = checkActionsAndGetUser(userId, guestToAddEmail, event, "add");
+        User guestToAdd = checkPermissionsAndGetUser(userId, guestToAddEmail, event, "add");
         logger.debug("Check if the guest to add is a part of the event");
         Optional<UserEvent> guestToAddInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
         if(guestToAddInEvent.isPresent()){
@@ -137,7 +145,7 @@ public class EventService {
     public User removeGuestFromEvent(int userId, String guestToRemoveEmail, int eventId){
         logger.debug("Check if there exists an event with the given event id");
         Event event = findEvent(eventId);
-        User guestToRemove = checkActionsAndGetUser(userId, guestToRemoveEmail, event, "remove");
+        User guestToRemove = checkPermissionsAndGetUser(userId, guestToRemoveEmail, event, "remove");
         logger.debug("Check if the guest to remove is a part of the event");
         Optional<UserEvent> guestToRemoveInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToRemove, event);
         if(!guestToRemoveInEvent.isPresent()){
@@ -153,7 +161,73 @@ public class EventService {
         return guestToRemove;
     }
 
-    private User checkActionsAndGetUser(int organizerOrAdminId, String guestEmail, Event event, String action){
+    /**
+     * Delete event : delete event from DB
+     * @param userId  - the user id
+     * @param deleteEvent  - the event to delete
+     * @return Deleted event
+     * @throws IllegalArgumentException when the delete event failed
+     */
+    public Event deleteEvent(int userId, int deleteEvent){
+        logger.debug("Check if the user exist in DB");
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid user id");
+        }
+        logger.debug("Check if the event exist in DB");
+        Optional<Event> dbEvent = eventRepository.findById(deleteEvent);
+        if (!dbEvent.isPresent()) {
+            throw new IllegalArgumentException("Invalid event id");
+        }
+        logger.debug("Check if the eventUser exist in DB");
+        Optional<UserEvent> acceptedEvent = userEventRepository.findUserEventsByUserAndEvent(user.get(), dbEvent.get());
+        if(!acceptedEvent.isPresent()){
+            throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
+        }
+        logger.debug("Delete the event from DB");
+        notificationService.sendNotification(dbEvent.get(), NotificationType.DELETE_EVENT);
+        userEventRepository.delete(acceptedEvent.get());
+        eventRepository.delete(dbEvent.get());
+        return dbEvent.get();
+    }
+
+    /**
+     * Get calendar : get the event calendar from DB According to month year
+     * @param userId  - the user id
+     * @param month  - the month we want to present
+     * @param year  - the year we want to present
+     * @return list event of month & year
+     * @throws IllegalArgumentException when the get calendar failed
+     */
+    public List<Event> getCalendar(int userId, int month, int year){
+        logger.debug("Check if the user exist in DB");
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            throw new IllegalArgumentException("Invalid user id");
+        }
+
+        logger.debug("Check if the eventUser exist in DB");
+        List<UserEvent> dbEventUser = userEventRepository.findByUser(user.get());
+        if (CollectionUtils.isEmpty(dbEventUser)) {
+            throw new IllegalArgumentException("Invalid user id, user doesn't exist in userEvent repository");
+        }
+
+        List<Event> userEventFromRepo = new ArrayList<>();
+        for (int i=0; i<dbEventUser.size(); i++) {
+            if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
+                    && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
+                    (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
+                            && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
+                userEventFromRepo.add(dbEventUser.get(i).getEvent());
+            }
+        }
+        logger.debug("Return events ");
+        return userEventFromRepo;
+    }
+
+    // ---------------------------------------- helper methods ----------------------------------------
+
+    private User checkPermissionsAndGetUser(int organizerOrAdminId, String guestEmail, Event event, String action){
         logger.debug("Check if there exists a user with the given id (organizer or admin)");
         User user = findUser(organizerOrAdminId);
         logger.debug("Check if the user is a part of the event");

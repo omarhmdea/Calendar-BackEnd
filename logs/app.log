@@ -10665,3 +10665,230 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'is_public' cannot be 
 2022-12-19 09:45:07,292 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
 2022-12-19 09:45:07,292 INFO    calendar.service.AuthService - Save the updated event in DB
 2022-12-19 09:45:07,307 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-19 10:24:37,331 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 10880 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-19 10:24:37,348 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-19 10:24:37,350 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-19 10:24:46,842 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-19 10:24:47,168 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 5f2e5ba7-f05d-46af-8ab4-5094ce9a87f6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-19 10:24:47,487 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 10:24:48,444 INFO    calendar.SpringApp - Started SpringApp in 12.633 seconds (JVM running for 17.244)
+2022-12-19 10:38:50,797 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 14684 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-19 10:38:50,812 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-19 10:38:50,815 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-19 10:38:57,123 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-19 10:38:57,481 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a3955aa5-470f-4a89-864c-61ed29bbac4d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-19 10:38:57,889 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 10:38:59,730 INFO    calendar.SpringApp - Started SpringApp in 9.826 seconds (JVM running for 13.826)
+2022-12-19 10:39:49,363 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 10:39:49,364 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 10:40:04,256 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 10:40:04,256 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 10:40:26,996 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:40:26,997 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:40:27,003 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:40:27,014 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:40:27,025 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 10:40:27,025 DEBUG   calendar.service.AuthService - Check if user is an admin - and if allowed to change the fields
+2022-12-19 10:40:27,027 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 10:40:27,029 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-19 10:40:27,125 ERROR   calendar.exception.ControllerAdvisor - Could not find user notification settings
+2022-12-19 10:40:27,131 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [calendar.exception.customException.NotificationNotFoundException: Could not find user notification settings]
+2022-12-19 10:46:30,919 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:46:30,920 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:46:30,929 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:46:30,935 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:46:30,941 ERROR   calendar.exception.ControllerAdvisor - The user that is trying to change the event data is not a part of the event
+2022-12-19 10:46:30,944 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [java.lang.IllegalArgumentException: The user that is trying to change the event data is not a part of the event]
+2022-12-19 10:46:55,669 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:46:55,670 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:46:55,675 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:46:55,677 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:46:55,680 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 10:46:55,680 DEBUG   calendar.service.AuthService - Check if user is an admin - and if allowed to change the fields
+2022-12-19 10:46:55,680 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 10:46:55,681 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-19 10:46:55,723 INFO    calendar.service.NotificationService - UPDATE_EVENT Notification has been sent to Eden by pop-up
+2022-12-19 10:46:55,723 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-19 10:48:12,638 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:48:12,638 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:48:12,648 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:48:12,651 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:48:12,655 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 10:48:12,655 DEBUG   calendar.service.AuthService - Check if user is an admin - and if allowed to change the fields
+2022-12-19 10:48:12,655 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 10:48:12,656 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-19 10:48:12,679 INFO    calendar.service.NotificationService - UPDATE_EVENT Notification has been sent to Eden by pop-up
+2022-12-19 10:48:12,680 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-19 10:48:37,713 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:48:37,714 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:48:37,731 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:48:37,741 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:48:37,749 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 10:48:37,750 DEBUG   calendar.service.AuthService - Check if user is an admin - and if allowed to change the fields
+2022-12-19 10:48:37,751 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 10:48:37,751 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-19 10:48:37,786 INFO    calendar.service.NotificationService - UPDATE_EVENT Notification has been sent to Eden by pop-up
+2022-12-19 10:48:37,787 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-19 10:49:38,539 DEBUG   calendar.controller.EventController - try to update event
+2022-12-19 10:49:38,540 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin) in DB
+2022-12-19 10:49:38,548 DEBUG   calendar.service.AuthService - Check if the event exist in DB
+2022-12-19 10:49:38,553 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 10:49:38,556 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 10:49:38,557 DEBUG   calendar.service.AuthService - Check if user is an admin - and if allowed to change the fields
+2022-12-19 10:49:38,557 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 10:49:38,557 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-19 10:49:40,372 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target] with root cause
+sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:141) ~[?:?]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:126) ~[?:?]
+	at java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[?:?]
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:380) ~[?:?]
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:290) ~[?:?]
+	at sun.security.validator.Validator.validate(Validator.java:264) ~[?:?]
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:343) ~[?:?]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:226) ~[?:?]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:133) ~[?:?]
+	at sun.security.ssl.ClientHandshaker.checkServerCerts(ClientHandshaker.java:1947) ~[?:?]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1777) ~[?:?]
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:264) ~[?:?]
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:1092) ~[?:?]
+	at sun.security.ssl.Handshaker.processRecord(Handshaker.java:1026) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.processInputRecord(SSLSocketImpl.java:1137) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1074) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:973) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1402) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1429) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1413) ~[?:?]
+	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at javax.mail.Service.connect(Service.java:342) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:437) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:323) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:312) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at calendar.service.EmailSenderService.sendEmail(EmailSenderService.java:25) ~[classes/:?]
+	at calendar.utilities.EmailFacade.sendEmail(EmailFacade.java:21) ~[classes/:?]
+	at calendar.service.NotificationService.sendEmail(NotificationService.java:125) ~[classes/:?]
+	at calendar.service.NotificationService.send(NotificationService.java:105) ~[classes/:?]
+	at calendar.service.NotificationService.sendNotificationToUser(NotificationService.java:69) ~[classes/:?]
+	at calendar.service.NotificationService.sendNotification(NotificationService.java:40) ~[classes/:?]
+	at calendar.controller.EventController.updateEvent(EventController.java:53) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at calendar.filter.AuthFilter.doFilterInternal(AuthFilter.java:74) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
