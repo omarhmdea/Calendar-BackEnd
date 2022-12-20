@@ -129,11 +129,13 @@ public class EventController {
      * *      the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
     @PostMapping(value = "invite/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEvent>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
-        SuccessResponse<UserEvent> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", eventService.inviteGuestToEvent(userId, email, eventId));
+    public ResponseEntity<SuccessResponse<UserEventDTO>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+        UserEventDTO userEventDTO = new UserEventDTO(eventService.inviteGuestToEvent(userId, email, eventId));
+        SuccessResponse<UserEventDTO> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", userEventDTO);
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 
+    //TODO : add userNotificationDTO
     @PutMapping(value = "settings")
     public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute int userId, @RequestBody UserNotification userNotification) {
         SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", notificationService.changeSettings(userId, userNotification));
@@ -141,14 +143,16 @@ public class EventController {
     }
 
     @PutMapping(value = "approve/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEvent>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
-        SuccessResponse<UserEvent> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", eventService.approveOrRejectInvitation(userId, eventId, Status.APPROVED));
+    public ResponseEntity<SuccessResponse<UserEventDTO>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(userId, eventId, Status.APPROVED));
+        SuccessResponse<UserEventDTO> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", userEventDTO);
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
     @PutMapping(value = "reject/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEvent>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
-        SuccessResponse<UserEvent> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED));
+    public ResponseEntity<SuccessResponse<UserEventDTO>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED));
+        SuccessResponse<UserEventDTO> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", userEventDTO);
         return ResponseEntity.ok().body(successRejectInvitation);
     }
 }
