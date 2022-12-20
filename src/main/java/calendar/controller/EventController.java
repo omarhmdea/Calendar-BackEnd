@@ -1,10 +1,7 @@
 package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.Event;
-import calendar.entities.User;
-import calendar.entities.UserEvent;
-import calendar.entities.UserNotification;
+import calendar.entities.*;
 import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
@@ -76,11 +73,6 @@ public class EventController {
         return ResponseEntity.ok().body(successResponse);
     }
 
-    @PostMapping(value = "invite/{eventId}")
-    public void invite(@RequestAttribute int userId, @PathVariable int eventId, @RequestBody String guestEmail) {
-
-    }
-
     /**
      * Get calendar : get the event calendar from DB According to month year
      *
@@ -91,9 +83,7 @@ public class EventController {
      */
     @GetMapping(value = "calendar")
     public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute int userId, @PathParam("month") int month, @PathParam("year") int year) {
-        logger.debug("try to get calendar");
-        List<Event> calendarEvent = eventService.getCalendar(userId, month, year);
-        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", calendarEvent);
+        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(userId, month, year));
         logger.info("get calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
@@ -108,8 +98,9 @@ public class EventController {
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
     @PutMapping(value = "newAdmin/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEvent>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
-        SuccessResponse<UserEvent> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventService.setGuestAsAdmin(userId, email, eventId));
+    public ResponseEntity<SuccessResponse<UserEventDTO>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+        UserEventDTO userEventDTO = new UserEventDTO(eventService.setGuestAsAdmin(userId, email, eventId));
+        SuccessResponse<UserEventDTO> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", userEventDTO);
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 
@@ -136,8 +127,8 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message,
      * *      the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
-    @PostMapping(value = "guest/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEvent>> addGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+    @PostMapping(value = "invite/{eventId}")
+    public ResponseEntity<SuccessResponse<UserEvent>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         SuccessResponse<UserEvent> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", eventService.inviteGuestToEvent(userId, email, eventId));
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
@@ -154,7 +145,7 @@ public class EventController {
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
-    @PutMapping(value = "decline/{eventId}")
+    @PutMapping(value = "reject/{eventId}")
     public ResponseEntity<SuccessResponse<UserEvent>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
         SuccessResponse<UserEvent> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED));
         return ResponseEntity.ok().body(successRejectInvitation);

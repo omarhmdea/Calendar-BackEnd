@@ -104,7 +104,7 @@ public class EventService {
      */
     public UserEvent inviteGuestToEvent(int userId, String guestToAddEmail, int eventId) {
         Event event = findEvent(eventId);
-        User guestToAdd = checkPermissionsAndGetUser(userId, guestToAddEmail, event, "add");
+        User guestToAdd = checkPermissionsAndGetGuest(userId, guestToAddEmail, event, "add");
         logger.debug("Check if the guest to add is a part of the event");
         Optional<UserEvent> guestToAddInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToAdd, event);
         if(guestToAddInEvent.isPresent()){
@@ -125,7 +125,7 @@ public class EventService {
      */
     public User removeGuestFromEvent(int userId, String guestToRemoveEmail, int eventId){
         Event event = findEvent(eventId);
-        User guestToRemove = checkPermissionsAndGetUser(userId, guestToRemoveEmail, event, "remove");
+        User guestToRemove = checkPermissionsAndGetGuest(userId, guestToRemoveEmail, event, "remove");
         logger.debug("Check if the guest to remove is a part of the event");
         Optional<UserEvent> guestToRemoveInEvent = userEventRepository.findUserEventsByUserAndEvent(guestToRemove, event);
         if(!guestToRemoveInEvent.isPresent()){
@@ -168,23 +168,45 @@ public class EventService {
      * @throws IllegalArgumentException when the get calendar failed
      */
     public List<Event> getCalendar(int userId, int month, int year){
+        logger.debug("try to get calendar");
         User user = findUser(userId);
-        List<UserEvent> dbEventUser = getUserEvents(user);
-        List<Event> userEventFromRepo = new ArrayList<>();
-        for (int i=0; i<dbEventUser.size(); i++) {
-            if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
-                    && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
-                    (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
-                            && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
-                userEventFromRepo.add(dbEventUser.get(i).getEvent());
+        List<UserEvent> userEvents = getUserEvents(user);
+        List<Event> userEventsByMothAndYear = new ArrayList<>();
+        for (UserEvent userEvent : userEvents) {
+            Event event = userEvent.getEvent();
+            if ((event.getStart().getMonth().getValue() == month && event.getStart().getYear() == year) ||
+                    (event.getEnd().getMonth().getValue() == month && event.getEnd().getYear() == year)) {
+                userEventsByMothAndYear.add(event);
             }
         }
+//       for (int i = 0 ; i < dbEventUser.size() ; i++) {
+//            if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
+//                    && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
+//                    (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
+//                            && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
+//                userEventFromRepo.add(dbEventUser.get(i).getEvent());
+//            }
+//       }
         logger.debug("Return events of user " + user.getEmail());
-        return userEventFromRepo;
+        return userEventsByMothAndYear;
     }
 
     public UserEvent approveOrRejectInvitation(int userId, int eventId, Status status){
         UserEvent userInEvent = getUserEventByGuestAndEvent(findUser(userId), findEvent(eventId), "approve or reject the invitation");
+        switch (status){
+            case APPROVED:
+                userInEvent.setStatus(Status.APPROVED);
+                break;
+            case REJECTED:
+                userInEvent.setStatus(Status.REJECTED);
+                break;
+        }
+        // TODO : send notification that user status has changed
+        return userEventRepository.save(userInEvent);
+    }
+
+    public UserEvent approveOrRejectInvitation(String email, int eventId, Status status){
+        UserEvent userInEvent = getUserEventByGuestAndEvent(findUser(email), findEvent(eventId), "approve or reject the invitation");
         switch (status){
             case APPROVED:
                 userInEvent.setStatus(Status.APPROVED);
@@ -208,7 +230,7 @@ public class EventService {
         return dbEventUser;
     }
 
-    private User checkPermissionsAndGetUser(int organizerOrAdminId, String guestEmail, Event event, String action){
+    private User checkPermissionsAndGetGuest(int organizerOrAdminId, String guestEmail, Event event, String action){
         User user = findUser(organizerOrAdminId);
         UserEvent userInEvent = getUserEventByGuestAndEvent(user, event, action);
         if(!userIsEventOrganizer(userInEvent) && !userIsEventAdmin(userInEvent)){
