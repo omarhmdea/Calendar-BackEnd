@@ -13,6 +13,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +41,7 @@ public class NotificationService {
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
         }
+        // TODO : if it's invite we need to sent invitation only to the person that is invited
     }
 
     /**
@@ -86,7 +89,6 @@ public class NotificationService {
                 }
                 break;
         }
-
     }
 
     /**
@@ -108,11 +110,9 @@ public class NotificationService {
         }
     }
 
-
     private void sendPopUp(User user, String message, NotificationType notificationType) {
 
     }
-
 
     /**
      * Helper method that send email
@@ -125,4 +125,9 @@ public class NotificationService {
         emailFacade.sendEmail(email,message,notificationType);
     }
 
+    public UserNotification changeSettings(int userId, UserNotification userNotification){
+        // TODO : check if the userNotification contains the user inside
+        // if not - need to find user by id and set it to userNotification
+        return userNotificationRepository.save(userNotification);
+    }
 }

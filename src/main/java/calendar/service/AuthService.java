@@ -1,9 +1,7 @@
 package calendar.service;
 
-import calendar.entities.LoginData;
-import calendar.entities.User;
-import calendar.entities.UserCredentials;
-import calendar.entities.UserDTO;
+import calendar.entities.*;
+import calendar.repository.UserNotificationRepository;
 import calendar.repository.UserRepository;
 import calendar.utilities.TokenGenerator;
 import org.apache.logging.log4j.LogManager;
@@ -23,6 +21,9 @@ public class AuthService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserNotificationRepository userNotificationRepository;
+
     private final Map<String, Integer> loginTokenId;
 
     public AuthService(UserRepository userRepository) {
@@ -49,7 +50,9 @@ public class AuthService {
         }
         logger.info("New user saved in the DB");
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userNotificationRepository.save(new UserNotification(savedUser));
+        return savedUser;
     }
 
     /**
