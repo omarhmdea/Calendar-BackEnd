@@ -136,6 +136,13 @@ public class EventController {
     }
 
     //TODO : add userNotificationDTO
+
+    /**
+     * Change the event data
+     * @param userId
+     * @param userNotification
+     * @return
+     */
     @PutMapping(value = "settings")
     public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute int userId, @RequestBody UserNotification userNotification) {
         SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", notificationService.changeSettings(userId, userNotification));

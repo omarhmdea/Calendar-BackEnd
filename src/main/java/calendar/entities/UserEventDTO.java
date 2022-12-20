@@ -10,13 +10,13 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class UserEventDTO {
-    private UserDTO userDTO;
+    private UserDTO user;
     private Event event;
     private Status status;
     private Role role;
 
     public UserEventDTO(UserEvent userEvent){
-        this.userDTO = new UserDTO(userEvent.getUser());
+        this.user = new UserDTO(userEvent.getUser());
         this.event = userEvent.getEvent();
         this.status = userEvent.getStatus();
         this.role = userEvent.getRole();
