@@ -113,8 +113,9 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message, the User data
      */
     @DeleteMapping(value = "guest/{eventId}")
-    public ResponseEntity<SuccessResponse<User>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
-        SuccessResponse<User> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", eventService.removeGuestFromEvent(userId, email, eventId));
+    public ResponseEntity<SuccessResponse<UserDTO>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+        UserDTO userDTO = new UserDTO(eventService.removeGuestFromEvent(userId, email, eventId));
+        SuccessResponse<UserDTO> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", userDTO);
         return ResponseEntity.ok().body(successRemoveGuestFromEvent);
     }
 
