@@ -30,8 +30,8 @@ public class EventService {
     private UserEventRepository userEventRepository;
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private  NotificationService notificationService;
+//    @Autowired
+//    private  NotificationService notificationService;
 
     /**
      * Add new event to the user's calendar
@@ -89,7 +89,7 @@ public class EventService {
             throw new IllegalArgumentException("Admin is not allowed to change one of those fields");
         }
         checkDateAndTime(updateEvent);
-        notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
+        //notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
         logger.info("Save the updated event in DB");
         return eventRepository.save(updateEvent);
     }
@@ -136,7 +136,7 @@ public class EventService {
         }
         logger.debug("Removing guest from event " + guestToRemove.toString());
         userEventRepository.delete(guestToRemoveInEvent.get());
-        notificationService.sendNotification(event, NotificationType.REMOVE_GUEST);
+//        notificationService.sendNotification(event, NotificationType.REMOVE_GUEST);
         return guestToRemove;
     }
 
@@ -151,7 +151,7 @@ public class EventService {
         User user = findUser(userId);
         Event event = findEvent(deleteEvent);
         UserEvent organizerInEvent = getUserEventByOrganizerAndEvent(user, event, "delete the event");
-        notificationService.sendNotification(event, NotificationType.DELETE_EVENT);
+        //notificationService.sendNotification(event, NotificationType.DELETE_EVENT);
         // TODO : need to delete all the userEvents where the event id = deleteEvent.getId();
         logger.debug("Delete the event from DB");
         eventRepository.delete(event);
@@ -284,18 +284,12 @@ public class EventService {
 
     private boolean userIsEventOrganizer(UserEvent userEvent){
         logger.debug("Check if the user is the organizer of the event");
-        if(userEvent.getRole() != Role.ORGANIZER){
-            return false;
-        }
-        return true;
+        return userEvent.getRole() == Role.ORGANIZER;
     }
 
     private boolean userIsEventAdmin(UserEvent userEvent){
         logger.debug("Check if the user is the admin of the event");
-        if(userEvent.getRole() != Role.ADMIN){
-            return false;
-        }
-        return true;
+        return userEvent.getRole() == Role.ADMIN;
     }
 
     private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
