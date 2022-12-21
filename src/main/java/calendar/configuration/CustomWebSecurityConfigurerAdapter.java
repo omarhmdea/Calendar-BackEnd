@@ -1,7 +1,6 @@
 package calendar.configuration;
 
 import calendar.filter.AuthFilter;
-//import calendar.filter.PermissionFilter;
 import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,12 +10,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
 public class CustomWebSecurityConfigurerAdapter {
-//    @Autowired
-//    private CorsFilter corsFilter;
 
     @Autowired
     private AuthFilter authFilter;
@@ -37,14 +36,25 @@ public class CustomWebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .cors();
         http.addFilterAfter(authFilter, BasicAuthenticationFilter.class);
-//        http.addFilterAfter(permissionFilter, AuthFilter.class);
+        //        http.addFilterAfter(permissionFilter, AuthFilter.class);
 
 
 //        http.addFilterAfter(corsFilter, BasicAuthenticationFilter.class);
 //        http.addFilterAfter(authFilter, CorsFilter.class);
- //       http.addFilterAfter(permissionFilter, AuthFilter.class);
+//        http.addFilterAfter(permissionFilter, AuthFilter.class);
 
         return http.build();
+    }
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("*");
+            }
+        };
     }
 
 }
