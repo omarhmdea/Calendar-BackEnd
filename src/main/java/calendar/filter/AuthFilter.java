@@ -24,7 +24,7 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
     AuthService authService;
 
     private final RequestMatcher uriMatcher = new AntPathRequestMatcher("/event/**");
-
+    
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if(uriMatcher.matches(request)) {
@@ -34,7 +34,8 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
                 if(user.isPresent()) {
                     request.setAttribute("userId", user.get().getId());
                     filterChain.doFilter(request, response);
-                } else {
+                }
+                else {
                     logger.error("in AuthorizationFilter -> doFilter -> Could not find a user with this token : " + token);
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                     response.getOutputStream().write(("Could not find a user with this token : " + token.substring(7)).getBytes());
