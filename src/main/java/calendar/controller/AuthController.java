@@ -35,12 +35,10 @@ public class AuthController {
     @PostMapping(value = "register")
     public ResponseEntity<SuccessResponse<UserDTO>> registerUser(@Valid @RequestBody User user) {
         logger.info(user.getEmail() + " try to register");
-
         Optional<Map<String, String>> validationErrors = Validator.validateRegister(user);
         if(validationErrors.isPresent()) {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
-
         User registerUser = authService.registerUser(user);
         SuccessResponse<UserDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful registration", new UserDTO(registerUser));
         logger.info(user.getEmail() + " Registration was made successfully");

@@ -10892,3 +10892,68 @@ sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-19 13:26:32,777 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 13480 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-19 13:26:32,789 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-19 13:26:32,790 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-19 13:26:37,748 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-19 13:26:37,956 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e801579a-9c95-4da5-b58a-30e6e4f18f6d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-19 13:26:38,134 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 13:26:38,743 INFO    calendar.SpringApp - Started SpringApp in 6.653 seconds (JVM running for 10.109)
+2022-12-19 13:31:14,536 INFO    calendar.controller.AuthController - eden@gmail.com try to register
+2022-12-19 13:31:14,538 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:31:14,538 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:31:14,538 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-19 13:31:14,651 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-19 13:31:14,813 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
+2022-12-19 13:31:20,999 INFO    calendar.controller.AuthController - shay@gmail.com try to register
+2022-12-19 13:31:20,999 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:31:20,999 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:31:20,999 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-19 13:31:21,003 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-19 13:31:21,119 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
+2022-12-19 13:31:27,687 INFO    calendar.controller.AuthController - dana@gmail.com try to register
+2022-12-19 13:31:27,687 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:31:27,687 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:31:27,687 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-19 13:31:27,690 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-19 13:31:27,785 INFO    calendar.controller.AuthController - dana@gmail.com Registration was made successfully
+2022-12-19 13:31:35,065 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:31:35,066 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:33:14,789 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-19 13:33:14,789 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-19 13:33:14,791 DEBUG   calendar.service.AuthService - Check that the organizer with id 1 exists in the db
+2022-12-19 13:33:14,834 DEBUG   calendar.service.AuthService - New event is saved : Event(id=7, isPublic=false, start=2023-12-18T08:07:38.576867, end=2023-12-18T10:07:38.576867, location=Tel Aviv, title=title, description=description, attachments=null)
+2022-12-19 13:35:49,781 ERROR   calendar.filter.AuthFilter - in AuthorizationFilter -> doFilter -> Could not find a user with this token : Bearer UX9QQ2nYWpu3iw327KDRNop-_ikJeEw1
+2022-12-19 13:36:06,037 DEBUG   calendar.service.AuthService - Check if there exists an event with the given event id
+2022-12-19 13:36:06,046 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id (organizer or admin)
+2022-12-19 13:36:06,051 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 13:36:06,060 DEBUG   calendar.service.AuthService - Check if the user is the organizer or the admin of the event
+2022-12-19 13:36:06,060 DEBUG   calendar.service.AuthService - Check if the guest to add exists in the db
+2022-12-19 13:36:06,063 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-19 13:36:06,080 DEBUG   calendar.service.AuthService - Adding user to event User(id=3, name=Shay, email=shay@gmail.com, password=$2a$10$s6Q/w2FlkdYrJS.C2lRH0.EKtNqJhBAAE68bWzjWhz2KHLW2444eK)
+2022-12-19 13:38:09,905 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:38:09,905 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:39:44,687 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 27712 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-19 13:39:44,699 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-19 13:39:44,700 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-19 13:39:49,731 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-19 13:39:49,956 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 814a1006-57d9-4073-a211-564daaf6021f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-19 13:39:50,138 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 13:39:50,786 INFO    calendar.SpringApp - Started SpringApp in 6.852 seconds (JVM running for 10.695)
+2022-12-19 13:40:35,817 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-19 13:40:35,817 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-19 13:40:48,193 DEBUG   calendar.service.AuthService - Check if the user is a part of the event
+2022-12-19 13:43:27,562 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 6, column: 2]]
+2022-12-19 13:46:47,549 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `calendar.entities.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('3'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `calendar.entities.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('3')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 3, column: 12] (through reference chain: calendar.entities.UserNotification["user"])]
+2022-12-20 00:48:15,685 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h38m46s315ms705µs200ns).
+2022-12-20 08:54:03,220 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h5m47s549ms998µs200ns).
