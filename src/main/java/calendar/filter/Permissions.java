@@ -11,7 +11,8 @@ public class Permissions {
 
     public Permissions(){
         permissions = new HashMap<>();
-        permissions.put("event/", Set.of(Role.ORGANIZER,  Role.ADMIN));
+        permissions.put("event/update", Set.of(Role.ORGANIZER,  Role.ADMIN));
+        permissions.put("", Set.of(Role.ORGANIZER));
     }
 
     public boolean get(String path, Role role){
