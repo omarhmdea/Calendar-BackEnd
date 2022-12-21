@@ -185,7 +185,7 @@ public class EventService {
             throw new IllegalArgumentException("The given new admin did not approve the event invitation - and cannot be set as admin");
         }
         logger.debug("Delete the event from DB");
-        notificationService.sendNotification(dbEvent.get(), NotificationType.DELETE_EVENT);
+        //notificationService.sendNotification(dbEvent.get(), NotificationType.DELETE_EVENT);
         userEventRepository.delete(acceptedEvent.get());
         eventRepository.delete(dbEvent.get());
         return dbEvent.get();

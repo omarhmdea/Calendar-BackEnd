@@ -24,8 +24,8 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
-    @Autowired
-    private NotificationService notificationService;
+//    @Autowired
+//    private NotificationService notificationService;
 
     /**
      * Add new event to the user's calendar
@@ -35,6 +35,7 @@ public class EventController {
      */
     @PostMapping(value = "newEvent")
     public ResponseEntity<SuccessResponse<Event>> addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent){
+        System.out.println(newEvent);
         SuccessResponse<Event> successAddNewEvent = new SuccessResponse<>(HttpStatus.OK, "Add new event successfully", eventService.addNewEvent(userId, newEvent));
         return ResponseEntity.ok().body(successAddNewEvent);
     }
@@ -50,7 +51,7 @@ public class EventController {
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId,updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
-        notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
+       // notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
@@ -66,7 +67,7 @@ public class EventController {
         logger.debug("try to delete event");
         Event deletedEvent = eventService.deleteEvent(userId, eventId);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEvent);
-        notificationService.sendNotification(deletedEvent, NotificationType.UPDATE_EVENT);
+        //notificationService.sendNotification(deletedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Deleting event was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
