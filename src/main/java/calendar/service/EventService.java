@@ -6,6 +6,7 @@ import calendar.entities.UserEvent;
 import calendar.enums.NotificationType;
 import calendar.enums.Role;
 import calendar.enums.Status;
+import calendar.exception.customException.DeletedEventException;
 import calendar.repository.EventRepository;
 import calendar.repository.UserEventRepository;
 import calendar.repository.UserRepository;
@@ -151,7 +152,11 @@ public class EventService {
         Event event = findEvent(deleteEvent);
         UserEvent organizerInEvent = getUserEventByOrganizerAndEvent(user, event, "delete the event");
         //notificationService.sendNotification(event, NotificationType.DELETE_EVENT);
+        List<UserEvent> userEvents = userEventRepository.findByEvent(event);
         // TODO : need to delete all the userEvents where the event id = deleteEvent.getId();
+        for (UserEvent userEvent: userEvents) {
+            userEventRepository.delete(userEvent);
+        }
         logger.debug("Delete the event from DB");
         eventRepository.delete(event);
         userEventRepository.delete(organizerInEvent);
@@ -172,6 +177,9 @@ public class EventService {
         List<Event> userEventsByMothAndYear = new ArrayList<>();
         for (UserEvent userEvent : userEvents) {
             Event event = userEvent.getEvent();
+            if(event.getIsDeleted()){
+                throw new DeletedEventException("The event you try to approach was deleted");
+            }
             if ((event.getStart().getMonth().getValue() == month && event.getStart().getYear() == year) ||
                     (event.getEnd().getMonth().getValue() == month && event.getEnd().getYear() == year)) {
                 userEventsByMothAndYear.add(event);
@@ -189,6 +197,9 @@ public class EventService {
         List<Event> userEventsByMothAndYear = new ArrayList<>();
         for (UserEvent userEvent : userEvents) {
             Event event = userEvent.getEvent();
+            if(event.getIsDeleted()){
+                throw new DeletedEventException("The event you try to approach was deleted");
+            }
             if ((event.getStart().getMonth().getValue() == month && event.getStart().getYear() == year && event.getIsPublic()) ||
                     (event.getEnd().getMonth().getValue() == month && event.getEnd().getYear() == year && event.getIsPublic())) {
                 userEventsByMothAndYear.add(event);

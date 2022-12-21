@@ -25,6 +25,7 @@ public class Event {
     private String title;
     private String description;
     private String attachments;
+    private  Boolean isDeleted;
 
     public String toEmailString() {
         return title + " event :\n" +
