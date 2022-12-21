@@ -85,6 +85,22 @@ public class EventController {
         logger.info("Get calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
+    /**
+     * Show calendar : get the event calendar of shareUserId from DB According to month year
+     * @param userId - the user id
+     * @param month  - the month we want to present
+     * @param year   - the year we want to present
+     * @return list event of month & year
+     */
+    @GetMapping(value = "showCalendar")
+    public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute int userId, @PathParam("month") int month,
+                                                                     @PathParam("year") int year, @PathParam("shareUserId") int shareUserId) {
+        logger.debug("try to get calendar");
+        List<Event> calendarEvent = eventService.showCalendar(shareUserId, month, year);
+        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show calendar", calendarEvent);
+        logger.info("show calendar was made successfully");
+        return ResponseEntity.ok().body(successResponse);
+    }
 
     /**
      * Set guest as admin in the given event

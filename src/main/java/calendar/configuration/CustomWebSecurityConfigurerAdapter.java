@@ -1,6 +1,7 @@
 package calendar.configuration;
 
 import calendar.filter.AuthFilter;
+import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,15 +16,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @Configuration
 public class CustomWebSecurityConfigurerAdapter {
-    //    @Autowired
-    //    private CorsFilter corsFilter;
 
     @Autowired
     private AuthFilter authFilter;
 
-    //    @Autowired
-    //    private PermissionFilter permissionFilter;
-
+//    @Autowired
+//    private PermissionFilter permissionFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -41,9 +39,9 @@ public class CustomWebSecurityConfigurerAdapter {
         //        http.addFilterAfter(permissionFilter, AuthFilter.class);
 
 
-        //        http.addFilterAfter(corsFilter, BasicAuthenticationFilter.class);
-        //        http.addFilterAfter(authFilter, CorsFilter.class);
-        //        http.addFilterAfter(permissionFilter, AuthFilter.class);
+//        http.addFilterAfter(corsFilter, BasicAuthenticationFilter.class);
+//        http.addFilterAfter(authFilter, CorsFilter.class);
+//        http.addFilterAfter(permissionFilter, AuthFilter.class);
 
         return http.build();
     }
