@@ -179,14 +179,24 @@ public class EventService {
                 userEventsByMothAndYear.add(event);
             }
         }
-//       for (int i = 0 ; i < dbEventUser.size() ; i++) {
-//            if ((dbEventUser.get(i).getEvent().getStart().getMonth().getValue() == month
-//                    && dbEventUser.get(i).getEvent().getStart().getYear() == year) ||
-//                    (dbEventUser.get(i).getEvent().getEnd().getMonth().getValue() == month
-//                            && dbEventUser.get(i).getEvent().getEnd().getYear() == year)) {
-//                userEventFromRepo.add(dbEventUser.get(i).getEvent());
-//            }
-//       }
+
+        logger.debug("Return events of user " + user.getEmail());
+        return userEventsByMothAndYear;
+    }
+
+    public List<Event> showCalendar(int userId, int month, int year){
+        logger.debug("try to get calendar");
+        User user = findUser(userId);
+        List<UserEvent> userEvents = getUserEvents(user);
+        List<Event> userEventsByMothAndYear = new ArrayList<>();
+        for (UserEvent userEvent : userEvents) {
+            Event event = userEvent.getEvent();
+            if ((event.getStart().getMonth().getValue() == month && event.getStart().getYear() == year && event.getIsPublic()) ||
+                    (event.getEnd().getMonth().getValue() == month && event.getEnd().getYear() == year && event.getIsPublic())) {
+                userEventsByMothAndYear.add(event);
+            }
+        }
+
         logger.debug("Return events of user " + user.getEmail());
         return userEventsByMothAndYear;
     }

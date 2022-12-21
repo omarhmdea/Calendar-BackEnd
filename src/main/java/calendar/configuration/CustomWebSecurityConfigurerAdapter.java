@@ -1,6 +1,7 @@
 package calendar.configuration;
 
 import calendar.filter.AuthFilter;
+//import calendar.filter.PermissionFilter;
 import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +42,7 @@ public class CustomWebSecurityConfigurerAdapter {
 
 //        http.addFilterAfter(corsFilter, BasicAuthenticationFilter.class);
 //        http.addFilterAfter(authFilter, CorsFilter.class);
-//        http.addFilterAfter(permissionFilter, AuthFilter.class);
+ //       http.addFilterAfter(permissionFilter, AuthFilter.class);
 
         return http.build();
     }
