@@ -58,7 +58,6 @@ public class EventController {
 
     /**
      * Delete event : delete event from DB
-     *
      * @param userId  - the user id
      * @param eventId - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
@@ -75,7 +74,6 @@ public class EventController {
 
     /**
      * Get calendar : get the event calendar from DB According to month year
-     *
      * @param userId - the user id
      * @param month  - the month we want to present
      * @param year   - the year we want to present
@@ -90,7 +88,6 @@ public class EventController {
 
     /**
      * Set guest as admin in the given event
-     *
      * @param userId  the user that created the event
      * @param eventId the event to set new admin to
      * @param email   the email of the guest that the organizer wants to set as admin
@@ -126,7 +123,7 @@ public class EventController {
      * @param eventId the id of the event to add the guest to
      * @param email   the email of the guest to add
      * @return a SuccessResponse - OK status, a message,
-     * *      the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
     @PostMapping(value = "invite/{eventId}")
     public ResponseEntity<SuccessResponse<UserEventDTO>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
