@@ -25,7 +25,6 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
 
     private final RequestMatcher uriMatcher = new AntPathRequestMatcher("/event/**");
 
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if(uriMatcher.matches(request)) {
@@ -50,7 +49,6 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
             }
         }
     }
-
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {

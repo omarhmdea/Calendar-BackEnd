@@ -50,15 +50,15 @@ public class AuthController {
      * @param userCredentials - email, password
      * @return a SuccessResponse - OK status, a message, the login data - user's DTO and the generated token
      */
-    @PostMapping(value = "loginEmail")
+    @PostMapping(value = "login/email")
     public ResponseEntity<SuccessResponse<LoginData>> login(@RequestBody UserCredentials userCredentials){
         Optional<Map<String, String>> validationErrors = Validator.validateLogin(userCredentials);
         if(validationErrors.isPresent()) {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
-
         LoginData loginData = authService.login(userCredentials);
         SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginData);
+        logger.info(loginData.getUser().getEmail() + " login was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
 }

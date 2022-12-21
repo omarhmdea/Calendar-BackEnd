@@ -10957,3 +10957,54 @@ This generated password is for development use only. Your security configuration
 2022-12-19 13:46:47,549 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `calendar.entities.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('3'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `calendar.entities.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('3')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 3, column: 12] (through reference chain: calendar.entities.UserNotification["user"])]
 2022-12-20 00:48:15,685 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h38m46s315ms705µs200ns).
 2022-12-20 08:54:03,220 WARN    com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h5m47s549ms998µs200ns).
+2022-12-21 10:38:28,540 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 33944 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-21 10:38:28,550 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-21 10:38:28,551 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-21 10:38:31,157 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 37776 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-21 10:38:31,165 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-21 10:38:31,168 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-21 10:38:35,706 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-21 10:38:35,944 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f3c4c1f0-e9c2-42cb-8a1c-52378262e7ec
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-21 10:38:36,203 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-21 10:38:37,317 INFO    calendar.SpringApp - Started SpringApp in 9.66 seconds (JVM running for 12.1)
+2022-12-21 10:38:37,940 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-21 10:38:38,254 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3101110e-dcce-4202-b09c-df4c0f515438
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-21 10:38:38,531 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-21 10:38:39,421 WARN    org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-12-21 10:38:39,464 WARN    org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-12-21 10:38:39,597 ERROR   org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-12-21 10:39:02,361 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 12604 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-21 10:39:02,369 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-21 10:39:02,369 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-21 10:39:07,899 DEBUG   calendar.filter.AuthFilter - Filter 'authFilter' configured for use
+2022-12-21 10:39:08,130 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 8aeee45a-f722-4dc4-980a-d9dbbf3e73d5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-21 10:39:08,390 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-21 10:39:09,252 INFO    calendar.SpringApp - Started SpringApp in 7.475 seconds (JVM running for 9.61)
