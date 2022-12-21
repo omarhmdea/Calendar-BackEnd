@@ -19,6 +19,7 @@ public class UserNotification {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
     private boolean isPopUp = true;
+//    private boolean email = false;
     private boolean newEvent = false;
     private boolean statusChanged = false;
     private boolean dataChanged = false;

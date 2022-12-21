@@ -40,7 +40,6 @@ public class EventService {
      * @return the new event after it was saved in the db
      */
     public Event addNewEvent(int organizerId, Event newEvent){
-        logger.debug("Try to add new event");
         checkDateAndTime(newEvent);
         Event savedEvent = eventRepository.save(newEvent);
         logger.debug("New event is saved : " + savedEvent.toString());
@@ -168,7 +167,6 @@ public class EventService {
      * @throws IllegalArgumentException when the get calendar failed
      */
     public List<Event> getCalendar(int userId, int month, int year){
-        logger.debug("try to get calendar");
         User user = findUser(userId);
         List<UserEvent> userEvents = getUserEvents(user);
         List<Event> userEventsByMothAndYear = new ArrayList<>();

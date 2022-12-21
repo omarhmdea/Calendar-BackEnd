@@ -50,7 +50,6 @@ public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
         }
     }
 
-
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         RequestMatcher matcher = new NegatedRequestMatcher(uriMatcher);
