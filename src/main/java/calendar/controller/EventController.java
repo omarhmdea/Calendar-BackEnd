@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.websocket.server.PathParam;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/event")
 public class EventController {
+
     private static final Logger logger = LogManager.getLogger(EventController.class.getName());
 
     @Autowired
@@ -25,8 +27,10 @@ public class EventController {
     @Autowired
     private NotificationService notificationService;
 
+
     /**
      * Add new event to the user's calendar
+     *
      * @param userId   the user that is trying to create the event
      * @param newEvent the new event data
      * @return a SuccessResponse - OK status, a message, the new event data
@@ -39,25 +43,28 @@ public class EventController {
         return ResponseEntity.ok().body(successAddNewEvent);
     }
 
+
     /**
      * Update event : update event data for admin & organizer
-     * @param userId      - the user id
+     *
      * @param updateEvent - the update event
      * @return successResponse with updated data,Message,HttpStatus
      */
     @PutMapping(value = "update/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute int userId, @RequestBody Event updateEvent, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventDTO updateEvent) {
         // TODO : check in filter if userId is admin / organizer
         logger.debug("try to update event");
-        Event updatedEvent = eventService.updateEvent(userId, updateEvent);
+        Event updatedEvent = eventService.updateEvent(user, event, updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
         //notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
 
+
     /**
      * Delete event : delete event from DB
+     *
      * @param userId  - the user id
      * @param eventId - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
@@ -73,8 +80,10 @@ public class EventController {
         return ResponseEntity.ok().body(successResponse);
     }
 
+
     /**
      * Get calendar : get the event calendar from DB According to month year
+     *
      * @param userId - the user id
      * @param month  - the month we want to present
      * @param year   - the year we want to present
@@ -88,8 +97,10 @@ public class EventController {
         return ResponseEntity.ok().body(successResponse);
     }
 
+
     /**
      * Show calendar : get the event calendar of shareUserId from DB According to month year
+     *
      * @param userId - the user id
      * @param month  - the month we want to present
      * @param year   - the year we want to present
@@ -105,8 +116,10 @@ public class EventController {
         return ResponseEntity.ok().body(successResponse);
     }
 
+
     /**
      * Set guest as admin in the given event
+     *
      * @param userId  the user that created the event
      * @param eventId the event to set new admin to
      * @param email   the email of the guest that the organizer wants to set as admin
@@ -122,6 +135,7 @@ public class EventController {
         logger.info("Set admin was made successfully");
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
+
 
     /**
      * Remove new guest to an existing event
@@ -140,16 +154,18 @@ public class EventController {
         return ResponseEntity.ok().body(successRemoveGuestFromEvent);
     }
 
+
     /**
      * Add new guest to an existing event
+     *
      * @param userId  the id of the user that is trying to perform the action
      * @param eventId the id of the event to add the guest to
      * @param email   the email of the guest to add
      * @return a SuccessResponse - OK status, a message,
-     *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     * the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
     @PostMapping(value = "guest/invite/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<Event>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to invite a guest");
         Event event = eventService.inviteGuestToEvent(userId, email, eventId);
         SuccessResponse<Event> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", event);
@@ -157,9 +173,11 @@ public class EventController {
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 
+
     /**
-     * Change the user's nitification settings
-     * @param userId the user that is trying to change it's notification settings
+     * Change the user's notification settings
+     *
+     * @param userId           the user that is trying to change its notification settings
      * @param userNotification
      * @return a SuccessResponse - OK status, a message, the user notification settings
      */
@@ -172,12 +190,14 @@ public class EventController {
         return ResponseEntity.ok().body(successChangeSettings);
     }
 
+
     /**
      * A user approved an event invitation
-     * @param userId the user that approved the invitation
+     *
+     * @param userId  the user that approved the invitation
      * @param eventId the event that is related to the invitation
      * @return a SuccessResponse - OK status, a message,
-     *      the User event data - event id, new admin id, the guest role, the guest status (approved)
+     * the User event data - event id, new admin id, the guest role, the guest status (approved)
      */
     @PutMapping(value = "approve/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
@@ -188,12 +208,14 @@ public class EventController {
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
+
     /**
      * A user rejected an event invitation
-     * @param userId the user that rejected the invitation
+     *
+     * @param userId  the user that rejected the invitation
      * @param eventId the event that is related to the invitation
      * @return a SuccessResponse - OK status, a message,
-     *      the User event data - event id, new admin id, the guest role, the guest status (rejected)
+     * the User event data - event id, new admin id, the guest role, the guest status (rejected)
      */
     @PutMapping(value = "reject/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
