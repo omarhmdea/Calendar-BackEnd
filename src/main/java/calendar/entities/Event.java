@@ -26,8 +26,9 @@ public class Event {
     private String description;
     private String attachments;
     private  Boolean isDeleted;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UserEvent> users = new ArrayList<>();
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User organizer;
