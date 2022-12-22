@@ -1,11 +1,11 @@
 package calendar.entities;
 
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,6 +26,11 @@ public class Event {
     private String description;
     private String attachments;
     private  Boolean isDeleted;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserEvent> users = new ArrayList<>();
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User organizer;
 
     public String toEmailString() {
         return title + " event :\n" +
@@ -34,5 +39,15 @@ public class Event {
                 "\nWe'll meet at " + location +
                 "\n to "+ description +
                 "\n\nAattachments='" + attachments;
+    }
+
+    public UserEvent addUserEvent(UserEvent userEvent){
+        this.users.add(userEvent);
+        return userEvent;
+    }
+
+    public UserEvent removeUserEvent(UserEvent userEvent){
+        this.users.remove(userEvent);
+        return userEvent;
     }
 }
