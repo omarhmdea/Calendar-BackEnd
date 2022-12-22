@@ -1,0 +1,93 @@
+package calendar.configuration;
+
+
+import calendar.filter.AuthFilter;
+import calendar.filter.CorsFilter;
+import calendar.filter.PermissionFilter;
+import calendar.repository.EventRepository;
+import calendar.service.AuthService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+
+@Configuration
+public class FilterConfig {
+    public static final Logger logger = LogManager.getLogger(FilterConfig.class);
+
+    @Autowired
+    private AuthService authService;
+    @Autowired
+    private EventRepository eventRepository;
+
+    /**
+     * this method is used to register the cors filter
+     *
+     * @return FilterRegistrationBean<CorsFilter>
+     */
+    @Bean
+    public FilterRegistrationBean<CorsFilter> corsFilterBean() {
+        logger.info("Cors FilterBean has been created");
+
+        FilterRegistrationBean<CorsFilter> registrationBean = new FilterRegistrationBean<>();
+        CorsFilter corsFilter = new CorsFilter();
+
+        registrationBean.setFilter(corsFilter);
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setOrder(1);
+
+        return registrationBean;
+    }
+    /**
+     * his method is used to register the token filter
+     * the token filter initialized with the auth service
+     * the token filter is running first in the filter chain
+     *
+     * @return FilterRegistrationBean<TokenFilter>
+     */
+    @Bean
+    public FilterRegistrationBean<AuthFilter> AuthFilterBean() {
+        logger.info("Auth Filter has been created");
+
+        FilterRegistrationBean<AuthFilter> registrationBean = new FilterRegistrationBean<>();
+        AuthFilter authFilter = new AuthFilter(authService);
+
+        registrationBean.setFilter(authFilter);
+        registrationBean.addUrlPatterns("/event/create", "/event/update/*", "/event/calendar", "/event/showCalendar",
+                                        "/event/guest/assign/*", "/event/guest/delete/*", "/event/guest/invite/*", "/event/settings",
+                                        "/event/delete/*");
+        registrationBean.setOrder(2);
+
+        return registrationBean;
+    }
+    /**
+     * his method is used to register the token filter
+     * the token filter initialized with the auth service
+     * the token filter is running first in the filter chain
+     *
+     * @return FilterRegistrationBean<TokenFilter>
+     */
+    @Bean
+    public FilterRegistrationBean<PermissionFilter> PermissionFilterBean() {
+        logger.info("Permission Filter Bean has been created");
+
+        FilterRegistrationBean<PermissionFilter> registrationBean = new FilterRegistrationBean<>();
+        PermissionFilter permissionFilter = new PermissionFilter(eventRepository);
+
+        registrationBean.setFilter(permissionFilter);
+        registrationBean.addUrlPatterns("/event/update/*", "/event/delete/*", "/event/guest/assign/*", "/event/guest/delete/*",
+                                        "/event/guest/invite/*");
+        registrationBean.setOrder(3);
+
+        return registrationBean;
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring()
+                .antMatchers("/**");
+    }
+}

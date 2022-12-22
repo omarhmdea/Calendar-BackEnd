@@ -1,11 +1,11 @@
 package calendar.service;
 
 import calendar.entities.Event;
+import calendar.entities.EventDTO;
 import calendar.entities.User;
 import calendar.entities.UserEvent;
 import calendar.enums.Role;
 import calendar.enums.Status;
-import calendar.exception.customException.DeletedEventException;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
@@ -65,26 +65,23 @@ public class EventService {
         return  eventRepository.save(event);
     }
 
-    /**
-     * Update event : update event data for admin & organizer
-     * @param userId  - the user id
-     * @param updateEvent  - the update event
-     * @return event with updated data
-     * @throws IllegalArgumentException when the Update event failed
-     */
-    public Event updateEvent(int userId, Event updateEvent){
-        User user = findUser(userId);
-        Event event = findEvent(updateEvent.getId());
-        if(!userIsEventOrganizer(event, user)){
-            UserEvent userInEvent = getUserEvent(event, user);
-            if (userIsEventAdmin(userInEvent) && isFieldsAdminCanNotChange(event, updateEvent)) {
-                throw new IllegalArgumentException("Admin is not allowed to change one of those fields");
-            }
-        }
-        checkDateAndTime(updateEvent);
+    public Event updateEvent(User user, Event originalEvent, EventDTO updatedEvent){
+//        Event originalEvent = eventRepository.findEventsById(eventId).get();
+        checkDateAndTime(updatedEvent);
         //notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
         logger.info("Save the updated event in DB");
-        return eventRepository.save(updateEvent);
+        return eventRepository.save(update(originalEvent, updatedEvent));
+    }
+
+    private Event update(Event originalEvent, EventDTO updatedEvent){
+        originalEvent.setIsPublic(updatedEvent.getIsPublic());
+        originalEvent.setStart(updatedEvent.getStart());
+        originalEvent.setEnd(updatedEvent.getEnd());
+        originalEvent.setLocation(updatedEvent.getLocation());
+        originalEvent.setTitle(updatedEvent.getTitle());
+        originalEvent.setDescription(updatedEvent.getDescription());
+        originalEvent.setAttachments(updatedEvent.getAttachments());
+        return originalEvent;
     }
 
     /**
@@ -276,6 +273,12 @@ public class EventService {
         return event.get();
     }
 
+    private void checkDateAndTime(EventDTO event){
+        logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
+        if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
+            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed or an end time that is previous to start time");
+        }
+    }
     private void checkDateAndTime(Event event){
         logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
         if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
@@ -293,7 +296,7 @@ public class EventService {
         return userEvent.getRole() == Role.ADMIN;
     }
 
-    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
+    private boolean isFieldsAdminCanNotChange(Event dbEvent, EventDTO updatedEvent) {
         logger.debug("Check if the admin is allowed to change the given fields");
         return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
                 !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||

@@ -2,57 +2,54 @@ package calendar.filter;
 
 import calendar.entities.User;
 import calendar.service.AuthService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
+public class AuthFilter implements Filter {
 
-@Component
-public class AuthFilter extends OncePerRequestFilter { // GenericFilterBean
+    public static final Logger logger = LogManager.getLogger(AuthFilter.class);
 
-    @Autowired
-    AuthService authService;
+    private AuthService authService;
 
-    private final RequestMatcher uriMatcher = new AntPathRequestMatcher("/event/**");
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if(uriMatcher.matches(request)) {
-            String token = request.getHeader("authorization");
-            if(token != null) {
-                Optional<User> user = authService.findByToken(token.substring(7));
-                if(user.isPresent()) {
-                    request.setAttribute("userId", user.get().getId());
-                    filterChain.doFilter(request, response);
-                }
-                else {
-                    logger.error("in AuthorizationFilter -> doFilter -> Could not find a user with this token : " + token);
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.getOutputStream().write(("Could not find a user with this token : " + token.substring(7)).getBytes());
-                }
-            }
-            else {
-                logger.error("in AuthorizationFilter -> doFilter -> Could not find a token in the request");
-                response.setStatus(400);
-                response.getOutputStream().write("ExceptionMessage.WRONG_SEARCH.toString()".getBytes());
-                return;
-            }
+    public AuthFilter(AuthService authService) {
+        this.authService = authService;
+    }
+
+
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        logger.info("Auth filter is working on the following request: " + servletRequest);
+
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        HttpServletResponse res = (HttpServletResponse) servletResponse;
+
+        String token = req.getHeader("authorization");
+        Optional<User> user = authService.findByToken(token.substring(7));
+        if(user.isPresent()) {
+            req.setAttribute("user", user.get());
+            filterChain.doFilter(req, res);
         }
+        else {
+            logger.error("Could not find a user with this token : " + token);
+            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            res.getOutputStream().write(("Could not find a user with this token : " + token.substring(7)).getBytes());
+            //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Could not find a user with this token : " + token.substring(7));
+        }
+
+        //TODO Need to check
+        //filterChain.doFilter(req, res);
     }
 
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        RequestMatcher matcher = new NegatedRequestMatcher(uriMatcher);
-        return matcher.matches(request);
-    }
+
+    public void init(FilterConfig filterConfig) {}
+
+
+    public void destroy() {}
+
 }
