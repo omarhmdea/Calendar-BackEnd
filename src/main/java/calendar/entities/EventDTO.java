@@ -1,13 +1,13 @@
 package calendar.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 public class EventDTO {
     private int id;

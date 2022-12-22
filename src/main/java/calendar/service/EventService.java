@@ -43,14 +43,13 @@ public class EventService {
     /**
      *
      * @param user
-     * @param originalEventId
+     * @param originalEvent
      * @param updatedEvent
      * @return
      */
-    public Event updateEvent(User user, int originalEventId, EventDTO updatedEvent){
+    public Event updateEvent(User user, Event originalEvent, EventDTO updatedEvent){
         checkDateAndTime(updatedEvent);
         // notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
-        Event originalEvent = eventRepository.findEventsById(originalEventId).get();
         logger.info("Save the updated event in DB");
         return eventRepository.save(update(originalEvent, updatedEvent));
     }
@@ -67,14 +66,28 @@ public class EventService {
     }
 
     /**
+     * Delete event : delete event from DB
+     * @param userId  - the user id
+     * @param deleteEvent  - the event to delete
+     * @return Deleted event
+     * @throws IllegalArgumentException when the delete event failed
+     */
+    public Event deleteEvent(int userId, int deleteEvent){
+        User user = findUser(userId);
+        Event event = findEvent(deleteEvent);
+        logger.debug("Delete the event from DB");
+        event.setIsDeleted(true);
+        return eventRepository.save(event);
+    }
+
+    /**
      * Set guest as admin in the given event
      * @param organizer- the user that created the event
      * @param newAdminEmail - the email of the guest that the organizer wants to set as admin
-     * @param eventId - the event to set new admin to
+     * @param event - the event to set new admin to
      * @return The event
      */
-    public Event setGuestAsAdmin(User organizer, String newAdminEmail, int eventId){
-        Event event = findEvent(eventId);
+    public Event setGuestAsAdmin(User organizer, String newAdminEmail, Event event){
         User newAdmin = findUser(newAdminEmail);
         logger.debug("Check if the new admin approved the invitation");
         UserEvent adminInEvent = getUserEvent(event, newAdmin);
@@ -138,20 +151,7 @@ public class EventService {
         return guestToRemove;
     }
 
-    /**
-     * Delete event : delete event from DB
-     * @param userId  - the user id
-     * @param deleteEvent  - the event to delete
-     * @return Deleted event
-     * @throws IllegalArgumentException when the delete event failed
-     */
-    public Event deleteEvent(int userId, int deleteEvent){
-        User user = findUser(userId);
-        Event event = findEvent(deleteEvent);
-        logger.debug("Delete the event from DB");
-        event.setIsDeleted(true);
-        return eventRepository.save(event);
-    }
+
 
     /**
      * Get calendar : get the event calendar from DB According to month year

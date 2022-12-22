@@ -48,10 +48,10 @@ public class EventController {
      * @return successResponse with updated data,Message,HttpStatus
      */
     @PutMapping(value = "update/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute User user, @PathVariable int eventId, @RequestBody EventDTO updateEvent) {
+    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventDTO updateEvent) {
         // TODO : check in filter if userId is admin / organizer
         logger.debug("try to update event");
-        Event updatedEvent = eventService.updateEvent(user, eventId, updateEvent);
+        Event updatedEvent = eventService.updateEvent(user, event, updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
         //notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Updating was made successfully");
@@ -61,17 +61,17 @@ public class EventController {
     /**
      * Set guest as admin in the given event
      * @param user  the user that created the event
-     * @param eventId the event to set new admin to
+     * @param event the event to set new admin to
      * @param email   the email of the guest that the organizer wants to set as admin
      * @return a SuccessResponse - OK status, a message,
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
-    @PutMapping(value = "admin/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> setGuestAsAdmin(@RequestAttribute User user, @PathVariable int eventId, @PathParam("email") String email) {
+    @PutMapping(value = "guest/assign/{eventId}")
+    public ResponseEntity<SuccessResponse<EventDTO>> setGuestAsAdmin(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
         // TODO : check in filter if userId is  organizer
         logger.debug("Try to set guest as admin");
-        Event event = eventService.setGuestAsAdmin(user, email, eventId);
-        SuccessResponse<Event> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", event);
+        EventDTO eventDTO = new EventDTO(eventService.setGuestAsAdmin(user, email, event));
+        SuccessResponse<EventDTO> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventDTO);
         logger.info("Set admin was made successfully");
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
@@ -82,7 +82,7 @@ public class EventController {
      * @param eventId - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
      */
-    @DeleteMapping(value = "{eventId}")
+    @DeleteMapping(value = "delete/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int eventId) {
         // TODO : check in filter if userId is organizer
         logger.debug("try to delete event");
@@ -125,8 +125,6 @@ public class EventController {
         return ResponseEntity.ok().body(successResponse);
     }
 
-
-
     /**
      * Remove new guest to an existing event
      * @param userId  the id of the user that is trying to perform the action
@@ -134,7 +132,7 @@ public class EventController {
      * @param email   the email of the guest to remove
      * @return a SuccessResponse - OK status, a message, the User data
      */
-    @DeleteMapping(value = "guest/{eventId}")
+    @DeleteMapping(value = "guest/delete/{eventId}")
     public ResponseEntity<SuccessResponse<UserDTO>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to remove a guest");
         UserDTO userDTO = new UserDTO(eventService.removeGuestFromEvent(userId, email, eventId));
@@ -151,7 +149,7 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message,
      *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
-    @PostMapping(value = "invite/{eventId}")
+    @PostMapping(value = "guest/invite/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to invite a guest");
         Event event = eventService.inviteGuestToEvent(userId, email, eventId);
@@ -161,7 +159,7 @@ public class EventController {
     }
 
     /**
-     * Change the user's nitification settings
+     * Change the user's notification settings
      * @param userId the user that is trying to change it's notification settings
      * @param userNotification
      * @return a SuccessResponse - OK status, a message, the user notification settings
