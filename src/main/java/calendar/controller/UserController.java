@@ -1,11 +1,9 @@
 package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.UserEvent;
-import calendar.entities.UserEventDTO;
+import calendar.entities.Event;
 import calendar.enums.Status;
 import calendar.service.EventService;
-import calendar.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,16 +28,16 @@ public class UserController {
     }
 
     @PutMapping(value = "approve/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED));
-        SuccessResponse<UserEventDTO> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", userEventDTO);
+    public ResponseEntity<SuccessResponse<Event>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+        Event event = eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED);
+        SuccessResponse<Event> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", event);
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
     @PutMapping(value = "reject/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.REJECTED));
-        SuccessResponse<UserEventDTO> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", userEventDTO);
+    public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+        Event event = eventService.approveOrRejectInvitation(email, eventId, Status.REJECTED);
+        SuccessResponse<Event> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", event);
         return ResponseEntity.ok().body(successRejectInvitation);
     }
 }

@@ -47,6 +47,7 @@ public class EventController {
      */
     @PutMapping(value = "update/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute int userId, @RequestBody Event updateEvent, @PathVariable int eventId) {
+        // TODO : check in filter if userId is admin / organizer
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId, updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
@@ -63,6 +64,7 @@ public class EventController {
      */
     @DeleteMapping(value = "delete/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int eventId) {
+        // TODO : check in filter if userId is organizer
         logger.debug("try to delete event");
         Event deletedEvent = eventService.deleteEvent(userId, eventId);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEvent);
@@ -80,11 +82,12 @@ public class EventController {
      */
     @GetMapping(value = "calendar")
     public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute int userId, @PathParam("month") int month, @PathParam("year") int year) {
-        logger.debug("Try to get calendar");
+        logger.debug("Try to get my events by month and year");
         SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(userId, month, year));
         logger.info("Get calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
+
     /**
      * Show calendar : get the event calendar of shareUserId from DB According to month year
      * @param userId - the user id
@@ -95,7 +98,7 @@ public class EventController {
     @GetMapping(value = "showCalendar")
     public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute int userId, @PathParam("month") int month,
                                                                      @PathParam("year") int year, @PathParam("shareUserId") int shareUserId) {
-        logger.debug("try to get calendar");
+        logger.debug("Try to get calendar of user " + shareUserId);
         List<Event> calendarEvent = eventService.showCalendar(shareUserId, month, year);
         SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show calendar", calendarEvent);
         logger.info("show calendar was made successfully");
@@ -111,10 +114,11 @@ public class EventController {
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
     @PutMapping(value = "guest/assign/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<Event>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+        // TODO : check in filter if userId is  organizer
         logger.debug("Try to set guest as admin");
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.setGuestAsAdmin(userId, email, eventId));
-        SuccessResponse<UserEventDTO> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", userEventDTO);
+        Event event = eventService.setGuestAsAdmin(userId, email, eventId);
+        SuccessResponse<Event> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", event);
         logger.info("Set admin was made successfully");
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
@@ -147,8 +151,8 @@ public class EventController {
     @PostMapping(value = "guest/invite/{eventId}")
     public ResponseEntity<SuccessResponse<UserEventDTO>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to invite a guest");
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.inviteGuestToEvent(userId, email, eventId));
-        SuccessResponse<UserEventDTO> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", userEventDTO);
+        Event event = eventService.inviteGuestToEvent(userId, email, eventId);
+        SuccessResponse<Event> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", event);
         logger.info("Invite a guest was made successfully");
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
@@ -176,10 +180,10 @@ public class EventController {
      *      the User event data - event id, new admin id, the guest role, the guest status (approved)
      */
     @PutMapping(value = "approve/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
         logger.debug("Try to approve invitation");
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(userId, eventId, Status.APPROVED));
-        SuccessResponse<UserEventDTO> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", userEventDTO);
+        Event event = eventService.approveOrRejectInvitation(userId, eventId, Status.APPROVED);
+        SuccessResponse<Event> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", event);
         logger.info("Approve invitation was made successfully");
         return ResponseEntity.ok().body(successApproveInvitation);
     }
@@ -192,10 +196,10 @@ public class EventController {
      *      the User event data - event id, new admin id, the guest role, the guest status (rejected)
      */
     @PutMapping(value = "reject/{eventId}")
-    public ResponseEntity<SuccessResponse<UserEventDTO>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
         logger.debug("Try to reject invitation");
-        UserEventDTO userEventDTO = new UserEventDTO(eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED));
-        SuccessResponse<UserEventDTO> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", userEventDTO);
+        Event event = eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED);
+        SuccessResponse<Event> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", event);
         logger.info("Reject invitation was made successfully");
         return ResponseEntity.ok().body(successRejectInvitation);
     }

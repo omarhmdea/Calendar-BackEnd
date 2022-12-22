@@ -6,7 +6,7 @@ import calendar.entities.UserEvent;
 import calendar.entities.UserNotification;
 import calendar.enums.NotificationType;
 import calendar.exception.customException.NotificationNotFoundException;
-import calendar.repository.UserEventRepository;
+import calendar.repository.EventRepository;
 import calendar.repository.UserNotificationRepository;
 import calendar.utilities.EmailFacade;
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class NotificationService {
     @Autowired
     private EmailFacade emailFacade;
     @Autowired
-    private UserEventRepository userEventRepository;
+    private EventRepository eventRepository;
 
 
     /**
@@ -37,7 +38,7 @@ public class NotificationService {
      * @param notificationType - notificationType enum
      */
     public void sendNotification(Event event, NotificationType notificationType) {
-        List<UserEvent> userEventList = userEventRepository.findByEvent(event);
+        List<UserEvent> userEventList = event.getUsers();
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
         }
