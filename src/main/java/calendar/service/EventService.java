@@ -1,11 +1,11 @@
 package calendar.service;
 
 import calendar.entities.Event;
+import calendar.entities.EventDTO;
 import calendar.entities.User;
 import calendar.entities.UserEvent;
 import calendar.enums.Role;
 import calendar.enums.Status;
-import calendar.exception.customException.DeletedEventException;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
@@ -29,28 +29,52 @@ public class EventService {
 
     /**
      * Add new event to the user's calendar
-     * @param organizerId - the user that is trying to create the event
+     * @param organizer - the user that is trying to create the event
      * @param newEvent - the new event data
      * @return the new event after it was saved in the db
      */
-    public Event addNewEvent(int organizerId, Event newEvent){
+    public Event addNewEvent(User organizer, Event newEvent){
         checkDateAndTime(newEvent);
-        User organizer = findUser(organizerId);
         newEvent.setOrganizer(organizer);
         logger.debug("New event is saved : " + newEvent.toString());
         return eventRepository.save(newEvent);
     }
 
     /**
+     *
+     * @param user
+     * @param originalEventId
+     * @param updatedEvent
+     * @return
+     */
+    public Event updateEvent(User user, int originalEventId, EventDTO updatedEvent){
+        checkDateAndTime(updatedEvent);
+        // notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
+        Event originalEvent = eventRepository.findEventsById(originalEventId).get();
+        logger.info("Save the updated event in DB");
+        return eventRepository.save(update(originalEvent, updatedEvent));
+    }
+
+    private Event update(Event originalEvent, EventDTO updatedEvent){
+        originalEvent.setIsPublic(updatedEvent.getIsPublic());
+        originalEvent.setStart(updatedEvent.getStart());
+        originalEvent.setEnd(updatedEvent.getEnd());
+        originalEvent.setLocation(updatedEvent.getLocation());
+        originalEvent.setTitle(updatedEvent.getTitle());
+        originalEvent.setDescription(updatedEvent.getDescription());
+        originalEvent.setAttachments(updatedEvent.getAttachments());
+        return originalEvent;
+    }
+
+    /**
      * Set guest as admin in the given event
-     * @param organizerId - the user that created the event
+     * @param organizer- the user that created the event
      * @param newAdminEmail - the email of the guest that the organizer wants to set as admin
      * @param eventId - the event to set new admin to
      * @return The event
      */
-    public Event setGuestAsAdmin(int organizerId, String newAdminEmail, int eventId){
+    public Event setGuestAsAdmin(User organizer, String newAdminEmail, int eventId){
         Event event = findEvent(eventId);
-        // User organizer = findUser(organizerId);
         User newAdmin = findUser(newAdminEmail);
         logger.debug("Check if the new admin approved the invitation");
         UserEvent adminInEvent = getUserEvent(event, newAdmin);
@@ -63,28 +87,6 @@ public class EventService {
         logger.debug("Set the guest as the event's admin");
         // TODO : sent notification - not really needed
         return  eventRepository.save(event);
-    }
-
-    /**
-     * Update event : update event data for admin & organizer
-     * @param userId  - the user id
-     * @param updateEvent  - the update event
-     * @return event with updated data
-     * @throws IllegalArgumentException when the Update event failed
-     */
-    public Event updateEvent(int userId, Event updateEvent){
-        User user = findUser(userId);
-        Event event = findEvent(updateEvent.getId());
-        if(!userIsEventOrganizer(event, user)){
-            UserEvent userInEvent = getUserEvent(event, user);
-            if (userIsEventAdmin(userInEvent) && isFieldsAdminCanNotChange(event, updateEvent)) {
-                throw new IllegalArgumentException("Admin is not allowed to change one of those fields");
-            }
-        }
-        checkDateAndTime(updateEvent);
-        //notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
-        logger.info("Save the updated event in DB");
-        return eventRepository.save(updateEvent);
     }
 
     /**
@@ -283,6 +285,13 @@ public class EventService {
         }
     }
 
+    private void checkDateAndTime(EventDTO event){
+        logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
+        if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
+            throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed or an end time that is previous to start time");
+        }
+    }
+
     private boolean userIsEventOrganizer(Event event, User user){
         logger.debug("Check if the user is the organizer of the event");
         return event.getOrganizer().equals(user);
@@ -293,10 +302,10 @@ public class EventService {
         return userEvent.getRole() == Role.ADMIN;
     }
 
-    private boolean isFieldsAdminCanNotChange(Event dbEvent, Event updatedEvent) {
+    private boolean isFieldsAdminCanNotChange(Event originalEvent, EventDTO updatedEvent) {
         logger.debug("Check if the admin is allowed to change the given fields");
-        return (!updatedEvent.getStart().equals(dbEvent.getStart())  ) ||
-                !updatedEvent.getEnd().equals(dbEvent.getEnd()) ||
-                !updatedEvent.getTitle().equals(dbEvent.getTitle());
+        return (!updatedEvent.getStart().equals(originalEvent.getStart())  ) ||
+                !updatedEvent.getEnd().equals(originalEvent.getEnd()) ||
+                !updatedEvent.getTitle().equals(originalEvent.getTitle());
     }
 }

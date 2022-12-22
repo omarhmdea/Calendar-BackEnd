@@ -18,6 +18,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private Boolean isPublic;
     private LocalDateTime start;
     private LocalDateTime end;
@@ -26,8 +27,10 @@ public class Event {
     private String description;
     private String attachments;
     private  Boolean isDeleted;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserEvent> users = new ArrayList<>();
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User organizer;
@@ -38,7 +41,7 @@ public class Event {
                 "\n and ends at " + end +
                 "\nWe'll meet at " + location +
                 "\n to "+ description +
-                "\n\nAattachments='" + attachments;
+                "\n\nAttachments='" + attachments;
     }
 
     public UserEvent addUserEvent(UserEvent userEvent){

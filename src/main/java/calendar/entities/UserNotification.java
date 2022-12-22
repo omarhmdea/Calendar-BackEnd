@@ -18,6 +18,7 @@ public class UserNotification {
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     private boolean isPopUp = true;
 //    private boolean email = false;
     private boolean newEvent = false;
