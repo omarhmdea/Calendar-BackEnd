@@ -31,7 +31,7 @@ public class EventController {
      * @param newEvent the new event data
      * @return a SuccessResponse - OK status, a message, the new event data
      */
-    @PostMapping()
+    @PostMapping(value = "create")
     public ResponseEntity<SuccessResponse<Event>> addNewEvent(@RequestAttribute int userId, @RequestBody Event newEvent) {
         logger.debug("Try to add new event event");
         SuccessResponse<Event> successAddNewEvent = new SuccessResponse<>(HttpStatus.OK, "Add new event successfully", eventService.addNewEvent(userId, newEvent));
@@ -45,8 +45,8 @@ public class EventController {
      * @param updateEvent - the update event
      * @return successResponse with updated data,Message,HttpStatus
      */
-    @PutMapping(value = "update")
-    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute int userId, @RequestBody Event updateEvent) {
+    @PutMapping(value = "update/{eventId}")
+    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute int userId, @RequestBody Event updateEvent, @PathVariable int eventId) {
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(userId, updateEvent);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEvent);
@@ -61,7 +61,7 @@ public class EventController {
      * @param eventId - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
      */
-    @DeleteMapping(value = "{eventId}")
+    @DeleteMapping(value = "delete/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int eventId) {
         logger.debug("try to delete event");
         Event deletedEvent = eventService.deleteEvent(userId, eventId);
@@ -110,7 +110,7 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message,
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
-    @PutMapping(value = "admin/{eventId}")
+    @PutMapping(value = "guest/assign/{eventId}")
     public ResponseEntity<SuccessResponse<UserEventDTO>> setGuestAsAdmin(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to set guest as admin");
         UserEventDTO userEventDTO = new UserEventDTO(eventService.setGuestAsAdmin(userId, email, eventId));
@@ -127,7 +127,7 @@ public class EventController {
      * @param email   the email of the guest to remove
      * @return a SuccessResponse - OK status, a message, the User data
      */
-    @DeleteMapping(value = "guest/{eventId}")
+    @DeleteMapping(value = "guest/delete/{eventId}")
     public ResponseEntity<SuccessResponse<UserDTO>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to remove a guest");
         UserDTO userDTO = new UserDTO(eventService.removeGuestFromEvent(userId, email, eventId));
@@ -144,7 +144,7 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message,
      *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
-    @PostMapping(value = "invite/{eventId}")
+    @PostMapping(value = "guest/invite/{eventId}")
     public ResponseEntity<SuccessResponse<UserEventDTO>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
         logger.debug("Try to invite a guest");
         UserEventDTO userEventDTO = new UserEventDTO(eventService.inviteGuestToEvent(userId, email, eventId));
