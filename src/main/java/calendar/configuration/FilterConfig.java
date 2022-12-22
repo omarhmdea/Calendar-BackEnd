@@ -4,8 +4,8 @@ package calendar.configuration;
 import calendar.filter.AuthFilter;
 import calendar.filter.CorsFilter;
 import calendar.filter.PermissionFilter;
+import calendar.repository.EventRepository;
 import calendar.service.AuthService;
-import calendar.service.UserEventService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class FilterConfig {
     @Autowired
     private AuthService authService;
     @Autowired
-    private UserEventService userEventService;
+    private EventRepository eventRepository;
 
     /**
      * this method is used to register the cors filter
@@ -75,7 +75,7 @@ public class FilterConfig {
         logger.info("Permission Filter Bean has been created");
 
         FilterRegistrationBean<PermissionFilter> registrationBean = new FilterRegistrationBean<>();
-        PermissionFilter permissionFilter = new PermissionFilter(userEventService);
+        PermissionFilter permissionFilter = new PermissionFilter(eventRepository);
 
         registrationBean.setFilter(permissionFilter);
         registrationBean.addUrlPatterns("/event/update/*", "/event/delete/*", "/event/guest/assign/*", "/event/guest/delete/*",

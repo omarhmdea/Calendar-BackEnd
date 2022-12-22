@@ -1,12 +1,12 @@
 package calendar.filter;
 
+import calendar.entities.Event;
+import calendar.entities.User;
 import calendar.entities.UserEvent;
 import calendar.enums.Role;
-import calendar.service.UserEventService;
+import calendar.repository.EventRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +20,11 @@ public class PermissionFilter implements Filter {
 
     public static final Logger logger = LogManager.getLogger(PermissionFilter.class);
 
-    private UserEventService userEventService;
+    private EventRepository eventRepository;
 
-    public PermissionFilter(UserEventService userEventService) {
-        this.userEventService = userEventService;
+
+    public PermissionFilter(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
 
@@ -31,6 +32,7 @@ public class PermissionFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
     }
+
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -43,41 +45,50 @@ public class PermissionFilter implements Filter {
 
         String url = req.getRequestURI();
         String[] splintedUrl = url.split("/");
+        int eventId = Integer.parseInt(splintedUrl[splintedUrl.length - 1]);
 
-        int eventId = Integer.parseInt(splintedUrl[splintedUrl.length -1]);
-        int userId = (int) req.getAttribute("userId");
+        User user = (User) req.getAttribute("user");
+        Optional<Event> event = eventRepository.findEventsById(eventId);
+
+        if(event.isPresent()) {
+            if(event.get().getOrganizer().equals(user)) {
+                req.setAttribute("event", event.get());
+                filterChain.doFilter(req, res);
+                return;
+            }
+        }
+        else {
+            res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            res.getOutputStream().write("Invalid event id".getBytes());
+        }
 
 
-        Optional<UserEvent> userEvent = userEventService.findUserEventByUserIdAndEventId(userId, eventId);
+        Optional<UserEvent> userEvent = event.get().getUsers().stream().filter(userEvent1 -> userEvent1.getUser().equals(user)).findFirst();
+
         if(userEvent.isPresent()) {
             Role userRole = userEvent.get().getRole();
-            if(userRole == Role.ORGANIZER) {
-                req.setAttribute("role", userRole);
-                filterChain.doFilter(req, res);
-            }
-            else if(userRole == Role.ADMIN) {
+            if(userRole == Role.ADMIN) {
                 if(Arrays.asList(listOfAdminPermissions).contains(url)) {
-                    req.setAttribute("role", userRole);
+                    req.setAttribute("event", event.get());
                     filterChain.doFilter(req, res);
+                    return;
                 }
                 else {
                     res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                     res.getOutputStream().write("Admin is not allowed to change one of those fields".getBytes());
-                    //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Admin is not allowed to change one of those fields");
                 }
             }
             else {
                 res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 res.getOutputStream().write("The given user is not the organizer or the admin of the event".getBytes());
-                //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "The given user is not the organizer or the admin of the event");
             }
         }
         else {
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             res.getOutputStream().write("The given user is not a part of this event in the DB".getBytes());
-            //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "The given user is not a part of this event in the DB");
         }
     }
+
 
     @Override
     public void destroy() {
