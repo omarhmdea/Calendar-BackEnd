@@ -29,6 +29,4 @@ public class EventDTO {
         this.description = event.getDescription();
         this.attachments = event.getAttachments();
     }
-
-
 }

@@ -18,6 +18,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private Boolean isPublic;
     private LocalDateTime start;
     private LocalDateTime end;
@@ -26,6 +27,7 @@ public class Event {
     private String description;
     private String attachments;
     private  Boolean isDeleted;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UserEvent> users = new ArrayList<>();
 
@@ -39,16 +41,14 @@ public class Event {
                 "\n and ends at " + end +
                 "\nWe'll meet at " + location +
                 "\n to "+ description +
-                "\n\nAattachments='" + attachments;
+                "\n\nAttachments='" + attachments;
     }
 
-    public UserEvent addUserEvent(UserEvent userEvent){
+    public void addUserEvent(UserEvent userEvent){
         this.users.add(userEvent);
-        return userEvent;
     }
 
-    public UserEvent removeUserEvent(UserEvent userEvent){
+    public void removeUserEvent(UserEvent userEvent){
         this.users.remove(userEvent);
-        return userEvent;
     }
 }

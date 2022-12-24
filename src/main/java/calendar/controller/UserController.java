@@ -21,12 +21,7 @@ public class UserController {
 
     @Autowired
     private EventService eventService;
-
-    @GetMapping(value = "stam")
-    public String stam(@RequestAttribute int userId) {
-        return "I'am in stam func and i pass auth filter";
-    }
-
+    
     @PutMapping(value = "approve/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
         Event event = eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED);

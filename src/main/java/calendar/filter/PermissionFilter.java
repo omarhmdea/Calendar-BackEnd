@@ -22,17 +22,14 @@ public class PermissionFilter implements Filter {
 
     private EventRepository eventRepository;
 
-
     public PermissionFilter(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
-
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
     }
-
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -61,7 +58,6 @@ public class PermissionFilter implements Filter {
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             res.getOutputStream().write("Invalid event id".getBytes());
         }
-
 
         Optional<UserEvent> userEvent = event.get().getUsers().stream().filter(userEvent1 -> userEvent1.getUser().equals(user)).findFirst();
 
