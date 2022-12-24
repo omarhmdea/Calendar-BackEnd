@@ -29,7 +29,7 @@ public class Event {
     private  Boolean isDeleted;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<UserEvent> users = new ArrayList<>();
+    private List<UserEvent> guests = new ArrayList<>();
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -45,10 +45,10 @@ public class Event {
     }
 
     public void addUserEvent(UserEvent userEvent){
-        this.users.add(userEvent);
+        this.guests.add(userEvent);
     }
 
     public void removeUserEvent(UserEvent userEvent){
-        this.users.remove(userEvent);
+        this.guests.remove(userEvent);
     }
 }

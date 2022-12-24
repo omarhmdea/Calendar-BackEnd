@@ -34,7 +34,7 @@ public class NotificationService {
      * @param notificationType - notificationType enum
      */
     public void sendNotification(Event event, NotificationType notificationType) {
-        List<UserEvent> userEventList = event.getUsers();
+        List<UserEvent> userEventList = event.getGuests();
         for(UserEvent userEvent: userEventList) {
             sendNotificationToUser(userEvent.getUser(), event, notificationType);
         }

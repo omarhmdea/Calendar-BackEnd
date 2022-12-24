@@ -50,7 +50,7 @@ public class EventController {
      * @return successResponse with updated data,Message,HttpStatus
      */
     @PutMapping(value = "update/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventDTO updateEvent) {
+    public ResponseEntity<SuccessResponse<Event>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventCredentials updateEvent) {
         // TODO : check in filter if userId is admin / organizer
         logger.debug("try to update event");
         Event updatedEvent = eventService.updateEvent(user, event, updateEvent);
@@ -128,20 +128,20 @@ public class EventController {
         return ResponseEntity.ok().body(successRemoveGuestFromEvent);
     }
 
-    /**
-     * Get calendar (events) by month and year
-     * @param user - the user id
-     * @param month  - the month we want to present
-     * @param year   - the year we want to present
-     * @return list event of month & year
-     */
-    @GetMapping(value = "calendar")
-    public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute User user, @PathParam("month") int month, @PathParam("year") int year) {
-        logger.debug("Try to get my events by month and year");
-        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(user, month, year));
-        logger.info("Get calendar was made successfully");
-        return ResponseEntity.ok().body(successResponse);
-    }
+//    /**
+//     * Get calendar (events) by month and year
+//     * @param user - the user id
+//     * @param month  - the month we want to present
+//     * @param year   - the year we want to present
+//     * @return list event of month & year
+//     */
+//    @GetMapping(value = "calendar")
+//    public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute User user, @PathParam("month") int month, @PathParam("year") int year) {
+//        logger.debug("Try to get my events by month and year");
+//        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(user, month, year));
+//        logger.info("Get calendar was made successfully");
+//        return ResponseEntity.ok().body(successResponse);
+//    }
 
     /**
      * Get calendar (events) of a different user by month and year
@@ -150,11 +150,11 @@ public class EventController {
      * @param year   - the year we want to present
      * @return list event of month & year
      */
-    @GetMapping(value = "showCalendar")
-    public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute User user, @PathParam("month") int month,
-                                                                     @PathParam("year") int year, @PathParam("shareUserId") int shareUserId) {
-        logger.debug("Try to get calendar of user " + shareUserId);
-        List<Event> calendarEvent = eventService.showCalendar(shareUserId, month, year);
+    // TODO : in filter check userId and return the userToShowCalendar
+    @GetMapping(value = "showCalendar/{userId}")
+    public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute User user, @RequestAttribute User userToShowCalendar, @PathParam("month") int month, @PathParam("year") int year) {
+        logger.debug("Try to get calendar of user " + userToShowCalendar.getId());
+        List<Event> calendarEvent = eventService.showCalendar(user, userToShowCalendar, month, year);
         SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show other user calendar", calendarEvent);
         logger.info("show calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
@@ -217,5 +217,14 @@ public class EventController {
         SuccessResponse<UserDTO> successShareCalendar = new SuccessResponse<>(HttpStatus.OK, "Shared calendar successfully", userDTO);
         logger.info("Remove a guest was made successfully");
         return ResponseEntity.ok().body(successShareCalendar);
+    }
+
+    @GetMapping(value = "myCalendars")
+    public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user){
+        logger.debug("Try to get my shared calendars list");
+        List<UserDTO> sharedCalendars = eventService.getSharedCalendars(user);
+        SuccessResponse<List<UserDTO>> successSharedCalendars = new SuccessResponse<>(HttpStatus.OK, "Shared calendar successfully", sharedCalendars);
+        logger.info("Remove a guest was made successfully");
+        return ResponseEntity.ok().body(successSharedCalendars);
     }
 }

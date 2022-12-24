@@ -3,15 +3,13 @@ package calendar.entities;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class EventDTO {
+public class EventCredentials {
     private int id;
     private Boolean isPublic;
     private LocalDateTime start;
@@ -20,10 +18,8 @@ public class EventDTO {
     private String title;
     private String description;
     private String attachments;
-    private UserDTO organizer;
-    private List<UserEventDTO> guests;
 
-    public EventDTO(Event event){
+    public EventCredentials(Event event){
         this.id = event.getId();
         this.isPublic = event.getIsPublic();
         this.start = event.getStart();
@@ -32,11 +28,5 @@ public class EventDTO {
         this.title = event.getTitle();
         this.description = event.getDescription();
         this.attachments = event.getAttachments();
-        this.organizer = new UserDTO(event.getOrganizer());
-        this.guests = convertGuests(event.getGuests());
-    }
-
-    private List<UserEventDTO> convertGuests(List<UserEvent> userEvents){
-        return userEvents.stream().map(userEvent -> new UserEventDTO(userEvent)).collect(Collectors.toList());
     }
 }

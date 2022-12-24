@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,4 +27,12 @@ public class User {
     private String email;
 
     private String password;
+
+    // ????
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<UserDTO> shared = new ArrayList<>();
+
+    public void addToShared(User user){
+        shared.add(new UserDTO(user));
+    }
 }
