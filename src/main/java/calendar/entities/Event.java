@@ -44,13 +44,11 @@ public class Event {
                 "\n\nAttachments='" + attachments;
     }
 
-    public UserEvent addUserEvent(UserEvent userEvent){
+    public void addUserEvent(UserEvent userEvent){
         this.users.add(userEvent);
-        return userEvent;
     }
 
-    public UserEvent removeUserEvent(UserEvent userEvent){
+    public void removeUserEvent(UserEvent userEvent){
         this.users.remove(userEvent);
-        return userEvent;
     }
 }

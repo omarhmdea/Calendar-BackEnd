@@ -26,6 +26,8 @@ public class EventController {
     private NotificationService notificationService;
 
     // TODO : eventDTO - holds everything but the userEvent list - so we cant see the user's password
+    //  shold we return event or event DTO? because in the front we want guests list. maybe do eventToSho that holds userDTO list
+    //  maybe do a method that return the guests list by event
 
     /**
      * Add new event to the user's calendar
@@ -42,7 +44,7 @@ public class EventController {
     }
 
     /**
-     * Update event : update event data for admin & organizer
+     * Update event data by admin & organizer
      * @param user the user that is trying to update the event
      * @param updateEvent - the update event
      * @return successResponse with updated data,Message,HttpStatus
@@ -67,26 +69,26 @@ public class EventController {
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
     @PutMapping(value = "guest/assign/{eventId}")
-    public ResponseEntity<SuccessResponse<EventDTO>> setGuestAsAdmin(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<Event>> setGuestAsAdmin(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
         // TODO : check in filter if userId is  organizer
         logger.debug("Try to set guest as admin");
-        EventDTO eventDTO = new EventDTO(eventService.setGuestAsAdmin(user, email, event));
-        SuccessResponse<EventDTO> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventDTO);
+        Event eventDTO = eventService.setGuestAsAdmin(user, email, event);
+        SuccessResponse<Event> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", eventDTO);
         logger.info("Set admin was made successfully");
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 
     /**
-     * Delete event : delete event from DB
-     * @param userId  - the user id
-     * @param eventId - the event to delete
+     * Delete event from DB
+     * @param user  - the user id
+     * @param event - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
      */
     @DeleteMapping(value = "delete/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute int userId, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> deleteEvent(@RequestAttribute User user, @RequestAttribute Event event) {
         // TODO : check in filter if userId is organizer
         logger.debug("try to delete event");
-        Event deletedEvent = eventService.deleteEvent(userId, eventId);
+        Event deletedEvent = eventService.deleteEvent(user, event);
         SuccessResponse<Event> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEvent);
         //notificationService.sendNotification(deletedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Deleting event was made successfully");
@@ -94,114 +96,126 @@ public class EventController {
     }
 
     /**
-     * Get calendar : get the event calendar from DB According to month year
-     * @param userId - the user id
-     * @param month  - the month we want to present
-     * @param year   - the year we want to present
-     * @return list event of month & year
+     * Add new guest to an existing event
+     * @param user  the id of the user that is trying to perform the action
+     * @param event the id of the event to add the guest to
+     * @param email   the email of the guest to add
+     * @return a SuccessResponse - OK status, a message,
+     *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
-    @GetMapping(value = "calendar")
-    public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute int userId, @PathParam("month") int month, @PathParam("year") int year) {
-        logger.debug("Try to get my events by month and year");
-        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(userId, month, year));
-        logger.info("Get calendar was made successfully");
-        return ResponseEntity.ok().body(successResponse);
+    @PostMapping(value = "guest/invite/{eventId}")
+    public ResponseEntity<SuccessResponse<Event>> inviteGuestToEvent(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
+        logger.debug("Try to invite a guest");
+        Event event1 = eventService.inviteGuestToEvent(user, email, event);
+        SuccessResponse<Event> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", event1);
+        logger.info("Invite a guest was made successfully");
+        return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 
     /**
-     * Show calendar : get the event calendar of shareUserId from DB According to month year
-     * @param userId - the user id
-     * @param month  - the month we want to present
-     * @param year   - the year we want to present
-     * @return list event of month & year
-     */
-    @GetMapping(value = "showCalendar")
-    public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute int userId, @PathParam("month") int month,
-                                                                     @PathParam("year") int year, @PathParam("shareUserId") int shareUserId) {
-        logger.debug("Try to get calendar of user " + shareUserId);
-        List<Event> calendarEvent = eventService.showCalendar(shareUserId, month, year);
-        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show calendar", calendarEvent);
-        logger.info("show calendar was made successfully");
-        return ResponseEntity.ok().body(successResponse);
-    }
-
-    /**
-     * Remove new guest to an existing event
-     * @param userId  the id of the user that is trying to perform the action
-     * @param eventId the id of the event to remove the guest to
+     * Remove guest from an existing event
+     * @param user  the id of the user that is trying to perform the action
+     * @param event the id of the event to remove the guest to
      * @param email   the email of the guest to remove
      * @return a SuccessResponse - OK status, a message, the User data
      */
     @DeleteMapping(value = "guest/delete/{eventId}")
-    public ResponseEntity<SuccessResponse<UserDTO>> removeGuestFromEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<UserDTO>> removeGuestFromEvent(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
         logger.debug("Try to remove a guest");
-        UserDTO userDTO = new UserDTO(eventService.removeGuestFromEvent(userId, email, eventId));
+        UserDTO userDTO = new UserDTO(eventService.removeGuestFromEvent(user, email, event));
         SuccessResponse<UserDTO> successRemoveGuestFromEvent = new SuccessResponse<>(HttpStatus.OK, "Removed guest successfully", userDTO);
         logger.info("Remove a guest was made successfully");
         return ResponseEntity.ok().body(successRemoveGuestFromEvent);
     }
 
     /**
-     * Add new guest to an existing event
-     * @param userId  the id of the user that is trying to perform the action
-     * @param eventId the id of the event to add the guest to
-     * @param email   the email of the guest to add
-     * @return a SuccessResponse - OK status, a message,
-     *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     * Get calendar (events) by month and year
+     * @param user - the user id
+     * @param month  - the month we want to present
+     * @param year   - the year we want to present
+     * @return list event of month & year
      */
-    @PostMapping(value = "guest/invite/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> inviteGuestToEvent(@RequestAttribute int userId, @PathVariable int eventId, @PathParam("email") String email) {
-        logger.debug("Try to invite a guest");
-        Event event = eventService.inviteGuestToEvent(userId, email, eventId);
-        SuccessResponse<Event> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", event);
-        logger.info("Invite a guest was made successfully");
-        return ResponseEntity.ok().body(successAddGuestToEvent);
+    @GetMapping(value = "calendar")
+    public ResponseEntity<SuccessResponse<List<Event>>> getCalendar(@RequestAttribute User user, @PathParam("month") int month, @PathParam("year") int year) {
+        logger.debug("Try to get my events by month and year");
+        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful get calendar", eventService.getCalendar(user, month, year));
+        logger.info("Get calendar was made successfully");
+        return ResponseEntity.ok().body(successResponse);
     }
 
     /**
-     * Change the user's notification settings
-     * @param userId the user that is trying to change it's notification settings
-     * @param userNotification
-     * @return a SuccessResponse - OK status, a message, the user notification settings
+     * Get calendar (events) of a different user by month and year
+     * @param user - the user id
+     * @param month  - the month we want to present
+     * @param year   - the year we want to present
+     * @return list event of month & year
      */
-    @PutMapping(value = "settings")
-    public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute int userId, @RequestBody UserNotification userNotification) {
-        logger.debug("Try to change notification settings");
-        //TODO : add userNotificationDTO
-        SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", notificationService.changeSettings(userId, userNotification));
-        logger.info("Change notification settings was made successfully");
-        return ResponseEntity.ok().body(successChangeSettings);
+    @GetMapping(value = "showCalendar")
+    public ResponseEntity<SuccessResponse<List<Event>>> showCalendar(@RequestAttribute User user, @PathParam("month") int month,
+                                                                     @PathParam("year") int year, @PathParam("shareUserId") int shareUserId) {
+        logger.debug("Try to get calendar of user " + shareUserId);
+        List<Event> calendarEvent = eventService.showCalendar(shareUserId, month, year);
+        SuccessResponse<List<Event>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show other user calendar", calendarEvent);
+        logger.info("show calendar was made successfully");
+        return ResponseEntity.ok().body(successResponse);
     }
 
     /**
      * A user approved an event invitation
-     * @param userId the user that approved the invitation
-     * @param eventId the event that is related to the invitation
+     * @param user the user that approved the invitation
+     * @param event the event that is related to the invitation
      * @return a SuccessResponse - OK status, a message,
      *      the User event data - event id, new admin id, the guest role, the guest status (approved)
      */
     @PutMapping(value = "approve/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> approveInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> approveInvitation(@RequestAttribute User user, @RequestAttribute Event event) {
         logger.debug("Try to approve invitation");
-        Event event = eventService.approveOrRejectInvitation(userId, eventId, Status.APPROVED);
-        SuccessResponse<Event> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", event);
+        Event event1 = eventService.approveOrRejectInvitation(user, event, Status.APPROVED);
+        SuccessResponse<Event> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", event1);
         logger.info("Approve invitation was made successfully");
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
     /**
      * A user rejected an event invitation
-     * @param userId the user that rejected the invitation
-     * @param eventId the event that is related to the invitation
+     * @param user the user that rejected the invitation
+     * @param event the event that is related to the invitation
      * @return a SuccessResponse - OK status, a message,
      *      the User event data - event id, new admin id, the guest role, the guest status (rejected)
      */
     @PutMapping(value = "reject/{eventId}")
-    public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@RequestAttribute int userId, @PathVariable int eventId) {
+    public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@RequestAttribute User user, @RequestAttribute Event event) {
         logger.debug("Try to reject invitation");
-        Event event = eventService.approveOrRejectInvitation(userId, eventId, Status.REJECTED);
-        SuccessResponse<Event> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", event);
+        Event event1 = eventService.approveOrRejectInvitation(user, event, Status.REJECTED);
+        SuccessResponse<Event> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", event1);
         logger.info("Reject invitation was made successfully");
         return ResponseEntity.ok().body(successRejectInvitation);
+    }
+
+    /**
+     * Change the user's notification settings
+     * @param user the user that is trying to change it's notification settings
+     * @param userNotification
+     * @return a SuccessResponse - OK status, a message, the user notification settings
+     */
+    @PutMapping(value = "settings")
+    public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute User user, @RequestBody UserNotification userNotification) {
+        logger.debug("Try to change notification settings");
+        //TODO : add userNotificationDTO
+        UserNotification userNotification1 = notificationService.changeSettings(user, userNotification);
+        SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotification1);
+        logger.info("Change notification settings was made successfully");
+        return ResponseEntity.ok().body(successChangeSettings);
+    }
+
+    // TODO : shareCalendar - we need to add to user a list of users he can view their calendar -
+    //  and when we do show calendar check if the user that is trying to see has the permission to view the other user calendar
+    @PutMapping(value = "share")
+    public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email){
+        logger.debug("Try to share my calendar to someone else");
+        UserDTO userDTO = new UserDTO(eventService.shareCalendar(user, email));
+        SuccessResponse<UserDTO> successShareCalendar = new SuccessResponse<>(HttpStatus.OK, "Shared calendar successfully", userDTO);
+        logger.info("Remove a guest was made successfully");
+        return ResponseEntity.ok().body(successShareCalendar);
     }
 }
