@@ -4,8 +4,7 @@ import lombok.*;
 import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
@@ -30,9 +29,12 @@ public class User {
 
     // ????
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<UserDTO> shared = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name="shared_calendars", joinColumns=@JoinColumn(name="user_id"))
+    @Column(name="can_view")
+    private Set<Integer> shared = new HashSet<>();
 
     public void addToShared(User user){
-        shared.add(new UserDTO(user));
+        shared.add(user.getId());
     }
 }

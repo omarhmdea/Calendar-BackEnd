@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class EventService {
@@ -216,9 +217,13 @@ public class EventService {
     }
 
     public List<UserDTO> getSharedCalendars(User user){
-        List<UserDTO> calendars = user.getShared();
-        calendars.add(0, new UserDTO(user));
-        return calendars;
+        Set<Integer> usersId = user.getShared();
+        List<UserDTO> shredCalendars = new ArrayList<>();
+        shredCalendars.add(new UserDTO(user));
+        for(Integer id: usersId){
+            shredCalendars.add(new UserDTO(findUser(id)));
+        }
+        return shredCalendars;
     }
 
     // ---------------------------------------- helper methods ----------------------------------------
