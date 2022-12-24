@@ -27,7 +27,6 @@ public class UserController {
         return "I'am in stam func and i pass auth filter";
     }
 
-    // TODO : do we get the event here?
     @PutMapping(value = "approve/{eventId}")
     public ResponseEntity<SuccessResponse<Event>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
         Event event = eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED);
@@ -36,7 +35,6 @@ public class UserController {
     }
 
     @PutMapping(value = "reject/{eventId}")
-    // TODO : do we get the event here?
     public ResponseEntity<SuccessResponse<Event>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
         Event event = eventService.approveOrRejectInvitation(email, eventId, Status.REJECTED);
         SuccessResponse<Event> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", event);
