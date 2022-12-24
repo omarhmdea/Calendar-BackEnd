@@ -209,7 +209,7 @@ public class EventService {
     // TODO : maybe the list should be of user dto? so in the front you can present their name
     public User shareCalendar(User user, String userToShareToEmail){
         User userToShare = findUser(userToShareToEmail);
-        // userToShare.addToShared(user.getId());
+        // TODO : userToShare.addToShared(user.getId());
         return userToShare;
     }
 
