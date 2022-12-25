@@ -32,7 +32,9 @@ public class AuthFilter implements Filter {
         String token = req.getHeader("authorization");
         Optional<User> user = authService.findByToken(token.substring(7));
         if(user.isPresent()) {
+            System.out.println("inside");
             req.setAttribute("user", user.get());
+            System.out.println("uotside" + user);
             filterChain.doFilter(req, res);
         }
         else {

@@ -1,6 +1,9 @@
 package calendar.service;
 
 import calendar.entities.*;
+import calendar.entities.Credentials.UserCredentials;
+import calendar.entities.DTO.LoginDTO;
+import calendar.entities.DTO.UserDTO;
 import calendar.repository.UserNotificationRepository;
 import calendar.repository.UserRepository;
 import calendar.utilities.TokenGenerator;
@@ -60,7 +63,7 @@ public class AuthService {
      * @param userCredentials - email , password
      * @return Login data - user's DTO and the generated token
      */
-    public LoginData login (UserCredentials userCredentials){
+    public LoginDTO login (UserCredentials userCredentials){
         Optional<User> user = userRepository.findByEmail(userCredentials.getEmail());
         if(!user.isPresent()){
             throw new IllegalArgumentException("Invalid email");
@@ -70,7 +73,7 @@ public class AuthService {
         }
         String token = TokenGenerator.generateNewToken();
         loginTokenId.put(token ,user.get().getId());
-        return new LoginData(new UserDTO(user.get()), token);
+        return new LoginDTO(new UserDTO(user.get()), token);
     }
 
     /**

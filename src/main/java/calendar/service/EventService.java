@@ -1,6 +1,8 @@
 package calendar.service;
 
 import calendar.entities.*;
+import calendar.entities.Credentials.EventCredentials;
+import calendar.entities.DTO.UserDTO;
 import calendar.enums.Role;
 import calendar.enums.Status;
 import calendar.repository.EventRepository;
@@ -32,6 +34,7 @@ public class EventService {
      * @return the new event after it was saved in the db
      */
     public Event addNewEvent(User organizer, Event newEvent){
+        logger.debug("Try to add new event");
         checkDateAndTime(newEvent);
         newEvent.setOrganizer(organizer);
         logger.debug("New event is saved : " + newEvent.toString());
@@ -46,6 +49,7 @@ public class EventService {
      * @return
      */
     public Event updateEvent(User user, Event originalEvent, EventCredentials updatedEvent){
+        logger.debug("Try to update event");
         checkDateAndTime(updatedEvent);
         // notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
         logger.info("Save the updated event in DB");
@@ -71,6 +75,7 @@ public class EventService {
      * @return The event
      */
     public Event setGuestAsAdmin(User organizer, String newAdminEmail, Event event){
+        logger.debug("Try to set guest as admin");
         User newAdmin = findUser(newAdminEmail);
         logger.debug("Check if the new admin approved the invitation");
         UserEvent adminInEvent = getUserEvent(event, newAdmin);
@@ -168,8 +173,9 @@ public class EventService {
         return userEventsByMothAndYear;
     }
 
-    public List<Event> showCalendar(User user, User userToShowCalendar, int month, int year){
-        logger.debug("Try to get calendar of user " + userToShowCalendar.getId());
+    public List<Event> showCalendar(User user, int userToShowCalendarId, int month, int year){
+        logger.debug("Try to get calendar of user " + userToShowCalendarId);
+        User userToShowCalendar = findUser(userToShowCalendarId);
         List<UserDTO> sharedCalendars = getSharedCalendars(user);
         if(!sharedCalendars.contains(new UserDTO(userToShowCalendar))){
             throw new IllegalArgumentException("the given user has no permission to view the other user's calendar");
@@ -188,7 +194,8 @@ public class EventService {
         return sharedEvents;
     }
 
-    public Event approveOrRejectInvitation(User user, Event event, Status status){
+    public Event approveOrRejectInvitation(User user, int eventId, Status status){
+        Event event = findEvent(eventId);
         UserEvent userInEvent = getUserEvent(event, user);
         event.removeUserEvent(userInEvent);
         switch (status){
@@ -206,14 +213,16 @@ public class EventService {
 
     public Event approveOrRejectInvitation(String email, int eventId, Status status){
         User user = findUser(email);
-        Event event = findEvent(eventId);
-        return approveOrRejectInvitation(user, event, status);
+        return approveOrRejectInvitation(user, eventId, status);
     }
 
     public User shareCalendar(User user, String userToShareToEmail){
+        if(user.getEmail() == userToShareToEmail){
+            return user;
+        }
         User userToShare = findUser(userToShareToEmail);
         userToShare.addToShared(user);
-        return userToShare;
+        return userRepository.save(userToShare);
     }
 
     public List<UserDTO> getSharedCalendars(User user){

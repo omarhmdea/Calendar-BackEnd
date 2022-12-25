@@ -27,9 +27,7 @@ public class User {
 
     private String password;
 
-    // ????
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="shared_calendars", joinColumns=@JoinColumn(name="user_id"))
     @Column(name="can_view")
     private Set<Integer> shared = new HashSet<>();

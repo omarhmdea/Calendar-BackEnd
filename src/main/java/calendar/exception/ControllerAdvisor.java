@@ -1,8 +1,6 @@
 package calendar.exception;
 
 import calendar.ResponsHandler.ErrorResponse;
-import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.LoginData;
 import calendar.exception.customException.ValidationErrorException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,7 @@
-package calendar.entities;
+package calendar.entities.DTO;
 
+import calendar.entities.Event;
+import calendar.entities.UserEvent;
 import lombok.*;
 
 import java.time.LocalDateTime;

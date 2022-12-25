@@ -1,5 +1,6 @@
-package calendar.entities;
+package calendar.entities.DTO;
 
+import calendar.entities.UserEvent;
 import calendar.enums.Status;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
