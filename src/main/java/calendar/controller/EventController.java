@@ -213,6 +213,11 @@ public class EventController {
         return ResponseEntity.ok().body(successShareCalendar);
     }
 
+    /**
+     * Get a list of all the users that the user can view their calenders
+     * @param user
+     * @return a list of the user's info
+     */
     @GetMapping(value = "myCalendars")
     public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user){
         logger.debug("Try to get my shared calendars list");
