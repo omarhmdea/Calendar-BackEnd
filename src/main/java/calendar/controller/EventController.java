@@ -198,6 +198,12 @@ public class EventController {
         return ResponseEntity.ok().body(successChangeSettings);
     }
 
+    /**
+     * Share my calendar with another user
+     * @param user the user that wants to share their calendar
+     * @param email the email of the user to share the calendar to
+     * @return a SuccessResponse - OK status, a message, the user info
+     */
     @PutMapping(value = "share")
     public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email){
         logger.debug("Try to share my calendar to someone else");
