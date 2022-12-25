@@ -19,14 +19,14 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private Boolean isPublic;
+    private Boolean isPublic =false;
     private LocalDateTime start;
     private LocalDateTime end;
     private String location;
     private String title;
     private String description;
     private String attachments;
-    private  Boolean isDeleted;
+    private  Boolean isDeleted = false;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UserEvent> guests = new ArrayList<>();
