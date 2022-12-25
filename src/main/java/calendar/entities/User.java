@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.*;
 
 @Entity
 @Getter
@@ -25,4 +26,13 @@ public class User {
     private String email;
 
     private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="shared_calendars", joinColumns=@JoinColumn(name="user_id"))
+    @Column(name="can_view")
+    private Set<Integer> shared = new HashSet<>();
+
+    public void addToShared(User user){
+        shared.add(user.getId());
+    }
 }

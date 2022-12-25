@@ -1,8 +1,12 @@
-package calendar.entities;
+package calendar.entities.DTO;
 
+import calendar.entities.Event;
+import calendar.entities.UserEvent;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -18,6 +22,8 @@ public class EventDTO {
     private String title;
     private String description;
     private String attachments;
+    private UserDTO organizer;
+    private List<UserEventDTO> guests;
 
     public EventDTO(Event event){
         this.id = event.getId();
@@ -28,5 +34,11 @@ public class EventDTO {
         this.title = event.getTitle();
         this.description = event.getDescription();
         this.attachments = event.getAttachments();
+        this.organizer = new UserDTO(event.getOrganizer());
+        this.guests = convertGuests(event.getGuests());
+    }
+
+    private List<UserEventDTO> convertGuests(List<UserEvent> userEvents){
+        return userEvents.stream().map(userEvent -> new UserEventDTO(userEvent)).collect(Collectors.toList());
     }
 }

@@ -1,10 +1,10 @@
 package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.LoginData;
+import calendar.entities.DTO.LoginDTO;
 import calendar.entities.User;
-import calendar.entities.UserCredentials;
-import calendar.entities.UserDTO;
+import calendar.entities.Credentials.UserCredentials;
+import calendar.entities.DTO.UserDTO;
 import calendar.exception.customException.ValidationErrorException;
 import calendar.service.AuthService;
 import calendar.utilities.Validator;
@@ -51,14 +51,14 @@ public class AuthController {
      * @return a SuccessResponse - OK status, a message, the login data - user's DTO and the generated token
      */
     @PostMapping(value = "login/email")
-    public ResponseEntity<SuccessResponse<LoginData>> login(@RequestBody UserCredentials userCredentials){
+    public ResponseEntity<SuccessResponse<LoginDTO>> login(@RequestBody UserCredentials userCredentials){
         Optional<Map<String, String>> validationErrors = Validator.validateLogin(userCredentials);
         if(validationErrors.isPresent()) {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
-        LoginData loginData = authService.login(userCredentials);
-        SuccessResponse<LoginData> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginData);
-        logger.info(loginData.getUser().getEmail() + " login was made successfully");
+        LoginDTO loginDTO = authService.login(userCredentials);
+        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginDTO);
+        logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
 }

@@ -1,5 +1,6 @@
-package calendar.entities;
+package calendar.entities.DTO;
 
+import calendar.entities.User;
 import lombok.*;
 
 @Getter
