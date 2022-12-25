@@ -1,5 +1,6 @@
 package calendar.entities;
 
+import calendar.enums.NotificationSettings;
 import lombok.*;
 import javax.persistence.*;
 
@@ -19,14 +20,12 @@ public class UserNotification {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    private boolean isPopUp = true;
-//    private boolean email = false;
-    private boolean newEvent = false;
-    private boolean statusChanged = false;
-    private boolean dataChanged = false;
-    private boolean eventCanceled = false;
-    private boolean uninvitedUser = false;
-    private boolean upcomingEvents = false;
+    private NotificationSettings deleteEvent = NotificationSettings.NONE;
+    private NotificationSettings updateEvent = NotificationSettings.NONE;
+    private NotificationSettings invitation = NotificationSettings.NONE;
+    private NotificationSettings removeGuest = NotificationSettings.NONE;
+    private NotificationSettings userStatusChanged = NotificationSettings.NONE;
+    private NotificationSettings upcomingEvent = NotificationSettings.NONE;
 
     public UserNotification(User user){
         this.user = user;

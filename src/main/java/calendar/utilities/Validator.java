@@ -2,7 +2,7 @@ package calendar.utilities;
 
 
 import calendar.entities.User;
-import calendar.entities.UserCredentials;
+import calendar.entities.Credentials.UserCredentials;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

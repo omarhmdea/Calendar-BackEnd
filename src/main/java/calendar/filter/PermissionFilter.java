@@ -59,7 +59,7 @@ public class PermissionFilter implements Filter {
             res.getOutputStream().write("Invalid event id".getBytes());
         }
 
-        Optional<UserEvent> userEvent = event.get().getUsers().stream().filter(userEvent1 -> userEvent1.getUser().equals(user)).findFirst();
+        Optional<UserEvent> userEvent = event.get().getGuests().stream().filter(userEvent1 -> userEvent1.getUser().equals(user)).findFirst();
 
         if(userEvent.isPresent()) {
             Role userRole = userEvent.get().getRole();

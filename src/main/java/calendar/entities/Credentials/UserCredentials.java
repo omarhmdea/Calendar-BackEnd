@@ -1,4 +1,4 @@
-package calendar.entities;
+package calendar.entities.Credentials;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginData {
-    private UserDTO user;
-    private String token;
+public class UserCredentials {
+    private String email;
+    private String password;
 }
+
+
