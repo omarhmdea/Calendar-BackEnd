@@ -238,7 +238,7 @@ class EventControllerTest {
     void changeSettings_checkIfChangeSettings_responseOkAndUpdateTheSettings() {
         userNotification.setDeleteEvent(NotificationSettings.POPUP);
         given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
-        ResponseEntity<SuccessResponse<UserNotification>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
+        ResponseEntity<SuccessResponse<UserNotificationCredentials>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
         assertEquals(userNotificationCredentials.getDeleteEvent(), Objects.requireNonNull(successChangeSettings.getBody()).getData().getDeleteEvent());
     }
 
@@ -246,7 +246,7 @@ class EventControllerTest {
     void changeSettings_checkIfChangeSettings_responseOkEqualStatusCode() {
         userNotification.setDeleteEvent(NotificationSettings.POPUP);
         given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
-        ResponseEntity<SuccessResponse<UserNotification>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
+        ResponseEntity<SuccessResponse<UserNotificationCredentials>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
         assertEquals(HttpStatus.OK, successChangeSettings.getStatusCode());
     }
 

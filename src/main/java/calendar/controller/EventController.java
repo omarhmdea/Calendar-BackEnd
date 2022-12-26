@@ -190,11 +190,20 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message, the user notification settings
      */
     @PutMapping(value = "settings")
-    public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
+    public ResponseEntity<SuccessResponse<UserNotificationCredentials>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
         logger.debug("Try to change notification settings");
         //TODO : add userNotificationDTO
-        UserNotification userNotification1 = notificationService.changeSettings(user, userNotification);
-        SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotification1);
+        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.changeSettings(user, userNotification));
+        SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotificationCredentials);
+        logger.info("Change notification settings was made successfully");
+        return ResponseEntity.ok().body(successChangeSettings);
+    }
+
+    @GetMapping(value = "settings")
+    public ResponseEntity<SuccessResponse<UserNotificationCredentials>> getSettings(@RequestAttribute User user) {
+        logger.debug("Try to change notification settings");
+        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.findUserNotification(user));
+        SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotificationCredentials);
         logger.info("Change notification settings was made successfully");
         return ResponseEntity.ok().body(successChangeSettings);
     }

@@ -124,7 +124,7 @@ public class NotificationService {
         return originalNotification;
     }
 
-    private UserNotification findUserNotification(User user){
+    public UserNotification findUserNotification(User user){
         Optional<UserNotification> userNotification = userNotificationRepository.findByUser(user);
         if(!userNotification.isPresent()){
             throw new IllegalArgumentException("There are no user notifications settings to the given user");
