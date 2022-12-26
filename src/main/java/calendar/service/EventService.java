@@ -242,7 +242,7 @@ public class EventService {
         List<Event> userEvents = new ArrayList<>();
         List<Event> events = eventRepository.findAll();
         for (Event event: events) {
-            if(guestIsPartOfEvent(event, user)){
+            if(guestIsPartOfEvent(event, user) || event.getOrganizer().equals(user)){
                 userEvents.add(event);
             }
         }
