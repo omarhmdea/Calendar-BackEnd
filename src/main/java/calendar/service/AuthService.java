@@ -102,8 +102,13 @@ public class AuthService {
     public LoginDTO login(String code) {
         logger.info("Try to login using github");
         GitUser githubUser = getGithubUser(code);
+        System.out.println(githubUser);
+        System.out.println(githubUser.getEmail());
+        System.out.println(githubUser.getEmail() == null);
         if(githubUser == null || githubUser.getEmail() == null){
             // TODO : throw Error Response - invalid code
+            System.out.println("dvir was here");
+            return null;
         }
         Optional<User> user = userRepository.findByEmail(githubUser.getEmail());
         if (user.isPresent()) {
