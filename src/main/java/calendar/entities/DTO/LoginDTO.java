@@ -1,6 +1,5 @@
 package calendar.entities.DTO;
 
-import calendar.entities.DTO.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
