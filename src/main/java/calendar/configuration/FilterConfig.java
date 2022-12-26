@@ -56,7 +56,7 @@ public class FilterConfig {
         AuthFilter authFilter = new AuthFilter(authService);
 
         registrationBean.setFilter(authFilter);
-        registrationBean.addUrlPatterns("/event/create", "/event/update/*", "/event/calendar", "/event/showCalendar",
+        registrationBean.addUrlPatterns("/event/create", "/event/update/*", "/event/calendar", "/event/showCalendar/*",
                                         "/event/guest/assign/*", "/event/guest/delete/*", "/event/guest/invite/*", "/event/settings",
                                         "/event/delete/*", "/event/approve/*", "/event/share", "/event/myCalendars");
         registrationBean.setOrder(2);
