@@ -11,12 +11,14 @@ import calendar.utilities.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Map;
 import java.util.Optional;
+import java.net.URI;
 
 @RestController
 @CrossOrigin
@@ -60,5 +62,18 @@ public class AuthController {
         SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginDTO);
         logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
         return ResponseEntity.ok().body(successResponse);
+    }
+
+    // TODO : why not post??
+    @GetMapping(value = "login/github")
+    public ResponseEntity<SuccessResponse<LoginDTO>> login(@RequestParam String code){
+        logger.debug("Try to login using github");
+        LoginDTO loginDTO = authService.login(code);
+        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", authService.loginGithub(code));
+//        logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create("http://localhost:3000"));
+        return new ResponseEntity<>(successResponse, headers, HttpStatus.MOVED_PERMANENTLY);
+//        return ResponseEntity.ok().body(successResponse);
     }
 }

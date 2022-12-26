@@ -23056,3 +23056,69 @@ This generated password is for development use only. Your security configuration
 
 2022-12-25 11:35:28,601 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
 2022-12-25 11:35:28,793 INFO    calendar.SpringApp - Started SpringApp in 10.292 seconds (JVM running for 16.517)
+2022-12-25 14:36:53,874 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 11876 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-25 14:36:53,880 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-25 14:36:53,881 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-25 14:36:56,821 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-25 14:36:56,822 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-25 14:36:56,823 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-25 14:36:57,029 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-25 14:36:57,311 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4c762904-bd03-4930-a327-758c5488652c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-25 14:36:57,424 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-25 14:36:57,511 INFO    calendar.SpringApp - Started SpringApp in 3.975 seconds (JVM running for 5.412)
+2022-12-25 14:37:55,284 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:37:55,408 INFO    calendar.controller.AuthController - eden@gmail.com try to register
+2022-12-25 14:37:55,409 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:37:55,410 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:37:55,410 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:37:55,514 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:37:55,699 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
+2022-12-25 14:38:02,553 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:02,554 INFO    calendar.controller.AuthController - shay@gmail.com try to register
+2022-12-25 14:38:02,554 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:02,554 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:02,555 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:38:02,558 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:38:02,654 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
+2022-12-25 14:38:14,080 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:14,082 INFO    calendar.controller.AuthController - dana@gmail.com try to register
+2022-12-25 14:38:14,082 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:14,082 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:14,082 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:38:14,086 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:38:14,182 INFO    calendar.controller.AuthController - dana@gmail.com Registration was made successfully
+2022-12-25 14:38:20,672 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:20,675 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:20,675 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:20,773 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
+2022-12-25 14:38:35,357 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:35,358 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:35,396 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-25 14:38:35,397 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-25 14:38:35,397 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-25 14:38:35,412 DEBUG   calendar.service.AuthService - New event is saved : Event(id=0, isPublic=false, start=2023-12-18T08:07:38.576867, end=2023-12-18T10:07:38.576867, location=Tel Aviv, title=first event by eden, description=description, attachments=null, isDeleted=null, guests=[], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=$2a$10$shlHdHcAXbL6/pa9Kwuk3Ovvc6Hnrkm./7W7fwZYBbpsabGO1Or5y, shared=[]))
+2022-12-25 14:38:35,433 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-25 14:38:51,854 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,855 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,860 INFO    calendar.filter.PermissionFilter - Role filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,888 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-25 14:38:51,889 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-25 14:38:51,891 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-25 14:38:51,892 DEBUG   calendar.service.AuthService - Adding user to event User(id=3, name=Shay, email=shay@gmail.com, password=$2a$10$OMOrAargq2qxI0czTZCFauZRGu6msNbgWxruM/2adcKyrhtRCYD/O, shared=[])
+2022-12-25 14:38:51,919 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-25 15:08:51,178 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:08:51,180 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 15:08:51,180 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 15:08:51,287 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
+2022-12-25 15:09:36,765 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:09:36,765 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:09:36,777 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('0' (code 48)): was expecting a colon to separate field name and value; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('0' (code 48)): was expecting a colon to separate field name and value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 19]]
+2022-12-25 15:10:02,381 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:10:02,382 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:10:02,390 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-25 15:10:02,402 INFO    calendar.controller.EventController - Change notification settings was made successfully

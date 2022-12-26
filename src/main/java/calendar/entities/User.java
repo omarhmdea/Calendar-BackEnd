@@ -35,4 +35,10 @@ public class User {
     public void addToShared(User user){
         shared.add(user.getId());
     }
+
+    public User (String name, String email, String password){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 }
