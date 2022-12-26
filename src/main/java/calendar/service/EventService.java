@@ -139,7 +139,7 @@ public class EventService {
             throw new IllegalArgumentException("The given user to remove is not a part of the event - you cannot remove them");
         }
         logger.debug("Check if the guest to remove is the event's organizer");
-        if(userIsEventOrganizer(event, user)){
+        if(userIsEventOrganizer(event, guestToRemove)){
             throw new IllegalArgumentException("The given user to remove is the event's organizer - you cannot remove them");
         }
         logger.debug("Removing guest from event " + guestToRemove.toString());
