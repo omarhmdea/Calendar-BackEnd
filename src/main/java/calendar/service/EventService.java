@@ -56,7 +56,7 @@ public class EventService {
         return eventRepository.save(update(originalEvent, updatedEvent));
     }
 
-    private Event update(Event originalEvent, EventCredentials updatedEvent){
+    public Event update(Event originalEvent, EventCredentials updatedEvent){
         originalEvent.setIsPublic(updatedEvent.getIsPublic());
         originalEvent.setStart(updatedEvent.getStart());
         originalEvent.setEnd(updatedEvent.getEnd());
@@ -87,7 +87,7 @@ public class EventService {
         event.addUserEvent(adminInEvent);
         logger.debug("Set the guest as the event's admin");
         // TODO : sent notification - not really needed
-        return  eventRepository.save(event);
+        return eventRepository.save(event);
     }
 
     /**
@@ -117,6 +117,9 @@ public class EventService {
         if(guestIsPartOfEvent(event, guestToAdd)){
             throw new IllegalArgumentException("The given user to add is already a part of the event - you cannot add them again");
         }
+        if(guestToAdd.equals(event.getOrganizer())){
+            throw new IllegalArgumentException("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
+        }
         // TODO : send invitation to the user that was invited
         logger.debug("Adding user to event " + guestToAdd.toString());
         event.addUserEvent(new UserEvent(guestToAdd, Status.TENTATIVE, Role.GUEST));
@@ -139,7 +142,7 @@ public class EventService {
             throw new IllegalArgumentException("The given user to remove is not a part of the event - you cannot remove them");
         }
         logger.debug("Check if the guest to remove is the event's organizer");
-        if(userIsEventOrganizer(event, user)){
+        if(userIsEventOrganizer(event, guestToRemove)){
             throw new IllegalArgumentException("The given user to remove is the event's organizer - you cannot remove them");
         }
         logger.debug("Removing guest from event " + guestToRemove.toString());

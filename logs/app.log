@@ -24009,3 +24009,12 @@ This generated password is for development use only. Your security configuration
 2022-12-26 15:12:53,722 INFO    calendar.controller.EventController - Change notification settings was made successfully
 2022-12-26 15:13:33,252 DEBUG   calendar.controller.EventController - Try to change notification settings
 2022-12-26 15:13:33,319 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 19:34:01,647 DEBUG   calendar.service.AuthService - Try to update event
+2022-12-26 19:34:01,670 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T19:34:01.639184100
+2022-12-26 19:34:01,671 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-26 20:06:16,845 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-26 20:06:16,856 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-26 20:06:16,872 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-26 21:58:37,960 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-26 21:58:37,979 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-26 21:58:37,992 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
