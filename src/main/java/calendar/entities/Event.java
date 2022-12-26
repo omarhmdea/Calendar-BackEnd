@@ -19,7 +19,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private Boolean isPublic =false;
+    private Boolean isPublic = false;
     private LocalDateTime start;
     private LocalDateTime end;
     private String location;
