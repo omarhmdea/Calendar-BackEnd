@@ -56,7 +56,7 @@ public class EventService {
         return eventRepository.save(update(originalEvent, updatedEvent));
     }
 
-    private Event update(Event originalEvent, EventCredentials updatedEvent){
+    public Event update(Event originalEvent, EventCredentials updatedEvent){
         originalEvent.setIsPublic(updatedEvent.getIsPublic());
         originalEvent.setStart(updatedEvent.getStart());
         originalEvent.setEnd(updatedEvent.getEnd());
@@ -87,7 +87,7 @@ public class EventService {
         event.addUserEvent(adminInEvent);
         logger.debug("Set the guest as the event's admin");
         // TODO : sent notification - not really needed
-        return  eventRepository.save(event);
+        return eventRepository.save(event);
     }
 
     /**
@@ -116,6 +116,9 @@ public class EventService {
         logger.debug("Check if the guest to add is a part of the event");
         if(guestIsPartOfEvent(event, guestToAdd)){
             throw new IllegalArgumentException("The given user to add is already a part of the event - you cannot add them again");
+        }
+        if(guestToAdd.equals(event.getOrganizer())){
+            throw new IllegalArgumentException("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
         }
         // TODO : send invitation to the user that was invited
         logger.debug("Adding user to event " + guestToAdd.toString());

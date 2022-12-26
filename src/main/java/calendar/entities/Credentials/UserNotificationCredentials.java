@@ -1,5 +1,6 @@
 package calendar.entities.Credentials;
 
+import calendar.entities.UserNotification;
 import calendar.enums.NotificationSettings;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +16,15 @@ public class UserNotificationCredentials {
     private NotificationSettings removeGuest;
     private NotificationSettings userStatusChanged;
     private NotificationSettings upcomingEvent;
+
+    public UserNotificationCredentials(UserNotification userNotification){
+        this.deleteEvent = userNotification.getDeleteEvent();
+        this.updateEvent = userNotification.getUpdateEvent();
+        this.invitation = userNotification.getInvitation();
+        this.removeGuest = userNotification.getRemoveGuest();
+        this.userStatusChanged = userNotification.getUserStatusChanged();
+        this.upcomingEvent = userNotification.getUpcomingEvent();
+    }
 }
 
 

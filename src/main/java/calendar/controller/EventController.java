@@ -6,7 +6,6 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
-import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
@@ -134,10 +133,11 @@ public class EventController {
     }
 
     /**
-     * Get calendar (events) of a different user by month and year
-     * @param user - the user id
-     * @param month  - the month we want to present
-     * @param year   - the year we want to present
+     * Get calendar (events) of a user by month and year
+     * @param user the user that is trying to view the calendar
+     * @param id the id of the user to view their calendar
+     * @param month the month we want to present
+     * @param year the year we want to present
      * @return list event of month & year
      */
     // TODO : in filter check userId and return the userToShowCalendar
@@ -190,11 +190,20 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message, the user notification settings
      */
     @PutMapping(value = "settings")
-    public ResponseEntity<SuccessResponse<UserNotification>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
+    public ResponseEntity<SuccessResponse<UserNotificationCredentials>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
         logger.debug("Try to change notification settings");
         //TODO : add userNotificationDTO
-        UserNotification userNotification1 = notificationService.changeSettings(user, userNotification);
-        SuccessResponse<UserNotification> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotification1);
+        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.changeSettings(user, userNotification));
+        SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotificationCredentials);
+        logger.info("Change notification settings was made successfully");
+        return ResponseEntity.ok().body(successChangeSettings);
+    }
+
+    @GetMapping(value = "settings")
+    public ResponseEntity<SuccessResponse<UserNotificationCredentials>> getSettings(@RequestAttribute User user) {
+        logger.debug("Try to change notification settings");
+        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.findUserNotification(user));
+        SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotificationCredentials);
         logger.info("Change notification settings was made successfully");
         return ResponseEntity.ok().body(successChangeSettings);
     }

@@ -23056,73 +23056,122 @@ This generated password is for development use only. Your security configuration
 
 2022-12-25 11:35:28,601 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
 2022-12-25 11:35:28,793 INFO    calendar.SpringApp - Started SpringApp in 10.292 seconds (JVM running for 16.517)
-2022-12-26 11:09:53,458 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 12196 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:09:53,479 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:09:53,480 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:09:59,000 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:09:59,012 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:09:59,013 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:09:59,389 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:09:59,927 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-25 14:36:53,874 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 11876 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-25 14:36:53,880 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-25 14:36:53,881 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-25 14:36:56,821 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-25 14:36:56,822 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-25 14:36:56,823 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-25 14:36:57,029 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-25 14:36:57,311 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: f8244ee5-2523-4166-9529-e6e9fd7fc696
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-26 11:10:00,128 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:10:00,291 INFO    calendar.SpringApp - Started SpringApp in 7.415 seconds (JVM running for 9.91)
-2022-12-26 11:20:10,951 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 33564 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:20:10,985 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:20:10,987 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:20:15,963 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:20:15,975 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:20:15,976 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:20:16,404 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:20:16,985 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 69330c02-0177-4d50-8aca-d6c09a4e904a
+Using generated security password: 4c762904-bd03-4930-a327-758c5488652c
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-26 11:20:17,135 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:20:17,255 INFO    calendar.SpringApp - Started SpringApp in 6.886 seconds (JVM running for 9.418)
-2022-12-26 11:20:26,543 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5e9eb432]
-2022-12-26 11:20:26,733 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:20:26,734 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:20:27,185 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
-2022-12-26 11:21:54,088 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5e9eb432]
-2022-12-26 11:21:54,117 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing request attribute 'user' of type User]
-2022-12-26 11:23:03,584 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 23812 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:23:03,600 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:23:03,603 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:23:08,487 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:23:08,490 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:23:08,491 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:23:08,830 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:23:09,322 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-25 14:36:57,424 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-25 14:36:57,511 INFO    calendar.SpringApp - Started SpringApp in 3.975 seconds (JVM running for 5.412)
+2022-12-25 14:37:55,284 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:37:55,408 INFO    calendar.controller.AuthController - eden@gmail.com try to register
+2022-12-25 14:37:55,409 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:37:55,410 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:37:55,410 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:37:55,514 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:37:55,699 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
+2022-12-25 14:38:02,553 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:02,554 INFO    calendar.controller.AuthController - shay@gmail.com try to register
+2022-12-25 14:38:02,554 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:02,554 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:02,555 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:38:02,558 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:38:02,654 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
+2022-12-25 14:38:14,080 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:14,082 INFO    calendar.controller.AuthController - dana@gmail.com try to register
+2022-12-25 14:38:14,082 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:14,082 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:14,082 DEBUG   calendar.service.AuthService - Check if already exist in DB
+2022-12-25 14:38:14,086 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-25 14:38:14,182 INFO    calendar.controller.AuthController - dana@gmail.com Registration was made successfully
+2022-12-25 14:38:20,672 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:20,675 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 14:38:20,675 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 14:38:20,773 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
+2022-12-25 14:38:35,357 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:35,358 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:35,396 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-25 14:38:35,397 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-25 14:38:35,397 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
+2022-12-25 14:38:35,412 DEBUG   calendar.service.AuthService - New event is saved : Event(id=0, isPublic=false, start=2023-12-18T08:07:38.576867, end=2023-12-18T10:07:38.576867, location=Tel Aviv, title=first event by eden, description=description, attachments=null, isDeleted=null, guests=[], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=$2a$10$shlHdHcAXbL6/pa9Kwuk3Ovvc6Hnrkm./7W7fwZYBbpsabGO1Or5y, shared=[]))
+2022-12-25 14:38:35,433 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-25 14:38:51,854 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,855 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,860 INFO    calendar.filter.PermissionFilter - Role filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 14:38:51,888 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-25 14:38:51,889 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-25 14:38:51,891 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-25 14:38:51,892 DEBUG   calendar.service.AuthService - Adding user to event User(id=3, name=Shay, email=shay@gmail.com, password=$2a$10$OMOrAargq2qxI0czTZCFauZRGu6msNbgWxruM/2adcKyrhtRCYD/O, shared=[])
+2022-12-25 14:38:51,919 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-25 15:08:51,178 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:08:51,180 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-25 15:08:51,180 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-25 15:08:51,287 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
+2022-12-25 15:09:36,765 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:09:36,765 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:09:36,777 WARN    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('0' (code 48)): was expecting a colon to separate field name and value; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('0' (code 48)): was expecting a colon to separate field name and value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 19]]
+2022-12-25 15:10:02,381 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:10:02,382 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
+2022-12-25 15:10:02,390 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-25 15:10:02,402 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 11:54:35,806 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 29176 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 11:54:35,819 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 11:54:35,821 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 11:54:41,509 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 11:54:41,511 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 11:54:41,513 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 11:54:41,900 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 11:54:42,354 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 87096bf2-1219-4a75-896a-fa6386da9d3e
+Using generated security password: 1d48f353-2ea8-4eca-98ab-f2a0e794e215
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-26 11:23:09,481 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:23:09,667 INFO    calendar.SpringApp - Started SpringApp in 6.888 seconds (JVM running for 12.355)
-2022-12-26 11:23:11,734 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@65a2e23b]
-2022-12-26 11:23:11,859 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:23:11,860 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:23:12,213 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
-2022-12-26 11:23:22,796 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@65a2e23b]
-2022-12-26 11:23:22,796 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@65a2e23b]
-2022-12-26 11:23:22,870 DEBUG   calendar.controller.EventController - Try to get calendar of user 1
-2022-12-26 11:23:22,871 DEBUG   calendar.service.AuthService - Try to get calendar of user 1
-2022-12-26 11:23:22,871 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id in the DB
-2022-12-26 11:23:22,877 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eden@gmail.com
-2022-12-26 11:23:22,878 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
-2022-12-26 11:23:22,905 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2022-12-26 11:54:42,514 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 11:54:42,670 INFO    calendar.SpringApp - Started SpringApp in 7.763 seconds (JVM running for 11.423)
+2022-12-26 12:05:51,280 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 30528 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:05:51,298 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:05:51,300 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:05:56,500 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:05:56,511 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:05:56,512 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:05:56,897 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:05:57,392 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4e621262-3e5e-4bf8-9491-dfd14988be1b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:05:57,562 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:05:57,736 INFO    calendar.SpringApp - Started SpringApp in 7.13 seconds (JVM running for 10.462)
+2022-12-26 12:06:01,152 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:06:01,234 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:06:01,235 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:06:01,237 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:01,238 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:01,266 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:06:01,636 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@2e051789]
+2022-12-26 12:06:01,639 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:06:01,639 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:06:01,640 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:01,641 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:01,641 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:06:02,378 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:06:02,378 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:06:02,919 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:06:02,940 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:06:02,934 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at calendar.service.EventService.getCalendar(EventService.java:165) ~[classes/:?]
-	at calendar.service.EventService.showCalendar(EventService.java:183) ~[classes/:?]
-	at calendar.controller.EventController.showCalendar(EventController.java:146) ~[classes/:?]
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:71) ~[classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -23143,9 +23192,6 @@ java.lang.NullPointerException: null
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
-	at calendar.filter.AuthFilter.doFilter(AuthFilter.java:38) ~[classes/:?]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
@@ -23185,52 +23231,19 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at java.lang.Thread.run(Thread.java:844) ~[?:?]
-2022-12-26 11:25:09,492 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 12268 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:25:09,515 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:25:09,517 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:25:15,375 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:25:15,388 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:25:15,390 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:25:15,855 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:25:16,477 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 9cbbb1ab-10be-46e2-92b7-9cf9ceceeaf7
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-26 11:25:16,658 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:25:16,884 INFO    calendar.SpringApp - Started SpringApp in 8.292 seconds (JVM running for 11.209)
-2022-12-26 11:29:08,395 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 27792 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:29:08,418 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:29:08,419 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:29:14,069 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:29:14,072 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:29:14,073 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:29:14,360 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:29:14,748 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 66fca183-609c-4e6c-9bb2-54ede72057b6
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-26 11:29:14,897 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:29:15,070 INFO    calendar.SpringApp - Started SpringApp in 7.531 seconds (JVM running for 11.195)
-2022-12-26 11:29:21,815 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@783e6b18]
-2022-12-26 11:29:22,011 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:29:22,012 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:29:22,434 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
-2022-12-26 11:29:32,286 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@783e6b18]
-2022-12-26 11:29:32,287 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@783e6b18]
-2022-12-26 11:29:32,365 DEBUG   calendar.controller.EventController - Try to get calendar of user 1
-2022-12-26 11:29:32,366 DEBUG   calendar.service.AuthService - Try to get calendar of user 1
-2022-12-26 11:29:32,366 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id in the DB
-2022-12-26 11:29:32,376 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eden@gmail.com
-2022-12-26 11:29:32,376 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
-2022-12-26 11:29:32,403 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2022-12-26 12:06:03,205 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@2e051789]
+2022-12-26 12:06:03,507 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:06:03,642 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:06:03,645 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:06:03,645 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:03,646 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:03,646 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:06:03,859 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:06:04,045 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:06:04,047 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at calendar.service.EventService.getCalendar(EventService.java:165) ~[classes/:?]
-	at calendar.service.EventService.showCalendar(EventService.java:183) ~[classes/:?]
-	at calendar.controller.EventController.showCalendar(EventController.java:146) ~[classes/:?]
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:72) ~[classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -23251,9 +23264,6 @@ java.lang.NullPointerException: null
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
-	at calendar.filter.AuthFilter.doFilter(AuthFilter.java:38) ~[classes/:?]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
@@ -23293,59 +23303,720 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at java.lang.Thread.run(Thread.java:844) ~[?:?]
-2022-12-26 11:30:37,992 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 11836 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
-2022-12-26 11:30:38,012 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-12-26 11:30:38,014 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
-2022-12-26 11:30:44,471 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
-2022-12-26 11:30:44,494 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
-2022-12-26 11:30:44,508 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
-2022-12-26 11:30:44,857 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-26 11:30:45,319 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+2022-12-26 12:06:10,584 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:06:10,586 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:06:10,586 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:06:10,586 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:10,586 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:10,587 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:06:11,061 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:06:11,907 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:06:12,237 INFO    calendar.service.AuthService - User has logged in in the past using github. Login to account now
+2022-12-26 12:06:12,238 INFO    calendar.service.AuthService - Successful not first time login using github
+2022-12-26 12:06:12,239 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:06:12,239 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:12,240 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:06:12,240 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:06:12,458 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:06:12,657 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:06:12,659 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:72) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:07:42,060 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:07:42,062 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:07:42,063 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:07:42,064 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:07:42,064 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:07:42,065 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:07:42,521 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:07:43,015 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:07:43,025 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:71) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:07:45,092 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:07:45,093 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:07:45,094 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:07:45,094 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:07:45,094 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:07:45,095 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:07:45,305 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:07:45,499 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:07:45,500 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:71) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:08:10,704 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:09:15,121 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@1fdc5338]
+2022-12-26 12:09:15,124 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:09:15,124 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:09:15,124 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:09:15,124 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:09:15,125 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:09:15,741 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:09:16,308 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:09:16,547 INFO    calendar.service.AuthService - User has logged in in the past using github. Login to account now
+2022-12-26 12:09:16,555 INFO    calendar.service.AuthService - Successful not first time login using github
+2022-12-26 12:09:16,555 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:09:16,556 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:09:16,556 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:09:16,557 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:09:16,766 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:09:16,961 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:09:16,963 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:108) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:72) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:11:03,927 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 22512 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:11:03,938 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:11:03,940 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:11:10,513 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:11:10,517 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:11:10,518 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:11:11,004 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:11:11,545 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 7c703d13-6dbe-4773-abf3-69a758572a13
+Using generated security password: 36f6f2ec-3c49-4021-8e06-eaa045c98de5
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-26 11:30:45,487 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-26 11:30:45,712 INFO    calendar.SpringApp - Started SpringApp in 8.465 seconds (JVM running for 15.347)
-2022-12-26 11:30:56,538 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:30:56,789 INFO    calendar.controller.AuthController - eden@gmail.com try to register
-2022-12-26 11:30:56,794 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:30:56,795 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:30:56,796 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-26 11:30:57,140 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-26 11:30:57,544 INFO    calendar.controller.AuthController - eden@gmail.com Registration was made successfully
-2022-12-26 11:31:02,873 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:02,876 INFO    calendar.controller.AuthController - shay@gmail.com try to register
-2022-12-26 11:31:02,876 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:31:02,877 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:31:02,878 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-26 11:31:02,883 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-26 11:31:03,057 INFO    calendar.controller.AuthController - shay@gmail.com Registration was made successfully
-2022-12-26 11:31:15,667 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:15,669 INFO    calendar.controller.AuthController - dana@gmail.com try to register
-2022-12-26 11:31:15,669 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:31:15,670 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:31:15,670 DEBUG   calendar.service.AuthService - Check if already exist in DB
-2022-12-26 11:31:15,676 INFO    calendar.service.AuthService - New user saved in the DB
-2022-12-26 11:31:15,887 INFO    calendar.controller.AuthController - dana@gmail.com Registration was made successfully
-2022-12-26 11:31:22,648 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:22,655 DEBUG   calendar.utilities.Validator - Check valid email
-2022-12-26 11:31:22,656 DEBUG   calendar.utilities.Validator - Check valid password
-2022-12-26 11:31:22,868 INFO    calendar.controller.AuthController - eden@gmail.com login was made successfully
-2022-12-26 11:31:35,192 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:35,193 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:35,289 DEBUG   calendar.controller.EventController - Try to add new event event
-2022-12-26 11:31:35,289 DEBUG   calendar.service.AuthService - Try to add new event
-2022-12-26 11:31:35,290 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-12-18T10:07:38.576867
-2022-12-26 11:31:35,337 DEBUG   calendar.service.AuthService - New event is saved : Event(id=0, isPublic=false, start=2023-12-18T08:07:38.576867, end=2023-12-18T10:07:38.576867, location=Tel Aviv, title=first event by eden, description=description, attachments=null, isDeleted=false, guests=[], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=$2a$10$mLNsQw2aI1UEomF8acGiD.zrU0MyCrRb27oo.R2QmyTUqsz1pmxRi, shared=[]))
-2022-12-26 11:31:35,383 INFO    calendar.controller.EventController - Adding new event was made successfully
-2022-12-26 11:31:49,569 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:49,570 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@3da6916c]
-2022-12-26 11:31:49,601 DEBUG   calendar.controller.EventController - Try to get calendar of user 1
-2022-12-26 11:31:49,602 DEBUG   calendar.service.AuthService - Try to get calendar of user 1
-2022-12-26 11:31:49,602 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id in the DB
-2022-12-26 11:31:49,609 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eden@gmail.com
-2022-12-26 11:31:49,609 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
-2022-12-26 11:31:49,631 DEBUG   calendar.service.AuthService - Return events of user eden@gmail.com
-2022-12-26 11:31:49,633 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 12:11:11,736 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:11:11,951 INFO    calendar.SpringApp - Started SpringApp in 9.137 seconds (JVM running for 14.512)
+2022-12-26 12:12:13,320 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6c30fae3]
+2022-12-26 12:12:13,494 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:12:13,495 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:12:13,496 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:12:13,498 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:12:13,580 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:12:15,013 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:12:15,602 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:12:16,183 INFO    calendar.service.AuthService - User has logged in in the past using github. Login to account now
+2022-12-26 12:12:16,194 INFO    calendar.service.AuthService - Successful not first time login using github
+2022-12-26 12:12:16,198 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:12:16,198 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:12:16,199 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:12:16,200 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:12:16,427 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:12:16,637 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:14:02,016 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 26848 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:14:02,051 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:14:02,056 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:14:14,322 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:14:14,329 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:14:14,332 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:14:15,315 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:14:16,620 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f2ae2dbd-cf6e-4774-950b-9eafe15529ea
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:14:16,953 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:14:17,221 INFO    calendar.SpringApp - Started SpringApp in 16.986 seconds (JVM running for 26.45)
+2022-12-26 12:15:00,487 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@4c94422e]
+2022-12-26 12:15:09,725 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@4c94422e]
+2022-12-26 12:15:09,789 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:15:09,789 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:15:09,791 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:15:09,791 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:15:09,833 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:15:11,049 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:15:11,670 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:15:12,811 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:15:13,265 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:15:13,270 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:15:13,271 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:15:13,271 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:15:13,273 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:15:13,497 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:15:13,731 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:16:49,105 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 19208 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:16:49,131 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:16:49,134 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:16:58,659 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:16:58,665 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:16:58,669 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:16:59,619 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:17:00,709 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f5c7fa34-dc0b-4659-86ac-97eb06e539a8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:17:01,200 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:17:01,787 INFO    calendar.SpringApp - Started SpringApp in 13.576 seconds (JVM running for 19.837)
+2022-12-26 12:17:06,182 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@65de0726]
+2022-12-26 12:17:06,338 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:17:06,339 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:17:06,340 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:17:06,340 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:17:06,405 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:17:08,029 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:17:09,271 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:17:10,461 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:17:10,791 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:17:10,798 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:17:10,800 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:17:10,800 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:17:10,802 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:17:11,024 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:17:11,231 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:17:11,247 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:106) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:72) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:18:22,382 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 14784 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:18:22,395 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:18:22,397 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:18:29,326 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:18:29,337 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:18:29,339 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:18:29,833 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:18:30,420 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 65a8ff80-28c9-4b8c-9d5f-1e2d861ec9fc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:18:30,611 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:18:30,777 INFO    calendar.SpringApp - Started SpringApp in 9.516 seconds (JVM running for 14.875)
+2022-12-26 12:18:33,984 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ff926a6]
+2022-12-26 12:18:34,135 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:18:34,136 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:18:34,137 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:18:34,139 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:18:34,183 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:18:35,684 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:18:36,440 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:18:37,267 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:18:37,707 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:18:37,717 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:18:37,718 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:18:37,718 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:18:37,719 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:18:37,946 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:18:38,195 ERROR   calendar.utilities.Github.GitRequest - in GitRequest -> reqGitUser -> failed to fetch user from link: https://api.github.com/user
+2022-12-26 12:18:38,228 ERROR   org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at calendar.service.AuthService.login(AuthService.java:106) ~[classes/:?]
+	at calendar.controller.AuthController.login(AuthController.java:72) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at calendar.filter.CorsFilter.doFilter(CorsFilter.java:32) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:22:15,930 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 22816 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:22:15,945 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:22:15,946 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:22:21,433 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:22:21,448 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:22:21,451 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:22:21,807 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:22:22,258 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d0152a8e-eed8-41e1-bd86-0cc9f647c093
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:22:22,413 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:22:22,596 INFO    calendar.SpringApp - Started SpringApp in 7.473 seconds (JVM running for 13.498)
+2022-12-26 12:22:47,721 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5975c127]
+2022-12-26 12:22:47,877 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:22:47,878 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:22:47,879 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:22:47,881 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:22:47,920 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:22:49,146 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:22:50,754 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:22:51,452 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:22:51,681 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:23:22,708 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5975c127]
+2022-12-26 12:23:22,708 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:23:22,709 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:23:22,709 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:23:22,710 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:23:22,711 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:23:23,238 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:23:23,796 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:23:24,084 INFO    calendar.service.AuthService - User has logged in in the past using github. Login to account now
+2022-12-26 12:23:24,085 INFO    calendar.service.AuthService - Successful not first time login using github
+2022-12-26 13:55:11,222 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 3272 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 13:55:11,255 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 13:55:11,258 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 13:55:18,610 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 13:55:18,622 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 13:55:18,624 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 13:55:19,044 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 13:55:19,623 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a23dd81f-458b-42e1-84af-93755e1419e5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 13:55:19,829 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 13:55:20,046 INFO    calendar.SpringApp - Started SpringApp in 10.05 seconds (JVM running for 16.328)
+2022-12-26 13:55:59,945 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6eccbc21]
+2022-12-26 13:55:59,991 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 13:55:59,991 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - Try to get github user by code
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - Try to get github token by code
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 13:56:00,011 INFO    calendar.service.AuthService - Got github token successfully
+2022-12-26 13:56:00,011 INFO    calendar.utilities.Github.GitRequest - Try to get github token by link
+2022-12-26 13:56:00,848 INFO    calendar.service.AuthService - Got github user successfully
+2022-12-26 13:56:00,857 INFO    calendar.utilities.Github.GitRequest - Try to get github user by link
+2022-12-26 13:56:01,893 INFO    calendar.utilities.Github.GitRequest - User is private in github
+2022-12-26 13:56:02,356 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 13:56:02,502 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 14:10:15,745 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-26 14:10:15,787 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-26 14:10:15,879 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-26 14:10:15,881 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-26 14:10:15,891 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-26 14:10:15,892 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-26 14:10:15,903 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-26 14:10:15,904 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-26 14:10:15,913 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-26 14:10:15,915 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-26 14:10:15,925 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-26 14:10:15,927 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-26 14:10:15,935 DEBUG   calendar.controller.EventController - try to update event
+2022-12-26 14:10:15,936 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-26 14:10:15,945 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-26 14:10:15,947 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-26 14:10:15,955 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-26 14:10:15,957 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-26 14:10:15,969 DEBUG   calendar.controller.EventController - try to update event
+2022-12-26 14:10:15,971 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-26 14:10:15,979 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-26 14:10:15,980 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-26 14:10:15,988 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-26 14:10:15,990 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-26 14:10:15,998 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-26 14:10:15,999 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-26 14:10:16,008 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-26 14:10:16,010 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-26 14:10:16,018 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-26 14:10:16,020 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-26 14:10:16,033 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-26 14:10:16,034 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-26 14:23:12,526 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:27:10,196 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:27:10,238 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:29:48,812 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:29:48,851 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:31:22,812 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:31:22,929 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:32:43,452 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:32:43,489 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:34:28,797 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:34:28,986 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:39:31,853 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:39:31,884 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:40:16,965 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-26 14:40:16,997 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-26 14:43:25,150 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-26 14:43:25,181 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-26 14:43:25,251 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-26 14:43:25,252 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-26 14:43:25,261 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:43:25,262 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:43:25,271 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-26 14:43:25,272 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-26 14:43:25,280 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-26 14:43:25,281 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-26 14:43:25,292 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-26 14:43:25,293 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-26 14:43:25,299 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-26 14:43:25,300 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-26 14:43:25,309 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-26 14:43:25,309 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-26 14:43:25,316 DEBUG   calendar.controller.EventController - try to update event
+2022-12-26 14:43:25,317 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-26 14:43:25,324 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-26 14:43:25,325 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-26 14:43:25,332 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-26 14:43:25,333 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-26 14:43:25,340 DEBUG   calendar.controller.EventController - try to update event
+2022-12-26 14:43:25,341 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-26 14:43:25,348 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-26 14:43:25,349 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-26 14:43:25,357 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-26 14:43:25,358 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-26 14:43:25,365 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-26 14:43:25,366 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-26 14:43:25,374 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-26 14:43:25,375 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-26 14:43:25,382 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-26 14:43:25,382 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-26 14:43:25,392 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-26 14:43:25,393 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-26 15:10:57,881 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-26 15:10:57,911 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 15:11:33,141 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-26 15:11:33,281 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 15:12:53,678 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-26 15:12:53,722 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 15:13:33,252 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-26 15:13:33,319 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 19:34:01,647 DEBUG   calendar.service.AuthService - Try to update event
+2022-12-26 19:34:01,670 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T19:34:01.639184100
+2022-12-26 19:34:01,671 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-26 20:06:16,845 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-26 20:06:16,856 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-26 20:06:16,872 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-26 21:58:37,960 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-26 21:58:37,979 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-26 21:58:37,992 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-26 23:00:30,314 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-26 23:00:30,345 INFO    calendar.controller.EventController - Change notification settings was made successfully
