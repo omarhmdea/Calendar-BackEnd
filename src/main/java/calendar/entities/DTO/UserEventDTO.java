@@ -10,15 +10,11 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class UserEventDTO {
-    private int id;
-    private String name;
-    private String email;
+    private UserDTO user;
     private Status status;
 
     public UserEventDTO(UserEvent userevent){
-        this.id = userevent.getUser().getId();
-        this.name = userevent.getUser().getName();
-        this.email = userevent.getUser().getEmail();
+        this.user = new UserDTO(userevent.getUser());
         this.status = userevent.getStatus();
     }
 }
