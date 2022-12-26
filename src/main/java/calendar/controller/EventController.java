@@ -6,6 +6,7 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
@@ -140,10 +141,10 @@ public class EventController {
      * @return list event of month & year
      */
     // TODO : in filter check userId and return the userToShowCalendar
-    @GetMapping(value = "showCalendar/{userId}")
-    public ResponseEntity<SuccessResponse<List<EventDTO>>> showCalendar(@RequestAttribute User user, @PathVariable int userId, @PathParam("month") int month, @PathParam("year") int year) {
-        logger.debug("Try to get calendar of user " + userId);
-        List<Event> calendarEvent = eventService.showCalendar(user, userId, month, year);
+    @GetMapping(value = "showCalendar/{id}")
+    public ResponseEntity<SuccessResponse<List<EventDTO>>> showCalendar(@RequestAttribute User user, @PathVariable int id, @PathParam("month") int month, @PathParam("year") int year) {
+        logger.debug("Try to get calendar of user " + id);
+        List<Event> calendarEvent = eventService.showCalendar(user, id, month, year);
         List<EventDTO> calendarEventDTO =  calendarEvent.stream().map(event -> new EventDTO(event)).collect(Collectors.toList());
         SuccessResponse<List<EventDTO>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show other user calendar", calendarEventDTO);
         logger.info("show calendar was made successfully");
