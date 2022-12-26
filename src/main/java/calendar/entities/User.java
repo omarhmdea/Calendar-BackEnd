@@ -19,13 +19,13 @@ public class User {
     private int id;
 
     @Pattern(regexp = "^[A-Za-z]+$")
-    private String name = "";
+    private String name;
 
     @NonNull
     @Column(unique = true)
-    private String email = "";
+    private String email;
 
-    private String password = "";
+    private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="shared_calendars", joinColumns=@JoinColumn(name="user_id"))

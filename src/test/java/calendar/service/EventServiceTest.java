@@ -32,15 +32,11 @@ import static org.mockito.Mockito.when;
 class EventServiceTest {
     @Mock
     EventRepository eventRepository;
-
-//    @Mock
-//    Us eventRepository;
     @Mock
     UserRepository userRepository;
-
-
     @Mock
     NotificationService notificationService;
+
     @InjectMocks
     EventService eventService;
     @InjectMocks
@@ -48,9 +44,14 @@ class EventServiceTest {
 
     Event event;
 
-   static User user;
+    static User user;
 
-    int userId = 5;
+    @BeforeAll
+    static void newUser(){
+        user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", , );
+        user.setEmail("eden@gmail.com");
+    }
+
     @BeforeEach
     void newEvent(){
         event = new Event();
@@ -66,11 +67,7 @@ class EventServiceTest {
 //        event.setAttachments("hhhhh");
     }
 
-    @BeforeAll
-    static void newUser(){
-        user = new User();
-        user.setEmail("w@w.com");
-    }
+
     @Test
     void addNewEvent_checkAddEvent_successAddEevent() {
         given(eventRepository.save(event)).willReturn(event);

@@ -6,7 +6,6 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
-import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;

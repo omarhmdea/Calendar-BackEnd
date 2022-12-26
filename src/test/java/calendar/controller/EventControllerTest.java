@@ -6,6 +6,7 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.enums.NotificationSettings;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
@@ -19,9 +20,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -37,18 +41,13 @@ class EventControllerTest {
     EventController eventController;
 
     Event event;
-
     List<Event> events;
+    UserNotification userNotification;
 
-    //UserDTO userDTO;
-
-   // static EventDTO eventDTO;
-    UserNotificationCredentials userNotificationCredentials;
-
+    static UserNotificationCredentials userNotificationCredentials;
     static EventCredentials eventCredentials;
-
     static User user;
-    int userId = 3;
+
     @BeforeEach
     void newEvent(){
         event = new Event();
@@ -60,15 +59,37 @@ class EventControllerTest {
         event.setDescription("hhhhh");
         event.setAttachments("hhhhh");
         event.setOrganizer(user);
+
+        events = new ArrayList<>();
+        events.add(event);
     }
+
     @BeforeAll
     static void newUser(){
-        user = new User();
-        user.setEmail("@");
-        user.setName("E");
-        user.setPassword("A123456");
-        user.setId(2);
+        user = new User(2,"E", "e@gmail.com", "A123456", Set.of());
+//        user.setId(2);
+//        user.setEmail("@");
+//        user.setName("E");
+//        user.setPassword("A123456");
     }
+
+    @BeforeEach
+    void newUserNotification(){
+        userNotification = new UserNotification(user);
+    }
+
+    @BeforeAll
+    static void newNotificationCredentials(){
+        userNotificationCredentials =
+                new UserNotificationCredentials(
+                        NotificationSettings.POPUP,
+                        NotificationSettings.NONE,
+                        NotificationSettings.NONE,
+                        NotificationSettings.NONE,
+                        NotificationSettings.NONE,
+                        NotificationSettings.NONE);
+    }
+
     @BeforeAll
     static void newEventCredentials(){
         eventCredentials = new EventCredentials();
@@ -87,6 +108,7 @@ class EventControllerTest {
          ResponseEntity<SuccessResponse<EventDTO>> successAddNewEvent = eventController.addNewEvent(user, event);
          assertEquals(eventDTO, Objects.requireNonNull(successAddNewEvent.getBody()).getData());
     }
+
     @Test
     void addNewEvent_checkAddEvent_responseOkTheStatusCode() {
         given(eventService.addNewEvent(user, event)).willReturn(event);
@@ -102,6 +124,7 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<EventDTO>> successUpdatedEvent = eventController.updateEvent(user,event,eventCredentials);
         assertEquals(eventDTO, Objects.requireNonNull(successUpdatedEvent.getBody()).getData());
     }
+
     @Test
     void updateEvent_checkUpdate_responseOkTheStatusCode() {
         event.setLocation(eventCredentials.getLocation());
@@ -109,6 +132,7 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<EventDTO>> successUpdatedEvent = eventController.updateEvent(user,event,eventCredentials);
         assertEquals(HttpStatus.OK, successUpdatedEvent.getStatusCode());
     }
+
     @Test
     void setGuestAsAdmin_checkSetGuestAsAdmin_responseOkAndUpdateGuestToAdmin() {
         given(eventService.setGuestAsAdmin(user,"r@r.com", event)).willReturn(event);
@@ -116,6 +140,7 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<EventDTO>> successSetGuestAsAdmin = eventController.setGuestAsAdmin(user, event,"r@r.com");
         assertEquals(eventDTO, Objects.requireNonNull(successSetGuestAsAdmin.getBody()).getData());
     }
+
     @Test
     void setGuestAsAdmin_checkSetGuestAsAdmin_responseOkTheStatusCode() {
         given(eventService.setGuestAsAdmin(user,"r@r.com", event)).willReturn(event);
@@ -130,12 +155,14 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<EventDTO>> successDeletedEvent = eventController.deleteEvent(user, event);
         assertEquals(eventDTO, Objects.requireNonNull(successDeletedEvent.getBody()).getData());
     }
+
     @Test
     void deleteEvent_checkDelete_responseOkTheStatusCode() {
         given(eventService.deleteEvent(user, event)).willReturn(event);
         ResponseEntity<SuccessResponse<EventDTO>> successDeletedEvent = eventController.deleteEvent(user, event);
         assertEquals(HttpStatus.OK, successDeletedEvent.getStatusCode());
     }
+
     @Test
     void inviteGuestToEvent_checkInviteGuestToEvent_responseOkAndInviteGuestToEvent() {
         given(eventService.inviteGuestToEvent(user,"r@r.com", event)).willReturn(event);
@@ -143,12 +170,14 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<EventDTO>> successInviteGuestToEvent = eventController.inviteGuestToEvent(user, event,"r@r.com");
         assertEquals(eventDTO, Objects.requireNonNull(successInviteGuestToEvent.getBody()).getData());
     }
+
     @Test
     void inviteGuestToEvent_checkInviteGuestToEvent_responseOkTheStatusCode() {
         given(eventService.inviteGuestToEvent(user,"r@r.com", event)).willReturn(event);
         ResponseEntity<SuccessResponse<EventDTO>> successInviteGuestToEvent = eventController.inviteGuestToEvent(user, event,"r@r.com");
         assertEquals(HttpStatus.OK, successInviteGuestToEvent.getStatusCode());
     }
+
     @Test
     void removeGuestFromEvent_checkRemoveGuestFromEvent_responseOkAndRemoveGuestFromEvent() {
         given(eventService.removeGuestFromEvent(user,"r@r.com",event)).willReturn(user);
@@ -156,11 +185,26 @@ class EventControllerTest {
         ResponseEntity<SuccessResponse<UserDTO>> successRemoveGuestFromEvent = eventController.removeGuestFromEvent(user,event,"r@r.com");
         assertEquals(userDTO, Objects.requireNonNull(successRemoveGuestFromEvent.getBody()).getData());
     }
+
     @Test
     void removeGuestFromEvent_checkRemoveGuestFromEvent_responseOkTheStatusCode() {
         given(eventService.removeGuestFromEvent(user,"r@r.com",event)).willReturn(user);
         ResponseEntity<SuccessResponse<UserDTO>> successRemoveGuestFromEvent = eventController.removeGuestFromEvent(user,event,"r@r.com");
         assertEquals(HttpStatus.OK, successRemoveGuestFromEvent.getStatusCode());
+    }
+
+    @Test
+    void showCalendar_checkShowCalendar_responseOkWithTheCorrectEvents() {
+        given(eventService.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear())).willReturn(events);
+        ResponseEntity<SuccessResponse<List<EventDTO>>> successShowCalendarEvents = eventController.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
+        assertEquals(new EventDTO(events.get(0)), Objects.requireNonNull(successShowCalendarEvents.getBody()).getData().get(0));
+    }
+
+    @Test
+    void showCalendar_checkShowCalendar_responseOkEqualsTheStatusCode() {
+        given(eventService.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear())).willReturn(events);
+        ResponseEntity<SuccessResponse<List<EventDTO>>> successShowCalendarEvents = eventController.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
+        assertEquals(HttpStatus.OK, successShowCalendarEvents.getStatusCode());
     }
 
     @Test
@@ -180,9 +224,8 @@ class EventControllerTest {
     @Test
     void rejectInvitation_checkIfRejectInvitation_responseOkAndUpdateTheStatusToReject() {
         given(eventService.approveOrRejectInvitation(user, event.getId(),Status.REJECTED)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
         ResponseEntity<SuccessResponse<EventDTO>> successRejectInvitation = eventController.rejectInvitation(user, event.getId());
-        assertEquals(eventDTO, Objects.requireNonNull(successRejectInvitation.getBody()).getData());
+        assertEquals(new EventDTO(event), Objects.requireNonNull(successRejectInvitation.getBody()).getData());
     }
     @Test
     void rejectInvitation_checkIfRejectInvitation_responseOkTheStatusCode() {
@@ -191,49 +234,28 @@ class EventControllerTest {
         assertEquals(HttpStatus.OK, successRejectInvitation.getStatusCode());
     }
 
-//    @Test
-//    void changeSettings() {
-//        given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
-//        UserNotification userNotification = new UserNotification(userNotificationCredentials);
-//        ResponseEntity<SuccessResponse<UserNotification>> successChangeSettings = eventController.changeSettings(user,userNotificationCredentials);
-//        assertEquals(HttpStatus.OK, successChangeSettings.getStatusCode());
-//        assertEquals(event, Objects.requireNonNull(successChangeSettings.getBody()).getData());
-//    }
+    @Test
+    void changeSettings_checkIfChangeSettings_responseOkAndUpdateTheSettings() {
+        userNotification.setDeleteEvent(NotificationSettings.POPUP);
+        given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
+        ResponseEntity<SuccessResponse<UserNotification>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
+        assertEquals(userNotificationCredentials.getDeleteEvent(), Objects.requireNonNull(successChangeSettings.getBody()).getData().getDeleteEvent());
+    }
 
-//    //check again
-//    // maybe we need to create list of events
-//    @Test
-//    void getCalendar_checkGetCalendar_responseOkWithTheCorrectEvents() {
-//        given(eventService.getCalendar(user,12,2022)).willReturn(events);
-//        ResponseEntity<SuccessResponse<List<Event>>> successGetCalendarEvents = eventController.getCalendar(user,12,2022);
-//        assertEquals(HttpStatus.OK, successGetCalendarEvents.getStatusCode());
-//        assertEquals(events, Objects.requireNonNull(successGetCalendarEvents.getBody()).getData());
-//    }
-//    //check again
-//    @Test
-//    void showCalendar_checkShowCalendar_responseOkWithTheCorrectEvents() {
-//        given(eventService.showCalendar(1,12,2022)).willReturn(events);
-//        ResponseEntity<SuccessResponse<List<Event>>> successShowCalendarEvents = eventController.showCalendar(user,12,2022,1);
-//        assertEquals(HttpStatus.OK, successShowCalendarEvents.getStatusCode());
-//        assertEquals(events, Objects.requireNonNull(successShowCalendarEvents.getBody()).getData());
-//    }
-    //    @Test
-//    void showCalendar_(){
-//        given(eventService.showCalendar(user,"r@r.com",event)).willReturn(user);
-//
-//    }
-//    @Test
-//    void showCalendar_checkShowCalendar_responseOkWithTheCorrectEvents() {
-//        given(eventService.showCalendar(user,userId,12,2022)).willReturn(events);
-//        List<EventDTO> eventsDTO = new EventDTO(events);
-//        ResponseEntity<SuccessResponse<List<EventDTO>>> successGetCalendarEvents = eventController.showCalendar(user,userId,12,2022);
-//        assertEquals(HttpStatus.OK, successGetCalendarEvents.getStatusCode());
-//        assertEquals(eventsDTO, Objects.requireNonNull(successGetCalendarEvents.getBody()).getData());
-//    }
-//
+    @Test
+    void changeSettings_checkIfChangeSettings_responseOkEqualStatusCode() {
+        userNotification.setDeleteEvent(NotificationSettings.POPUP);
+        given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
+        ResponseEntity<SuccessResponse<UserNotification>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);
+        assertEquals(HttpStatus.OK, successChangeSettings.getStatusCode());
+    }
 
-
-
+//    @Test
+//    void shareCalendar_checkIfShareCalendar_responseOkEqualsStatusCode() {
+//        given(notificationService.shareCalendar(user,guest.getEmail())).willReturn(guest);
+//        ResponseEntity<SuccessResponse<UserDTO>> successShareCalendar = eventController.shareCalendar(user, guest.getEmail());
+//        assertEquals(HttpStatus.OK, successShareCalendar.getStatusCode());
+//    }
 
 
 
