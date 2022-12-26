@@ -11,13 +11,12 @@ public class GitRequest {
     private static Logger logger = LogManager.getLogger(GitRequest.class.getName());
 
     /**
-     * send restTemplate.exchange to get the info for our GitToken.class entity.
-     *
-     * @param link - where to send the request
-     * @return GitToken - access_token; token_type; scope
+     * Get git token info by sending restTemplate.exchange request
+     * @param link the link to send the request to
+     * @return Git Token data - access token, token type, scope
      */
     public static GitToken reqGitGetToken(String link) {
-        logger.info("in GitRequest -> reqGitGetToken");
+        logger.info("Try to get github token by link");
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", "application/json");
@@ -25,22 +24,21 @@ public class GitRequest {
         try {
             return restTemplate.exchange(link, HttpMethod.POST, entity, GitToken.class).getBody();
         } catch (Exception e) {
-            logger.error("in GitRequest -> reqGitGetToken -> failed to fetch token from link: " +link);
+            // TODO : do we want to throw exception or something?
+            logger.error("Failed to fetch token from " +link);
             return null;
         }
     }
 
     /**
-     * send restTemplate.exchange to get the info for our GitUser.class entity.
-     * if the mail of the user is private, sends another request with <a href="https://api.github.com/user/emails"></a>
-     * add the /emails to get the email of the user who just did an authorization via gitHub.
-     *
-     * @param link        - where to send the request
-     * @param bearerToken - put the access_token from reqGitGetToken in the header authorization
-     * @return GitUser - login; name; email;
+     * Get git user info by sending restTemplate.exchange request
+     * If the user's email is private - sends another request - <a href="https://api.github.com/user/emails"></a>
+     * @param link the link to send the request to
+     * @param bearerToken the access_token from the git token data
+     * @return Git User data - login, name, email, access token
      */
     public static GitUser reqGitGetUser(String link, String bearerToken) {
-        logger.info("in GitRequest -> reqGitGetUser");
+        logger.info("Try to get github user by link");
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + bearerToken);
@@ -49,7 +47,7 @@ public class GitRequest {
             GitUser gitUser = restTemplate.exchange(link, HttpMethod.GET, entity, GitUser.class).getBody();
             gitUser.accessToken = bearerToken;
             if (gitUser.getEmail() == null) {
-                logger.info("in GitRequest -> reqGitGetToken -> user is private in github.");
+                logger.info("User is private in github");
                 GithubEmail[] githubEmail = restTemplate.exchange(link + "/emails", HttpMethod.GET, entity, GithubEmail[].class).getBody();
                 for (GithubEmail gEmail : githubEmail) {
                     if (gEmail.isPrimary()) {
@@ -60,7 +58,8 @@ public class GitRequest {
             }
             return gitUser;
         } catch (Exception e) {
-            logger.error("in GitRequest -> reqGitUser -> failed to fetch user from link: " +link);
+            // TODO : do we want to throw exception or something?
+            logger.error("Failed to fetch user from " +link);
             return null;
         }
     }

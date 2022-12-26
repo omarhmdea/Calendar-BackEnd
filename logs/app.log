@@ -23855,3 +23855,66 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
 	at java.lang.Thread.run(Thread.java:844) ~[?:?]
+2022-12-26 12:22:15,930 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 22816 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 12:22:15,945 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 12:22:15,946 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 12:22:21,433 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 12:22:21,448 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 12:22:21,451 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 12:22:21,807 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 12:22:22,258 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d0152a8e-eed8-41e1-bd86-0cc9f647c093
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 12:22:22,413 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 12:22:22,596 INFO    calendar.SpringApp - Started SpringApp in 7.473 seconds (JVM running for 13.498)
+2022-12-26 12:22:47,721 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5975c127]
+2022-12-26 12:22:47,877 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:22:47,878 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:22:47,879 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:22:47,881 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:22:47,920 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:22:49,146 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:22:50,754 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:22:51,452 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 12:22:51,681 INFO    calendar.service.AuthService - Successful first time login using github
+2022-12-26 12:23:22,708 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@5975c127]
+2022-12-26 12:23:22,708 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 12:23:22,709 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 12:23:22,709 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:23:22,710 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 12:23:22,711 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken
+2022-12-26 12:23:23,238 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetUser
+2022-12-26 12:23:23,796 INFO    calendar.utilities.Github.GitRequest - in GitRequest -> reqGitGetToken -> user is private in github.
+2022-12-26 12:23:24,084 INFO    calendar.service.AuthService - User has logged in in the past using github. Login to account now
+2022-12-26 12:23:24,085 INFO    calendar.service.AuthService - Successful not first time login using github
+2022-12-26 13:55:11,222 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 3272 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 13:55:11,255 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 13:55:11,258 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 13:55:18,610 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 13:55:18,622 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 13:55:18,624 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 13:55:19,044 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 13:55:19,623 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a23dd81f-458b-42e1-84af-93755e1419e5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 13:55:19,829 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 13:55:20,046 INFO    calendar.SpringApp - Started SpringApp in 10.05 seconds (JVM running for 16.328)
+2022-12-26 13:55:59,945 INFO    calendar.filter.CorsFilter - Cors filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6eccbc21]
+2022-12-26 13:55:59,991 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-26 13:55:59,991 INFO    calendar.service.AuthService - Try to login using github
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - Try to get github user by code
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - Try to get github token by code
+2022-12-26 13:55:59,992 INFO    calendar.service.AuthService - in AuthService -> getGithubToken
+2022-12-26 13:56:00,011 INFO    calendar.service.AuthService - Got github token successfully
+2022-12-26 13:56:00,011 INFO    calendar.utilities.Github.GitRequest - Try to get github token by link
+2022-12-26 13:56:00,848 INFO    calendar.service.AuthService - Got github user successfully
+2022-12-26 13:56:00,857 INFO    calendar.utilities.Github.GitRequest - Try to get github user by link
+2022-12-26 13:56:01,893 INFO    calendar.utilities.Github.GitRequest - User is private in github
+2022-12-26 13:56:02,356 INFO    calendar.service.AuthService - First time login using github
+2022-12-26 13:56:02,502 INFO    calendar.service.AuthService - Successful first time login using github

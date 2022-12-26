@@ -134,10 +134,11 @@ public class EventController {
     }
 
     /**
-     * Get calendar (events) of a different user by month and year
-     * @param user - the user id
-     * @param month  - the month we want to present
-     * @param year   - the year we want to present
+     * Get calendar (events) of a user by month and year
+     * @param user the user that is trying to view the calendar
+     * @param id the id of the user to view their calendar
+     * @param month the month we want to present
+     * @param year the year we want to present
      * @return list event of month & year
      */
     // TODO : in filter check userId and return the userToShowCalendar
