@@ -54,7 +54,8 @@ public class AuthService {
      * @return the user after it was saved n the db
      */
     public User registerUser(User user) {
-        logger.debug("Check if already exist in DB");
+        logger.info("Try to register using email");
+        logger.debug("Check if email already exist in DB");
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             logger.error("Email already in use");
             throw new IllegalArgumentException("Email already in use");
@@ -72,6 +73,7 @@ public class AuthService {
      * @return Login data - user's DTO and the generated token
      */
     public LoginDTO login (UserCredentials userCredentials){
+        logger.info("Try to login using email");
         Optional<User> user = userRepository.findByEmail(userCredentials.getEmail());
         if(!user.isPresent()){
             throw new IllegalArgumentException("Invalid email");
@@ -81,6 +83,7 @@ public class AuthService {
         }
         String token = TokenGenerator.generateNewToken();
         loginTokenId.put(token ,user.get().getId());
+        logger.info("Successful login using email");
         return new LoginDTO(new UserDTO(user.get()), token);
     }
 
@@ -97,7 +100,7 @@ public class AuthService {
      * @return - Response with UserLoginDTO - new userId and token.
      */
     public LoginDTO login(String code) {
-        logger.info("in AuthService -> loginGithub");
+        logger.info("Try to login using github");
         GitUser githubUser = getGithubUser(code);
         if(githubUser == null || githubUser.getEmail() == null){
             // TODO : throw Error Response - invalid code
@@ -107,6 +110,7 @@ public class AuthService {
             logger.info("User has logged in in the past using github. Login to account now");
             String token = TokenGenerator.generateNewToken();
             loginTokenId.put(token ,user.get().getId());
+            logger.info("Successful not first time login using github");
             return new LoginDTO(new UserDTO(user.get()), token);
         }
         logger.info("First time login using github");
@@ -116,9 +120,11 @@ public class AuthService {
         } else {
             newUser = new User(githubUser.getEmail(), githubUser.getEmail(), githubUser.getAccessToken());
         }
+        User savedUser = userRepository.save(newUser);
         String token = TokenGenerator.generateNewToken();
-        loginTokenId.put(token ,newUser.getId());
-        return new LoginDTO(new UserDTO(newUser), token);
+        loginTokenId.put(token ,savedUser.getId());
+        logger.info("Successful first time login using github");
+        return new LoginDTO(new UserDTO(savedUser), token);
     }
 
     /**

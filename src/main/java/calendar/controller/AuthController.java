@@ -69,7 +69,7 @@ public class AuthController {
     public ResponseEntity<SuccessResponse<LoginDTO>> login(@RequestParam String code){
         logger.debug("Try to login using github");
         LoginDTO loginDTO = authService.login(code);
-        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", authService.loginGithub(code));
+        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", authService.login(code));
 //        logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(URI.create("http://localhost:3000"));

@@ -23122,3 +23122,18 @@ This generated password is for development use only. Your security configuration
 2022-12-25 15:10:02,382 INFO    calendar.filter.AuthFilter - Auth filter is working on the following request: FirewalledRequest[ org.apache.catalina.connector.RequestFacade@6ebfdfbe]
 2022-12-25 15:10:02,390 DEBUG   calendar.controller.EventController - Try to change notification settings
 2022-12-25 15:10:02,402 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-26 11:54:35,806 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 29176 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-26 11:54:35,819 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-26 11:54:35,821 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-26 11:54:41,509 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-26 11:54:41,511 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-26 11:54:41,513 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-26 11:54:41,900 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-26 11:54:42,354 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1d48f353-2ea8-4eca-98ab-f2a0e794e215
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-26 11:54:42,514 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-26 11:54:42,670 INFO    calendar.SpringApp - Started SpringApp in 7.763 seconds (JVM running for 11.423)
