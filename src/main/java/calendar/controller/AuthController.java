@@ -67,12 +67,13 @@ public class AuthController {
     // TODO : why not post??
     @GetMapping(value = "login/github")
     public ResponseEntity<SuccessResponse<LoginDTO>> login(@RequestParam String code){
-        logger.debug("Try to login using github");
+        logger.debug("Try to login via github");
         LoginDTO loginDTO = authService.login(code);
         SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginDTO);
 //        logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(URI.create("http://localhost:3000"));
+        logger.debug("login via github");
         return new ResponseEntity<>(successResponse, headers, HttpStatus.MOVED_PERMANENTLY);
 //        return ResponseEntity.ok().body(successResponse);
     }
