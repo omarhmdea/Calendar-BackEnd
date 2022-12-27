@@ -24020,3 +24020,370 @@ This generated password is for development use only. Your security configuration
 2022-12-26 21:58:37,992 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
 2022-12-26 23:00:30,314 DEBUG   calendar.controller.EventController - Try to change notification settings
 2022-12-26 23:00:30,345 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-27 09:29:53,650 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:29:53,665 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:29:53.632113200
+2022-12-27 09:29:53,743 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:29:53,743 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:29:53,754 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:29:53,770 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:29:53,770 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:29:53.768235200
+2022-12-27 09:29:54,015 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:29:53.768235200, end=2022-12-31T09:29:53.768235200, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@f54458d1], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:29:54,086 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:29:54,087 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:29:54.085527500
+2022-12-27 09:29:54,087 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:29:54.085444800, end=2022-12-31T09:29:54.085527500, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@f54458d1], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:29:54,096 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:29:54,098 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:29:54.095708200
+2022-12-27 09:29:54,109 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:29:54,111 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:29:54,112 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:31:45,084 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:31:45,097 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:31:45.076917400
+2022-12-27 09:31:45,138 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:31:45,138 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:31:45,142 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:31:45,149 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:31:45,149 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:31:45.147222
+2022-12-27 09:31:45,185 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:31:45.147222, end=2022-12-31T09:31:45.147222, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@f54458d1], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:31:45,204 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:31:45,205 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:31:45.203966
+2022-12-27 09:31:45,205 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:31:45.203966, end=2022-12-31T09:31:45.203966, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@f54458d1], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:31:45,210 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:31:45,210 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:31:45.209961900
+2022-12-27 09:31:45,216 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:31:45,217 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:31:45,217 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:32:26,720 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:32:26,733 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:32:26.701924
+2022-12-27 09:32:26,761 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:32:26.700926300, end=2022-12-31T09:32:26.701924, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@11bbb2ee, calendar.entities.UserEvent@c814ac8f], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:39:20,588 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:39:20,593 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:39:20.582429400
+2022-12-27 09:39:20,626 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:39:20,627 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:39:20,631 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:39:20,637 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:39:20,637 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:39:20.635679400
+2022-12-27 09:39:20,671 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:39:20.635679400, end=2022-12-31T09:39:20.635679400, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@3777507b], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:39:20,681 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:39:20,681 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:39:20.680395600
+2022-12-27 09:39:20,681 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:39:20.680395600, end=2022-12-31T09:39:20.680395600, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@eac0ecab, calendar.entities.UserEvent@3777507b], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:39:20,687 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:39:20,688 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:39:20.686628100
+2022-12-27 09:39:20,692 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:39:20,692 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:39:20,693 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:39:48,799 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:39:48,811 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:39:48,814 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:42:42,220 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:42:42,234 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:42:42,238 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:47:08,899 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:47:08,915 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:47:08.896972100
+2022-12-27 09:47:08,921 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:47:08,922 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:47:08,922 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:47:08,928 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:47:08,929 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:47:08.927664100
+2022-12-27 09:47:08,967 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:47:08.927664100, end=2022-12-31T09:47:08.927664100, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@deadbb33, calendar.entities.UserEvent@10c52141], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:47:08,976 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:47:08,977 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:47:08.975550200
+2022-12-27 09:47:08,977 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:47:08.975550200, end=2022-12-31T09:47:08.975550200, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@deadbb33, calendar.entities.UserEvent@10c52141], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:47:08,982 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:47:08,983 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:47:08.982716900
+2022-12-27 09:47:59,412 DEBUG   calendar.service.AuthService - Delete the event from DB
+2022-12-27 09:48:39,675 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-27 09:48:39,717 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:48:39,718 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:48:39.715375700
+2022-12-27 09:48:39,724 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 09:48:39,724 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 09:48:39,725 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 09:48:39,731 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:48:39,732 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:48:39.731915400
+2022-12-27 09:48:39,784 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:48:39.731915400, end=2022-12-31T09:48:39.731915400, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@deadbb33, calendar.entities.UserEvent@10c52141], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:48:39,795 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:48:39,796 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:48:39.794671
+2022-12-27 09:48:39,797 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T09:48:39.794671, end=2022-12-31T09:48:39.794671, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@deadbb33, calendar.entities.UserEvent@10c52141], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 09:48:39,801 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 09:48:39,802 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T09:48:39.801937100
+2022-12-27 11:30:24,002 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 11:30:24,028 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 11:30:24,052 DEBUG   calendar.service.AuthService - Adding user to event User(id=4, name=Maya, email=maya@gmail.com, password=Maya123!@#, shared=[])
+2022-12-27 11:33:51,165 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 11:33:51,197 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 12:15:13,575 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:15:46,991 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:17:00,216 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:18:22,155 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-27 12:18:22,204 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:18:22,205 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:18:22.202796700
+2022-12-27 12:18:22,213 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 12:18:22,213 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:18:22,213 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 12:18:22,221 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:18:22,223 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 12:18:22,229 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:18:22,229 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:18:22.228781
+2022-12-27 12:18:22,287 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T12:18:22.228781, end=2022-12-31T12:18:22.228781, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@792eb8fd, calendar.entities.UserEvent@2ea9f670], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 12:18:22,301 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:18:22,302 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:18:22.300916900
+2022-12-27 12:18:22,303 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T12:18:22.300916900, end=2022-12-31T12:18:22.300916900, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@792eb8fd, calendar.entities.UserEvent@2ea9f670], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 12:18:22,310 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:18:22,310 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:18:22.309780900
+2022-12-27 12:18:22,318 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:18:22,325 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:21:04,184 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:21:04,189 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:21:04,190 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:21:07,019 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:21:07,028 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:21:07,029 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:21:07,238 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:21:07,526 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: c0bd7f69-c9e7-4e99-9093-07606031a984
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:21:07,644 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:21:07,735 INFO    calendar.SpringApp - Started SpringApp in 3.887 seconds (JVM running for 5.384)
+2022-12-27 12:21:42,669 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:21:42,988 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:21:42,989 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:21:42,989 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:21:43,991 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:21:43,992 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:21:43,992 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:21:44,084 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:21:44,244 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 406b61de-4201-4392-a594-aba6b4afcecd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:21:44,261 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:21:44,297 INFO    calendar.SpringApp - Started SpringApp in 1.404 seconds (JVM running for 41.946)
+2022-12-27 12:21:44,844 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:21:44,861 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:21:46,030 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:21:46,038 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-2 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1091)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:21:46,504 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:21:46,505 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:21:46,505 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:21:47,337 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:21:47,338 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:21:47,338 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:21:47,405 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:21:47,484 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 95c4eecf-02b5-4b7b-87bd-5b5e398f624a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:21:47,495 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:21:47,517 INFO    calendar.SpringApp - Started SpringApp in 1.152 seconds (JVM running for 45.166)
+2022-12-27 12:23:24,714 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-3 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:23:24,934 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:23:24,935 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:23:24,935 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:23:25,898 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:23:25,907 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:23:25,907 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:23:25,986 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:23:26,091 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6309dba3-bac7-4a51-9949-a1eb922b7dfd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:23:26,106 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:23:26,139 INFO    calendar.SpringApp - Started SpringApp in 1.263 seconds (JVM running for 143.788)
+2022-12-27 12:23:27,232 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:23:27,248 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:23:27,828 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-4 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:23:27,829 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-4 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1091)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:23:27,982 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:23:27,983 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:23:27,983 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:23:29,150 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:23:29,151 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:23:29,152 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:23:29,258 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:23:29,345 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 69cd1675-49a2-4e3f-98dd-8acad542646b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:23:29,356 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:23:29,385 INFO    calendar.SpringApp - Started SpringApp in 1.438 seconds (JVM running for 147.033)
+2022-12-27 12:25:50,279 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:25:50,294 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:25:50,295 DEBUG   calendar.service.AuthService - Check if the guest to remove is the event's organizer
+2022-12-27 12:25:50,295 DEBUG   calendar.service.AuthService - Check if the user is the organizer of the event
+2022-12-27 12:25:50,305 DEBUG   calendar.service.AuthService - Removing guest from event User(id=3, name=Eli, email=eli@gmail.com, password=Eli123!@#, shared=[])
+2022-12-27 12:26:26,040 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:26:26,054 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 12:26:26,055 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-27 12:26:44,866 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:26:44,892 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:26:44,893 DEBUG   calendar.service.AuthService - Check if the guest to remove is the event's organizer
+2022-12-27 12:26:44,893 DEBUG   calendar.service.AuthService - Check if the user is the organizer of the event
+2022-12-27 12:26:44,909 DEBUG   calendar.service.AuthService - Removing guest from event User(id=3, name=Eli, email=eli@gmail.com, password=Eli123!@#, shared=[])
+2022-12-27 12:26:59,763 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:26:59,783 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 12:26:59,785 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-27 12:27:07,311 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:27:07,324 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:27:07,325 DEBUG   calendar.service.AuthService - Check if the guest to remove is the event's organizer
+2022-12-27 12:27:07,325 DEBUG   calendar.service.AuthService - Check if the user is the organizer of the event
+2022-12-27 12:27:07,343 DEBUG   calendar.service.AuthService - Removing guest from event User(id=3, name=Eli, email=eli@gmail.com, password=Eli123!@#, shared=[])
+2022-12-27 12:28:04,300 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:28:04,314 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:28:04,315 DEBUG   calendar.service.AuthService - Check if the guest to remove is the event's organizer
+2022-12-27 12:28:04,316 DEBUG   calendar.service.AuthService - Check if the user is the organizer of the event
+2022-12-27 12:28:04,331 DEBUG   calendar.service.AuthService - Removing guest from event User(id=3, name=Eli, email=eli@gmail.com, password=Eli123!@#, shared=[])
+2022-12-27 12:33:24,299 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user maya@gmail.com
+2022-12-27 12:33:24,315 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 12:34:36,748 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user omar@gmail.com
+2022-12-27 12:34:36,762 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 12:34:36,765 DEBUG   calendar.service.AuthService - Return events of user omar@gmail.com
+2022-12-27 12:36:45,622 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eli@gmail.com
+2022-12-27 12:36:45,635 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 12:43:16,532 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-5 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:43:16,766 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:43:16,767 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:43:16,767 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:43:17,718 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:43:17,719 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:43:17,720 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:43:17,780 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:43:17,843 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3c668c58-2e82-4ab7-ab53-7b31629dfea7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:43:17,851 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:43:17,879 INFO    calendar.SpringApp - Started SpringApp in 1.183 seconds (JVM running for 1335.527)
+2022-12-27 12:43:19,957 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-6 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1131)
+ java.base@9.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:848)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:43:19,959 WARN    org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-6 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2104)
+ java.base@9.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1091)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+ java.base@9.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+ java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+2022-12-27 12:43:20,252 INFO    calendar.SpringApp - Starting SpringApp using Java 9.0.4 on LAPTOP-SP58NPI9 with PID 28732 (C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd\target\classes started by 97252 in C:\Users\97252\Desktop\Start @ Google\Calendar\Calendar-App\Calendar-BackEnd)
+2022-12-27 12:43:20,260 DEBUG   calendar.SpringApp - Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 12:43:20,260 INFO    calendar.SpringApp - No active profile set, falling back to 1 default profile: "default"
+2022-12-27 12:43:21,499 INFO    calendar.configuration.FilterConfig - Cors FilterBean has been created
+2022-12-27 12:43:21,509 INFO    calendar.configuration.FilterConfig - Auth Filter has been created
+2022-12-27 12:43:21,510 INFO    calendar.configuration.FilterConfig - Permission Filter Bean has been created
+2022-12-27 12:43:21,639 WARN    org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 12:43:21,840 WARN    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 2fd65c08-5726-48d0-ab3b-a90d8d3adf49
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-27 12:43:21,872 WARN    org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-12-27 12:43:21,943 INFO    calendar.SpringApp - Started SpringApp in 1.769 seconds (JVM running for 1339.591)
+2022-12-27 12:43:22,173 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-27 12:43:22,219 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:43:22,221 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:43:22.217104600
+2022-12-27 12:43:22,229 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 12:43:22,229 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:43:22,230 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 12:43:22,239 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:43:22,240 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 12:43:22,240 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-27 12:43:22,246 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:43:22,247 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:43:22.245029800
+2022-12-27 12:43:22,313 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T12:43:22.245029800, end=2022-12-31T12:43:22.245029800, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@68ad40fd, calendar.entities.UserEvent@5a1c1100], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 12:43:22,324 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eli@gmail.com
+2022-12-27 12:43:22,326 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 12:43:22,328 ERROR   calendar.service.AuthService - The given user is not a part of any event
+2022-12-27 12:43:22,355 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:43:22,356 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:43:22.354021700
+2022-12-27 12:43:22,356 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T12:43:22.353021400, end=2022-12-31T12:43:22.354021700, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@68ad40fd, calendar.entities.UserEvent@5a1c1100], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 12:43:22,371 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user omar@gmail.com
+2022-12-27 12:43:22,371 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 12:43:22,372 DEBUG   calendar.service.AuthService - Return events of user omar@gmail.com
+2022-12-27 12:43:22,380 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 12:43:22,380 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T12:43:22.379421200
+2022-12-27 12:43:22,390 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:43:22,391 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 12:43:22,398 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 12:43:22,399 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
