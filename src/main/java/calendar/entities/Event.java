@@ -37,11 +37,11 @@ public class Event {
 
     public String toEmailString() {
         return title + " event :\n" +
-                "Starts at" + start +
-                "\n and ends at " + end +
+                "Starts at " + start +
+                "\nand ends at " + end +
                 "\nWe'll meet at " + location +
                 "\n to "+ description +
-                "\n\nAttachments='" + attachments;
+                "\n\nAttachments -'" + attachments;
     }
 
     public void addUserEvent(UserEvent userEvent){

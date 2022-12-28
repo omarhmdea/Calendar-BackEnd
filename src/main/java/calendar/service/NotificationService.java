@@ -23,18 +23,15 @@ import java.util.Optional;
 public class NotificationService {
 
     private static final Logger logger = LogManager.getLogger(NotificationService.class.getName());
+
     @Autowired
     private UserNotificationRepository userNotificationRepository;
     @Autowired
     private EmailFacade emailFacade;
     @Autowired
-    private EventRepository eventRepository;
-    @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-
     public void sendNotificationToGuestsEvent(NotificationDetails notificationDetails) {
-
         for(UserEventDTO userEventDTO: notificationDetails.getEvent().getGuests()) {
             if(userEventDTO.getStatus().equals(Status.APPROVED)) {
                 UserNotification userNotification = findUserNotification(userEventDTO.getUser());
@@ -62,9 +59,7 @@ public class NotificationService {
                 }
             }
         }
-
     }
-
 
     private void send(NotificationSettings notificationSettings, UserDTO user, NotificationDetails notificationDetails) {
         switch(notificationSettings) {
@@ -83,23 +78,19 @@ public class NotificationService {
         }
     }
 
-
     private void sendPopupNotification(UserDTO user, NotificationDetails notificationDetails) {
         simpMessagingTemplate.convertAndSendToUser(user.getEmail(), "/private", notificationDetails.getMessage());
     }
-
 
     private void sendEmailNotification(UserDTO user, NotificationDetails notificationDetails) {
         logger.info(notificationDetails.getNotificationType() + " Notification has been sent to " + user.getName() + " by email");
         emailFacade.sendEmail(user.getEmail(), notificationDetails.getMessage(), notificationDetails.getNotificationType());
     }
 
-
     public UserNotification changeSettings(User user, UserNotificationCredentials updatedUserNotification) {
         UserNotification userNotification = update(findUserNotification(user), updatedUserNotification);
         return userNotificationRepository.save(userNotification);
     }
-
 
     private UserNotification update(UserNotification originalNotification, UserNotificationCredentials updatedNotification) {
         originalNotification.setDeleteEvent(updatedNotification.getDeleteEvent());
@@ -110,7 +101,6 @@ public class NotificationService {
         originalNotification.setUpcomingEvent(updatedNotification.getUpcomingEvent());
         return originalNotification;
     }
-
 
     public UserNotification findUserNotification(User user) {
         Optional<UserNotification> userNotification = userNotificationRepository.findByUserId(user.getId());

@@ -5,6 +5,7 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.DTO.UserDTO;
 import calendar.enums.Role;
 import calendar.enums.Status;
+import calendar.exception.customException.UserNotPartOfEventException;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
@@ -42,16 +43,20 @@ public class EventService {
     }
 
     /**
-     *
-     * @param user
-     * @param originalEvent
-     * @param updatedEvent
+     * Update event data by admin & organizer
+     * @param user the user that is trying to update the event
+     * @param originalEvent the original event, without any changes
+     * @param updatedEvent the updated event, with the new changes
      * @return
      */
     public Event updateEvent(User user, Event originalEvent, EventCredentials updatedEvent){
+        if(!userIsEventOrganizer(originalEvent, user)){
+            if(!isFieldsAdminCanNotChange(originalEvent, updatedEvent)){
+                throw new IllegalArgumentException("Admin cannot change one of the fields they made changes in");
+            }
+        }
         logger.debug("Try to update event");
         checkDateAndTime(updatedEvent);
-        // notificationService.sendNotification(event, NotificationType.UPDATE_EVENT);
         logger.info("Save the updated event in DB");
         return eventRepository.save(update(originalEvent, updatedEvent));
     }
@@ -86,7 +91,6 @@ public class EventService {
         adminInEvent.setRole(Role.ADMIN);
         event.addUserEvent(adminInEvent);
         logger.debug("Set the guest as the event's admin");
-        // TODO : sent notification - not really needed
         return eventRepository.save(event);
     }
 
@@ -122,7 +126,6 @@ public class EventService {
             logger.debug("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
             throw new IllegalArgumentException("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
         }
-        // TODO : send invitation to the user that was invited
         logger.debug("Adding user to event " + guestToAdd.toString());
         event.addUserEvent(new UserEvent(guestToAdd, Status.TENTATIVE, Role.GUEST));
         return eventRepository.save(event);
@@ -150,12 +153,11 @@ public class EventService {
         UserEvent userEvent = getUserEvent(event, guestToRemove);
         event.removeUserEvent(userEvent);
         eventRepository.save(event);
-//        notificationService.sendNotification(event, NotificationType.REMOVE_GUEST);
         return guestToRemove;
     }
 
     /**
-     * Get calendar : get the event calendar from DB According to month year
+     * Get calendar (events) of a user by month and year
      * @param user  - the user id
      * @param month  - the month we want to present
      * @param year  - the year we want to present
@@ -178,6 +180,19 @@ public class EventService {
         return userEventsByMothAndYear;
     }
 
+    /**
+     * Get calendar (events) of a user by month and year
+     * If the user is trying to view their own calendar -
+     * they will see all the events - private and public
+     * If the user is trying to view someone else's calendar -
+     * - if they have permission to view - they will see all the public events(without private)
+     * - if the don't have permission - throw exception
+     * @param user the user that is trying to view the calendar
+     * @param userToShowCalendarId the user to view their calendar
+     * @param month the month the user wants to present
+     * @param year the year the user wants to present
+     * @return list of events by month & year
+     */
     public List<Event> showCalendar(User user, int userToShowCalendarId, int month, int year){
         logger.debug("Try to get calendar of user " + userToShowCalendarId);
         User userToShowCalendar = findUser(userToShowCalendarId);
@@ -199,6 +214,13 @@ public class EventService {
         return sharedEvents;
     }
 
+    /**
+     * A user approved / rejected an event invitation
+     * @param user the user that approved / rejected the invitation
+     * @param eventId the event that is related to the invitation
+     * @param status approve / reject
+     * @return the event that the user was invited to
+     */
     public Event approveOrRejectInvitation(User user, int eventId, Status status){
         Event event = findEvent(eventId);
         UserEvent userInEvent = getUserEvent(event, user);
@@ -212,15 +234,27 @@ public class EventService {
                 break;
         }
         event.addUserEvent(userInEvent);
-        // TODO : send notification that user status has changed
         return eventRepository.save(event);
     }
 
+    /**
+     * A user approved / rejected an event invitation
+     * @param email the email of the user that approved / rejected the invitation
+     * @param eventId the event that is related to the invitation
+     * @param status approve / reject
+     * @return the event that the user was invited to
+     */
     public Event approveOrRejectInvitation(String email, int eventId, Status status){
         User user = findUser(email);
         return approveOrRejectInvitation(user, eventId, status);
     }
 
+    /**
+     * Share my calendar with another user
+     * @param user the user that wants to share their calendar
+     * @param userToShareToEmail the email of the user to share the calendar to
+     * @return a SuccessResponse - OK status, a message, the user info
+     */
     public User shareCalendar(User user, String userToShareToEmail){
         if(user.getEmail() == userToShareToEmail){
             return user;
@@ -230,6 +264,11 @@ public class EventService {
         return userRepository.save(userToShare);
     }
 
+    /**
+     * Get a list of all the users that the user can view their calenders
+     * @param user the user to view their shared calendars list
+     * @return a list of the users the user can view info
+     */
     public List<UserDTO> getSharedCalendars(User user){
         Set<Integer> usersId = user.getShared();
         List<UserDTO> shredCalendars = new ArrayList<>();
@@ -251,10 +290,9 @@ public class EventService {
                 userEvents.add(event);
             }
         }
-        // TODO : do we want en exception here??
         if(userEvents.isEmpty()){
             logger.error("The given user is not a part of any event");
-            throw new IllegalArgumentException("The given user is not a part of any event");
+            throw new UserNotPartOfEventException("The given user is not a part of any event");
         }
         return userEvents;
     }
@@ -309,7 +347,7 @@ public class EventService {
     }
 
     private void checkDateAndTime(EventCredentials event){
-        logger.debug("Check that the start and end date and time are valid : " + event.getEnd());
+        logger.debug("Check that the start and end date and time are valid : " + event.getStart() + ", "+ event.getEnd());
         if(event.getStart().isBefore(LocalDateTime.now()) || event.getEnd().isBefore(event.getStart())){
             throw new IllegalArgumentException("Invalid start or end date or time - you cannot set start time that had passed or an end time that is previous to start time");
         }
@@ -320,14 +358,9 @@ public class EventService {
         return event.getOrganizer().equals(user);
     }
 
-    private boolean userIsEventAdmin(UserEvent userEvent){
-        logger.debug("Check if the user is the admin of the event");
-        return userEvent.getRole() == Role.ADMIN;
-    }
-
     private boolean isFieldsAdminCanNotChange(Event originalEvent, EventCredentials updatedEvent) {
         logger.debug("Check if the admin is allowed to change the given fields");
-        return (!updatedEvent.getStart().equals(originalEvent.getStart())  ) ||
+        return !updatedEvent.getStart().equals(originalEvent.getStart()) ||
                 !updatedEvent.getEnd().equals(originalEvent.getEnd()) ||
                 !updatedEvent.getTitle().equals(originalEvent.getTitle());
     }

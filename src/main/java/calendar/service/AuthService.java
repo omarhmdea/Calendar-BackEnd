@@ -4,6 +4,7 @@ import calendar.entities.*;
 import calendar.entities.Credentials.UserCredentials;
 import calendar.entities.DTO.LoginDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.exception.customException.UserNotFoundException;
 import calendar.repository.UserNotificationRepository;
 import calendar.repository.UserRepository;
 import calendar.utilities.Github.GitRequest;
@@ -88,8 +89,7 @@ public class AuthService {
         logger.info("Try to login using github");
         GitUser githubUser = getGithubUser(code);
         if(githubUser == null || githubUser.getEmail() == null){
-            // TODO : throw Error Response - invalid code
-            return null;
+            throw new UserNotFoundException("Git hub user account was not found");
         }
         Optional<User> user = userRepository.findByEmail(githubUser.getEmail());
         if (user.isPresent()) {
@@ -123,7 +123,6 @@ public class AuthService {
         logger.info("Try to get github user by code");
         GitToken gitTokenResponse = getGithubToken(code);
         if(gitTokenResponse == null){
-            // TODO : do we want to throw exception or something?
             logger.error("Cannot get user from code");
             return null;
         }
@@ -133,7 +132,6 @@ public class AuthService {
             logger.info("Got github user successfully");
             return GitRequest.reqGitGetUser(linkGetUser, token);
         } catch (NullPointerException e) {
-            // TODO : do we want to throw exception or something?
             logger.error("Cannot get user from code " + e.getMessage());
             return null;
         }
