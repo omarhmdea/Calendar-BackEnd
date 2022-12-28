@@ -135,11 +135,10 @@ public class EventController {
      * Get calendar (events) of a user by month and year
      * @param user the user that is trying to view the calendar
      * @param id the id of the user to view their calendar
-     * @param month the month we want to present
-     * @param year the year we want to present
-     * @return list event of month & year
+     * @param month the month the user wants to present
+     * @param year the year the user wants to present
+     * @return list of events by month & year
      */
-    // TODO : in filter check userId and return the userToShowCalendar
     @GetMapping(value = "showCalendar/{id}")
     public ResponseEntity<SuccessResponse<List<EventDTO>>> showCalendar(@RequestAttribute User user, @PathVariable int id, @PathParam("month") int month, @PathParam("year") int year) {
         logger.debug("Try to get calendar of user " + id);
@@ -154,8 +153,7 @@ public class EventController {
      * A user approved an event invitation
      * @param user the user that approved the invitation
      * @param eventId the event that is related to the invitation
-     * @return a SuccessResponse - OK status, a message,
-     *      the User event data - event id, new admin id, the guest role, the guest status (approved)
+     * @return a SuccessResponse - OK status, a message, the event data
      */
     @PutMapping(value = "approve/{eventId}")
     public ResponseEntity<SuccessResponse<EventDTO>> approveInvitation(@RequestAttribute User user, @PathVariable("eventId") int eventId) {
@@ -225,8 +223,8 @@ public class EventController {
 
     /**
      * Get a list of all the users that the user can view their calenders
-     * @param user
-     * @return a list of the user's info
+     * @param user the user to view their shared calendars list
+     * @return a list of the users the user can view info
      */
     @GetMapping(value = "myCalendars")
     public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user){

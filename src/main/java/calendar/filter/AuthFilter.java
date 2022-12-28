@@ -17,11 +17,9 @@ public class AuthFilter implements Filter {
 
     private AuthService authService;
 
-
     public AuthFilter(AuthService authService) {
         this.authService = authService;
     }
-
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         logger.info("Auth filter is working on the following request: " + servletRequest);
@@ -45,15 +43,9 @@ public class AuthFilter implements Filter {
             res.getOutputStream().write(("Could not find a user with this token : " + token.substring(7)).getBytes());
             //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Could not find a user with this token : " + token.substring(7));
         }
-
-        //TODO Need to check
-        //filterChain.doFilter(req, res);
     }
-
 
     public void init(FilterConfig filterConfig) {}
 
-
     public void destroy() {}
-
 }

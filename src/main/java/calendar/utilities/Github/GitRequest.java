@@ -24,7 +24,6 @@ public class GitRequest {
         try {
             return restTemplate.exchange(link, HttpMethod.POST, entity, GitToken.class).getBody();
         } catch (Exception e) {
-            // TODO : do we want to throw exception or something?
             logger.error("Failed to fetch token from " +link);
             return null;
         }
@@ -58,7 +57,6 @@ public class GitRequest {
             }
             return gitUser;
         } catch (Exception e) {
-            // TODO : do we want to throw exception or something?
             logger.error("Failed to fetch user from " +link);
             return null;
         }

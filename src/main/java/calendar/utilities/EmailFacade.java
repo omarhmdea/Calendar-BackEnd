@@ -39,7 +39,7 @@ public class EmailFacade {
         mailMessage.setSubject(NotificationType.INVITE_GUEST + " notification to event " + event.getTitle());
         mailMessage.setFrom("chatappgroup11@gmail.com");
         mailMessage.setText("You were invited to \n" +
-                            event.toEmailString() + "\n" +
+                            event.toEmailString() + "\n\n" +
                             "To confirm your arrival at the event please click - " +
                             "http://localhost:8080/user/approve/" + event.getId() + "?email=" + email + "\n\n" +
                             "To reject your arrival at the event please click - " +
