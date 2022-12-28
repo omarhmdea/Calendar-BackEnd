@@ -59,7 +59,7 @@ class AuthControllerTest {
     @Test
     void registerUser_tryToRegister_SuccessRegistrationAndStatusCode() {
         given(authService.registerUser(user)).willReturn(user);
-        assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.registerUser(user).getBody()).getStatus());
+        assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.registerUser(user).getStatusCode()));
     }
 
     @Test
@@ -82,7 +82,7 @@ class AuthControllerTest {
     void login_tryToLogin_SuccessLoginAndStatusCode(){
         LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
         given(authService.login(userCredentials)).willReturn(loginDTO);
-        assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.login(userCredentials).getBody()).getStatus());
+        assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.login(userCredentials).getStatusCode()));
     }
     @Test
     void loginViaGithub_tryToLogin_SuccessLoginAndUserData(){
@@ -94,6 +94,6 @@ class AuthControllerTest {
     void loginViaGithub_SuccessLoginAndStatusCode(){
         LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
         given(authService.login("code")).willReturn(loginDTO);
-        assertEquals(HttpStatus.MOVED_PERMANENTLY, Objects.requireNonNull(authController.login("code").getStatusCode()));
+        assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.login("code").getStatusCode()));
     }
 }
