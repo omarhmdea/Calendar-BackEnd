@@ -30,10 +30,6 @@ public class EventController {
     @Autowired
     private NotificationService notificationService;
 
-    // TODO : eventDTO - holds everything but the userEvent list - so we cant see the user's password
-    //  shold we return event or event DTO? because in the front we want guests list. maybe do eventToSho that holds userDTO list
-    //  maybe do a method that return the guests list by event
-
     /**
      * Add new event to the user's calendar
      * @param user the user that is trying to create the event

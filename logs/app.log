@@ -24387,3 +24387,137 @@ This generated password is for development use only. Your security configuration
 2022-12-27 12:43:22,391 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
 2022-12-27 12:43:22,398 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
 2022-12-27 12:43:22,399 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 20:40:05,099 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-27 20:40:05,192 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:05,195 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:05.189197400
+2022-12-27 20:40:05,210 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 20:40:05,211 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:05,212 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 20:40:05,232 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:05,234 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 20:40:05,236 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-27 20:40:05,251 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:05,252 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:05.246824700
+2022-12-27 20:40:05,398 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T20:40:05.246824700, end=2022-12-31T20:40:05.246824700, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@6682072f, calendar.entities.UserEvent@e059bc5a], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 20:40:05,415 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eli@gmail.com
+2022-12-27 20:40:05,416 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 20:40:05,417 ERROR   calendar.service.AuthService - The given user is not a part of any event
+2022-12-27 20:40:05,464 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:05,465 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:05.460005200
+2022-12-27 20:40:05,466 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T20:40:05.460005200, end=2022-12-31T20:40:05.460005200, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@6682072f, calendar.entities.UserEvent@e059bc5a], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 20:40:05,500 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user omar@gmail.com
+2022-12-27 20:40:05,500 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 20:40:05,503 DEBUG   calendar.service.AuthService - Return events of user omar@gmail.com
+2022-12-27 20:40:05,514 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:05,516 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:05.511675200
+2022-12-27 20:40:05,536 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:05,538 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 20:40:05,582 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:05,587 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 20:40:05,897 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-27 20:40:05,914 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-27 20:40:05,981 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-27 20:40:05,983 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-27 20:40:05,992 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-27 20:40:05,993 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-27 20:40:06,006 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-27 20:40:06,008 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-27 20:40:06,029 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-27 20:40:06,037 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-27 20:40:06,049 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-27 20:40:06,052 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-27 20:40:06,063 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-27 20:40:06,065 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-27 20:40:06,075 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-27 20:40:06,077 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-27 20:40:06,087 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-27 20:40:06,089 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-27 20:40:06,099 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-27 20:40:06,100 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-27 20:40:06,119 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-27 20:40:06,121 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-27 20:40:06,137 DEBUG   calendar.controller.EventController - try to update event
+2022-12-27 20:40:06,141 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-27 20:40:06,149 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-27 20:40:06,151 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-27 20:40:06,165 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-27 20:40:06,166 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-27 20:40:06,179 DEBUG   calendar.controller.EventController - try to update event
+2022-12-27 20:40:06,180 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-27 20:40:06,195 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-27 20:40:06,202 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-27 20:40:06,211 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-27 20:40:06,213 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-27 20:40:06,237 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-27 20:40:06,239 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-27 20:40:06,249 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-27 20:40:06,252 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-27 20:40:06,261 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-27 20:40:06,263 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-27 20:40:25,931 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-27 20:40:25,987 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:25,989 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:25.984063300
+2022-12-27 20:40:26,003 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-27 20:40:26,004 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:26,005 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-27 20:40:26,021 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:26,023 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-27 20:40:26,024 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-27 20:40:26,033 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:26,034 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:26.032082
+2022-12-27 20:40:26,128 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T20:40:26.032082, end=2022-12-31T20:40:26.032082, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@b4f4d46a, calendar.entities.UserEvent@6d5ab0c7], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 20:40:26,146 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eli@gmail.com
+2022-12-27 20:40:26,147 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 20:40:26,148 ERROR   calendar.service.AuthService - The given user is not a part of any event
+2022-12-27 20:40:26,171 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:26,171 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:26.169069900
+2022-12-27 20:40:26,172 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-28T20:40:26.169069900, end=2022-12-31T20:40:26.169069900, location=Tel Aviv, title=new, description=fun, attachments=none, isDeleted=false, guests=[calendar.entities.UserEvent@b4f4d46a, calendar.entities.UserEvent@6d5ab0c7], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-27 20:40:26,198 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user omar@gmail.com
+2022-12-27 20:40:26,200 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-27 20:40:26,202 DEBUG   calendar.service.AuthService - Return events of user omar@gmail.com
+2022-12-27 20:40:26,220 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-27 20:40:26,221 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-31T20:40:26.217565500
+2022-12-27 20:40:26,245 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:26,250 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 20:40:26,268 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-27 20:40:26,269 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-27 20:40:26,477 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-27 20:40:26,482 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-27 20:40:26,523 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-27 20:40:26,523 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-27 20:40:26,530 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-27 20:40:26,533 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-27 20:40:26,551 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-27 20:40:26,553 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-27 20:40:26,567 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-27 20:40:26,569 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-27 20:40:26,579 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-27 20:40:26,580 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-27 20:40:26,587 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-27 20:40:26,588 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-27 20:40:26,597 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-27 20:40:26,599 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-27 20:40:26,610 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-27 20:40:26,611 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-27 20:40:26,617 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-27 20:40:26,618 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-27 20:40:26,635 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-27 20:40:26,637 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-27 20:40:26,653 DEBUG   calendar.controller.EventController - try to update event
+2022-12-27 20:40:26,658 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-27 20:40:26,668 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-27 20:40:26,670 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-27 20:40:26,682 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-27 20:40:26,701 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-27 20:40:26,717 DEBUG   calendar.controller.EventController - try to update event
+2022-12-27 20:40:26,719 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-27 20:40:26,732 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-27 20:40:26,734 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-27 20:40:26,747 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-27 20:40:26,749 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-27 20:40:26,763 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-27 20:40:26,764 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-27 20:40:26,775 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-27 20:40:26,781 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-27 20:40:26,792 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-27 20:40:26,795 INFO    calendar.controller.EventController - Invite a guest was made successfully
