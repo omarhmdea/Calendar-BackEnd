@@ -6,13 +6,21 @@ import calendar.filter.CorsFilter;
 import calendar.filter.PermissionFilter;
 import calendar.repository.EventRepository;
 import calendar.service.AuthService;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class FilterConfig {
@@ -22,6 +30,8 @@ public class FilterConfig {
     private AuthService authService;
     @Autowired
     private EventRepository eventRepository;
+    @Value("#{'${registration.filter.patterns}'.split(',')}")
+    private List<String> patterns;
 
     /**
      * this method is used to register the cors filter
@@ -49,20 +59,20 @@ public class FilterConfig {
      * @return FilterRegistrationBean<TokenFilter>
      */
     @Bean
-    public FilterRegistrationBean<AuthFilter> AuthFilterBean() {
+    public FilterRegistrationBean<AuthFilter> AuthFilterBean() throws FileNotFoundException {
         logger.info("Auth Filter has been created");
 
         FilterRegistrationBean<AuthFilter> registrationBean = new FilterRegistrationBean<>();
         AuthFilter authFilter = new AuthFilter(authService);
 
         registrationBean.setFilter(authFilter);
-        registrationBean.addUrlPatterns("/event/create", "/event/update/*", "/event/calendar", "/event/showCalendar/*",
-                                        "/event/guest/assign/*", "/event/guest/delete/*", "/event/guest/invite/*", "/event/settings",
-                                        "/event/delete/*", "/event/approve/*", "/event/share", "/event/myCalendars");
+
+        registrationBean.addUrlPatterns(patterns.toArray(new String[0]));
         registrationBean.setOrder(2);
 
         return registrationBean;
     }
+
     /**
      * his method is used to register the token filter
      * the token filter initialized with the auth service

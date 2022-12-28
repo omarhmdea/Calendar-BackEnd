@@ -22,10 +22,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -66,11 +63,7 @@ class EventControllerTest {
 
     @BeforeAll
     static void newUser(){
-        user = new User(2,"E", "e@gmail.com", "A123456", Set.of());
-//        user.setId(2);
-//        user.setEmail("@");
-//        user.setName("E");
-//        user.setPassword("A123456");
+        user = new User(2,"E", "e@gmail.com", "A123456", new HashSet<>());
     }
 
     @BeforeEach
@@ -104,7 +97,7 @@ class EventControllerTest {
     @Test
     void addNewEvent_checkAddEvent_responseOkTheEventCreated() {
          given(eventService.addNewEvent(user, event)).willReturn(event);
-         EventDTO eventDTO = new EventDTO(event);
+         EventDTO eventDTO = EventDTO.convertToEventDTO(event);
          ResponseEntity<SuccessResponse<EventDTO>> successAddNewEvent = eventController.addNewEvent(user, event);
          assertEquals(eventDTO, Objects.requireNonNull(successAddNewEvent.getBody()).getData());
     }
@@ -120,7 +113,7 @@ class EventControllerTest {
     void updateEvent_checkUpdate_responseOkTheEventUpdated() {
         event.setLocation(eventCredentials.getLocation());
         given(eventService.updateEvent(user,event,eventCredentials)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
+        EventDTO eventDTO = EventDTO.convertToEventDTO(event);
         ResponseEntity<SuccessResponse<EventDTO>> successUpdatedEvent = eventController.updateEvent(user,event,eventCredentials);
         assertEquals(eventDTO, Objects.requireNonNull(successUpdatedEvent.getBody()).getData());
     }
@@ -136,7 +129,7 @@ class EventControllerTest {
     @Test
     void setGuestAsAdmin_checkSetGuestAsAdmin_responseOkAndUpdateGuestToAdmin() {
         given(eventService.setGuestAsAdmin(user,"r@r.com", event)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
+        EventDTO eventDTO = EventDTO.convertToEventDTO(event);
         ResponseEntity<SuccessResponse<EventDTO>> successSetGuestAsAdmin = eventController.setGuestAsAdmin(user, event,"r@r.com");
         assertEquals(eventDTO, Objects.requireNonNull(successSetGuestAsAdmin.getBody()).getData());
     }
@@ -148,8 +141,6 @@ class EventControllerTest {
         assertEquals(HttpStatus.OK, successSetGuestAsAdmin.getStatusCode());
     }
 
-
-
     @Test
     void deleteEvent_checkDelete_responseOkTheStatusCode() {
         given(eventService.deleteEvent(user, event)).willReturn(event);
@@ -159,7 +150,7 @@ class EventControllerTest {
     @Test
     void inviteGuestToEvent_checkInviteGuestToEvent_responseOkAndInviteGuestToEvent() {
         given(eventService.inviteGuestToEvent(user,"r@r.com", event)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
+        EventDTO eventDTO = EventDTO.convertToEventDTO(event);
         ResponseEntity<SuccessResponse<EventDTO>> successInviteGuestToEvent = eventController.inviteGuestToEvent(user, event,"r@r.com");
         assertEquals(eventDTO, Objects.requireNonNull(successInviteGuestToEvent.getBody()).getData());
     }
@@ -174,7 +165,7 @@ class EventControllerTest {
     @Test
     void removeGuestFromEvent_checkRemoveGuestFromEvent_responseOkAndRemoveGuestFromEvent() {
         given(eventService.removeGuestFromEvent(user,"r@r.com",event)).willReturn(user);
-        UserDTO userDTO = new UserDTO(user);
+        UserDTO userDTO = UserDTO.convertToUserDTO(user);
         ResponseEntity<SuccessResponse<UserDTO>> successRemoveGuestFromEvent = eventController.removeGuestFromEvent(user,event,"r@r.com");
         assertEquals(userDTO, Objects.requireNonNull(successRemoveGuestFromEvent.getBody()).getData());
     }
@@ -190,7 +181,7 @@ class EventControllerTest {
     void showCalendar_checkShowCalendar_responseOkWithTheCorrectEvents() {
         given(eventService.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear())).willReturn(events);
         ResponseEntity<SuccessResponse<List<EventDTO>>> successShowCalendarEvents = eventController.showCalendar(user,user.getId(), LocalDate.now().getMonth().getValue(), LocalDate.now().getYear());
-        assertEquals(new EventDTO(events.get(0)), Objects.requireNonNull(successShowCalendarEvents.getBody()).getData().get(0));
+        assertEquals(EventDTO.convertToEventDTO(events.get(0)), Objects.requireNonNull(successShowCalendarEvents.getBody()).getData().get(0));
     }
 
     @Test
@@ -203,7 +194,7 @@ class EventControllerTest {
     @Test
     void approveInvitation_checkIfApproveInvitation_responseOkAndUpdateTheStatusToApprove() {
         given(eventService.approveOrRejectInvitation(user, event.getId(), Status.APPROVED)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
+        EventDTO eventDTO = EventDTO.convertToEventDTO(event);
         ResponseEntity<SuccessResponse<EventDTO>> successApproveInvitation = eventController.approveInvitation(user, event.getId());
         assertEquals(eventDTO, Objects.requireNonNull(successApproveInvitation.getBody()).getData());
     }
@@ -218,7 +209,7 @@ class EventControllerTest {
     void rejectInvitation_checkIfRejectInvitation_updateTheStatusToReject() {
         given(eventService.approveOrRejectInvitation(user, event.getId(),Status.REJECTED)).willReturn(event);
         ResponseEntity<SuccessResponse<EventDTO>> successRejectInvitation = eventController.rejectInvitation(user, event.getId());
-        assertEquals(new EventDTO(event), Objects.requireNonNull(successRejectInvitation.getBody()).getData());
+        assertEquals(EventDTO.convertToEventDTO(event), Objects.requireNonNull(successRejectInvitation.getBody()).getData());
     }
     @Test
     void rejectInvitation_checkIfRejectInvitation_responseOkEqualsStatusCode() {

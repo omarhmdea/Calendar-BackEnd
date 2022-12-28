@@ -26,20 +26,22 @@ public class EventDTO {
     private UserDTO organizer;
     private List<UserEventDTO> guests;
 
-    public EventDTO(Event event){
-        this.id = event.getId();
-        this.isPublic = event.getIsPublic();
-        this.start = event.getStart();
-        this.end = event.getEnd();
-        this.location = event.getLocation();
-        this.title = event.getTitle();
-        this.description = event.getDescription();
-        this.attachments = event.getAttachments();
-        this.organizer = new UserDTO(event.getOrganizer());
-        this.guests = convertGuests(event.getGuests());
+    public static EventDTO convertToEventDTO(Event event){
+        EventDTO eventDTO = new EventDTO();
+        eventDTO.setId(event.getId());
+        eventDTO.setIsPublic(event.getIsPublic());
+        eventDTO.setStart(event.getStart());
+        eventDTO.setEnd(event.getEnd());
+        eventDTO.setLocation(event.getLocation());
+        eventDTO.setTitle(event.getTitle());
+        eventDTO.setDescription(event.getDescription());
+        eventDTO.setAttachments(event.getAttachments());
+        eventDTO.setOrganizer(UserDTO.convertToUserDTO(event.getOrganizer()));
+        eventDTO.setGuests(convertGuests(event.getGuests()));
+        return eventDTO;
     }
 
-    private List<UserEventDTO> convertGuests(List<UserEvent> userEvents){
-        return userEvents.stream().map(userEvent -> new UserEventDTO(userEvent)).collect(Collectors.toList());
+    private static List<UserEventDTO> convertGuests(List<UserEvent> userEvents){
+        return userEvents.stream().map(userEvent -> UserEventDTO.convertToUserEventDTO(userEvent)).collect(Collectors.toList());
     }
 }
