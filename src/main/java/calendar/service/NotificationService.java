@@ -1,17 +1,22 @@
 package calendar.service;
 
-import calendar.entities.*;
 import calendar.entities.Credentials.UserNotificationCredentials;
+import calendar.entities.DTO.UserDTO;
+import calendar.entities.DTO.UserEventDTO;
+import calendar.entities.NotificationDetails;
+import calendar.entities.User;
+import calendar.entities.UserNotification;
 import calendar.enums.NotificationSettings;
-import calendar.enums.NotificationType;
+import calendar.enums.Status;
 import calendar.repository.EventRepository;
 import calendar.repository.UserNotificationRepository;
 import calendar.utilities.EmailFacade;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
-import java.util.List;
+
 import java.util.Optional;
 
 @Service
@@ -24,97 +29,79 @@ public class NotificationService {
     private EmailFacade emailFacade;
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
 
 
-    /**
-     * Sending a notification to all users who belong to the event according to notificationType
-     * @param event - event obj
-     * @param notificationType - notificationType enum
-     */
-    public void sendNotification(Event event, NotificationType notificationType) {
-        List<UserEvent> userEventList = event.getGuests();
-        for(UserEvent userEvent: userEventList) {
-            sendNotificationToUser(userEvent.getUser(), event, notificationType);
+    public void sendNotificationToGuestsEvent(NotificationDetails notificationDetails) {
+
+        for(UserEventDTO userEventDTO: notificationDetails.getEvent().getGuests()) {
+            if(userEventDTO.getStatus().equals(Status.APPROVED)) {
+                UserNotification userNotification = findUserNotification(userEventDTO.getUser());
+                UserDTO userDTO = userEventDTO.getUser();
+
+                switch(notificationDetails.getNotificationType()) {
+                    case DELETE_EVENT:
+                        send(userNotification.getDeleteEvent(), userDTO, notificationDetails);
+                        break;
+                    case UPDATE_EVENT:
+                        send(userNotification.getUpdateEvent(), userDTO, notificationDetails);
+                        break;
+                    case REMOVE_GUEST:
+                        send(userNotification.getRemoveGuest(), userDTO, notificationDetails);
+                        break;
+                    case INVITE_GUEST:
+                        send(userNotification.getInvitation(), userDTO, notificationDetails);
+                        break;
+                    case USER_STATUS_CHANGED:
+                        send(userNotification.getUserStatusChanged(), userDTO, notificationDetails);
+                        break;
+                    case UPCOMING_EVENT:
+                        send(userNotification.getUpcomingEvent(), userDTO, notificationDetails);
+                        break;
+                }
+            }
         }
-        // TODO : if it's invite we need to sent invitation only to the person that is invited
+
     }
 
-    /**
-     * helper method that send a notification to specific user according to notificationType
-     * @param event - event obj
-     * @param notificationType - notificationType enum
-     */
-    private void sendNotificationToUser(User user, Event event, NotificationType notificationType) {
-        UserNotification userNotification = findUserNotification(user);
 
-        switch(notificationType) {
-            case DELETE_EVENT:
-                send(userNotification.getDeleteEvent(), user, "", notificationType);
-                break;
-            case UPDATE_EVENT:
-                send(userNotification.getUpdateEvent(), user, "", notificationType);
-                break;
-            case REMOVE_GUEST:
-                send(userNotification.getRemoveGuest(), user, "", notificationType);
-                break;
-            case INVITE_GUEST:
-                send(userNotification.getInvitation(), user, "", notificationType);
-                break;
-            case USER_STATUS_CHANGED:
-                send(userNotification.getUserStatusChanged(), user, "", notificationType);
-                break;
-            case UPCOMING_EVENT:
-                send(userNotification.getUpcomingEvent(), user, "", notificationType);
-                break;
-        }
-    }
-
-    /**
-     * helper method that send a notification to specific user according to notificationType by email or pop-up
-     * @param notificationSettings
-     * @param user
-     * @param message
-     * @param notificationType
-     */
-    private void send(NotificationSettings notificationSettings, User user, String message, NotificationType notificationType){
-        switch (notificationSettings){
+    private void send(NotificationSettings notificationSettings, UserDTO user, NotificationDetails notificationDetails) {
+        switch(notificationSettings) {
             case NONE:
                 break;
             case POPUP:
-                sendPopUp(user, message, notificationType);
+                sendPopupNotification(user, notificationDetails);
                 break;
             case EMAIL:
-                sendEmail(user, message, notificationType);
+                sendEmailNotification(user, notificationDetails);
                 break;
             case BOTH:
-                sendPopUp(user, message, notificationType);
-                sendEmail(user, message, notificationType);
+                sendPopupNotification(user, notificationDetails);
+                sendEmailNotification(user, notificationDetails);
                 break;
         }
     }
 
-    private void sendPopUp(User user, String message, NotificationType notificationType){
-        logger.info(notificationType + " Notification has been sent to " + user.getName() + " by pop-up");
 
+    private void sendPopupNotification(UserDTO user, NotificationDetails notificationDetails) {
+        simpMessagingTemplate.convertAndSendToUser(user.getEmail(), "/private", notificationDetails.getMessage());
     }
 
-    /**
-     * Helper method that send email
-     * @param user - user
-     * @param message - email content
-     * @param notificationType - notificationType enum
-     */
-    private void sendEmail(User user, String message, NotificationType notificationType) {
-        logger.info(notificationType + " Notification has been sent to " + user.getName() + " by email");
-        emailFacade.sendEmail(user.getEmail(),message,notificationType);
+
+    private void sendEmailNotification(UserDTO user, NotificationDetails notificationDetails) {
+        logger.info(notificationDetails.getNotificationType() + " Notification has been sent to " + user.getName() + " by email");
+        emailFacade.sendEmail(user.getEmail(), notificationDetails.getMessage(), notificationDetails.getNotificationType());
     }
 
-    public UserNotification changeSettings(User user, UserNotificationCredentials updatedUserNotification){
+
+    public UserNotification changeSettings(User user, UserNotificationCredentials updatedUserNotification) {
         UserNotification userNotification = update(findUserNotification(user), updatedUserNotification);
         return userNotificationRepository.save(userNotification);
     }
 
-    private UserNotification update(UserNotification originalNotification, UserNotificationCredentials updatedNotification){
+
+    private UserNotification update(UserNotification originalNotification, UserNotificationCredentials updatedNotification) {
         originalNotification.setDeleteEvent(updatedNotification.getDeleteEvent());
         originalNotification.setUpdateEvent(updatedNotification.getUpdateEvent());
         originalNotification.setInvitation(updatedNotification.getInvitation());
@@ -124,9 +111,18 @@ public class NotificationService {
         return originalNotification;
     }
 
-    public UserNotification findUserNotification(User user){
-        Optional<UserNotification> userNotification = userNotificationRepository.findByUser(user);
-        if(!userNotification.isPresent()){
+
+    public UserNotification findUserNotification(User user) {
+        Optional<UserNotification> userNotification = userNotificationRepository.findByUserId(user.getId());
+        if(! userNotification.isPresent()) {
+            throw new IllegalArgumentException("There are no user notifications settings to the given user");
+        }
+        return userNotification.get();
+    }
+
+    public UserNotification findUserNotification(UserDTO user) {
+        Optional<UserNotification> userNotification = userNotificationRepository.findByUserId(user.getId());
+        if(! userNotification.isPresent()) {
             throw new IllegalArgumentException("There are no user notifications settings to the given user");
         }
         return userNotification.get();

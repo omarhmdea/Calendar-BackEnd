@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class EventDTO {
     private int id;
     private Boolean isPublic;
