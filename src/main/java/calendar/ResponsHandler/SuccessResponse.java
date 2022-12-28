@@ -11,7 +11,6 @@ import java.util.List;
 @Setter
 @Getter
 public class SuccessResponse<T> {
-    private HttpStatus status;
     private String message;
     private T data;
 }

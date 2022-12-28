@@ -365,3 +365,23 @@ public class EventService {
                 !updatedEvent.getTitle().equals(originalEvent.getTitle());
     }
 }
+
+
+//    @Test
+//    public void testDeleteEvent_onlyAllowedForEventOwner() {
+//        // Set up test data
+//        User user1 = new User();
+//        User user2 = new User();
+//        Event eventToDelete = new Event();
+//        eventToDelete.setIsDeleted(false);
+//        eventToDelete.setOwner(user1);
+//
+//        try {
+//            // Execute the method under test
+//            Event deletedEvent = deleteEvent(user2, eventToDelete);
+//            fail("Expected an IllegalArgumentException to be thrown");
+//        } catch (IllegalArgumentException e) {
+//            // Assert that the exception was thrown as expected
+//            assertEquals("Only the owner of the event can delete it", e.getMessage());
+//        }
+//    }

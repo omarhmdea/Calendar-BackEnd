@@ -21,7 +21,9 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class EventServiceTest {
@@ -58,10 +60,10 @@ class EventServiceTest {
 
     @BeforeEach
     void setUp(){
-        user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", new HashSet<>(Arrays.asList(1,2)));
-        guest1 = new User(2, "Omar", "omar@gmail.com", "Omar123!@#", Set.of());
-        guest2 = new User(3, "Eli", "eli@gmail.com", "Eli123!@#", Set.of());
-        guest3 = new User(4, "Maya", "maya@gmail.com", "Maya123!@#", Set.of());
+        user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", new HashSet<>());
+        guest1 = new User(2, "Omar", "omar@gmail.com", "Omar123!@#", new HashSet<>());
+        guest2 = new User(3, "Eli", "eli@gmail.com", "Eli123!@#", new HashSet<>());
+        guest3 = new User(4, "Maya", "maya@gmail.com", "Maya123!@#", new HashSet<>());
 
         userEventGuest1 = new UserEvent(guest1,Status.APPROVED, Role.GUEST);
         userEventGuest2 = new UserEvent(guest2,Status.REJECTED, Role.GUEST);
@@ -76,7 +78,7 @@ class EventServiceTest {
                 "fun",
                 "none",
                 false,
-                List.of(userEventGuest1, userEventGuest2),
+                new ArrayList<>(List.of(userEventGuest1, userEventGuest2)),
                 user);
 
         guest1Events = new ArrayList<>();
@@ -91,10 +93,13 @@ class EventServiceTest {
                 "fun",
                 "none",
                 false,
-                List.of(userEventGuest1, userEventGuest2),
+               new ArrayList<>(List.of(userEventGuest1, userEventGuest2)),
                 user);
 
         userEventGuest1.setRole(Role.ADMIN);
+        List<UserEvent> users = new ArrayList<>();
+        users.add(userEventGuest1);
+        users.add(userEventGuest2);
 
         eventGuest1Admin = new Event(5,
                 false,
@@ -105,7 +110,7 @@ class EventServiceTest {
                 "fun",
                 "none",
                 false,
-                List.of(userEventGuest1, userEventGuest2),
+                new ArrayList<>(List.of(userEventGuest1, userEventGuest2)),
                 user);
 
         eventInviteGuest3 = new Event(5,
@@ -117,7 +122,7 @@ class EventServiceTest {
                 "fun",
                 "none",
                 false,
-                List.of(userEventGuest1, userEventGuest2, userEventGuest3),
+                new ArrayList<>(List.of(userEventGuest1, userEventGuest2)),
                 user);
 
 
@@ -167,12 +172,12 @@ class EventServiceTest {
         assertThrows(IllegalArgumentException.class, ()-> eventService.setGuestAsAdmin(user,guest2.getEmail(),event));
     }
 
-    @Test
-    void deleteEvent_checkIfEventWasDeleted_successSoftDelete(){
-        event.setIsDeleted(true);
-        given(eventRepository.save(event)).willReturn(event);
-        assertEquals(event, eventService.deleteEvent(user, event));
-    }
+//    @Test
+//    void deleteEvent_checkIfEventWasDeleted_successSoftDelete(){
+//        event.setIsDeleted(true);
+//        given(eventRepository.save(event)).willReturn(event);
+//        assertEquals(event, eventService.deleteEvent(user, event));
+//    }
 
 //    @Test
 //    void inviteGuestToEvent_checkIfPart_successInvite(){
@@ -246,13 +251,59 @@ class EventServiceTest {
 
 
 
+    @Test
+    public void testDeleteEvent() {
+        // Set up mock data
+        User user = new User();
+        Event eventToDelete = new Event();
+        when(eventRepository.save(any(Event.class))).thenReturn(eventToDelete);
+
+        // Call the deleteEvent method
+        Event result = eventService.deleteEvent(user, eventToDelete);
+
+        // Verify the result
+        assertTrue(result.getIsDeleted());
+    }
 
 
 
+//    @Test
+//    public void testShareCalendarWithNonExistentUser() {
+////        User user = new User("john@example.com", "John", "Doe");
+////        User userToShare = new User("jane@example.com", "Jane", "Doe");
+//        guest1.addToShared(user);
+//        when(userRepository.findById(guest1.getId())).thenReturn(Optional.empty());
+//
+//        User result = eventService.shareCalendar(user, guest1.getEmail());
+//
+//        verify(userRepository, never()).save(guest1);
+//        assertNull(result);
+//    }
 
+//    @Test
+//    public void testShareCalendarWithNonExistentUser() {
+//        User user = new User("john@example.com", "John", "Doe");
+//        User userToShare = new User("jane@example.com", "Jane", "Doe");
+//        userToShare.addToShared(user);
+//        when(userRepository.findById("jane@example.com")).thenReturn(Optional.empty());
+//
+//        User result = eventService.shareCalendar(user, "jane@example.com");
+//
+//        verify(userRepository, never()).save(userToShare);
+//        assertNull(result);
+//    }
+//
 
-
-
+//    @Test
+//    public void testShareCalendarWithUserThatAlreadyHasCalendarShared() {
+//        User user = new User("john@example.com", "John", "Doe");
+//        User userToShare = new User(9,"jane@example.com", "Jane", "Doe",new HashSet<>());
+//        userToShare.addToShared(user);
+//        when(userRepository.findById(userToShare.getId())).thenReturn(Optional.of(userToShare));
+//
+//        assertThrows(IllegalArgumentException.class,()->eventService.shareCalendar(user, "jane@example.com"));
+//
+//    }
 
 
 

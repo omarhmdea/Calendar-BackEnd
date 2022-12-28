@@ -148,19 +148,12 @@ class EventControllerTest {
         assertEquals(HttpStatus.OK, successSetGuestAsAdmin.getStatusCode());
     }
 
-    @Test
-    void deleteEvent_checkDelete_responseOkTheEventDeleted() {
-        given(eventService.deleteEvent(user, event)).willReturn(event);
-        EventDTO eventDTO = new EventDTO(event);
-        ResponseEntity<SuccessResponse<EventDTO>> successDeletedEvent = eventController.deleteEvent(user, event);
-        assertEquals(eventDTO, Objects.requireNonNull(successDeletedEvent.getBody()).getData());
-    }
+
 
     @Test
     void deleteEvent_checkDelete_responseOkTheStatusCode() {
         given(eventService.deleteEvent(user, event)).willReturn(event);
-        ResponseEntity<SuccessResponse<EventDTO>> successDeletedEvent = eventController.deleteEvent(user, event);
-        assertEquals(HttpStatus.OK, successDeletedEvent.getStatusCode());
+        assertEquals(HttpStatus.NO_CONTENT,  eventController.deleteEvent(user, event).getStatusCode());
     }
 
     @Test
