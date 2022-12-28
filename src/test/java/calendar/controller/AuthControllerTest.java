@@ -54,7 +54,7 @@ class AuthControllerTest {
     @Test
     void registerUser_tryToRegister_SuccessRegistrationAndUserData() {
         given(authService.registerUser(user)).willReturn(user);
-        assertEquals(new UserDTO(user), Objects.requireNonNull(authController.registerUser(user).getBody()).getData());
+        assertEquals(UserDTO.convertToUserDTO(user), Objects.requireNonNull(authController.registerUser(user).getBody()).getData());
     }
     @Test
     void registerUser_tryToRegister_SuccessRegistrationAndStatusCode() {
@@ -74,25 +74,25 @@ class AuthControllerTest {
     }
     @Test
     void login_tryToLogin_SuccessLoginAndUserData(){
-        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
+        LoginDTO loginDTO = new LoginDTO(UserDTO.convertToUserDTO(user),"token");
         given(authService.login(userCredentials)).willReturn(loginDTO);
         assertEquals(loginDTO, Objects.requireNonNull(authController.login(userCredentials).getBody()).getData());
     }
     @Test
     void login_tryToLogin_SuccessLoginAndStatusCode(){
-        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
+        LoginDTO loginDTO = new LoginDTO(UserDTO.convertToUserDTO(user),"token");
         given(authService.login(userCredentials)).willReturn(loginDTO);
         assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.login(userCredentials).getStatusCode()));
     }
     @Test
     void loginViaGithub_tryToLogin_SuccessLoginAndUserData(){
-        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
+        LoginDTO loginDTO = new LoginDTO(UserDTO.convertToUserDTO(user),"token");
         given(authService.login("code")).willReturn(loginDTO);
         assertEquals(loginDTO, Objects.requireNonNull(authController.login("code").getBody()).getData());
     }
     @Test
     void loginViaGithub_SuccessLoginAndStatusCode(){
-        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
+        LoginDTO loginDTO = new LoginDTO(UserDTO.convertToUserDTO(user),"token");
         given(authService.login("code")).willReturn(loginDTO);
         assertEquals(HttpStatus.OK, Objects.requireNonNull(authController.login("code").getStatusCode()));
     }

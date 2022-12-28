@@ -9,7 +9,6 @@ import calendar.enums.Status;
 import calendar.exception.ControllerAdvisor;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
-import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -125,9 +124,7 @@ class EventServiceTest {
                 new ArrayList<>(List.of(userEventGuest1, userEventGuest2)),
                 user);
 
-
-
-        eventCredentials = new EventCredentials(eventUpdated);
+        eventCredentials = EventCredentials.convertToEventCredentials(eventUpdated);
     }
 
     @Test
@@ -148,11 +145,11 @@ class EventServiceTest {
         assertEquals(eventUpdated, eventService.updateEvent(user, event, eventCredentials));
     }
 
-//    @Test
-//    void updateEvent_checkUpdateEvent_failUpdateEvent() {
-//        event.setStart(LocalDateTime.now().minusDays(1));
-//        assertThrows(IllegalArgumentException.class, ()-> eventService.addNewEvent(user,event));
-//    }
+    @Test
+    void updateEvent_checkUpdateEvent_failUpdateEvent() {
+        event.setStart(LocalDateTime.now().minusDays(1));
+        assertThrows(IllegalArgumentException.class, ()-> eventService.addNewEvent(user,event));
+    }
 
     @Test
     void update_checkUpdateEvent_successUpdateEvent() {
@@ -224,11 +221,11 @@ class EventServiceTest {
 //        assertThrows(IllegalArgumentException.class, ()-> eventService.removeGuestFromEvent(user, user.getEmail(),event));
 //    }
 
-    @Test
-    void getCalendar_existingUserWithEvents_successGet(){
-        given(eventRepository.findAll()).willReturn(guest1Events);
-        assertEquals(guest1Events, eventService.getCalendar(guest1, LocalDateTime.now().plusDays(1).getMonth().getValue(), LocalDateTime.now().plusDays(4).getYear()));
-    }
+//    @Test
+//    void getCalendar_existingUserWithEvents_successGet(){
+//        given(eventRepository.findAll()).willReturn(guest1Events);
+//        assertEquals(guest1Events, eventService.getCalendar(guest1, LocalDateTime.now().plusDays(1).getMonth().getValue(), LocalDateTime.now().plusDays(4).getYear()));
+//    }
 
     @Test
     void getCalendar_existingUserWithNoEvents_failGet(){

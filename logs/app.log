@@ -24521,3 +24521,124 @@ This generated password is for development use only. Your security configuration
 2022-12-27 20:40:26,781 INFO    calendar.controller.EventController - Invite a guest was made successfully
 2022-12-27 20:40:26,792 DEBUG   calendar.controller.EventController - Try to invite a guest
 2022-12-27 20:40:26,795 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-28 15:20:36,838 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-28 15:20:36,852 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-01-01T15:20:36.827395900
+2022-12-28 15:21:01,091 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-28 15:21:01,143 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:21:01,151 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-28 15:21:01,152 DEBUG   calendar.service.AuthService - Set the guest as the event's admin
+2022-12-28 15:22:50,486 INFO    calendar.service.AuthService - Try to register using email
+2022-12-28 15:22:50,548 DEBUG   calendar.service.AuthService - Check if email already exist in DB
+2022-12-28 15:22:50,563 ERROR   calendar.service.AuthService - Email already in use
+2022-12-28 15:22:50,608 INFO    calendar.service.AuthService - Try to login using email
+2022-12-28 15:22:50,621 INFO    calendar.service.AuthService - Try to register using email
+2022-12-28 15:22:50,621 DEBUG   calendar.service.AuthService - Check if email already exist in DB
+2022-12-28 15:22:50,628 INFO    calendar.service.AuthService - New user saved in the DB
+2022-12-28 15:22:50,670 INFO    calendar.service.AuthService - Try to login using email
+2022-12-28 15:22:51,240 INFO    calendar.service.AuthService - Successful login using email
+2022-12-28 15:22:51,295 INFO    calendar.service.AuthService - Try to login using email
+2022-12-28 15:22:51,542 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-28 15:22:51,591 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-01-01T15:22:51.540794100
+2022-12-28 15:22:51,607 DEBUG   calendar.service.AuthService - Try to set guest as admin
+2022-12-28 15:22:51,609 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:22:51,611 DEBUG   calendar.service.AuthService - Check if the new admin approved the invitation
+2022-12-28 15:22:51,632 DEBUG   calendar.service.AuthService - Soft delete the event - set is deleted true
+2022-12-28 15:22:51,643 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:22:51,655 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-28 15:22:51,656 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-01-01T15:22:51.653071700
+2022-12-28 15:22:51,774 DEBUG   calendar.service.AuthService - New event is saved : Event(id=5, isPublic=false, start=2022-12-29T15:22:51.653071700, end=2023-01-01T15:22:51.653071700, location=Tel Aviv, title=Birthday, description=fun, attachments=none, isDeleted=false, guests=[UserEvent(id=0, user=User(id=2, name=Omar, email=omar@gmail.com, password=Omar123!@#, shared=[]), status=APPROVED, role=ADMIN), UserEvent(id=0, user=User(id=3, name=Eli, email=eli@gmail.com, password=Eli123!@#, shared=[]), status=REJECTED, role=GUEST)], organizer=User(id=1, name=Eden, email=eden@gmail.com, password=Eden123!@#, shared=[]))
+2022-12-28 15:22:51,836 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user eli@gmail.com
+2022-12-28 15:22:51,838 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-28 15:22:51,839 ERROR   calendar.service.AuthService - The given user is not a part of any event
+2022-12-28 15:22:51,866 DEBUG   calendar.service.AuthService - Check if the user is the organizer of the event
+2022-12-28 15:22:51,867 DEBUG   calendar.service.AuthService - Try to update event
+2022-12-28 15:22:51,880 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2022-12-29T15:22:51.864220700, 2023-01-02T15:22:51.864220700
+2022-12-28 15:22:51,881 INFO    calendar.service.AuthService - Save the updated event in DB
+2022-12-28 15:22:51,891 DEBUG   calendar.service.AuthService - Try to get calendar of user 2
+2022-12-28 15:22:51,892 DEBUG   calendar.service.AuthService - Check if there exists a user with the given id in the DB
+2022-12-28 15:22:51,900 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:22:51,901 DEBUG   calendar.service.AuthService - Check if the guest to add is a part of the event
+2022-12-28 15:22:51,901 DEBUG   calendar.service.AuthService - The given user to add is already a part of the event - you cannot add them again
+2022-12-28 15:22:51,908 DEBUG   calendar.service.AuthService - Try to get my events by month and year of user omar@gmail.com
+2022-12-28 15:22:51,909 DEBUG   calendar.service.AuthService - Check if the there exist any events that the user is invited to in the DB
+2022-12-28 15:22:51,910 DEBUG   calendar.service.AuthService - Return events of user omar@gmail.com
+2022-12-28 15:22:51,933 DEBUG   calendar.service.AuthService - Try to add new event
+2022-12-28 15:22:51,934 DEBUG   calendar.service.AuthService - Check that the start and end date and time are valid : 2023-01-01T15:22:51.932176
+2022-12-28 15:22:51,942 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:22:51,944 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-28 15:22:51,951 DEBUG   calendar.service.AuthService - Check if there exists a guest with the given email in the DB
+2022-12-28 15:22:51,952 DEBUG   calendar.service.AuthService - Check if the guest to remove is a part of the event
+2022-12-28 15:22:52,075 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-28 15:22:52,079 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-28 15:22:52,111 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-28 15:22:52,112 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-28 15:22:52,116 DEBUG   calendar.controller.EventController - Try to reject invitation
+2022-12-28 15:22:52,117 INFO    calendar.controller.EventController - Reject invitation was made successfully
+2022-12-28 15:22:52,121 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-28 15:22:52,122 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-28 15:22:52,128 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-28 15:22:52,129 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-28 15:22:52,134 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-28 15:22:52,134 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-28 15:22:52,141 DEBUG   calendar.controller.EventController - try to delete event
+2022-12-28 15:22:52,141 INFO    calendar.controller.EventController - Deleting event was made successfully
+2022-12-28 15:22:52,147 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-28 15:22:52,149 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-28 15:22:52,152 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-28 15:22:52,153 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-28 15:22:52,157 DEBUG   calendar.controller.EventController - Try to set guest as admin
+2022-12-28 15:22:52,158 INFO    calendar.controller.EventController - Set admin was made successfully
+2022-12-28 15:22:52,163 DEBUG   calendar.controller.EventController - Try to get calendar of user 2
+2022-12-28 15:22:52,164 INFO    calendar.controller.EventController - show calendar was made successfully
+2022-12-28 15:22:52,169 DEBUG   calendar.controller.EventController - try to update event
+2022-12-28 15:22:52,171 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-28 15:22:52,177 DEBUG   calendar.controller.EventController - Try to approve invitation
+2022-12-28 15:22:52,179 INFO    calendar.controller.EventController - Approve invitation was made successfully
+2022-12-28 15:22:52,183 DEBUG   calendar.controller.EventController - Try to add new event event
+2022-12-28 15:22:52,183 INFO    calendar.controller.EventController - Adding new event was made successfully
+2022-12-28 15:22:52,187 DEBUG   calendar.controller.EventController - try to update event
+2022-12-28 15:22:52,189 INFO    calendar.controller.EventController - Updating was made successfully
+2022-12-28 15:22:52,195 DEBUG   calendar.controller.EventController - Try to change notification settings
+2022-12-28 15:22:52,195 INFO    calendar.controller.EventController - Change notification settings was made successfully
+2022-12-28 15:22:52,199 DEBUG   calendar.controller.EventController - Try to remove a guest
+2022-12-28 15:22:52,200 INFO    calendar.controller.EventController - Remove a guest was made successfully
+2022-12-28 15:22:52,204 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-28 15:22:52,205 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-28 15:22:52,217 DEBUG   calendar.controller.EventController - Try to invite a guest
+2022-12-28 15:22:52,218 INFO    calendar.controller.EventController - Invite a guest was made successfully
+2022-12-28 15:22:52,273 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,275 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,276 INFO    calendar.controller.AuthController - e@gmail.com login was made successfully
+2022-12-28 15:22:52,280 INFO    calendar.controller.AuthController - e@gmail.com try to register
+2022-12-28 15:22:52,281 DEBUG   calendar.utilities.Validator - Check valid name
+2022-12-28 15:22:52,282 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,282 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,283 INFO    calendar.controller.AuthController - e@gmail.com Registration was made successfully
+2022-12-28 15:22:52,286 INFO    calendar.controller.AuthController - e@gmail.com try to register
+2022-12-28 15:22:52,287 DEBUG   calendar.utilities.Validator - Check valid name
+2022-12-28 15:22:52,287 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,287 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,291 INFO    calendar.controller.AuthController - R try to register
+2022-12-28 15:22:52,291 DEBUG   calendar.utilities.Validator - Check valid name
+2022-12-28 15:22:52,292 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,293 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,297 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,297 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,300 INFO    calendar.controller.AuthController - e@gmail.com try to register
+2022-12-28 15:22:52,301 DEBUG   calendar.utilities.Validator - Check valid name
+2022-12-28 15:22:52,301 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,302 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,305 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-28 15:22:52,306 DEBUG   calendar.controller.AuthController - login via github
+2022-12-28 15:22:52,311 DEBUG   calendar.controller.AuthController - Try to login using github
+2022-12-28 15:22:52,311 DEBUG   calendar.controller.AuthController - login via github
+2022-12-28 15:22:52,314 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,315 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,315 INFO    calendar.controller.AuthController - e@gmail.com login was made successfully
+2022-12-28 15:22:52,319 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,319 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,323 INFO    calendar.controller.AuthController - e@gmail.com try to register
+2022-12-28 15:22:52,324 DEBUG   calendar.utilities.Validator - Check valid name
+2022-12-28 15:22:52,324 DEBUG   calendar.utilities.Validator - Check valid email
+2022-12-28 15:22:52,324 DEBUG   calendar.utilities.Validator - Check valid password
+2022-12-28 15:22:52,325 INFO    calendar.controller.AuthController - e@gmail.com Registration was made successfully

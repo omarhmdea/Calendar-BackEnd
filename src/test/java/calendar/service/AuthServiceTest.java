@@ -78,7 +78,7 @@ class AuthServiceTest {
     void login_tryToLogin_successLoginAndUserData() {
         given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.ofNullable(user));
         given(bCryptPasswordEncoder.matches(userCredentials.getPassword(), user.getPassword())).willReturn(true);
-        assertEquals(new LoginDTO(new UserDTO(user), "token").getUser(),authService.login(userCredentials).getUser());
+        assertEquals(new LoginDTO(UserDTO.convertToUserDTO(user), "token").getUser(),authService.login(userCredentials).getUser());
     }
 
 //    @Test

@@ -21,14 +21,16 @@ public class EventCredentials {
     private String description;
     private String attachments;
 
-    public EventCredentials(Event event){
-        this.id = event.getId();
-        this.isPublic = event.getIsPublic();
-        this.start = event.getStart();
-        this.end = event.getEnd();
-        this.location = event.getLocation();
-        this.title = event.getTitle();
-        this.description = event.getDescription();
-        this.attachments = event.getAttachments();
+    public static EventCredentials convertToEventCredentials(Event event){
+        EventCredentials eventCredentials = new EventCredentials();
+        eventCredentials.setId(event.getId());
+        eventCredentials.setIsPublic(event.getIsPublic());
+        eventCredentials.setStart(event.getStart());
+        eventCredentials.setEnd(event.getEnd());
+        eventCredentials.setLocation(event.getLocation());
+        eventCredentials.setTitle(event.getTitle());
+        eventCredentials.setDescription(event.getDescription());
+        eventCredentials.setAttachments(event.getAttachments());
+        return eventCredentials;
     }
 }

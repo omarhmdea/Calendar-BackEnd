@@ -40,7 +40,7 @@ public class AuthController {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
         User registerUser = authService.registerUser(user);
-        SuccessResponse<UserDTO> successResponse = new SuccessResponse<>( "Successful registration", new UserDTO(registerUser));
+        SuccessResponse<UserDTO> successResponse = new SuccessResponse<>( "Successful registration", UserDTO.convertToUserDTO(registerUser));
         logger.info(user.getEmail() + " Registration was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
