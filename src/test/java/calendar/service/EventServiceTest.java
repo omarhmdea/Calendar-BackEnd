@@ -9,6 +9,7 @@ import calendar.enums.Status;
 import calendar.exception.ControllerAdvisor;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
+import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -57,7 +58,7 @@ class EventServiceTest {
 
     @BeforeEach
     void setUp(){
-        user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", Set.of());
+        user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", new HashSet<>(Arrays.asList(1,2)));
         guest1 = new User(2, "Omar", "omar@gmail.com", "Omar123!@#", Set.of());
         guest2 = new User(3, "Eli", "eli@gmail.com", "Eli123!@#", Set.of());
         guest3 = new User(4, "Maya", "maya@gmail.com", "Maya123!@#", Set.of());
@@ -138,16 +139,15 @@ class EventServiceTest {
 
     @Test
     void updateEvent_checkUpdateEvent_successUpdateEvent() {
-        event.setTitle("new");
-        given(eventRepository.save(event)).willReturn(event);
-        assertEquals(event, eventService.addNewEvent(user,event));
+        given(eventRepository.save(eventUpdated)).willReturn(eventUpdated);
+        assertEquals(eventUpdated, eventService.updateEvent(user, event, eventCredentials));
     }
 
-    @Test
-    void updateEvent_checkUpdateEvent_failUpdateEvent() {
-        event.setStart(LocalDateTime.now().minusDays(1));
-        assertThrows(IllegalArgumentException.class, ()-> eventService.addNewEvent(user,event));
-    }
+//    @Test
+//    void updateEvent_checkUpdateEvent_failUpdateEvent() {
+//        event.setStart(LocalDateTime.now().minusDays(1));
+//        assertThrows(IllegalArgumentException.class, ()-> eventService.addNewEvent(user,event));
+//    }
 
     @Test
     void update_checkUpdateEvent_successUpdateEvent() {
@@ -157,7 +157,7 @@ class EventServiceTest {
 //    @Test
 //    void setGuestAsAdmin_checkIfGuestIsAdmin_successSetAdmin() {
 //        given(userRepository.findByEmail(guest1.getEmail())).willReturn(Optional.of(guest1));
-//        given(eventRepository.save(event)).willReturn(eventGuest1Admin);
+//        given(eventRepository.save(eventGuest1Admin)).willReturn(eventGuest1Admin);
 //        assertEquals(eventGuest1Admin, eventService.setGuestAsAdmin(user, guest1.getEmail(), event));
 //    }
 
@@ -177,15 +177,22 @@ class EventServiceTest {
 //    @Test
 //    void inviteGuestToEvent_checkIfPart_successInvite(){
 //        given(userRepository.findByEmail(guest3.getEmail())).willReturn(Optional.ofNullable(guest3));
-//        given(eventRepository.save(event)).willReturn(eventInviteGuest3);
+//        given(eventRepository.save(eventInviteGuest3)).willReturn(eventInviteGuest3);
 //        assertEquals(eventInviteGuest3, eventService.inviteGuestToEvent(user, guest3.getEmail(), event));
 //    }
 
     @Test
     void inviteGuestToEvent_checkIfPart_failInvite(){
-        given(userRepository.findByEmail(guest2.getEmail())).willReturn(Optional.ofNullable(guest2));
-        assertThrows(IllegalArgumentException.class, ()-> eventService.inviteGuestToEvent(user,guest2.getEmail(),event));
+//        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
+        assertThrows(IllegalArgumentException.class, ()-> eventService.inviteGuestToEvent(user,user.getEmail(),event));
     }
+
+    @Test
+    void inviteGuestToEvent_checkIfEventOrganizer_failInvite(){
+        given(userRepository.findByEmail(guest2.getEmail())).willReturn(Optional.ofNullable(guest2));
+        assertThrows(IllegalArgumentException.class, ()-> eventService.inviteGuestToEvent(user, guest2.getEmail(), event));
+    }
+
 
 //    @Test
 //    void removeGuestToEvent_removeInvitedUser_successRemove(){
@@ -206,6 +213,12 @@ class EventServiceTest {
         assertThrows(IllegalArgumentException.class, ()-> eventService.removeGuestFromEvent(user,user.getEmail(),event));
     }
 
+//    @Test
+//    void removeGuestToEvent_isOrganizer_failRemove(){
+//        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
+//        assertThrows(IllegalArgumentException.class, ()-> eventService.removeGuestFromEvent(user, user.getEmail(),event));
+//    }
+
     @Test
     void getCalendar_existingUserWithEvents_successGet(){
         given(eventRepository.findAll()).willReturn(guest1Events);
@@ -220,12 +233,16 @@ class EventServiceTest {
 
     @Test
     void showCalendar_canViewDifferentUser_successShow(){
+
     }
 
     @Test
     void showCalendar_cannotViewDifferentUser_failShow(){
-    }
 
+        given(userRepository.findById(guest1.getId())).willReturn(Optional.ofNullable(guest1));
+        assertThrows(IllegalArgumentException.class, ()-> eventService.showCalendar(guest2, guest1.getId(),
+                LocalDateTime.now().getMonth().getValue(), LocalDateTime.now().getYear()));
+    }
 
 
 

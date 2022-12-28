@@ -94,6 +94,7 @@ public class Validator {
      * @return true if valid name else false
      */
     public static boolean isValidName(String name) {
+        logger.debug("Check valid name");
         String regex1 = "^[a-zA-Z]+$";
         Pattern pattern = Pattern.compile(regex1);
 
