@@ -1,23 +1,31 @@
 package calendar.controller;
 
 import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.*;
 import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.entities.Event;
+import calendar.entities.NotificationDetails;
+import calendar.entities.User;
+import calendar.entities.UserNotification;
 import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
 import calendar.utilities.EmailFacade;
+import calendar.utilities.TimeConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.websocket.server.PathParam;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +33,7 @@ import java.util.stream.Collectors;
 @CrossOrigin
 @RequestMapping("/event")
 public class EventController {
+
     private static final Logger logger = LogManager.getLogger(EventController.class.getName());
 
     @Autowired
@@ -34,9 +43,11 @@ public class EventController {
     @Autowired
     private EmailFacade emailFacade;
 
+
     /**
      * Add new event to the user's calendar
-     * @param user the user that is trying to create the event
+     *
+     * @param user     the user that is trying to create the event
      * @param newEvent the new event data
      * @return a SuccessResponse - OK status, a message, the new event data
      */
@@ -44,14 +55,19 @@ public class EventController {
     public ResponseEntity<SuccessResponse<EventDTO>> addNewEvent(@RequestAttribute User user, @RequestBody Event newEvent) {
         logger.debug("Try to add new event event");
         EventDTO newEventDTO = new EventDTO(eventService.addNewEvent(user, newEvent));
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        newEventDTO.setStart(convertToUtc(newEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        newEventDTO.setEnd(convertToUtc(newEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successAddNewEvent = new SuccessResponse<>(HttpStatus.OK, "Add new event successfully", newEventDTO);
         logger.info("Adding new event was made successfully");
         return ResponseEntity.ok().body(successAddNewEvent);
     }
 
+
     /**
      * Update event data by admin & organizer
-     * @param user the user that is trying to update the event
+     *
+     * @param user        the user that is trying to update the event
      * @param updateEvent - the update event
      * @return successResponse with updated data,Message,HttpStatus
      */
@@ -59,17 +75,26 @@ public class EventController {
     public ResponseEntity<SuccessResponse<EventDTO>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventCredentials updateEvent) {
         logger.debug("try to update event");
         EventDTO updatedEventDTO = new EventDTO(eventService.updateEvent(user, event, updateEvent));
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        updatedEventDTO.setStart(convertToUtc(updatedEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        updatedEventDTO.setEnd(convertToUtc(updatedEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful updating event", updatedEventDTO);
         //notificationService.sendNotification(updatedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
 
+    LocalDateTime convertToUtc(LocalDateTime time, ZoneId zone) {
+        return time.atZone(ZoneOffset.UTC).withZoneSameInstant(zone).toLocalDateTime();
+    }
+
+
     /**
      * Set guest as admin in the given event
+     *
      * @param user  the user that created the event
      * @param event the event to set new admin to
-     * @param email   the email of the guest that the organizer wants to set as admin
+     * @param email the email of the guest that the organizer wants to set as admin
      * @return a SuccessResponse - OK status, a message,
      * the User event data - event id, new admin id, new admin role (admin), new admin status (approved)
      */
@@ -82,8 +107,10 @@ public class EventController {
         return ResponseEntity.ok().body(successSetGuestAsAdmin);
     }
 
+
     /**
      * Delete event from DB
+     *
      * @param user  - the user id
      * @param event - the event to delete
      * @return successResponse with deleted event,Message,HttpStatus
@@ -101,9 +128,9 @@ public class EventController {
      * Add new guest to an existing event
      * @param user  the id of the user that is trying to perform the action
      * @param event the id of the event to add the guest to
-     * @param email   the email of the guest to add
+     * @param email the email of the guest to add
      * @return a SuccessResponse - OK status, a message,
-     *       the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
+     * the User event data - event id, new admin id, the guest role (guest), the guest status (tentative)
      */
     @PostMapping(value = "guest/invite/{eventId}")
     public ResponseEntity<SuccessResponse<EventDTO>> inviteGuestToEvent(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
@@ -119,7 +146,7 @@ public class EventController {
      * Remove guest from an existing event
      * @param user  the id of the user that is trying to perform the action
      * @param event the id of the event to remove the guest to
-     * @param email   the email of the guest to remove
+     * @param email the email of the guest to remove
      * @return a SuccessResponse - OK status, a message, the User data
      */
     @DeleteMapping(value = "guest/delete/{eventId}")
@@ -143,7 +170,14 @@ public class EventController {
     public ResponseEntity<SuccessResponse<List<EventDTO>>> showCalendar(@RequestAttribute User user, @PathVariable int id, @PathParam("month") int month, @PathParam("year") int year) {
         logger.debug("Try to get calendar of user " + id);
         List<Event> calendarEvent = eventService.showCalendar(user, id, month, year);
-        List<EventDTO> calendarEventDTO =  calendarEvent.stream().map(event -> new EventDTO(event)).collect(Collectors.toList());
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        List<EventDTO> calendarEventDTO = calendarEvent.stream().map(event -> {
+            EventDTO eventDTO = new EventDTO(event);
+            eventDTO.setStart(convertToUtc(event.getStart(), ZoneId.of(userNotification.getTimeZone())));
+            eventDTO.setEnd(convertToUtc(event.getEnd(), ZoneId.of(userNotification.getTimeZone())));
+            return eventDTO;
+        }).collect(Collectors.toList());
+        //List<EventDTO> calendarEventDTO = calendarEvent.stream().map(event -> new EventDTO(event)).collect(Collectors.toList());
         SuccessResponse<List<EventDTO>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful show other user calendar", calendarEventDTO);
         logger.info("show calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
@@ -160,7 +194,7 @@ public class EventController {
         logger.debug("Try to approve invitation");
         EventDTO approvedEventInvitationDTO = new EventDTO(eventService.approveOrRejectInvitation(user, eventId, Status.APPROVED));
         SuccessResponse<EventDTO> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", approvedEventInvitationDTO);
-        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " approve his invitation",approvedEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
+        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " approve his invitation", approvedEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
         logger.info("Approve invitation was made successfully");
         return ResponseEntity.ok().body(successApproveInvitation);
     }
@@ -177,7 +211,7 @@ public class EventController {
         logger.debug("Try to reject invitation");
         EventDTO rejectEventInvitationDTO = new EventDTO(eventService.approveOrRejectInvitation(user, eventId, Status.REJECTED));
         SuccessResponse<EventDTO> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", rejectEventInvitationDTO);
-        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " reject his invitation",rejectEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
+        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " reject his invitation", rejectEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
         logger.info("Reject invitation was made successfully");
         return ResponseEntity.ok().body(successRejectInvitation);
     }
@@ -213,7 +247,7 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message, the user info
      */
     @PutMapping(value = "share")
-    public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email){
+    public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email) {
         logger.debug("Try to share my calendar to someone else");
         UserDTO userDTO = new UserDTO(eventService.shareCalendar(user, email));
         SuccessResponse<UserDTO> successShareCalendar = new SuccessResponse<>(HttpStatus.OK, "Shared calendar successfully", userDTO);
@@ -227,7 +261,7 @@ public class EventController {
      * @return a list of the users the user can view info
      */
     @GetMapping(value = "myCalendars")
-    public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user){
+    public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user) {
         logger.debug("Try to get my shared calendars list");
         List<UserDTO> sharedCalendars = eventService.getSharedCalendars(user);
         SuccessResponse<List<UserDTO>> successSharedCalendars = new SuccessResponse<>(HttpStatus.OK, "Shared calendar successfully", sharedCalendars);
