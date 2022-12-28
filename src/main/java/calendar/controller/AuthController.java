@@ -71,9 +71,9 @@ public class AuthController {
         LoginDTO loginDTO = authService.login(code);
         SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginDTO);
 //        logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(URI.create("http://localhost:3000"));
-        return new ResponseEntity<>(successResponse, headers, HttpStatus.MOVED_PERMANENTLY);
-//        return ResponseEntity.ok().body(successResponse);
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setLocation(URI.create("http://localhost:3000"));
+//        return new ResponseEntity<>(successResponse, headers, HttpStatus.MOVED_PERMANENTLY);
+        return ResponseEntity.ok().body(successResponse);
     }
 }
