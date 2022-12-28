@@ -30,11 +30,13 @@ public class AuthFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) servletResponse;
 
         String token = req.getHeader("authorization");
+        if(token == null) {
+            logger.error("Could not find a user with this token : " + token);
+            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        }
         Optional<User> user = authService.findByToken(token.substring(7));
         if(user.isPresent()) {
-            System.out.println("inside");
             req.setAttribute("user", user.get());
-            System.out.println("uotside" + user);
             filterChain.doFilter(req, res);
         }
         else {

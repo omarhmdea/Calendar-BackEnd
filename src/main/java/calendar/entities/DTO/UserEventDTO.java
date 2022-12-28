@@ -3,13 +3,14 @@ package calendar.entities.DTO;
 import calendar.entities.UserEvent;
 import calendar.enums.Role;
 import calendar.enums.Status;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class UserEventDTO {
     private UserDTO user;
     private Status status;

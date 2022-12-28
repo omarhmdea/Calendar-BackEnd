@@ -10,6 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class UserNotification {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

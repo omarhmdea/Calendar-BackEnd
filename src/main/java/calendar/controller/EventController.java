@@ -6,9 +6,11 @@ import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
+import calendar.utilities.EmailFacade;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,11 @@ public class EventController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private EmailFacade emailFacade;
+
     // TODO : eventDTO - holds everything but the userEvent list - so we cant see the user's password
-    //  shold we return event or event DTO? because in the front we want guests list. maybe do eventToSho that holds userDTO list
+    //  should we return event or event DTO? because in the front we want guests list. maybe do eventToSho that holds userDTO list
     //  maybe do a method that return the guests list by event
 
     /**
@@ -113,6 +118,7 @@ public class EventController {
         EventDTO newGuestInEventDTO = new EventDTO(eventService.inviteGuestToEvent(user, email, event));
         SuccessResponse<EventDTO> successAddGuestToEvent = new SuccessResponse<>(HttpStatus.OK, "Added guest successfully", newGuestInEventDTO);
         logger.info("Invite a guest was made successfully");
+        emailFacade.sendInvitation(email, event);
         return ResponseEntity.ok().body(successAddGuestToEvent);
     }
 
@@ -163,6 +169,7 @@ public class EventController {
         logger.debug("Try to approve invitation");
         EventDTO approvedEventInvitationDTO = new EventDTO(eventService.approveOrRejectInvitation(user, eventId, Status.APPROVED));
         SuccessResponse<EventDTO> successApproveInvitation = new SuccessResponse<>(HttpStatus.OK, "Approved invitation successfully", approvedEventInvitationDTO);
+        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " approve his invitation",approvedEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
         logger.info("Approve invitation was made successfully");
         return ResponseEntity.ok().body(successApproveInvitation);
     }
@@ -179,20 +186,20 @@ public class EventController {
         logger.debug("Try to reject invitation");
         EventDTO rejectEventInvitationDTO = new EventDTO(eventService.approveOrRejectInvitation(user, eventId, Status.REJECTED));
         SuccessResponse<EventDTO> successRejectInvitation = new SuccessResponse<>(HttpStatus.OK, "Rejected invitation successfully", rejectEventInvitationDTO);
+        notificationService.sendNotificationToGuestsEvent(new NotificationDetails(user.getName() + " reject his invitation",rejectEventInvitationDTO, NotificationType.USER_STATUS_CHANGED));
         logger.info("Reject invitation was made successfully");
         return ResponseEntity.ok().body(successRejectInvitation);
     }
 
     /**
      * Change the user's notification settings
-     * @param user the user that is trying to change it's notification settings
+     * @param user the user that is trying to change its notification settings
      * @param userNotification
      * @return a SuccessResponse - OK status, a message, the user notification settings
      */
     @PutMapping(value = "settings")
     public ResponseEntity<SuccessResponse<UserNotificationCredentials>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
         logger.debug("Try to change notification settings");
-        //TODO : add userNotificationDTO
         UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.changeSettings(user, userNotification));
         SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>(HttpStatus.OK, "Changed settings successfully", userNotificationCredentials);
         logger.info("Change notification settings was made successfully");
