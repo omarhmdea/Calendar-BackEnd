@@ -99,6 +99,7 @@ public class NotificationService {
         originalNotification.setRemoveGuest(updatedNotification.getRemoveGuest());
         originalNotification.setUserStatusChanged(updatedNotification.getUserStatusChanged());
         originalNotification.setUpcomingEvent(updatedNotification.getUpcomingEvent());
+        originalNotification.setTimeZone(updatedNotification.getTimeZone());
         return originalNotification;
     }
 

@@ -52,41 +52,6 @@ public class Validator {
     }
 
 
-//    public static Optional<Map<String, String>> validateFields(Map<String, String> fields) {
-//        errorsMap.clear();
-//
-//        fields.forEach((key, value) -> {
-//            switch(key) {
-//                case "firstName":
-//                    if(! isValidName(value)) {
-//                        errorsMap.put("firstName", "first name" + getNameConstraints());
-//                    }
-//                    break;
-//                case "lastName":
-//                    if(! isValidName(value)) {
-//                        errorsMap.put("lastName", "last name" + getNameConstraints());
-//                    }
-//                    break;
-//
-//                case "email":
-//                    if(! isValidEmail(value)) {
-//                        errorsMap.put("email", "invalid email");
-//                    }
-//                    break;
-//
-//                case "nikeName":
-//                    if(! isValidNiceName(value)) {
-//                        errorsMap.put("nikeName", getNikeNameConstraints());
-//                    }
-//                    break;
-//            }
-//        });
-//
-//        if(errorsMap.isEmpty()) {
-//            return Optional.empty();
-//        }
-//        return Optional.of(errorsMap);
-//    }
     /**
      * Is valid name : check if The length of the name > 2 & contain only letters
      *
@@ -95,7 +60,7 @@ public class Validator {
      */
     public static boolean isValidName(String name) {
         logger.debug("Check valid name");
-        String regex1 = "^[a-zA-Z]+$";
+        String regex1 = "^[A-Z][a-z]*\\s[A-Z][a-z]*$";
         Pattern pattern = Pattern.compile(regex1);
 
         return name != null && pattern.matcher(name).matches();

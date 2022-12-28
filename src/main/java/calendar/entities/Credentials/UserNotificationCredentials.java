@@ -16,6 +16,7 @@ public class UserNotificationCredentials {
     private NotificationSettings removeGuest;
     private NotificationSettings userStatusChanged;
     private NotificationSettings upcomingEvent;
+    private String timeZone;
 
     public UserNotificationCredentials(UserNotification userNotification){
         this.deleteEvent = userNotification.getDeleteEvent();
@@ -24,6 +25,7 @@ public class UserNotificationCredentials {
         this.removeGuest = userNotification.getRemoveGuest();
         this.userStatusChanged = userNotification.getUserStatusChanged();
         this.upcomingEvent = userNotification.getUpcomingEvent();
+        this.timeZone = userNotification.getTimeZone();
     }
 }
 
