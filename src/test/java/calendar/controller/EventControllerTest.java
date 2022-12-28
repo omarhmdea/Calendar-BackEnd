@@ -222,20 +222,20 @@ class EventControllerTest {
 
     }
     @Test
-    void rejectInvitation_checkIfRejectInvitation_responseOkAndUpdateTheStatusToReject() {
+    void rejectInvitation_checkIfRejectInvitation_updateTheStatusToReject() {
         given(eventService.approveOrRejectInvitation(user, event.getId(),Status.REJECTED)).willReturn(event);
         ResponseEntity<SuccessResponse<EventDTO>> successRejectInvitation = eventController.rejectInvitation(user, event.getId());
         assertEquals(new EventDTO(event), Objects.requireNonNull(successRejectInvitation.getBody()).getData());
     }
     @Test
-    void rejectInvitation_checkIfRejectInvitation_responseOkTheStatusCode() {
+    void rejectInvitation_checkIfRejectInvitation_responseOkEqualsStatusCode() {
         given(eventService.approveOrRejectInvitation(user, event.getId(),Status.REJECTED)).willReturn(event);
         ResponseEntity<SuccessResponse<EventDTO>> successRejectInvitation = eventController.rejectInvitation(user, event.getId());
         assertEquals(HttpStatus.OK, successRejectInvitation.getStatusCode());
     }
 
     @Test
-    void changeSettings_checkIfChangeSettings_responseOkAndUpdateTheSettings() {
+    void changeSettings_checkIfChangeSettings_updateTheSettings() {
         userNotification.setDeleteEvent(NotificationSettings.POPUP);
         given(notificationService.changeSettings(user,userNotificationCredentials)).willReturn(userNotification);
         ResponseEntity<SuccessResponse<UserNotificationCredentials>> successChangeSettings = eventController.changeSettings(user, userNotificationCredentials);

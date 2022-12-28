@@ -3,8 +3,9 @@ package calendar.entities.Credentials;
 import lombok.*;
 
 @Getter
-@NoArgsConstructor
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class UserCredentials {
     private String email;

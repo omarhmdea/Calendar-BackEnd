@@ -98,7 +98,7 @@ public class EventService {
      * @throws IllegalArgumentException when the delete event failed
      */
     public Event deleteEvent(User user, Event eventToDelete){
-        logger.debug("Delete the event from DB");
+        logger.debug("Soft delete the event - set is deleted true");
         eventToDelete.setIsDeleted(true);
         return eventRepository.save(eventToDelete);
     }
@@ -115,9 +115,11 @@ public class EventService {
         User guestToAdd = findUser(guestToAddEmail);
         logger.debug("Check if the guest to add is a part of the event");
         if(guestIsPartOfEvent(event, guestToAdd)){
+            logger.debug("The given user to add is already a part of the event - you cannot add them again");
             throw new IllegalArgumentException("The given user to add is already a part of the event - you cannot add them again");
         }
         if(guestToAdd.equals(event.getOrganizer())){
+            logger.debug("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
             throw new IllegalArgumentException("The given user to add is the event organizer - and already a part of the event - you cannot add them again");
         }
         // TODO : send invitation to the user that was invited
@@ -136,7 +138,6 @@ public class EventService {
      */
     public User removeGuestFromEvent(User user, String guestToRemoveEmail, Event event){
         User guestToRemove = findUser(guestToRemoveEmail);
-        UserEvent userEvent = getUserEvent(event, guestToRemove);
         logger.debug("Check if the guest to remove is a part of the event");
         if(!guestIsPartOfEvent(event, guestToRemove)){
             throw new IllegalArgumentException("The given user to remove is not a part of the event - you cannot remove them");
@@ -146,6 +147,7 @@ public class EventService {
             throw new IllegalArgumentException("The given user to remove is the event's organizer - you cannot remove them");
         }
         logger.debug("Removing guest from event " + guestToRemove.toString());
+        UserEvent userEvent = getUserEvent(event, guestToRemove);
         event.removeUserEvent(userEvent);
         eventRepository.save(event);
 //        notificationService.sendNotification(event, NotificationType.REMOVE_GUEST);
@@ -251,6 +253,7 @@ public class EventService {
         }
         // TODO : do we want en exception here??
         if(userEvents.isEmpty()){
+            logger.error("The given user is not a part of any event");
             throw new IllegalArgumentException("The given user is not a part of any event");
         }
         return userEvents;
