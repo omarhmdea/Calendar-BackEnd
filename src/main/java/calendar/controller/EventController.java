@@ -31,13 +31,8 @@ public class EventController {
     private EventService eventService;
     @Autowired
     private NotificationService notificationService;
-
     @Autowired
     private EmailFacade emailFacade;
-
-    // TODO : eventDTO - holds everything but the userEvent list - so we cant see the user's password
-    //  should we return event or event DTO? because in the front we want guests list. maybe do eventToSho that holds userDTO list
-    //  maybe do a method that return the guests list by event
 
     /**
      * Add new event to the user's calendar
@@ -80,7 +75,6 @@ public class EventController {
      */
     @PutMapping(value = "guest/assign/{eventId}")
     public ResponseEntity<SuccessResponse<EventDTO>> setGuestAsAdmin(@RequestAttribute User user, @RequestAttribute Event event, @PathParam("email") String email) {
-        // TODO : check in filter if userId is  organizer
         logger.debug("Try to set guest as admin");
         EventDTO newAdminInEventDTO = new EventDTO(eventService.setGuestAsAdmin(user, email, event));
         SuccessResponse<EventDTO> successSetGuestAsAdmin = new SuccessResponse<>(HttpStatus.OK, "Set admin successfully", newAdminInEventDTO);
@@ -99,7 +93,6 @@ public class EventController {
         logger.debug("try to delete event");
         EventDTO deletedEventDTO = new EventDTO(eventService.deleteEvent(user, event));
         SuccessResponse<EventDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful deleting event", deletedEventDTO);
-        //TODO : notificationService.sendNotification(deletedEvent, NotificationType.UPDATE_EVENT);
         logger.info("Deleting event was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
