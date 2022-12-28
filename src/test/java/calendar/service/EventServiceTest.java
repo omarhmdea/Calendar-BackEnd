@@ -9,6 +9,7 @@ import calendar.enums.Status;
 import calendar.exception.ControllerAdvisor;
 import calendar.repository.EventRepository;
 import calendar.repository.UserRepository;
+import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -169,12 +170,20 @@ class EventServiceTest {
         assertThrows(IllegalArgumentException.class, ()-> eventService.setGuestAsAdmin(user,guest2.getEmail(),event));
     }
 
-//    @Test
-//    void deleteEvent_checkIfEventWasDeleted_successSoftDelete(){
-//        event.setIsDeleted(true);
-//        given(eventRepository.save(event)).willReturn(event);
-//        assertEquals(event, eventService.deleteEvent(user, event));
-//    }
+    @Test
+    void deleteEvent_checkIfEventWasDeleted_successSoftDelete(){
+        event.setIsDeleted(true);
+        given(eventRepository.save(event)).willReturn(event);
+        assertEquals(event, eventService.deleteEvent(user, event));
+    }
+@Test
+public void testDeleteEvent() {
+    User user = new User();
+    Event eventToDelete = new Event();
+    when(eventRepository.save(any(Event.class))).thenReturn(eventToDelete);
+    Event result = eventService.deleteEvent(user, eventToDelete);
+    assertTrue(result.getIsDeleted());
+}
 
 //    @Test
 //    void inviteGuestToEvent_checkIfPart_successInvite(){
@@ -196,12 +205,12 @@ class EventServiceTest {
     }
 
 
-//    @Test
-//    void removeGuestToEvent_removeInvitedUser_successRemove(){
-//        given(userRepository.findByEmail(guest2.getEmail())).willReturn(Optional.ofNullable(guest2));
-//        given(eventRepository.save(event)).willReturn(event);
-//        assertEquals(guest2, eventService.removeGuestFromEvent(user, guest2.getEmail(), event));
-//    }
+    @Test
+    void removeGuestToEvent_removeInvitedUser_successRemove(){
+        given(userRepository.findByEmail(guest2.getEmail())).willReturn(Optional.ofNullable(guest2));
+        given(eventRepository.save(event)).willReturn(event);
+        assertEquals(guest2, eventService.removeGuestFromEvent(user, guest2.getEmail(), event));
+    }
 
     @Test
     void removeGuestToEvent_removeUninvitedUser_failRemove(){
@@ -213,6 +222,12 @@ class EventServiceTest {
     void removeGuestToEvent_removeOrganizer_failRemove(){
         given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
         assertThrows(IllegalArgumentException.class, ()-> eventService.removeGuestFromEvent(user,user.getEmail(),event));
+    }
+
+    @Test
+    void removeGuestToEvent_isOrganizer_failRemove(){
+        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
+        assertThrows(IllegalArgumentException.class, ()-> eventService.removeGuestFromEvent(user, user.getEmail(),event));
     }
 
 //    @Test
@@ -248,19 +263,7 @@ class EventServiceTest {
 
 
 
-    @Test
-    public void testDeleteEvent() {
-        // Set up mock data
-        User user = new User();
-        Event eventToDelete = new Event();
-        when(eventRepository.save(any(Event.class))).thenReturn(eventToDelete);
 
-        // Call the deleteEvent method
-        Event result = eventService.deleteEvent(user, eventToDelete);
-
-        // Verify the result
-        assertTrue(result.getIsDeleted());
-    }
 
 
 

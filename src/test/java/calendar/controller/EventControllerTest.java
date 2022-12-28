@@ -10,6 +10,7 @@ import calendar.enums.NotificationSettings;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
+import calendar.utilities.EmailFacade;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.doNothing;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -34,6 +36,8 @@ class EventControllerTest {
     EventService eventService;
     @Mock
     NotificationService notificationService;
+    @Mock
+    EmailFacade emailFacade;
     @InjectMocks
     EventController eventController;
 
@@ -158,6 +162,8 @@ class EventControllerTest {
     @Test
     void inviteGuestToEvent_checkInviteGuestToEvent_responseOkTheStatusCode() {
         given(eventService.inviteGuestToEvent(user,"r@r.com", event)).willReturn(event);
+       // given(emailFacade.sendInvitation("elchananm10@gmail.com", event));
+        doNothing().when(emailFacade).sendInvitation("r@r.com",event);
         ResponseEntity<SuccessResponse<EventDTO>> successInviteGuestToEvent = eventController.inviteGuestToEvent(user, event,"r@r.com");
         assertEquals(HttpStatus.OK, successInviteGuestToEvent.getStatusCode());
     }
