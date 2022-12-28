@@ -13,7 +13,12 @@ public class EmailFacade {
     @Autowired
     private EmailSenderService emailSenderService;
 
-
+    /**
+     * Send notification by email
+     * @param email the email to send to
+     * @param content the content of the email
+     * @param notificationType The notification for which איק email was sent
+     */
     public void sendEmail(String email, String content, NotificationType notificationType) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(email);
@@ -23,6 +28,11 @@ public class EmailFacade {
         emailSenderService.sendEmail(mailMessage);
     }
 
+    /**
+     * Send invitation to event by email
+     * @param email the email to send the invitation to
+     * @param event the event that the user was invited to
+     */
     public void sendInvitation(String email, Event event) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(email);
