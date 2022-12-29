@@ -27,6 +27,7 @@ public class UserNotification {
     private NotificationSettings removeGuest = NotificationSettings.NONE;
     private NotificationSettings userStatusChanged = NotificationSettings.NONE;
     private NotificationSettings upcomingEvent = NotificationSettings.NONE;
+    private String timeZone;
 
     public UserNotification(User user){
         this.user = user;

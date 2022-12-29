@@ -2,12 +2,10 @@ package calendar.controller;
 
 import calendar.entities.NotificationDetails;
 import calendar.service.NotificationService;
-import calendar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Controller;
-
 
 @Controller
 public class NotificationController {

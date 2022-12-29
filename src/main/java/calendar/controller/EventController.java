@@ -1,22 +1,28 @@
 package calendar.controller;
 
-import calendar.ResponsHandler.SuccessResponse;
-import calendar.entities.*;
+import calendar.responsHandler.SuccessResponse;
 import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.DTO.UserDTO;
+import calendar.entities.Event;
+import calendar.entities.NotificationDetails;
+import calendar.entities.User;
+import calendar.entities.UserNotification;
 import calendar.enums.NotificationType;
 import calendar.enums.Status;
 import calendar.service.EventService;
 import calendar.service.NotificationService;
 import calendar.utilities.EmailFacade;
+import calendar.utilities.TimeConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.websocket.server.PathParam;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +49,9 @@ public class EventController {
     public ResponseEntity<SuccessResponse<EventDTO>> addNewEvent(@RequestAttribute User user, @RequestBody Event newEvent) {
         logger.debug("Try to add new event event");
         EventDTO newEventDTO = EventDTO.convertToEventDTO(eventService.addNewEvent(user, newEvent));
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        newEventDTO.setStart(TimeConverter.convertToUtc(newEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        newEventDTO.setEnd(TimeConverter.convertToUtc(newEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successAddNewEvent = new SuccessResponse<>("Add new event successfully", newEventDTO);
         logger.info("Adding new event was made successfully");
         return ResponseEntity.ok().body(successAddNewEvent);
@@ -58,6 +67,9 @@ public class EventController {
     public ResponseEntity<SuccessResponse<EventDTO>> updateEvent(@RequestAttribute User user, @RequestAttribute Event event, @RequestBody EventCredentials updateEvent) {
         logger.debug("try to update event");
         EventDTO updatedEventDTO = EventDTO.convertToEventDTO(eventService.updateEvent(user, event, updateEvent));
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        updatedEventDTO.setStart(TimeConverter.convertToUtc(updatedEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        updatedEventDTO.setEnd(TimeConverter.convertToUtc(updatedEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successResponse = new SuccessResponse<>("Successful updating event", updatedEventDTO);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
@@ -141,7 +153,13 @@ public class EventController {
     public ResponseEntity<SuccessResponse<List<EventDTO>>> showCalendar(@RequestAttribute User user, @PathVariable int id, @PathParam("month") int month, @PathParam("year") int year) {
         logger.debug("Try to get calendar of user " + id);
         List<Event> calendarEvent = eventService.showCalendar(user, id, month, year);
-        List<EventDTO> calendarEventDTO =  calendarEvent.stream().map(event -> EventDTO.convertToEventDTO(event)).collect(Collectors.toList());
+        UserNotification userNotification = notificationService.findUserNotification(user);
+        List<EventDTO> calendarEventDTO = calendarEvent.stream().map(event -> {
+            EventDTO eventDTO = EventDTO.convertToEventDTO(event);
+            eventDTO.setStart(TimeConverter.convertToUtc(event.getStart(), ZoneId.of(userNotification.getTimeZone())));
+            eventDTO.setEnd(TimeConverter.convertToUtc(event.getEnd(), ZoneId.of(userNotification.getTimeZone())));
+            return eventDTO;
+        }).collect(Collectors.toList());
         SuccessResponse<List<EventDTO>> successResponse = new SuccessResponse<>( "Successful show other user calendar", calendarEventDTO);
         logger.info("show calendar was made successfully");
         return ResponseEntity.ok().body(successResponse);
@@ -211,7 +229,7 @@ public class EventController {
      * @return a SuccessResponse - OK status, a message, the user info
      */
     @PutMapping(value = "share")
-    public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email){
+    public ResponseEntity<SuccessResponse<UserDTO>> shareCalendar(@RequestAttribute User user, @PathParam("email") String email) {
         logger.debug("Try to share my calendar to someone else");
         UserDTO userDTO = UserDTO.convertToUserDTO(eventService.shareCalendar(user, email));
         SuccessResponse<UserDTO> successShareCalendar = new SuccessResponse<>( "Shared calendar successfully", userDTO);
@@ -225,7 +243,7 @@ public class EventController {
      * @return a list of the users the user can view info
      */
     @GetMapping(value = "myCalendars")
-    public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user){
+    public ResponseEntity<SuccessResponse<List<UserDTO>>> getSharedCalendars(@RequestAttribute User user) {
         logger.debug("Try to get my shared calendars list");
         List<UserDTO> sharedCalendars = eventService.getSharedCalendars(user);
         SuccessResponse<List<UserDTO>> successSharedCalendars = new SuccessResponse<>( "Shared calendar successfully", sharedCalendars);

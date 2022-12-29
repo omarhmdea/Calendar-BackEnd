@@ -18,6 +18,7 @@ public class UserNotificationCredentials {
     private NotificationSettings removeGuest;
     private NotificationSettings userStatusChanged;
     private NotificationSettings upcomingEvent;
+    private String timeZone;
 
     public static UserNotificationCredentials convertToUserNotificationCredentials(UserNotification userNotification){
         UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials();
@@ -27,6 +28,7 @@ public class UserNotificationCredentials {
         userNotificationCredentials.setRemoveGuest(userNotification.getRemoveGuest());
         userNotificationCredentials.setUserStatusChanged(userNotification.getUserStatusChanged());
         userNotificationCredentials.setUpcomingEvent(userNotification.getUpcomingEvent());
+        userNotificationCredentials.setTimeZone(userNotification.getTimeZone());
         return userNotificationCredentials;
     }
 }

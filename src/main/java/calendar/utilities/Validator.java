@@ -59,7 +59,7 @@ public class Validator {
      */
     public static boolean isValidName(String name) {
         logger.debug("Check valid name");
-        String regex1 = "^[a-zA-Z]+$";
+        String regex1 = "^[A-Z][a-z]*\\s[A-Z][a-z]*$";
         Pattern pattern = Pattern.compile(regex1);
 
         return name != null && pattern.matcher(name).matches();
