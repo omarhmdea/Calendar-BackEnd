@@ -29,7 +29,7 @@ public class FilterConfig {
     private List<String> authPatterns;
     @Value("#{'${permission.filter.patterns}'.split(',')}")
     private List<String> permissionPatterns;
-    
+
     /**
      * this method is used to register the cors filter
      *

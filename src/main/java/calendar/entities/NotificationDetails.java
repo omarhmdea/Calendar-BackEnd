@@ -11,9 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class NotificationDetails {
-
     private String message;
     private EventDTO event;
     private NotificationType notificationType;
-
 }
