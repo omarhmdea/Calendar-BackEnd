@@ -189,7 +189,7 @@ public class EventController {
     @PutMapping(value = "settings")
     public ResponseEntity<SuccessResponse<UserNotificationCredentials>> changeSettings(@RequestAttribute User user, @RequestBody UserNotificationCredentials userNotification) {
         logger.debug("Try to change notification settings");
-        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.changeSettings(user, userNotification));
+        UserNotificationCredentials userNotificationCredentials = UserNotificationCredentials.convertToUserNotificationCredentials(notificationService.changeSettings(user, userNotification));
         SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>( "Changed settings successfully", userNotificationCredentials);
         logger.info("Change notification settings was made successfully");
         return ResponseEntity.ok().body(successChangeSettings);
@@ -198,7 +198,7 @@ public class EventController {
     @GetMapping(value = "settings")
     public ResponseEntity<SuccessResponse<UserNotificationCredentials>> getSettings(@RequestAttribute User user) {
         logger.debug("Try to change notification settings");
-        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials(notificationService.findUserNotification(user));
+        UserNotificationCredentials userNotificationCredentials = UserNotificationCredentials.convertToUserNotificationCredentials(notificationService.findUserNotification(user));
         SuccessResponse<UserNotificationCredentials> successChangeSettings = new SuccessResponse<>( "Changed settings successfully", userNotificationCredentials);
         logger.info("Change notification settings was made successfully");
         return ResponseEntity.ok().body(successChangeSettings);

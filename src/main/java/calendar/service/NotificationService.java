@@ -88,6 +88,7 @@ public class NotificationService {
     }
 
     public UserNotification changeSettings(User user, UserNotificationCredentials updatedUserNotification) {
+        logger.debug("Try to change settings to user " + user.getId());
         UserNotification userNotification = update(findUserNotification(user), updatedUserNotification);
         return userNotificationRepository.save(userNotification);
     }
