@@ -1,7 +1,6 @@
 package calendar.entities;
 
 import calendar.entities.DTO.EventDTO;
-import calendar.entities.DTO.UserDTO;
 import calendar.enums.NotificationType;
 import lombok.*;
 

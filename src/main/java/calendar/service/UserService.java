@@ -1,6 +1,5 @@
 package calendar.service;
 
-import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.User;
 import calendar.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

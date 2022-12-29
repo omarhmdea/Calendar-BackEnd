@@ -17,6 +17,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.*;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -57,16 +58,19 @@ class AuthServiceTest {
         given(userNotificationRepository.save(userNotification)).willReturn(userNotification);
         assertEquals(user,authService.registerUser(user));
     }
+
     @Test
     void registerUser_tryToRegister_failRegistrationUserExist() {
         given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
         assertThrows(IllegalArgumentException.class,()-> authService.registerUser(user));
     }
+
     @Test
     void login_tryToLogin_failLoginInvalidEmail() {
         given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.empty());
         assertThrows(IllegalArgumentException.class,()-> authService.login(userCredentials));
     }
+
     @Test
     void login_tryToLogin_failLoginInvalidPassword() {
         given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.ofNullable(user));
@@ -86,3 +90,4 @@ class AuthServiceTest {
         assertEquals(Optional.empty(), authService.findByToken("1"));
     }
 }
+
