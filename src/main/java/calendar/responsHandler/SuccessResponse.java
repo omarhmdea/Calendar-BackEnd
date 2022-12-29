@@ -1,4 +1,4 @@
-package calendar.ResponsHandler;
+package calendar.responsHandler;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

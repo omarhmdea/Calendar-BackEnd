@@ -1,6 +1,6 @@
 package calendar.controller;
 
-import calendar.ResponsHandler.SuccessResponse;
+import calendar.responsHandler.SuccessResponse;
 import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;
 import calendar.entities.DTO.EventDTO;
@@ -22,9 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,8 +50,8 @@ public class EventController {
         logger.debug("Try to add new event event");
         EventDTO newEventDTO = EventDTO.convertToEventDTO(eventService.addNewEvent(user, newEvent));
         UserNotification userNotification = notificationService.findUserNotification(user);
-        newEventDTO.setStart(convertToUtc(newEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
-        newEventDTO.setEnd(convertToUtc(newEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
+        newEventDTO.setStart(TimeConverter.convertToUtc(newEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        newEventDTO.setEnd(TimeConverter.convertToUtc(newEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successAddNewEvent = new SuccessResponse<>("Add new event successfully", newEventDTO);
         logger.info("Adding new event was made successfully");
         return ResponseEntity.ok().body(successAddNewEvent);
@@ -70,14 +68,11 @@ public class EventController {
         logger.debug("try to update event");
         EventDTO updatedEventDTO = EventDTO.convertToEventDTO(eventService.updateEvent(user, event, updateEvent));
         UserNotification userNotification = notificationService.findUserNotification(user);
-        updatedEventDTO.setStart(convertToUtc(updatedEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
-        updatedEventDTO.setEnd(convertToUtc(updatedEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
+        updatedEventDTO.setStart(TimeConverter.convertToUtc(updatedEventDTO.getStart(), ZoneId.of(userNotification.getTimeZone())));
+        updatedEventDTO.setEnd(TimeConverter.convertToUtc(updatedEventDTO.getEnd(), ZoneId.of(userNotification.getTimeZone())));
         SuccessResponse<EventDTO> successResponse = new SuccessResponse<>("Successful updating event", updatedEventDTO);
         logger.info("Updating was made successfully");
         return ResponseEntity.ok().body(successResponse);
-    }
-    LocalDateTime convertToUtc(LocalDateTime time, ZoneId zone) {
-        return time.atZone(ZoneOffset.UTC).withZoneSameInstant(zone).toLocalDateTime();
     }
 
     /**
@@ -161,8 +156,8 @@ public class EventController {
         UserNotification userNotification = notificationService.findUserNotification(user);
         List<EventDTO> calendarEventDTO = calendarEvent.stream().map(event -> {
             EventDTO eventDTO = EventDTO.convertToEventDTO(event);
-            eventDTO.setStart(convertToUtc(event.getStart(), ZoneId.of(userNotification.getTimeZone())));
-            eventDTO.setEnd(convertToUtc(event.getEnd(), ZoneId.of(userNotification.getTimeZone())));
+            eventDTO.setStart(TimeConverter.convertToUtc(event.getStart(), ZoneId.of(userNotification.getTimeZone())));
+            eventDTO.setEnd(TimeConverter.convertToUtc(event.getEnd(), ZoneId.of(userNotification.getTimeZone())));
             return eventDTO;
         }).collect(Collectors.toList());
         SuccessResponse<List<EventDTO>> successResponse = new SuccessResponse<>( "Successful show other user calendar", calendarEventDTO);

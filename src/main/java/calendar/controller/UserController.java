@@ -1,6 +1,6 @@
 package calendar.controller;
 
-import calendar.ResponsHandler.SuccessResponse;
+import calendar.responsHandler.SuccessResponse;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.NotificationDetails;
 import calendar.enums.NotificationType;
@@ -31,6 +31,7 @@ public class UserController {
 
     @GetMapping(value = "approve/{eventId}")
     public ResponseEntity<SuccessResponse<EventDTO>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+        logger.info("Try to approve invitation using email");
         EventDTO event = EventDTO.convertToEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED));
         SuccessResponse<EventDTO> successApproveInvitation = new SuccessResponse<>( "Approved invitation successfully", event);
         notificationService.sendNotificationToGuestsEvent(new NotificationDetails(email + " approve his invitation", event, NotificationType.USER_STATUS_CHANGED));
@@ -40,6 +41,7 @@ public class UserController {
 
     @GetMapping(value = "reject/{eventId}")
     public ResponseEntity<SuccessResponse<EventDTO>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+        logger.info("Try to reject invitation using email");
         EventDTO event = EventDTO.convertToEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.REJECTED));
         SuccessResponse<EventDTO> successRejectInvitation = new SuccessResponse<>( "Rejected invitation successfully", event);
         notificationService.sendNotificationToGuestsEvent(new NotificationDetails(email + " reject his invitation",event, NotificationType.USER_STATUS_CHANGED));

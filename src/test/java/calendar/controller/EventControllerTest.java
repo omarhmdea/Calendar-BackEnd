@@ -1,6 +1,6 @@
 package calendar.controller;
 
-import calendar.ResponsHandler.SuccessResponse;
+import calendar.responsHandler.SuccessResponse;
 import calendar.entities.*;
 import calendar.entities.Credentials.EventCredentials;
 import calendar.entities.Credentials.UserNotificationCredentials;

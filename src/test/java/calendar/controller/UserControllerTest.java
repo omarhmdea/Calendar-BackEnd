@@ -1,7 +1,7 @@
 package calendar.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import calendar.ResponsHandler.SuccessResponse;
+import calendar.responsHandler.SuccessResponse;
 import calendar.entities.DTO.EventDTO;
 import calendar.entities.Event;
 import calendar.entities.User;

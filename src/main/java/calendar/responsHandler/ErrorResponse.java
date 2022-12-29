@@ -1,4 +1,4 @@
-package calendar.ResponsHandler;
+package calendar.responsHandler;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,5 @@ import org.springframework.http.HttpStatus;
 @Setter
 @Getter
 public class ErrorResponse<T> {
-    private HttpStatus status;
     private T error;
 }
