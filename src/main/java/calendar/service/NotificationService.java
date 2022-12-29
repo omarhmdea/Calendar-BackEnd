@@ -8,7 +8,6 @@ import calendar.entities.User;
 import calendar.entities.UserNotification;
 import calendar.enums.NotificationSettings;
 import calendar.enums.Status;
-import calendar.repository.EventRepository;
 import calendar.repository.UserNotificationRepository;
 import calendar.utilities.EmailFacade;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +15,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service

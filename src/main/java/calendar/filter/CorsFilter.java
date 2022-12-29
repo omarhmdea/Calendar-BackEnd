@@ -2,9 +2,7 @@ package calendar.filter;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -25,13 +23,6 @@ public class CorsFilter implements Filter {
 
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-
-//        response.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//        response.addHeader("Access-Control-Allow-Headers", "*");
-//        response.addHeader("Access-Control-Allow-Methods",
-//                "GET, OPTIONS, HEAD, PUT, POST, DELETE, PATCH");
-//        response.addHeader("Access-Control-Allow-Credentials", "true");
-
 
         response.setHeader("Access-Control-Allow-Headers", "*");
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");

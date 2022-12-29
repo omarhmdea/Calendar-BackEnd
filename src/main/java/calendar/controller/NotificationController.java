@@ -1,7 +1,6 @@
 package calendar.controller;
 
 import calendar.entities.NotificationDetails;
-import calendar.entities.User;
 import calendar.service.NotificationService;
 import calendar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
