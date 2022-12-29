@@ -6,8 +6,6 @@ import calendar.filter.CorsFilter;
 import calendar.filter.PermissionFilter;
 import calendar.repository.EventRepository;
 import calendar.service.AuthService;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +16,23 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 public class FilterConfig {
+
     public static final Logger logger = LogManager.getLogger(FilterConfig.class);
 
     @Autowired
     private AuthService authService;
     @Autowired
     private EventRepository eventRepository;
-    @Value("#{'${registration.filter.patterns}'.split(',')}")
-    private List<String> patterns;
+    @Value("#{'${auth.filter.patterns}'.split(',')}")
+    private List<String> authPatterns;
+    @Value("#{'${permission.filter.patterns}'.split(',')}")
+    private List<String> permissionPatterns;
+
+
 
     /**
      * this method is used to register the cors filter
@@ -67,7 +68,7 @@ public class FilterConfig {
 
         registrationBean.setFilter(authFilter);
 
-        registrationBean.addUrlPatterns(patterns.toArray(new String[0]));
+        registrationBean.addUrlPatterns(authPatterns.toArray(new String[0]));
         registrationBean.setOrder(2);
 
         return registrationBean;
@@ -88,8 +89,8 @@ public class FilterConfig {
         PermissionFilter permissionFilter = new PermissionFilter(eventRepository);
 
         registrationBean.setFilter(permissionFilter);
-        registrationBean.addUrlPatterns("/event/update/*", "/event/delete/*", "/event/guest/assign/*", "/event/guest/delete/*",
-                                        "/event/guest/invite/*");
+
+        registrationBean.addUrlPatterns(permissionPatterns.toArray(new String[0]));
         registrationBean.setOrder(3);
 
         return registrationBean;
