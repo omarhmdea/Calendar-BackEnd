@@ -4,7 +4,6 @@ import calendar.entities.User;
 import calendar.service.AuthService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +40,6 @@ public class AuthFilter implements Filter {
             logger.error("Could not find a user with this token : " + token);
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             res.getOutputStream().write(("Could not find a user with this token : " + token.substring(7)).getBytes());
-            //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Could not find a user with this token : " + token.substring(7));
         }
     }
 

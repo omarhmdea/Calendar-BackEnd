@@ -16,9 +16,11 @@ public class UserEventDTO {
     private Status status;
     private Role role;
 
-    public UserEventDTO(UserEvent userevent){
-        this.user = new UserDTO(userevent.getUser());
-        this.status = userevent.getStatus();
-        this.role = userevent.getRole();
+    public static UserEventDTO convertToUserEventDTO(UserEvent userevent){
+        UserEventDTO userEventDTO = new UserEventDTO();
+        userEventDTO.setUser(UserDTO.convertToUserDTO(userevent.getUser()));
+        userEventDTO.setStatus(userevent.getStatus());
+        userEventDTO.setRole(userevent.getRole());
+        return userEventDTO;
     }
 }

@@ -14,9 +14,11 @@ public class UserDTO {
     private String name;
     private String email;
 
-    public UserDTO(User user){
-        this.id = user.getId();
-        this.name = user.getName();
-        this.email = user.getEmail();
+    public static UserDTO convertToUserDTO(User user){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getName());
+        userDTO.setEmail(user.getEmail());
+        return userDTO;
     }
 }

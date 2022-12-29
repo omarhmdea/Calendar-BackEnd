@@ -77,7 +77,7 @@ public class AuthService {
         String token = TokenGenerator.generateNewToken();
         loginTokenId.put(token ,user.get().getId());
         logger.info("Successful login using email");
-        return new LoginDTO(new UserDTO(user.get()), token);
+        return new LoginDTO(UserDTO.convertToUserDTO(user.get()), token);
     }
 
     /**
@@ -97,7 +97,7 @@ public class AuthService {
             String token = TokenGenerator.generateNewToken();
             loginTokenId.put(token ,user.get().getId());
             logger.info("Successful not first time login using github");
-            return new LoginDTO(new UserDTO(user.get()), token);
+            return new LoginDTO(UserDTO.convertToUserDTO(user.get()), token);
         }
         logger.info("First time login using github");
         User newUser;
@@ -110,7 +110,7 @@ public class AuthService {
         String token = TokenGenerator.generateNewToken();
         loginTokenId.put(token ,savedUser.getId());
         logger.info("Successful first time login using github");
-        return new LoginDTO(new UserDTO(savedUser), token);
+        return new LoginDTO(UserDTO.convertToUserDTO(savedUser), token);
     }
 
     /**

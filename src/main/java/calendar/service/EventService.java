@@ -197,7 +197,7 @@ public class EventService {
         logger.debug("Try to get calendar of user " + userToShowCalendarId);
         User userToShowCalendar = findUser(userToShowCalendarId);
         List<UserDTO> sharedCalendars = getSharedCalendars(user);
-        if(!sharedCalendars.contains(new UserDTO(userToShowCalendar))){
+        if(!sharedCalendars.contains(UserDTO.convertToUserDTO(userToShowCalendar))){
             throw new IllegalArgumentException("the given user has no permission to view the other user's calendar");
         }
         List<Event> userEvents = getCalendar(userToShowCalendar, month, year);
@@ -272,9 +272,9 @@ public class EventService {
     public List<UserDTO> getSharedCalendars(User user){
         Set<Integer> usersId = user.getShared();
         List<UserDTO> shredCalendars = new ArrayList<>();
-        shredCalendars.add(new UserDTO(user));
+        shredCalendars.add(UserDTO.convertToUserDTO(user));
         for(Integer id: usersId){
-            shredCalendars.add(new UserDTO(findUser(id)));
+            shredCalendars.add(UserDTO.convertToUserDTO(findUser(id)));
         }
         return shredCalendars;
     }
@@ -365,3 +365,5 @@ public class EventService {
                 !updatedEvent.getTitle().equals(originalEvent.getTitle());
     }
 }
+
+

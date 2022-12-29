@@ -11,7 +11,6 @@ import calendar.utilities.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -40,7 +39,7 @@ public class AuthController {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
         User registerUser = authService.registerUser(user);
-        SuccessResponse<UserDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful registration", new UserDTO(registerUser));
+        SuccessResponse<UserDTO> successResponse = new SuccessResponse<>( "Successful registration", UserDTO.convertToUserDTO(registerUser));
         logger.info(user.getEmail() + " Registration was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
@@ -57,7 +56,7 @@ public class AuthController {
             throw new ValidationErrorException("validate input", validationErrors.get());
         }
         LoginDTO loginDTO = authService.login(userCredentials);
-        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login", loginDTO);
+        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>( "Successful login", loginDTO);
         logger.info(loginDTO.getUser().getEmail() + " login was made successfully");
         return ResponseEntity.ok().body(successResponse);
     }
@@ -71,7 +70,7 @@ public class AuthController {
     public ResponseEntity<SuccessResponse<LoginDTO>> login(@RequestParam String code){
         logger.debug("Try to login using github");
         LoginDTO loginDTO = authService.login(code);
-        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>(HttpStatus.OK, "Successful login using github", loginDTO);
+        SuccessResponse<LoginDTO> successResponse = new SuccessResponse<>( "Successful login using github", loginDTO);
         logger.debug("login via github");
         return ResponseEntity.ok().body(successResponse);
     }

@@ -1,7 +1,6 @@
 package calendar.controller;
 
 import calendar.entities.NotificationDetails;
-import calendar.entities.User;
 import calendar.service.NotificationService;
 import calendar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +14,15 @@ public class NotificationController {
 
     @Autowired
     private NotificationService notificationService;
-    @Autowired
-    private UserService userService;
 
+    /**
+     * Sending notifications to users using socket
+     * @param notificationDetails a message, event info, notification type
+     * @return the notificationDetails
+     */
     @MessageMapping("/event-notification")
     public NotificationDetails receiveNotification(@Payload NotificationDetails notificationDetails){
         notificationService.sendNotificationToGuestsEvent(notificationDetails);
         return notificationDetails;
     }
-
 }

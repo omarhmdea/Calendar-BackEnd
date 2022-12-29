@@ -5,8 +5,10 @@ import calendar.enums.NotificationSettings;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserNotificationCredentials {
@@ -18,14 +20,16 @@ public class UserNotificationCredentials {
     private NotificationSettings upcomingEvent;
     private String timeZone;
 
-    public UserNotificationCredentials(UserNotification userNotification){
-        this.deleteEvent = userNotification.getDeleteEvent();
-        this.updateEvent = userNotification.getUpdateEvent();
-        this.invitation = userNotification.getInvitation();
-        this.removeGuest = userNotification.getRemoveGuest();
-        this.userStatusChanged = userNotification.getUserStatusChanged();
-        this.upcomingEvent = userNotification.getUpcomingEvent();
-        this.timeZone = userNotification.getTimeZone();
+    public static UserNotificationCredentials convertToUserNotificationCredentials(UserNotification userNotification){
+        UserNotificationCredentials userNotificationCredentials = new UserNotificationCredentials();
+        userNotificationCredentials.setDeleteEvent(userNotification.getDeleteEvent());
+        userNotificationCredentials.setUpdateEvent(userNotification.getUpdateEvent());
+        userNotificationCredentials.setInvitation(userNotification.getInvitation());
+        userNotificationCredentials.setRemoveGuest(userNotification.getRemoveGuest());
+        userNotificationCredentials.setUserStatusChanged(userNotification.getUserStatusChanged());
+        userNotificationCredentials.setUpcomingEvent(userNotification.getUpcomingEvent());
+        userNotificationCredentials.setTimeZone(userNotification.getTimeZone());
+        return userNotificationCredentials;
     }
 }
 
