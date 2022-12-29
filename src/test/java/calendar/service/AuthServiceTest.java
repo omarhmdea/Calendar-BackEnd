@@ -13,18 +13,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doNothing;
 
 @ExtendWith(MockitoExtension.class)
 class AuthServiceTest {
@@ -43,11 +38,16 @@ class AuthServiceTest {
     UserCredentials userCredentials;
     UserNotification userNotification;
 
+    Map<String, Integer> loginTokenId;
+
     @BeforeEach
     void newUser(){
-        user = new User(2,"E", "e@gmail.com", "A123456", Set.of());
+        user = new User(2,"E", "e@gmail.com", "A123456", new HashSet<>());
         userCredentials = new UserCredentials(user.getEmail(), user.getPassword());
         userNotification = new UserNotification(user);
+
+        loginTokenId = new HashMap<>();
+        loginTokenId.put("123", user.getId());
     }
     @Test
     void registerUser_tryToRegister_successRegistration() {
@@ -81,15 +81,8 @@ class AuthServiceTest {
         assertEquals(new LoginDTO(UserDTO.convertToUserDTO(user), "token").getUser(),authService.login(userCredentials).getUser());
     }
 
-//    @Test
-//    void loginViaGithub_tryToLoginUserExist_SuccessLoginAndGetNewToken(){
-//        given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.ofNullable(user));
-//        given(environment.getProperty("string")).willReturn("string");
-//        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
-//        assertEquals(loginDTO, Objects.requireNonNull(authService.login("code").getUser()));
-//    }
+    @Test
+    void findByToken_notLoggedInUser_failFind(){
+        assertEquals(Optional.empty(), authService.findByToken("1"));
+    }
 }
-//    LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
-//    given(authService.login("code")).willReturn(loginDTO);
-//        assertEquals(loginDTO, Objects.requireNonNull(authController.login("code").getBody()).getData());
-//        }

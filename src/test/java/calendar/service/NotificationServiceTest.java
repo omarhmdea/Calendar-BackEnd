@@ -1,10 +1,13 @@
 package calendar.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 
 import calendar.entities.*;
 import calendar.entities.Credentials.UserNotificationCredentials;
+import calendar.entities.DTO.UserDTO;
 import calendar.enums.NotificationSettings;
+import calendar.exception.customException.NotificationNotFoundException;
 import calendar.repository.UserNotificationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,9 +29,8 @@ public class NotificationServiceTest {
     private NotificationService notificationService;
 
     User user;
-    User guest1;
-    User guest2;
-    User guest3;
+
+    UserDTO userDTO;
 
     UserNotification userNotification;
     UserNotification updatedUserNotification;
@@ -38,9 +40,8 @@ public class NotificationServiceTest {
     @BeforeEach
     void setUp(){
         user = new User(1, "Eden", "eden@gmail.com", "Eden123!@#", new HashSet<>());
-        guest1 = new User(2, "Omar", "omar@gmail.com", "Omar123!@#", new HashSet<>());
-        guest2 = new User(3, "Eli", "eli@gmail.com", "Eli123!@#", new HashSet<>());
-        guest3 = new User(4, "Maya", "maya@gmail.com", "Maya123!@#", new HashSet<>());
+
+        userDTO = UserDTO.convertToUserDTO(user);
 
         userNotification = new UserNotification(user);
         updatedUserNotification = new UserNotification(user);
@@ -54,6 +55,24 @@ public class NotificationServiceTest {
         given(userNotificationRepository.findByUserId(user.getId())).willReturn(Optional.ofNullable(userNotification));
         given(userNotificationRepository.save(userNotification)).willReturn(updatedUserNotification);
         assertEquals(updatedUserNotification, notificationService.changeSettings(user,userNotificationCredentials));
+    }
+
+    @Test
+    void findUserNotification_noneExistingUser_failFind(){
+        given(userNotificationRepository.findByUserId(user.getId())).willReturn(Optional.empty());
+        assertThrows(NotificationNotFoundException.class, ()-> notificationService.findUserNotification(user));
+    }
+
+    @Test
+    void findUserNotification_existingUserDTO_successFind(){
+        given(userNotificationRepository.findByUserId(userDTO.getId())).willReturn(Optional.ofNullable(userNotification));
+        assertEquals(userNotification, notificationService.findUserNotification(userDTO));
+    }
+
+    @Test
+    void findUserNotification_noneExistingUserDTO_failFind(){
+        given(userNotificationRepository.findByUserId(userDTO.getId())).willReturn(Optional.empty());
+        assertThrows(NotificationNotFoundException.class, ()-> notificationService.findUserNotification(userDTO));
     }
 
 //    @Test
