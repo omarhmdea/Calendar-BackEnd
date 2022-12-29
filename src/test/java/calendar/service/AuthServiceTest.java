@@ -15,8 +15,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.*;
 import java.util.Optional;
-import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
@@ -37,11 +39,16 @@ class AuthServiceTest {
     UserCredentials userCredentials;
     UserNotification userNotification;
 
+    Map<String, Integer> loginTokenId;
+
     @BeforeEach
     void newUser(){
-        user = new User(2,"E", "e@gmail.com", "A123456", Set.of());
+        user = new User(2,"E", "e@gmail.com", "A123456", new HashSet<>());
         userCredentials = new UserCredentials(user.getEmail(), user.getPassword());
         userNotification = new UserNotification(user);
+
+        loginTokenId = new HashMap<>();
+        loginTokenId.put("123", user.getId());
     }
     @Test
     void registerUser_tryToRegister_successRegistration() {
@@ -51,16 +58,19 @@ class AuthServiceTest {
         given(userNotificationRepository.save(userNotification)).willReturn(userNotification);
         assertEquals(user,authService.registerUser(user));
     }
+
     @Test
     void registerUser_tryToRegister_failRegistrationUserExist() {
         given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.ofNullable(user));
         assertThrows(IllegalArgumentException.class,()-> authService.registerUser(user));
     }
+
     @Test
     void login_tryToLogin_failLoginInvalidEmail() {
         given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.empty());
         assertThrows(IllegalArgumentException.class,()-> authService.login(userCredentials));
     }
+
     @Test
     void login_tryToLogin_failLoginInvalidPassword() {
         given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.ofNullable(user));
@@ -74,4 +84,10 @@ class AuthServiceTest {
         given(bCryptPasswordEncoder.matches(userCredentials.getPassword(), user.getPassword())).willReturn(true);
         assertEquals(new LoginDTO(UserDTO.convertToUserDTO(user), "token").getUser(),authService.login(userCredentials).getUser());
     }
+
+    @Test
+    void findByToken_notLoggedInUser_failFind(){
+        assertEquals(Optional.empty(), authService.findByToken("1"));
+    }
 }
+

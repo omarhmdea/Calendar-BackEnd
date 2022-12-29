@@ -8,6 +8,7 @@ import calendar.entities.User;
 import calendar.entities.UserNotification;
 import calendar.enums.NotificationSettings;
 import calendar.enums.Status;
+import calendar.exception.customException.NotificationNotFoundException;
 import calendar.repository.UserNotificationRepository;
 import calendar.utilities.EmailFacade;
 import org.apache.logging.log4j.LogManager;
@@ -86,6 +87,7 @@ public class NotificationService {
     }
 
     public UserNotification changeSettings(User user, UserNotificationCredentials updatedUserNotification) {
+        logger.debug("Try to change settings to user " + user.getId());
         UserNotification userNotification = update(findUserNotification(user), updatedUserNotification);
         return userNotificationRepository.save(userNotification);
     }
@@ -103,7 +105,7 @@ public class NotificationService {
     public UserNotification findUserNotification(User user) {
         Optional<UserNotification> userNotification = userNotificationRepository.findByUserId(user.getId());
         if(! userNotification.isPresent()) {
-            throw new IllegalArgumentException("There are no user notifications settings to the given user");
+            throw new NotificationNotFoundException("There are no user notifications settings to the given user");
         }
         return userNotification.get();
     }
@@ -111,7 +113,7 @@ public class NotificationService {
     public UserNotification findUserNotification(UserDTO user) {
         Optional<UserNotification> userNotification = userNotificationRepository.findByUserId(user.getId());
         if(! userNotification.isPresent()) {
-            throw new IllegalArgumentException("There are no user notifications settings to the given user");
+            throw new NotificationNotFoundException("There are no user notifications settings to the given user");
         }
         return userNotification.get();
     }

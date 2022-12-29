@@ -18,14 +18,17 @@ import java.util.List;
 
 @Configuration
 public class FilterConfig {
+
     public static final Logger logger = LogManager.getLogger(FilterConfig.class);
 
     @Autowired
     private AuthService authService;
     @Autowired
     private EventRepository eventRepository;
-    @Value("#{'${registration.filter.patterns}'.split(',')}")
-    private List<String> patterns;
+    @Value("#{'${auth.filter.patterns}'.split(',')}")
+    private List<String> authPatterns;
+    @Value("#{'${permission.filter.patterns}'.split(',')}")
+    private List<String> permissionPatterns;
 
     /**
      * this method is used to register the cors filter
@@ -46,7 +49,7 @@ public class FilterConfig {
         return registrationBean;
     }
     /**
-     * his method is used to register the token filter
+     * this method is used to register the token filter
      * the token filter initialized with the auth service
      * the token filter is running first in the filter chain
      *
@@ -61,7 +64,7 @@ public class FilterConfig {
 
         registrationBean.setFilter(authFilter);
 
-        registrationBean.addUrlPatterns(patterns.toArray(new String[0]));
+        registrationBean.addUrlPatterns(authPatterns.toArray(new String[0]));
         registrationBean.setOrder(2);
 
         return registrationBean;
@@ -82,8 +85,8 @@ public class FilterConfig {
         PermissionFilter permissionFilter = new PermissionFilter(eventRepository);
 
         registrationBean.setFilter(permissionFilter);
-        registrationBean.addUrlPatterns("/event/update/*", "/event/delete/*", "/event/guest/assign/*", "/event/guest/delete/*",
-                                        "/event/guest/invite/*");
+
+        registrationBean.addUrlPatterns(permissionPatterns.toArray(new String[0]));
         registrationBean.setOrder(3);
 
         return registrationBean;
