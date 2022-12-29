@@ -29,9 +29,7 @@ public class FilterConfig {
     private List<String> authPatterns;
     @Value("#{'${permission.filter.patterns}'.split(',')}")
     private List<String> permissionPatterns;
-
-
-
+    
     /**
      * this method is used to register the cors filter
      *
@@ -51,7 +49,7 @@ public class FilterConfig {
         return registrationBean;
     }
     /**
-     * his method is used to register the token filter
+     * this method is used to register the token filter
      * the token filter initialized with the auth service
      * the token filter is running first in the filter chain
      *
