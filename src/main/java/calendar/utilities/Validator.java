@@ -5,7 +5,6 @@ import calendar.entities.User;
 import calendar.entities.Credentials.UserCredentials;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -52,41 +51,6 @@ public class Validator {
     }
 
 
-//    public static Optional<Map<String, String>> validateFields(Map<String, String> fields) {
-//        errorsMap.clear();
-//
-//        fields.forEach((key, value) -> {
-//            switch(key) {
-//                case "firstName":
-//                    if(! isValidName(value)) {
-//                        errorsMap.put("firstName", "first name" + getNameConstraints());
-//                    }
-//                    break;
-//                case "lastName":
-//                    if(! isValidName(value)) {
-//                        errorsMap.put("lastName", "last name" + getNameConstraints());
-//                    }
-//                    break;
-//
-//                case "email":
-//                    if(! isValidEmail(value)) {
-//                        errorsMap.put("email", "invalid email");
-//                    }
-//                    break;
-//
-//                case "nikeName":
-//                    if(! isValidNiceName(value)) {
-//                        errorsMap.put("nikeName", getNikeNameConstraints());
-//                    }
-//                    break;
-//            }
-//        });
-//
-//        if(errorsMap.isEmpty()) {
-//            return Optional.empty();
-//        }
-//        return Optional.of(errorsMap);
-//    }
     /**
      * Is valid name : check if The length of the name > 2 & contain only letters
      *

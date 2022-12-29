@@ -13,18 +13,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doNothing;
 
 @ExtendWith(MockitoExtension.class)
 class AuthServiceTest {
@@ -80,16 +74,4 @@ class AuthServiceTest {
         given(bCryptPasswordEncoder.matches(userCredentials.getPassword(), user.getPassword())).willReturn(true);
         assertEquals(new LoginDTO(UserDTO.convertToUserDTO(user), "token").getUser(),authService.login(userCredentials).getUser());
     }
-
-//    @Test
-//    void loginViaGithub_tryToLoginUserExist_SuccessLoginAndGetNewToken(){
-//        given(userRepository.findByEmail(userCredentials.getEmail())).willReturn(Optional.ofNullable(user));
-//        given(environment.getProperty("string")).willReturn("string");
-//        LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
-//        assertEquals(loginDTO, Objects.requireNonNull(authService.login("code").getUser()));
-//    }
 }
-//    LoginDTO loginDTO = new LoginDTO(new UserDTO(user),"token");
-//    given(authService.login("code")).willReturn(loginDTO);
-//        assertEquals(loginDTO, Objects.requireNonNull(authController.login("code").getBody()).getData());
-//        }

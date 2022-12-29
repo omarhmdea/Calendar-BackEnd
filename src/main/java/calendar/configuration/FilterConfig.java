@@ -1,13 +1,10 @@
 package calendar.configuration;
 
-
 import calendar.filter.AuthFilter;
 import calendar.filter.CorsFilter;
 import calendar.filter.PermissionFilter;
 import calendar.repository.EventRepository;
 import calendar.service.AuthService;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +13,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration
