@@ -28,7 +28,7 @@ public class AuthFilter implements Filter {
 
         String token = req.getHeader("authorization");
         if(token == null) {
-            logger.error("Could not find a user with this token : " + token);
+            logger.error("Could not find a user - token is null");
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
         Optional<User> user = authService.findByToken(token.substring(7));

@@ -30,20 +30,20 @@ public class UserController {
 
 
     @GetMapping(value = "approve/{eventId}")
-    public ResponseEntity<SuccessResponse<EventDTO>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<String>> approveInvitation(@PathVariable int eventId, @PathParam("email") String email) {
         logger.info("Try to approve invitation using email");
         EventDTO event = EventDTO.convertToEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.APPROVED));
-        SuccessResponse<EventDTO> successApproveInvitation = new SuccessResponse<>( "Approved invitation successfully", event);
+        SuccessResponse<String> successApproveInvitation = new SuccessResponse<>( "Approved invitation successfully", "Thank you for approving the invitation for event " + event.getTitle());
         notificationService.sendNotificationToGuestsEvent(new NotificationDetails(email + " approve his invitation", event, NotificationType.USER_STATUS_CHANGED));
         return ResponseEntity.ok().body(successApproveInvitation);
     }
 
 
     @GetMapping(value = "reject/{eventId}")
-    public ResponseEntity<SuccessResponse<EventDTO>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
+    public ResponseEntity<SuccessResponse<String>> rejectInvitation(@PathVariable int eventId, @PathParam("email") String email) {
         logger.info("Try to reject invitation using email");
         EventDTO event = EventDTO.convertToEventDTO(eventService.approveOrRejectInvitation(email, eventId, Status.REJECTED));
-        SuccessResponse<EventDTO> successRejectInvitation = new SuccessResponse<>( "Rejected invitation successfully", event);
+        SuccessResponse<String> successRejectInvitation = new SuccessResponse<>( "Rejected invitation successfully", "Thank you for rejecting the invitation for event " + event.getTitle());
         notificationService.sendNotificationToGuestsEvent(new NotificationDetails(email + " reject his invitation",event, NotificationType.USER_STATUS_CHANGED));
         return ResponseEntity.ok().body(successRejectInvitation);
     }

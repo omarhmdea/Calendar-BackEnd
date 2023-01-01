@@ -4,5 +4,4 @@ public class DeletedEventException extends IllegalArgumentException {
     public DeletedEventException(String s) {
         super(s);
     }
-
 }

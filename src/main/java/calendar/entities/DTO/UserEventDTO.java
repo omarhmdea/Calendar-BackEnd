@@ -23,4 +23,12 @@ public class UserEventDTO {
         userEventDTO.setRole(userevent.getRole());
         return userEventDTO;
     }
+
+    public static UserEventDTO createUserEventDTO(UserDTO user, Status status, Role role){
+        UserEventDTO userEventDTO = new UserEventDTO();
+        userEventDTO.setUser(user);
+        userEventDTO.setStatus(status);
+        userEventDTO.setRole(role);
+        return userEventDTO;
+    }
 }
