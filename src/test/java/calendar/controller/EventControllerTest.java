@@ -43,7 +43,7 @@ class EventControllerTest {
     List<Event> events;
     UserNotification userNotification;
 
-    static UserNotificationCredentials userNotificationCredentials;
+    UserNotificationCredentials userNotificationCredentials;
     static EventCredentials eventCredentials;
     static User user;
 
@@ -74,15 +74,9 @@ class EventControllerTest {
     }
 
     @BeforeAll
-    static void newNotificationCredentials(){
-        userNotificationCredentials =
-                new UserNotificationCredentials(
-                        NotificationSettings.POPUP,
-                        NotificationSettings.NONE,
-                        NotificationSettings.NONE,
-                        NotificationSettings.NONE,
-                        NotificationSettings.NONE,
-                        NotificationSettings.NONE);
+    void newNotificationCredentials(){
+        userNotificationCredentials = UserNotificationCredentials.convertToUserNotificationCredentials(userNotification);
+        userNotificationCredentials.setDeleteEvent(NotificationSettings.POPUP);
     }
 
     @BeforeAll

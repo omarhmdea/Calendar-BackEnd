@@ -7,6 +7,7 @@ import calendar.entities.NotificationDetails;
 import calendar.entities.User;
 import calendar.entities.UserNotification;
 import calendar.enums.NotificationSettings;
+import calendar.enums.Role;
 import calendar.enums.Status;
 import calendar.exception.customException.NotificationNotFoundException;
 import calendar.repository.UserNotificationRepository;
@@ -16,6 +17,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,7 +34,10 @@ public class NotificationService {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     public void sendNotificationToGuestsEvent(NotificationDetails notificationDetails) {
-        for(UserEventDTO userEventDTO: notificationDetails.getEvent().getGuests()) {
+        List<UserEventDTO> usersInEvent = notificationDetails.getEvent().getGuests();
+        usersInEvent.add(UserEventDTO.createUserEventDTO(notificationDetails.getEvent().getOrganizer(), Status.APPROVED, Role.ORGANIZER));
+
+        for(UserEventDTO userEventDTO: usersInEvent) {
             if(userEventDTO.getStatus().equals(Status.APPROVED)) {
                 UserNotification userNotification = findUserNotification(userEventDTO.getUser());
                 UserDTO userDTO = userEventDTO.getUser();
